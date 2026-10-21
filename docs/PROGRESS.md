@@ -65,6 +65,13 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 3. **Prudence sur les favoris corrigée** (`scripts/calibration.py`, `kateni/marches.py::calibrer`) : défaut présent en 2024-25 et 2025-26 ; correction réglée sur 2024-25 (A = 1,125, B = 0,024), mesurée sur 2025-26 : log loss 1,0091 → 1,0085 ; favoris 60-70 % écart 5,0 → 2,9 points, 70 %+ : 3,5 → 1,5 point. Appliquée au 1N2 et à la double chance d'avant-match.
 4. **Live calibré sur nos matchs** (`scripts/calibrer_live.py`) : 4 796 matchs de 2024-25 (mi-temps → final) pour régler, 5 822 de 2025-26 pour mesurer. Mesuré : 53,9 % des buts attendus après la pause ; menée de 1 : +15,4 % ; menée de 2+ : +4,7 % ; mène de 1 : −5,3 % ; mène de 2+ : +0,4 %. Log loss du résultat final prédit à la mi-temps : 0,8158 → 0,8153. Cartons rouges : valeurs des études (minute des expulsions inconnue). Exemple PSG 2-0 Barça (34e) : PSG gagne 84 % → 88 %, Barça marque encore 76 % → 70 %.
 
+
+## Calendrier (21/10/2026, première page sur décision du propriétaire)
+- Sources : fixturedownload.com (saison complète, 12 championnats, jusqu'au 30/05/2027), Wikipédia (C1/C3, jusqu'au 28/01/2027), football-data (prochains jours, avec cotes). `kateni/calendrier.py` : fusion, dédoublonnage (même match à moins de 3 jours → la source avec cotes), **heures d'Abidjan** (UTC ; la mention « Paris − 2 h » serait devenue fausse au passage à l'heure d'hiver du 25/10).
+- 113 noms d'équipes reliés à la main, chaque cible vérifiée dans son championnat (ex. « R. Racing Club » → Santander, « Vitória SC » → Guimaraes).
+- Page **Calendrier** : jour par jour, navigation vers le jour suivant/précédent ayant des matchs, filtre « Mes championnats », carte compacte + détail ; carte partagée avec Prédictions (`kateni/affichage.py`).
+- Vérifié : 21/10 → 11 matchs, 22/10 → 18 (C3), 24/10 → 54 matchs ; 3 156 matchs sur 151 jours ; test des heures (été/hiver) et du dédoublonnage ; 26 tests.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

@@ -6,6 +6,18 @@ st.markdown("Kateni calcule la **chance réelle** de chaque pari et la compare �
             "Il ne te dit de jouer que lorsque la cote paie plus que ce que le pari vaut vraiment.")
 
 with st.container(border=True):
+    st.subheader("Le calendrier", anchor=False)
+    st.markdown(
+        "1. **Calendrier** s'ouvre sur **aujourd'hui** : tous les matchs du jour, regroupés par compétition, "
+        "chacun avec son pronostic. Les heures sont celles d'**Abidjan**.\n"
+        "2. **Jour précédent / Jour suivant** sautent directement au prochain jour qui a des matchs ; tu peux aussi "
+        "choisir une date.\n"
+        "3. **Mes championnats** : touche un championnat pour le masquer ou l'afficher.\n"
+        "4. Le calendrier va jusqu'à la **fin de la saison (mai 2027)** pour 12 championnats, jusqu'à fin janvier "
+        "pour la C1 et la C3. Badge **Provisoire** = match dans plus de 7 jours : le pronostic évoluera d'ici là.")
+    st.page_link("app_pages/calendrier.py", label="Aller au Calendrier", icon=":material/calendar_month:")
+
+with st.container(border=True):
     st.subheader("Prédire les matchs", anchor=False)
     st.markdown(
         "1. Ouvre **Prédictions** et choisis ton championnat.\n"

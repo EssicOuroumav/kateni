@@ -163,3 +163,24 @@ def test_calibration_renforce_le_favori_et_garde_les_sommes():
     assert c["1N2"]["N"] / c["1N2"]["2"] == pytest.approx(p["1N2"]["N"] / p["1N2"]["2"])  # proportions gardées
     assert c["Double chance"]["12"] == pytest.approx(c["1N2"]["1"] + c["1N2"]["2"])
     assert c["Total buts 2.5"] == p["Total buts 2.5"]          # autres marchés inchangés
+
+
+def test_calendrier_heure_abidjan_et_sans_doublon(tmp_path):
+    from datetime import date
+    from kateni.calendrier import charger
+    # Même match dans football-data (avec cotes) et dans le calendrier de saison : gardé une fois, avec les cotes
+    (tmp_path / "a_venir_championnats.csv").write_text(
+        "competition,Date,Heure_UK,HomeTeam,AwayTeam,B365H,B365D,B365A\nLIGA,2026-10-21,19:00,Levante,Ath Bilbao,3.4,3.5,2.15\n")
+    (tmp_path / "calendrier_saison.csv").write_text(
+        "competition,DateUtc,HomeTeam,AwayTeam\nLIGA,2026-10-21 18:00:00Z,Levante UD,Athletic Club\n"
+        "PL,2026-10-31 15:00:00Z,Arsenal,Spurs\n")
+    # C1 : 18:45 à Paris le 21/10 (heure d'été) puis le 04/11 (heure d'hiver)
+    (tmp_path / "a_venir.csv").write_text(
+        "competition,Date,Heure_CET,HomeTeam,AwayTeam\nCL,2026-10-21,18:45,Como,Manchester United\n"
+        "CL,2026-11-04,18:45,Lille,Galatasaray\n")
+    c = charger(tmp_path, depuis=date(2026, 10, 20))
+    levante = c[c.dom == "Levante"]
+    assert len(levante) == 1 and levante.iloc[0].source == "football-data" and levante.iloc[0].Heure == "18:00"
+    assert c[c.dom == "Como"].iloc[0].Heure == "16:45"       # Paris heure d'été = Abidjan + 2 h
+    assert c[c.dom == "Lille"].iloc[0].Heure == "17:45"      # Paris heure d'hiver = Abidjan + 1 h
+    assert c[c.dom == "Arsenal"].iloc[0].ext == "Tottenham"  # nom de la nouvelle source relié

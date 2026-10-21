@@ -136,11 +136,49 @@ def maj_calendrier() -> None:
     print(f"Calendrier des championnats : {len(cal)} matchs à venir ({cal['Date'].min()} -> {cal['Date'].max()})")
 
 
+# Calendrier complet de la saison (fixturedownload.com, gratuit, heures en UTC = heure d'Abidjan)
+SAISON_COMPLETE = {"PL": "epl", "LIGA": "la-liga", "SA": "serie-a", "BL": "bundesliga", "L1": "ligue-1",
+                   "NED": "eredivisie", "POR": "primeira-liga", "CHAMP": "championship", "SCO": "scottish-premiership",
+                   "TUR": "super-lig", "L2": "ligue-2", "MLS": "mls"}
+
+
+def maj_calendrier_saison() -> None:
+    """Tous les matchs à venir de la saison -> calendrier_saison.csv. Une compétition qui ne répond pas
+    garde ses lignes précédentes (jamais de calendrier vidé)."""
+    import json
+    chemin = RACINE / "calendrier_saison.csv"
+    ancien = pd.read_csv(chemin) if chemin.exists() else pd.DataFrame(columns=["competition"])
+    aujourd_hui = date.today()
+    saison = aujourd_hui.year if aujourd_hui.month >= 7 else aujourd_hui.year - 1
+    morceaux, rates = [], []
+    for code, slug in SAISON_COMPLETE.items():
+        annee = aujourd_hui.year if code == "MLS" else saison  # la MLS se joue sur l'année civile
+        texte = telecharger(f"https://fixturedownload.com/feed/json/{slug}-{annee}")
+        time.sleep(0.5)
+        try:
+            matchs = json.loads(texte) if texte else None
+        except ValueError:
+            matchs = None
+        if not matchs:
+            rates.append(code)
+            morceaux.append(ancien[ancien["competition"] == code])
+            continue
+        a_venir = [{"competition": code, "DateUtc": m["DateUtc"], "HomeTeam": m["HomeTeam"], "AwayTeam": m["AwayTeam"]}
+                   for m in matchs if m.get("HomeTeamScore") is None and m.get("HomeTeam") and m.get("AwayTeam")]
+        morceaux.append(pd.DataFrame(a_venir))
+    cal = pd.concat([m for m in morceaux if len(m)], ignore_index=True) if any(len(m) for m in morceaux) else ancien
+    cal = cal.sort_values(["DateUtc", "competition", "HomeTeam"], kind="mergesort")
+    cal.to_csv(chemin, index=False)
+    print(f"Calendrier de la saison : {len(cal)} matchs à venir, jusqu'au {str(cal['DateUtc'].max())[:10]}"
+          + (f" (non mis à jour : {', '.join(rates)})" if rates else ""))
+
+
 def main():
     codes = sys.argv[1:] or list(COMPETITIONS)
     for code in codes:
         maj_competition(code)
     maj_calendrier()
+    maj_calendrier_saison()
 
 
 if __name__ == "__main__":

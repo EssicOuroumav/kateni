@@ -77,26 +77,17 @@ def store():
         st.stop()
 
 
+@st.cache_data(ttl=600, max_entries=4, show_spinner=False)
+def _calendrier(_sig: tuple) -> pd.DataFrame:
+    from kateni.calendrier import charger
+    return charger()
+
+
 def a_venir() -> pd.DataFrame:
-    """Matchs à venir : C1/C3 (Wikipédia, heure de Paris) + championnats (football-data, heure UK + 1 h)."""
-    morceaux = []
-    p = RACINE / "a_venir.csv"
-    if p.exists():
-        morceaux.append(pd.read_csv(p))
-    p = RACINE / "a_venir_championnats.csv"
-    if p.exists():
-        c = pd.read_csv(p)
-        h = pd.to_datetime(c["Heure_UK"], format="%H:%M", errors="coerce") + pd.Timedelta(hours=1)
-        c["Heure_CET"] = h.dt.strftime("%H:%M")
-        # Un match après minuit à Paris change de jour
-        c["Date"] = (pd.to_datetime(c["Date"]) + pd.to_timedelta((h.dt.day > 1).astype(int), unit="D")
-                     ).dt.strftime("%Y-%m-%d")
-        morceaux.append(c.drop(columns=["Heure_UK"]))
-    if not morceaux:
-        return pd.DataFrame(columns=["competition", "Date", "Heure_CET", "HomeTeam", "AwayTeam"])
-    d = pd.concat(morceaux, ignore_index=True)
-    d = d[pd.to_datetime(d["Date"]) >= pd.Timestamp(date.today()) - pd.Timedelta(days=1)]
-    return d.sort_values(["Date", "Heure_CET"]).reset_index(drop=True)
+    """Calendrier unifié (C1/C3, championnats, saison complète), heures d'Abidjan. Voir kateni/calendrier.py."""
+    fichiers = ("a_venir.csv", "a_venir_championnats.csv", "calendrier_saison.csv", "equipes_alias.csv")
+    sig = tuple((f, (RACINE / f).stat().st_mtime if (RACINE / f).exists() else 0) for f in fichiers) + (str(date.today()),)
+    return _calendrier(sig)
 
 
 NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa"}
@@ -120,13 +111,12 @@ def choisir_match(df: pd.DataFrame, cle: str) -> dict:
         jours = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
         dates = pd.to_datetime(cal["Date"])
         cal["libelle"] = (pd.Series([f"{jours[d.weekday()]} {d:%d/%m}" for d in dates], index=cal.index) + " · "
-                          + cal["Heure_CET"].fillna("") + " · " + cal["competition"].map(NOMS_COURTS).fillna(cal["competition"])
-                          + " · " + cal["HomeTeam"] + " – " + cal["AwayTeam"])
-        i = st.selectbox("Match à venir (heure de Paris ; Abidjan = 2 h de moins)", range(len(cal)),
+                          + cal["Heure"].fillna("") + " · " + cal["competition"].map(NOMS_COURTS).fillna(cal["competition"])
+                          + " · " + cal["dom"] + " – " + cal["ext"])
+        i = st.selectbox("Match à venir (heure d'Abidjan)", range(len(cal)),
                          format_func=lambda k: cal.loc[k, "libelle"], key=f"{cle}_cal")
         r = cal.loc[i]
-        return {"competition": r["competition"], "dom": canon(r["HomeTeam"]),
-                "ext": canon(r["AwayTeam"]), "date": r["Date"]}
+        return {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
     if source == "Calendrier européen":
         st.info("Calendrier vide : lance « Mettre à jour les données » dans Mes paris.")
     codes = list(COMPETITIONS)
