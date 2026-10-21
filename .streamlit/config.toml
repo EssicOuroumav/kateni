@@ -1,0 +1,39 @@
+[server]
+# N'écoute que sur ce Mac : invisible depuis un Wi-Fi public (cf. docs/SECURITE.md).
+address = "localhost"
+port = 8501
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+# Charte Kateni, tirée du logo : rouge profond, rouge vif, blanc, noir du ballon.
+base = "light"
+primaryColor = "#B80000"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F7F1F1"
+textColor = "#1A1A1A"
+linkColor = "#B80000"
+borderColor = "#E6D5D5"
+dataframeBorderColor = "#E6D5D5"
+dataframeHeaderBackgroundColor = "#F7F1F1"
+redColor = "#B80000"
+grayColor = "#5C5C5C"
+headingFont = "'Exo 2':https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,800;1,800&display=swap"
+headingFontWeights = [800, 700, 700, 600, 600, 600]
+baseRadius = "medium"
+chartCategoricalColors = ["#B80000", "#1A1A1A", "#E53935", "#8C8C8C", "#7A0000", "#C9C9C9"]
+chartSequentialColors = ["#FFF1F1", "#FFD6D6", "#FFB3B3", "#FF8A8A", "#F25C5C", "#E03131", "#C81E1E", "#B80000", "#8F0000", "#600000"]
+
+[theme.dark]
+primaryColor = "#E53935"
+backgroundColor = "#140808"
+secondaryBackgroundColor = "#2A1212"
+textColor = "#F5F5F5"
+linkColor = "#FF6B6B"
+borderColor = "#4A2525"
+dataframeBorderColor = "#4A2525"
+dataframeHeaderBackgroundColor = "#2A1212"
+redColor = "#E53935"
+chartCategoricalColors = ["#E53935", "#F5F5F5", "#FF8A80", "#9E9E9E", "#B80000", "#616161"]

@@ -1,0 +1,21 @@
+# Secrets (jamais dans Git)
+.streamlit/secrets.toml
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# Téléchargements bruts de football-data.co.uk (régénérables par scripts/maj_donnees.py)
+data_brut/
+
+# Anciens téléchargements en double (à archiver, en attente de décision du propriétaire)
+données/
+paris.csv
+paris.tmp
+.agents/
