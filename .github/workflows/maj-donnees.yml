@@ -1,0 +1,47 @@
+# Kateni — mise à jour automatique des données (résultats, calendrier, coupes d'Europe)
+# Tourne deux fois par jour ; enregistre les CSV modifiés, ce qui met à jour l'app en ligne.
+# Aucun secret nécessaire : les sources sont publiques (football-data.co.uk, Wikipédia).
+name: Mise à jour des données
+
+on:
+  schedule:
+    - cron: "15 5 * * *"    # 05:15 UTC (05:15 à Abidjan) : résultats de la veille
+    - cron: "15 14 * * *"   # 14:15 UTC : calendrier et cotes du jour
+  workflow_dispatch: {}     # lancement à la main depuis GitHub (onglet Actions)
+
+permissions:
+  contents: write           # uniquement pour enregistrer les CSV dans ce dépôt
+
+concurrency:
+  group: maj-donnees
+  cancel-in-progress: false
+
+jobs:
+  maj:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Dépendances (versions figées)
+        run: pip install -r requirements.txt pytest==9.1.1
+      - name: Championnats et calendrier (football-data.co.uk)
+        run: python scripts/maj_donnees.py
+      - name: Coupes d'Europe (Wikipédia)
+        run: python scripts/maj_europe.py
+      - name: Vérifications avant d'enregistrer
+        run: python -m pytest -q tests -k "not neon"
+      - name: Enregistrer les données si elles ont changé
+        run: |
+          git config user.name "kateni-bot"
+          git config user.email "kateni-bot@users.noreply.github.com"
+          git add -- *_full.csv a_venir.csv a_venir_championnats.csv buts_minutes.csv
+          if git diff --cached --quiet; then
+            echo "Aucune nouvelle donnée."
+          else
+            git commit -m "Données : mise à jour automatique du $(date -u +%d/%m/%Y\ %H:%M) UTC"
+            git pull --rebase
+            git push
+          fi
