@@ -4,7 +4,7 @@ import uuid
 import pytest
 
 from kateni.db import ConfigurationBase, base_configuree, hote, lire_config, url_base
-from kateni.stockage import CsvStore, PostgresStore, obtenir_store
+from kateni.stockage import PostgresStore, obtenir_store
 
 PROD = "postgresql://u:secret@ep-prod-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require"
 TEST = "postgresql://u:secret@ep-test-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require"
@@ -26,8 +26,10 @@ def test_aucun_repli_vers_la_prod():
         url_base({"url": "https://exemple"}, "prod")
 
 
-def test_pas_de_repli_sur_le_csv_si_neon_est_configure():
-    assert isinstance(obtenir_store({}), CsvStore)
+def test_neon_obligatoire_jamais_de_fichier_local():
+    with pytest.raises(ConfigurationBase):
+        obtenir_store({})                      # rien de configuré : erreur, pas de CSV
+    assert isinstance(obtenir_store({"url": PROD}), PostgresStore)
     with pytest.raises(ConfigurationBase):
         obtenir_store({"url_test": TEST, "cible": "prod"})
     assert base_configuree({"url": PROD})

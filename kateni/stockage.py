@@ -133,11 +133,13 @@ class PostgresStore:
 
 
 def obtenir_store(conf: dict | None = None):
-    """Neon dès qu'une adresse est configurée (erreur si la cible manque : pas de repli sur le CSV,
-    sinon le Mac et l'app en ligne auraient deux journaux différents). Sinon, CSV local."""
-    from kateni.db import base_configuree, lire_config, url_base
+    """Kateni enregistre les paris dans Neon, toujours (décision du propriétaire, 21/10/2026).
+    Configuration absente ou incomplète = erreur explicite, jamais de repli sur un fichier local :
+    sinon le Mac et l'app en ligne auraient deux journaux différents."""
+    from kateni.db import ConfigurationBase, base_configuree, lire_config, url_base
     conf = lire_config() if conf is None else conf
     if not base_configuree(conf):
-        return CsvStore()
+        raise ConfigurationBase("Connexion Neon absente : crée .streamlit/secrets.toml "
+                                "à partir de .streamlit/secrets.toml.exemple.")
     cible = conf.get("cible") or "prod"
     return PostgresStore(url_base(conf, cible), cible)

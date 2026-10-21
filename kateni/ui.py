@@ -44,7 +44,20 @@ def _store():
 
 
 def store():
-    return _store()
+    from kateni.db import ConfigurationBase
+    try:
+        return _store()
+    except ConfigurationBase as e:
+        st.error(f"Kateni n'est pas relié à Neon. {e}", icon=":material/database_off:")
+        st.markdown(
+            "1. Crée le projet `kateni` sur neon.com, avec une branche `test`.\n"
+            "2. Dans le Terminal : `cd ~/Documents/Kateni && cp .streamlit/secrets.toml.exemple "
+            ".streamlit/secrets.toml && chmod 600 .streamlit/secrets.toml && open -e .streamlit/secrets.toml`\n"
+            "3. Colle l'adresse de `main` sur la ligne `url` et celle de `test` sur `url_test`, enregistre, "
+            "puis relance Kateni.\n\n"
+            "Les pages Avant-match et Live restent utilisables pour consulter les probabilités ; "
+            "l'enregistrement des paris est bloqué tant que Neon n'est pas relié.")
+        st.stop()
 
 
 def a_venir() -> pd.DataFrame:
@@ -99,7 +112,12 @@ def prob_kateni(p_modele: float, p_marche: float | None) -> float:
 
 
 def bankroll(mode: str) -> float:
-    paris = store().lire()
+    # Sans Neon, on affiche quand même les analyses (bankroll de départ) ; seul l'enregistrement bloque.
+    from kateni.db import ConfigurationBase
+    try:
+        paris = _store().lire()
+    except ConfigurationBase:
+        return float(BANKROLL_INITIALE)
     paris = paris[(paris["mode"] == mode) & paris["statut"].isin(["gagné", "perdu"])]
     return BANKROLL_INITIALE + pd.to_numeric(paris["gain_fcfa"], errors="coerce").fillna(0).sum()
 
