@@ -29,6 +29,13 @@ Plan validé le 21/10/2026 : lots 0 à 3 (voir le plan dans la conversation, ré
 - `port` retiré de `config.toml` (Cloud impose le sien) ; message d'erreur mis à jour (branche `production`, outil `neon_connexion.py`) ; cases vides affichées « – » (`placeholder`).
 - Outil `scripts/secrets_cloud.py` : copie dans le presse-papiers le bloc de secrets pour Streamlit Cloud, **branche production seulement**.
 
+## Lot 2 ter — mise en ligne et nouveau design (21/10/2026)
+- En ligne : https://kateni.streamlit.app (Streamlit Community Cloud, Python 3.13, secrets = branche production seulement). **Privée, prouvé** : sans connexion, `/`, `/mes_paris`, `/_stcore/health`, `/app/static/…` renvoient 303 vers la connexion Streamlit (curl, 21/10/2026).
+- Accès de Streamlit aux dépôts privés GitHub accordé par le propriétaire (tous ses dépôts privés : choix assumé, révocable dans GitHub > Settings > Applications).
+- Design : étapes numérotées, **cote minimale** affichée pour chaque choix (`kateni/cotes.py::cote_minimale`, testée contre la règle de décision), mots de Betclic (« Les 2 équipes marquent : Oui »), verdict « À jouer / Pas de valeur », cartes pour les paris en attente, page **Guide**, mise en page centrée (téléphone), nombres au format français.
+- Vocabulaire : « chance selon le modèle » (étape 3) ≠ « chance retenue » (modèle 25 % + cote 75 %, verdict).
+- Vérifié sur une copie reliée à la branche `test` (`KATENI_CIBLE=test`, port 8599) : verdicts, double clic = 1 ligne, « Gagné » → +720 FCFA, Live, Guide, Bilan ; données d'essai supprimées ; production : 0 ligne.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
@@ -40,6 +47,8 @@ Plan validé le 21/10/2026 : lots 0 à 3 (voir le plan dans la conversation, ré
 | Compte Neon géré par Vercel : « New project » bloqué ; seuls les projets de l'ONG visibles | organisation Neon créée par l'intégration Vercel de l'ONG | organisation Neon personnelle ; ne jamais mettre Kateni dans les bases de l'ONG |
 | L'assistant a copié tout le dossier du projet (secrets compris) dans son dossier temporaire et fait un `git stash` inutile | commande composée écrite trop vite | copie supprimée aussitôt (jamais sortie du Mac), état Git vérifié ; règle : ne jamais copier le dossier du projet, toujours partir d'un `git clone` (sans secrets) |
 | Adresses Neon (avec mot de passe) collées dans le Terminal, puis bloc de secrets remplacé par du texte du Terminal (« Invalid TOML ») | trop de commandes à taper et à copier pour un propriétaire non développeur ; message de l'outil ambigu (contenait « [neon] ») | mots de passe réinitialisés sur les deux branches ; fichiers à double-cliquer `Neon_production.command`, `Neon_test.command`, `Secrets_Streamlit.command` ; messages sans ambiguïté |
+| « Les 2 équipes marquent » : le propriétaire croyait devoir répondre oui/non | cases Oui/Non sans explication : elles attendaient la cote de chaque choix | chaque ligne = un choix avec les mots de Betclic, sa cote minimale et une case « Cote Betclic » |
+| « Chance selon Kateni » 43 % puis 32 % au verdict | même nom pour le modèle seul et le mélange modèle + marché | « chance selon le modèle » / « chance retenue » |
 | Cases « None » dans les tableaux | affichage par défaut de Streamlit pour une valeur manquante (pas un problème de type) | `st.dataframe(..., placeholder="–")` |
 | Le modèle ne bat pas le marché | fait mesuré, pas un bug | Kateni s'ancre sur les cotes saisies ; peu de paris proposés |
 
