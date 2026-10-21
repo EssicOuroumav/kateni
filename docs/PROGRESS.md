@@ -80,6 +80,11 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - 30 noms OddsPapi reliés à la main ; 27/27 matchs des 21-22/10 reliés ; affichage « Marché (Pinnacle …) » vérifié (Como – Man United : modèle 43 % → pronostic 40 %).
 - Le propriétaire avait d'abord ouvert un compte sur OddsPapi au lieu de The Odds API (lien d'une source citée par l'assistant) : OddsPapi a été vérifié dans sa documentation et retenu.
 
+
+## Noter un pari placé sur Betclic (21/10/2026)
+- Manque signalé par le propriétaire : seuls les paris « À jouer » pouvaient être enregistrés. Ajout dans **Mes paris** d'un formulaire libre (match du calendrier ou choix libre, 13 choix réglables automatiquement, cote, mise, réel/fictif), mode « réel » par défaut.
+- Vérifié sur la branche test : pari noté (chance Kateni affichée), même saisie répétée → « déjà noté », 1 seule ligne ; ligne d'essai supprimée ; production : 0 ligne.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

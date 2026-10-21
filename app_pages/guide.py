@@ -59,6 +59,9 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Après le match", anchor=False)
     st.markdown(
+        "**Tu as placé un pari sur Betclic ?** Dans **Mes paris**, ouvre « Noter un pari placé sur Betclic » : "
+        "choisis le match, ton pari, la cote et ta mise, puis « Noter ce pari ». N'importe quel pari peut être noté, "
+        "même si Kateni ne le proposait pas.\n\n"
         "Les résultats arrivent **tout seuls** (deux fois par jour). Ouvre **Mes paris** : les paris terminés y sont "
         "réglés automatiquement. Le bouton **Mettre à jour les résultats** sert seulement à forcer une mise à jour "
         "immédiate. **Bilan** montre si Kateni gagne vraiment sur la durée.")

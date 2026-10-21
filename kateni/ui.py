@@ -104,10 +104,10 @@ def choisir_match(df: pd.DataFrame, cle: str) -> dict:
                 del st.session_state["match_envoye"]
                 st.rerun()
         return envoye
-    source = st.segmented_control("Match", ["Calendrier européen", "Choix libre"],
-                                  default="Calendrier européen", key=f"{cle}_src", required=True)
+    source = st.segmented_control("Match", ["Calendrier", "Choix libre"],
+                                  default="Calendrier", key=f"{cle}_src", required=True)
     cal = a_venir()
-    if source == "Calendrier européen" and len(cal):
+    if source == "Calendrier" and len(cal):
         jours = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
         dates = pd.to_datetime(cal["Date"])
         cal["libelle"] = (pd.Series([f"{jours[d.weekday()]} {d:%d/%m}" for d in dates], index=cal.index) + " · "
@@ -117,7 +117,7 @@ def choisir_match(df: pd.DataFrame, cle: str) -> dict:
                          format_func=lambda k: cal.loc[k, "libelle"], key=f"{cle}_cal")
         r = cal.loc[i]
         return {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
-    if source == "Calendrier européen":
+    if source == "Calendrier":
         st.info("Calendrier vide : lance « Mettre à jour les données » dans Mes paris.")
     codes = list(COMPETITIONS)
     comp = st.selectbox("Compétition", codes, format_func=lambda c: COMPETITIONS[c].nom, key=f"{cle}_comp")

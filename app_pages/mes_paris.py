@@ -5,8 +5,10 @@ import pandas as pd
 import streamlit as st
 
 from kateni.config import BANKROLL_INITIALE, RACINE
+from kateni.cotes import esperance
 from kateni.reglement import regler_tout
-from kateni.ui import contexte, fr, libelle, rafraichir, store
+from kateni.stockage import identifiant
+from kateni.ui import choisir_match, contexte, fr, libelle, rafraichir, store
 
 s = store()
 
@@ -32,13 +34,55 @@ if n:
     rafraichir()
     st.success(f"{n} pari(s) réglé(s) avec les derniers résultats.", icon=":material/check_circle:")
 
+# ---------------------------------------------------------------- noter un pari placé sur Betclic
+CHOIX = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
+         ("Double chance", "1N"), ("Double chance", "12"), ("Double chance", "N2"),
+         *[(f"Total buts {x}", c) for x in ("1.5", "2.5", "3.5") for c in ("Plus", "Moins")],
+         ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non")]
+with st.expander("Noter un pari placé sur Betclic", icon=":material/edit_note:",
+                 expanded=st.session_state.get("mp_ouvert", False)):
+    st.caption("N'importe quel pari, même si Kateni ne le proposait pas. Il sera réglé tout seul (gagné ou perdu) "
+               "après le match, et compté dans le Bilan.")
+    from kateni.affichage import pronostic  # import local : évite de charger l'affichage si la section reste fermée
+    match = choisir_match(df, "mp")
+    with st.form("mp_form", clear_on_submit=True, border=False):
+        choix = st.selectbox("Ton pari", CHOIX, format_func=lambda c: libelle(c[0], c[1], match["dom"], match["ext"]))
+        c1, c2 = st.columns(2)
+        cote = c1.number_input("Cote Betclic", min_value=1.01, value=None, step=0.01, format="%.2f")
+        mise = c2.number_input("Ta mise (FCFA)", min_value=0, value=None, step=100)
+        mode_pari = st.segmented_control("Type", ["réel", "fictif"], default="réel", required=True,
+                                         help="Réel : tu l'as vraiment placé sur Betclic. Fictif : pour tester.")
+        noter = st.form_submit_button("Noter ce pari", icon=":material/save:", type="primary")
+    if noter:
+        st.session_state["mp_ouvert"] = True
+        if not cote or not mise:
+            st.error("Saisis la cote et la mise.", icon=":material/error:")
+        else:
+            marche, sel = choix
+            prob = pronostic(match)["p"][marche][sel]
+            pari = {
+                "id": identifiant(match["date"], match["dom"], match["ext"], marche, sel, mode_pari, f"{cote}|{mise}"),
+                "date_match": match["date"], "competition": match["competition"], "dom": match["dom"],
+                "ext": match["ext"], "type": "avant-match", "marche": marche, "selection": sel, "cote": cote,
+                "prob_kateni": round(prob, 4), "esperance_pct": round(esperance(prob, cote) * 100, 1),
+                "mise_fcfa": mise, "mode": mode_pari,
+            }
+            if s.ajouter(pari):
+                rafraichir()
+                st.success(f"Noté : {libelle(marche, sel, match['dom'], match['ext'])} à {fr(cote)}, "
+                           f"{int(mise)} FCFA ({mode_pari}). Chance selon Kateni : {prob:.0%}.",
+                           icon=":material/check_circle:")
+            else:
+                st.info("Ce pari était déjà noté (même match, même choix, même cote et même mise).",
+                        icon=":material/info:")
+
 paris = s.lire()
 if not len(paris):
-    st.info("Aucun pari enregistré. Analyse un match dans **Avant-match** ou **Live**, puis clique sur "
-            "« Enregistrer ce pari ».", icon=":material/info:")
+    st.info("Aucun pari noté pour l'instant. Utilise « Noter un pari placé sur Betclic » ci-dessus, ou "
+            "« Enregistrer ce pari » dans la page Cotes Betclic.", icon=":material/info:")
     st.stop()
 
-mode = st.segmented_control("Afficher", ["fictif", "réel", "tous"], default="fictif", key="mp_mode",
+mode = st.segmented_control("Afficher", ["réel", "fictif", "tous"], default="réel", key="mp_mode",
                             required=True)
 vue = paris if mode == "tous" else paris[paris["mode"] == mode]
 regles = vue[vue["statut"].isin(["gagné", "perdu"])]
