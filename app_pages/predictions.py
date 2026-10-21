@@ -5,7 +5,7 @@ from kateni.config import COMPETITIONS, POIDS_MODELE
 from kateni.cotes import sans_marge
 from kateni.donnees import equipes_de
 from kateni.equipes import canon
-from kateni.marches import marches, matrice_scores, scores_probables
+from kateni.marches import calibrer, marches, matrice_scores, scores_probables
 from kateni.ui import NOMS_COURTS, a_venir, contexte, fr, predire
 
 df, m = contexte()
@@ -27,7 +27,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None) -> None:
     dom, ext = match["dom"], match["ext"]
     ld, le, rho, nom_modele = predire(match)
     mat = matrice_scores(ld, le, rho)
-    p = marches(mat)
+    p = calibrer(marches(mat))
     modele_1n2 = [p["1N2"]["1"], p["1N2"]["N"], p["1N2"]["2"]]
     c1, cn, c2 = _cote(cotes, "B365H"), _cote(cotes, "B365D"), _cote(cotes, "B365A")
     avec_marche = bool(c1 and cn and c2)

@@ -152,3 +152,14 @@ def test_maj_europe_ne_vide_jamais_le_calendrier(tmp_path, monkeypatch):
     me.main()
     assert "A,B" in (tmp_path / "a_venir.csv").read_text()          # calendrier conservé
     assert len((tmp_path / "buts_minutes.csv").read_text().splitlines()) == 6  # minutes conservées
+
+
+def test_calibration_renforce_le_favori_et_garde_les_sommes():
+    from kateni.marches import calibrer
+    p = marches(matrice_scores(2.4, 0.8, -0.06))
+    c = calibrer(p)
+    assert c["1N2"]["1"] > p["1N2"]["1"]                       # favori plus probable
+    assert sum(c["1N2"].values()) == pytest.approx(1)
+    assert c["1N2"]["N"] / c["1N2"]["2"] == pytest.approx(p["1N2"]["N"] / p["1N2"]["2"])  # proportions gardées
+    assert c["Double chance"]["12"] == pytest.approx(c["1N2"]["1"] + c["1N2"]["2"])
+    assert c["Total buts 2.5"] == p["Total buts 2.5"]          # autres marchés inchangés

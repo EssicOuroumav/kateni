@@ -56,6 +56,22 @@ def scores_probables(m: np.ndarray, n: int = 5) -> list[tuple[str, float]]:
     return sorted(plat, key=lambda x: -x[1])[:n]
 
 
+def calibrer(p: dict) -> dict:
+    """Corrige la prudence du modèle sur les favoris (1N2 d'avant-match), puis recalcule la double chance.
+    Les autres marchés (buts, les 2 équipes marquent) ne sont pas touchés."""
+    from kateni.config import CALIB_A, CALIB_B
+    q = dict(p["1N2"])
+    fav = max(q, key=q.get)
+    pf = min(max(q[fav], 1e-6), 1 - 1e-6)
+    nf = 1 / (1 + np.exp(-(CALIB_A * np.log(pf / (1 - pf)) + CALIB_B)))
+    facteur = (1 - nf) / (1 - pf)
+    q = {k: (nf if k == fav else v * facteur) for k, v in q.items()}
+    out = dict(p)
+    out["1N2"] = {k: float(v) for k, v in q.items()}
+    out["Double chance"] = {"1N": q["1"] + q["N"], "12": q["1"] + q["2"], "N2": q["N"] + q["2"]}
+    return out
+
+
 def regler(marche: str, selection: str, buts_d: int, buts_e: int) -> bool | None:
     """Le pari est-il gagné avec ce score final ? None = marché non réglable automatiquement."""
     m = np.zeros((max(buts_d, buts_e) + 1,) * 2)

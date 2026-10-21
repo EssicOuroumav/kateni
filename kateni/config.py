@@ -89,3 +89,9 @@ MARGE_SUPPOSEE = 0.07
 # V1 meilleur : PL 1,0236 contre 1,0283 ; L1 0,9855/0,9892 ; BEL 1,0121/1,0143 ; TUR 0,9966/0,9970.
 # Toutes les autres (dont C1, C3 et MLS, non mesurables) : V2.
 MODELE_PAR_COMPETITION = {"PL": "V1", "L1": "V1", "BEL": "V1", "TUR": "V1"}
+
+# Correction de la prudence sur les favoris (scripts/calibration.py, 21/10/2026) :
+# p_favori' = sigmoïde(A · logit(p_favori) + B), réglée sur 2024-25, mesurée sur 2025-26
+# (log loss 1,0091 -> 1,0085 ; favoris annoncés 70 % et plus : écart 3,5 -> 1,5 point).
+CALIB_A = 1.125
+CALIB_B = 0.024

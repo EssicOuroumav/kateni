@@ -2,7 +2,7 @@ import streamlit as st
 
 from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, esperance, sans_marge
-from kateni.marches import marches, matrice_scores, scores_probables
+from kateni.marches import calibrer, marches, matrice_scores, scores_probables
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
                        choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, predire,
                        table_analyse)
@@ -19,7 +19,7 @@ avertir_si_peu_connu(m, dom, ext)
 
 lam_d, lam_e, rho, nom_modele = predire(match)
 mat = matrice_scores(lam_d, lam_e, rho)
-p = marches(mat)
+p = calibrer(marches(mat))
 
 # ---------------------------------------------------------------- 2. Chances
 st.subheader("2. Les chances selon le modèle", anchor=False)

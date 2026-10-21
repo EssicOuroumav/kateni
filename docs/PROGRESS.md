@@ -62,6 +62,7 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 ## Quatre améliorations demandées le 21/10/2026
 1. **Mise à jour automatique** (`.github/workflows/maj-donnees.yml`) : 05:15 et 14:15 UTC, tests avant d'enregistrer, aucun secret. Deux lancements réels : le 1er a révélé un tri non déterministe (fausses modifications) → tri stable ; le 2e : « Aucune nouvelle donnée ». **Avant de pousser depuis le Mac : `git pull --rebase`** (le robot enregistre aussi).
 2. **Cotes du marché dans les pronostics** (page Prédictions) : 25 % modèle + 75 % marché quand les cotes Bet365 sont publiées. Mesure 2025-26 : 49,4 % → 50,9 % de bons pronostics 1N2 (marché seul 51,3 %) ; +2,5 buts 56,2 % → 57,1 %. Vérifié : Levante – Ath Bilbao 38/28/34 (modèle) + 28/27/45 (marché) = 31/27/42.
+3. **Prudence sur les favoris corrigée** (`scripts/calibration.py`, `kateni/marches.py::calibrer`) : défaut présent en 2024-25 et 2025-26 ; correction réglée sur 2024-25 (A = 1,125, B = 0,024), mesurée sur 2025-26 : log loss 1,0091 → 1,0085 ; favoris 60-70 % écart 5,0 → 2,9 points, 70 %+ : 3,5 → 1,5 point. Appliquée au 1N2 et à la double chance d'avant-match.
 
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |

@@ -1,0 +1,23 @@
+RÉGLAGE 2024-25 (4338 matchs), modèle actuel :
+  33%-40% :   801 matchs · annoncé 37.8% · réel 36.6%
+  40%-50% :  1733 matchs · annoncé 44.6% · réel 45.0%
+  50%-60% :   994 matchs · annoncé 54.5% · réel 55.3%
+  60%-70% :   505 matchs · annoncé 64.5% · réel 66.3%
+  70%-100% :   305 matchs · annoncé 76.6% · réel 79.7%
+
+Correction réglée sur 2024-25 : a = 1.125, b = 0.024  (log loss réglage 1.0009 -> 1.0005)
+
+TEST 2025-26 (5256 matchs), AVANT correction :
+  33%-40% :  1046 matchs · annoncé 37.9% · réel 36.0%
+  40%-50% :  2196 matchs · annoncé 44.5% · réel 43.9%
+  50%-60% :  1190 matchs · annoncé 54.3% · réel 54.7%
+  60%-70% :   501 matchs · annoncé 64.3% · réel 69.3%
+  70%-100% :   323 matchs · annoncé 76.4% · réel 79.9%
+TEST 2025-26, APRÈS correction :
+  33%-40% :  1197 matchs · annoncé 37.5% · réel 37.8%
+  40%-50% :  1944 matchs · annoncé 44.5% · réel 43.7%
+  50%-60% :  1181 matchs · annoncé 54.5% · réel 53.1%
+  60%-70% :   530 matchs · annoncé 64.6% · réel 67.5%
+  70%-100% :   404 matchs · annoncé 77.7% · réel 79.2%
+
+TEST log loss : avant 1.0091 · après 1.0085 · bons pronostics : 49.4% (inchangés par construction)
