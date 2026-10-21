@@ -195,3 +195,16 @@ def test_cotes_europe_rattachees_au_calendrier(tmp_path):
         "CL,2026-10-21T16:45:00.000Z,Como 1907,Manchester United,2.46,3.8,2.79,1.558,2.52,1.48,2.78,Pinnacle\n")
     r = charger(tmp_path, depuis=date(2026, 10, 20)).iloc[0]
     assert r.dom == "Como" and r.bookmaker == "Pinnacle" and float(r.B365H) == 2.46
+
+
+def test_evenements_classes_et_coherents():
+    from kateni.affichage import evenements, pronostic
+    m = {"competition": "CL", "dom": "Como", "ext": "Man United", "date": "2026-10-21"}
+    e = evenements(m, pronostic(m, {"B365H": 2.46, "B365D": 3.8, "B365A": 2.79, "B365>2.5": 1.558,
+                                    "B365<2.5": 2.52, "bookmaker": "Pinnacle"}))
+    assert list(e["Chance"]) == sorted(e["Chance"], reverse=True)          # du plus probable au moins probable
+    c = dict(zip(e["Événement"], e["Chance"]))
+    assert c["Résultat : Como gagne"] + c["Résultat : match nul"] + c["Résultat : Man United gagne"] == pytest.approx(1)
+    assert c["Nombre de buts : plus de 2,5"] + c["Nombre de buts : moins de 2,5"] == pytest.approx(1)
+    assert c["Double chance : Como ou nul"] == pytest.approx(c["Résultat : Como gagne"] + c["Résultat : match nul"])
+    assert c["Como marque"] + c["Como ne marque pas"] == pytest.approx(1)

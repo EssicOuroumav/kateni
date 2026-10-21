@@ -28,9 +28,21 @@ def _cote(cotes: dict | None, k: str) -> float | None:
     return v if v > 1 else None
 
 
+COLS_COTES = ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker")
+
+
 def pronostic(match: dict, cotes: dict | None = None) -> dict:
     """Probabilités du match. Si les cotes du marché sont publiées : 25 % modèle + 75 % marché
-    (+1,5 point de bons pronostics mesuré sur 5 252 matchs de 2025-26)."""
+    (+1,5 point de bons pronostics mesuré sur 5 252 matchs de 2025-26). Mis en cache par match."""
+    from kateni.donnees import signature_donnees
+    c = tuple(None if pd.isna(v) else v for v in ((cotes or {}).get(k) for k in COLS_COTES))
+    return _pronostic(match["competition"], match["dom"], match["ext"], c, signature_donnees())
+
+
+@st.cache_data(ttl=3600, max_entries=2000, show_spinner=False)
+def _pronostic(competition: str, dom: str, ext: str, c: tuple, _sig: tuple) -> dict:
+    match = {"competition": competition, "dom": dom, "ext": ext}
+    cotes = dict(zip(COLS_COTES, c))
     ld, le, rho, nom_modele = predire(match)
     mat = matrice_scores(ld, le, rho)
     p = calibrer(marches(mat))
@@ -47,6 +59,38 @@ def pronostic(match: dict, cotes: dict | None = None) -> dict:
     bookmaker = bookmaker if isinstance(bookmaker, str) and bookmaker else "Bet365"
     return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
             "marche_1n2": marche_1n2, "cotes_1n2": (c1, cn, c2), "p1n2": p1n2, "plus25": plus25}
+
+
+EVENEMENTS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
+              ("Double chance", "1N"), ("Double chance", "12"), ("Double chance", "N2"),
+              *[(f"Total buts {x}", c) for x in ("0.5", "1.5", "2.5", "3.5", "4.5") for c in ("Plus", "Moins")],
+              ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
+              ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non")]
+
+
+def evenements(match: dict, r: dict) -> pd.DataFrame:
+    """Tous les événements du match, du plus probable au moins probable, avec les mêmes chiffres que le
+    pronostic affiché (1N2, double chance et +/-2,5 buts : modèle + marché quand les cotes existent)."""
+    from kateni.ui import libelle
+    p, (q1, qn, q2) = r["p"], r["p1n2"]
+    proba = {("1N2", "1"): q1, ("1N2", "N"): qn, ("1N2", "2"): q2,
+             ("Double chance", "1N"): q1 + qn, ("Double chance", "12"): q1 + q2, ("Double chance", "N2"): qn + q2,
+             ("Total buts 2.5", "Plus"): r["plus25"], ("Total buts 2.5", "Moins"): 1 - r["plus25"]}
+    lignes = []
+    for marche, sel in EVENEMENTS:
+        q = proba.get((marche, sel), p[marche][sel])
+        lignes.append({"Événement": libelle(marche, sel, match["dom"], match["ext"]), "Chance": q,
+                       "Cote juste": 1 / q if q > 0.005 else None})
+    return pd.DataFrame(lignes).sort_values("Chance", ascending=False, kind="mergesort").reset_index(drop=True)
+
+
+COLONNES_EVENEMENTS = {
+    "Chance": st.column_config.ProgressColumn("Chance", format="percent", min_value=0, max_value=1),
+    "Cote juste": st.column_config.NumberColumn(
+        "Cote juste", format="%.2f",
+        help="La cote qui correspond exactement à cette chance (1 ÷ chance). Si Betclic propose plus, l'événement "
+             "est mieux payé qu'il ne le devrait ; s'il propose moins, il est moins bien payé."),
+}
 
 
 def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = False) -> None:
@@ -100,6 +144,9 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                 f"- **Buts attendus** : {dom} {fr(r['ld'])} – {fr(r['le'])} {ext}\n"
                 "- **Scores les plus probables** : "
                 + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 5)))
+            st.markdown("**Événements, du plus probable au moins probable**")
+            st.dataframe(evenements(match, r), hide_index=True, column_config=COLONNES_EVENEMENTS,
+                         placeholder="–", height=300)
             st.caption(f"Calcul du modèle : {r['modele']}.")
             if st.button("Comparer avec mes cotes Betclic", key=f"cmp_{cle}", icon=":material/compare_arrows:"):
                 st.session_state["match_envoye"] = {k: match[k] for k in ("competition", "dom", "ext", "date")}

@@ -3,7 +3,7 @@ from datetime import date, timedelta
 import pandas as pd
 import streamlit as st
 
-from kateni.affichage import carte, date_longue
+from kateni.affichage import COLONNES_EVENEMENTS, carte, date_longue, evenements, pronostic
 from kateni.config import COMPETITIONS
 from kateni.ui import NOMS_COURTS, a_venir, contexte
 
@@ -52,6 +52,23 @@ if not len(du_jour):
             + "." + (f" Prochaine journée : **{date_longue(suivant)}** (bouton « Jour suivant »)." if suivant else ""),
             icon=":material/event_busy:")
 else:
+    with st.expander("Les événements les plus probables du jour", icon=":material/format_list_numbered:"):
+        st.caption("Tous les matchs affichés réunis, du plus probable au moins probable. Mêmes chiffres que les "
+                   "pronostics (modèle + cotes du marché quand elles sont publiées).")
+        seuil = st.slider("Chance minimale", 50, 95, 70, step=5, format="%d %%", key="cal_seuil")
+        lignes = []
+        for _, r in du_jour.iterrows():
+            m_ = {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
+            e = evenements(m_, pronostic(m_, r.to_dict()))
+            e.insert(0, "Match", f"{r['Heure'] or '--:--'} · {r['dom']} – {r['ext']}")
+            lignes.append(e)
+        tous = pd.concat(lignes, ignore_index=True)
+        # On écarte « plus de 0,5 but », presque toujours vrai et sans intérêt pour décider
+        tous = tous[~tous["Événement"].str.endswith("plus de 0,5")]
+        retenus = tous[tous["Chance"] >= seuil / 100].sort_values("Chance", ascending=False, kind="mergesort")
+        st.caption(f"{len(retenus)} événement(s) à {seuil} % ou plus.")
+        st.dataframe(retenus, hide_index=True, column_config=COLONNES_EVENEMENTS, placeholder="–",
+                     height=min(35 * (len(retenus) + 1) + 3, 520))
     st.caption(f"{len(du_jour)} match(s) · " + " · ".join(
         f"{NOMS_COURTS.get(c, c)} {n}" for c, n in du_jour["competition"].value_counts().reindex(ORDRE).dropna()
         .astype(int).items()))

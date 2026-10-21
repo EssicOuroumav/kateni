@@ -85,6 +85,12 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Manque signalé par le propriétaire : seuls les paris « À jouer » pouvaient être enregistrés. Ajout dans **Mes paris** d'un formulaire libre (match du calendrier ou choix libre, 13 choix réglables automatiquement, cote, mise, réel/fictif), mode « réel » par défaut.
 - Vérifié sur la branche test : pari noté (chance Kateni affichée), même saisie répétée → « déjà noté », 1 seule ligne ; ligne d'essai supprimée ; production : 0 ligne.
 
+
+## Événements classés du plus probable au moins probable (21/10/2026)
+- Demande du propriétaire : décider vite sans fouiller. `kateni/affichage.py::evenements` : 22 événements par match (1N2, double chance, ±0,5 à 4,5 buts, les 2 marquent, chaque équipe marque), mêmes chiffres que le pronostic (marché inclus quand disponible), avec la **cote juste** (1 ÷ chance).
+- Dans chaque match (« Détail du pronostic ») et en haut du Calendrier (« Les événements les plus probables du jour », seuil réglable, « plus de 0,5 but » écarté car sans intérêt). Pronostic mis en cache par match.
+- Vérifié : 21/10, 64 événements ≥ 70 % (Sporting marque 94,7 %…) ; test de cohérence (sommes, tri).
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

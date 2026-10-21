@@ -13,7 +13,10 @@ with st.container(border=True):
         "2. **Jour précédent / Jour suivant** sautent directement au prochain jour qui a des matchs ; tu peux aussi "
         "choisir une date.\n"
         "3. **Mes championnats** : touche un championnat pour le masquer ou l'afficher.\n"
-        "4. Le calendrier va jusqu'à la **fin de la saison (mai 2027)** pour 12 championnats, jusqu'à fin janvier "
+        "4. **Les événements les plus probables du jour** (en haut, à ouvrir) : tous les matchs réunis, classés du "
+        "plus probable au moins probable (« Inter marque 92 % », « Plus de 1,5 but 84 % »…). Le curseur règle la "
+        "chance minimale. Dans chaque match, « Détail du pronostic » donne la même liste pour ce seul match.\n"
+        "5. Le calendrier va jusqu'à la **fin de la saison (mai 2027)** pour 12 championnats, jusqu'à fin janvier "
         "pour la C1 et la C3. Badge **Provisoire** = match dans plus de 7 jours : le pronostic évoluera d'ici là.")
     st.page_link("app_pages/calendrier.py", label="Aller au Calendrier", icon=":material/calendar_month:")
 
@@ -76,6 +79,8 @@ with st.container(border=True):
         "- **Chance retenue** : le mélange du modèle (25 %) et de la cote Betclic (75 %), car le backtest montre "
         "que les cotes prédisent mieux que le modèle seul. C'est elle qui décide « À jouer » ou non.\n"
         "- **Cote minimale** : en dessous, le pari ne rapporte pas assez par rapport à sa chance.\n"
+        "- **Cote juste** : la cote qui correspond exactement à la chance (1 ÷ chance). Une cote Betclic plus haute "
+        "paie mieux que la réalité ; plus basse, moins bien.\n"
         "- **Gain moyen attendu** : ce que le pari rapporte en moyenne sur beaucoup de paris (+5 % = "
         "50 FCFA pour 1 000 FCFA misés, en moyenne, pas à chaque fois).\n"
         "- **Mode fictif** : Kateni enregistre le pari sans que tu mises. Sert à tester sans risque.")
