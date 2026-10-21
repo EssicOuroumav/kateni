@@ -9,7 +9,7 @@ from pathlib import Path
 
 import streamlit as st
 
-LOGO = Path(__file__).parent / "assets" / "logo.png"
+LOGO = Path(__file__).parent / "assets" / "logo_256.png"  # copie légère de logo.png (78 Ko au lieu de 1,4 Mo)
 st.set_page_config(page_title="Kateni", page_icon=str(LOGO) if LOGO.exists() else ":material/sports_soccer:",
                    layout="wide")
 if LOGO.exists():
