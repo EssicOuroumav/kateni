@@ -139,7 +139,7 @@ def main():
         saisons = {s for s, _ in lots}
         garde = ancien[~ancien["Saison"].isin(saisons)]
         neuf = pd.concat([garde] + [pd.DataFrame(j) for _, j in lots], ignore_index=True)
-        neuf = neuf.drop_duplicates(subset=["Date", "HomeTeam", "AwayTeam"], keep="last").sort_values("Date")
+        neuf = neuf.drop_duplicates(subset=["Date", "HomeTeam", "AwayTeam"], keep="last").sort_values(["Date", "HomeTeam", "AwayTeam"], kind="mergesort")
         neuf.to_csv(chemin, index=False)
         print(f"  {chemin.name} : {len(ancien)} -> {len(neuf)} matchs")
 

@@ -13,7 +13,8 @@ s = store()
 with st.container(horizontal=True, vertical_alignment="center"):
     st.caption(f"Paris enregistrés dans : {s.cible}")
     maj = st.button("Mettre à jour les résultats", icon=":material/sync:",
-                    help="Télécharge les derniers scores (championnats, C1, C3), puis règle les paris terminés.")
+                    help="Les données se mettent à jour toutes seules deux fois par jour (5 h 15 et 14 h 15, heure "
+                         "d'Abidjan). Ce bouton force une mise à jour immédiate.")
 if maj:
     with st.status("Mise à jour des résultats…", expanded=True) as statut:
         for script in ("scripts/maj_europe.py", "scripts/maj_donnees.py"):

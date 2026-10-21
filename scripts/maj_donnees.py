@@ -101,7 +101,7 @@ def maj_competition(code: str) -> None:
     else:
         n_avant = 0
 
-    neuf = neuf.drop_duplicates(subset=["Date", "HomeTeam", "AwayTeam"], keep="last").sort_values("Date")
+    neuf = neuf.drop_duplicates(subset=["Date", "HomeTeam", "AwayTeam"], keep="last").sort_values(["Date", "HomeTeam", "AwayTeam"], kind="mergesort")
     ordre = [c for c in COLONNES_BASE + COLONNES_OPTION if c in neuf.columns]
     neuf[ordre].to_csv(chemin, index=False, date_format="%Y-%m-%d")
     print(f"{comp.nom} : {n_avant} -> {len(neuf)} matchs, dernier le {neuf['Date'].max():%d/%m/%Y}")
