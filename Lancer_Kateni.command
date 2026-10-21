@@ -7,4 +7,5 @@
 cd "$(dirname "$0")"
 
 echo "Démarrage de Kateni..."
-python3 -m streamlit run kateni_app.py
+# --server.address=localhost : Kateni n'est joignable que depuis ce Mac (cf. docs/SECURITE.md)
+python3 -m streamlit run kateni_app.py --server.address=localhost

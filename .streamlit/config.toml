@@ -1,6 +1,6 @@
 [server]
-# N'écoute que sur ce Mac : invisible depuis un Wi-Fi public (cf. docs/SECURITE.md).
-address = "localhost"
+# L'adresse d'écoute « localhost » est imposée par le lanceur du Mac (Lancer_Kateni.command,
+# --server.address=localhost) et non ici : sur Streamlit Cloud, l'app doit écouter normalement.
 port = 8501
 headless = true
 

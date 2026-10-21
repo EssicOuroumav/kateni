@@ -4,7 +4,7 @@
     {
       "name": "kateni",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "streamlit", "run", "kateni_app.py"],
+      "runtimeArgs": ["-m", "streamlit", "run", "kateni_app.py", "--server.address=localhost"],
       "port": 8501
     }
   ]

@@ -11,7 +11,7 @@ from kateni.cotes import esperance, mise
 from kateni.donnees import charger_tout, equipes_de, signature_donnees
 from kateni.equipes import canon
 from kateni.modele import ajuster
-from kateni.stockage import CsvStore, identifiant
+from kateni.stockage import identifiant, obtenir_store
 
 MARGE_SUPPOSEE = 0.07  # marge Betclic supposée quand une seule cote d'un marché est saisie
 
@@ -31,8 +31,20 @@ def contexte():
     return donnees(sig), modele(sig)
 
 
-def store() -> CsvStore:
-    return CsvStore()
+@st.cache_resource
+def _store():
+    # Sur Streamlit Cloud, la configuration vient de st.secrets (pas de fichier local)
+    # (en local, lire_config lit le même fichier .streamlit/secrets.toml ; l'environnement l'emporte)
+    from kateni.db import lire_config
+    try:
+        depuis_streamlit = dict(st.secrets["neon"]) if "neon" in st.secrets else {}
+    except Exception:  # aucun fichier de secrets : stockage local
+        depuis_streamlit = {}
+    return obtenir_store({**depuis_streamlit, **lire_config()})
+
+
+def store():
+    return _store()
 
 
 def a_venir() -> pd.DataFrame:

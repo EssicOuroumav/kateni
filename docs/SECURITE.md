@@ -20,9 +20,9 @@ Pas de comptes d'utilisateurs, pas de paiement, pas de fichiers déposés, pas d
 ## 3. Points d'entrée publics
 | Point d'entrée | Qui l'appelle | Protection | Preuve |
 |---|---|---|---|
-| App locale `:8501` | le propriétaire | écoute sur `127.0.0.1` uniquement (`.streamlit/config.toml`, `server.address = "localhost"`) | `lsof -nP -iTCP:8501 -sTCP:LISTEN` → `127.0.0.1:8501` (21/10/2026) |
+| App locale `:8501` | le propriétaire | écoute sur `127.0.0.1` uniquement (`--server.address=localhost` dans `Lancer_Kateni.command`, retiré de `config.toml` pour ne pas gêner Streamlit Cloud) | `lsof -nP -iTCP:8501 -sTCP:LISTEN` → `127.0.0.1:8501` (21/10/2026, après le déplacement) |
 | App Streamlit Cloud (lot 2) | le propriétaire | app privée, lecteurs invités par e-mail | **à vérifier** : ouverture en navigation privée, attendu « accès refusé » |
-| Base Postgres en ligne (lot 2) | l'app | identifiants secrets ; si Supabase : RLS activée sans politique pour la clé publique | **à vérifier** au lot 2 (`curl` avec la clé publique, attendu un refus) |
+| Base Neon (lot 2) | l'app (Mac et Streamlit Cloud) | adresse avec mot de passe dans `.streamlit/secrets.toml` (Mac) et dans les secrets de Streamlit Cloud ; TLS (`sslmode=require`) ; pas d'API publique (Neon Data API non activée) | **à vérifier** : `python3 scripts/db.py verifier` après création ; Data API désactivée dans la console |
 
 ## 4. Cas d'abus
 - [x] **Inondation** : aucune route à nous en local. En ligne, la plateforme Streamlit filtre l'accès.
@@ -38,6 +38,9 @@ Pas de comptes d'utilisateurs, pas de paiement, pas de fichiers déposés, pas d
 ## 5. Constats
 - **F1 (moyenne)** : Streamlit écoute par défaut sur toutes les interfaces, donc l'app aurait été visible depuis un Wi-Fi public. Correction : `server.address = "localhost"`. Preuve : `lsof` (§3). **Corrigé.**
 - **F2 (faible)** : `paris.csv` (données financières) ne doit pas être dans Git. Correction : `.gitignore`. Une sauvegarde du fichier reste à organiser (lot 2 : base en ligne).
+- **F4 (moyenne)** : bascule silencieuse vers une autre base, d'où deux journaux différents ou des essais dans les vrais paris. Correction : `kateni/db.py`, sans repli (cible absente = erreur), et branche `test` séparée de `main`. Preuves : `tests/test_db.py::test_aucun_repli_vers_la_prod` et `test_pas_de_repli_sur_le_csv_si_neon_est_configure`. **Corrigé.**
+- **F5 (faible)** : injection par nom de colonne dans `PostgresStore.mettre_a_jour`. Correction : liste blanche + `psycopg.sql.Identifier` ; valeurs toujours paramétrées. Preuve : `tests/test_db.py::test_neon_idempotence_et_mise_a_jour` (sur la branche test, **à exécuter** quand elle existera).
+- **F6 (faible)** : sauvegardes de la base hors Git, dans `sauvegardes/` (droits 700/600), avec manifeste et commande `--check`. Une **restauration réelle** reste **à faire** avant les premiers paris réels.
 - **F3 (à décider)** : intégration GitHub de Streamlit Cloud limitée au seul dépôt `kateni` (« Only select repositories »). Réglage à faire par le propriétaire au lot 2.
 
 ## 6. Ce que cette revue ne couvre pas
