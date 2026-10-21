@@ -43,7 +43,9 @@ def pronostic(match: dict, cotes: dict | None = None) -> dict:
     cp, cm = _cote(cotes, "B365>2.5"), _cote(cotes, "B365<2.5")
     if cp and cm:
         plus25 = POIDS_MODELE * plus25 + (1 - POIDS_MODELE) * sans_marge([cp, cm])[0][0]
-    return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "modele_1n2": modele_1n2,
+    bookmaker = (cotes or {}).get("bookmaker")
+    bookmaker = bookmaker if isinstance(bookmaker, str) and bookmaker else "Bet365"
+    return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
             "marche_1n2": marche_1n2, "cotes_1n2": (c1, cn, c2), "p1n2": p1n2, "plus25": plus25}
 
 
@@ -68,7 +70,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
         with st.container(horizontal=True):
             if r["marche_1n2"]:
                 st.badge("Modèle + cotes du marché", icon=":material/insights:", color="green",
-                         help="Pronostic = 25 % modèle Kateni + 75 % cotes du marché (Bet365, marge retirée). "
+                         help=f"Pronostic = 25 % modèle Kateni + 75 % cotes du marché ({r['bookmaker']}, marge retirée). "
                               "Mesuré sur 5 252 matchs : 50,9 % de bons pronostics contre 49,4 % pour le modèle seul.")
             else:
                 st.badge("Modèle seul", icon=":material/functions:", color="gray",
@@ -86,7 +88,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                 m1, mm = r["modele_1n2"], r["marche_1n2"]
                 st.markdown(
                     f"- **Modèle Kateni seul** : {dom} {m1[0]:.0%} · nul {m1[1]:.0%} · {ext} {m1[2]:.0%}\n"
-                    f"- **Marché** (Bet365 {fr(c1)} / {fr(cn)} / {fr(c2)}, marge retirée) : {dom} "
+                    f"- **Marché** ({r['bookmaker']} {fr(c1)} / {fr(cn)} / {fr(c2)}, marge retirée) : {dom} "
                     f"{mm[0]:.0%} · nul {mm[1]:.0%} · {ext} {mm[2]:.0%}")
             st.markdown(
                 f"- **Double chance** (modèle) : {dom} ou nul {p['Double chance']['1N']:.0%} · {dom} ou {ext} "

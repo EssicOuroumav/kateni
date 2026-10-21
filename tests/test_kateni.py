@@ -184,3 +184,14 @@ def test_calendrier_heure_abidjan_et_sans_doublon(tmp_path):
     assert c[c.dom == "Como"].iloc[0].Heure == "16:45"       # Paris heure d'été = Abidjan + 2 h
     assert c[c.dom == "Lille"].iloc[0].Heure == "17:45"      # Paris heure d'hiver = Abidjan + 1 h
     assert c[c.dom == "Arsenal"].iloc[0].ext == "Tottenham"  # nom de la nouvelle source relié
+
+
+def test_cotes_europe_rattachees_au_calendrier(tmp_path):
+    from datetime import date
+    from kateni.calendrier import charger
+    (tmp_path / "a_venir.csv").write_text("competition,Date,Heure_CET,HomeTeam,AwayTeam\nCL,2026-10-21,18:45,Como,Manchester United\n")
+    (tmp_path / "cotes_europe.csv").write_text(
+        "competition,DateUtc,HomeTeam,AwayTeam,B365H,B365D,B365A,B365>2.5,B365<2.5,BTTS_oui,BTTS_non,bookmaker\n"
+        "CL,2026-10-21T16:45:00.000Z,Como 1907,Manchester United,2.46,3.8,2.79,1.558,2.52,1.48,2.78,Pinnacle\n")
+    r = charger(tmp_path, depuis=date(2026, 10, 20)).iloc[0]
+    assert r.dom == "Como" and r.bookmaker == "Pinnacle" and float(r.B365H) == 2.46

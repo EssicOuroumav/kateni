@@ -20,7 +20,29 @@ from kateni.equipes import canon
 
 UTC = ZoneInfo("UTC")
 COLONNES = ["competition", "Date", "Heure", "HomeTeam", "AwayTeam", "dom", "ext", "source",
-            "B365H", "B365D", "B365A", "B365>2.5", "B365<2.5"]
+            "B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker"]
+COTES = ["B365H", "B365D", "B365A", "B365>2.5", "B365<2.5"]
+
+
+def _ajouter_cotes_europe(d: pd.DataFrame, racine: Path) -> pd.DataFrame:
+    """Cotes C1/C3 (OddsPapi, Pinnacle) rattachées aux matchs du calendrier : même compétition, mêmes
+    équipes, coup d'envoi à moins de 2 jours."""
+    ce = _lire(racine / "cotes_europe.csv")
+    if not len(ce):
+        return d
+    ce["instant"] = pd.to_datetime(ce["DateUtc"], utc=True, errors="coerce")
+    ce["dom"], ce["ext"] = ce["HomeTeam"].map(canon), ce["AwayTeam"].map(canon)
+    index = {}
+    for _, r in ce.iterrows():
+        index.setdefault((r["competition"], r["dom"], r["ext"]), []).append(r)
+    for i, r in d[d["competition"].isin(["CL", "EL"])].iterrows():
+        for c in index.get((r["competition"], r["dom"], r["ext"]), []):
+            if abs((c["instant"] - r["instant"]).total_seconds()) < 2 * 86400:
+                for col in COTES:
+                    d.at[i, col] = c[col]
+                d.at[i, "bookmaker"] = c.get("bookmaker", "Pinnacle")
+                break
+    return d
 
 
 def _en_utc(jour: pd.Series, heure: pd.Series, fuseau: str) -> pd.Series:
@@ -72,6 +94,13 @@ def charger(racine: Path = RACINE, depuis: date | None = None) -> pd.DataFrame:
         deja.append(t)
         garder.append(idx)
     d = d.loc[garder]
+    if "bookmaker" not in d.columns:
+        d["bookmaker"] = pd.NA
+    d.loc[d["source"] == "football-data", "bookmaker"] = "Bet365"
+    for col in COTES:
+        if col not in d.columns:
+            d[col] = pd.NA
+    d = _ajouter_cotes_europe(d, racine)
 
     depuis = depuis or date.today()
     d = d[d["instant"].dt.date >= depuis - timedelta(days=1)]

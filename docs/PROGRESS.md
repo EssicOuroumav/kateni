@@ -72,6 +72,14 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Page **Calendrier** : jour par jour, navigation vers le jour suivant/précédent ayant des matchs, filtre « Mes championnats », carte compacte + détail ; carte partagée avec Prédictions (`kateni/affichage.py`).
 - Vérifié : 21/10 → 11 matchs, 22/10 → 18 (C3), 24/10 → 54 matchs ; 3 156 matchs sur 151 jours ; test des heures (été/hiver) et du dédoublonnage ; 26 tests.
 
+
+## Cotes de Ligue des champions et Ligue Europa (21/10/2026)
+- Source : **OddsPapi** (compte gratuit du propriétaire, 250 requêtes/mois), bookmaker **Pinnacle** ; tournois 7 (C1) et 679 (C3) ; marchés 101 (1N2), 1010 (±2,5 buts), 104 (les 2 marquent).
+- Clé : secret GitHub `ODDS_API_KEY` + `.streamlit/secrets.toml` (local, hors Git), enregistrée par double-clic (`Odds_API_cle.command`), jamais affichée ; contrôle : aucun des 100 fichiers suivis ne contient la clé.
+- `scripts/maj_cotes_europe.py` : 1 requête par passage (+1 si nouvelle équipe), garde-fou à 230/250 via `/v4/account` (gratuit), cotes précédentes conservées en cas d'échec. Robot : ≈ 60 requêtes/mois.
+- 30 noms OddsPapi reliés à la main ; 27/27 matchs des 21-22/10 reliés ; affichage « Marché (Pinnacle …) » vérifié (Como – Man United : modèle 43 % → pronostic 40 %).
+- Le propriétaire avait d'abord ouvert un compte sur OddsPapi au lieu de The Odds API (lien d'une source citée par l'assistant) : OddsPapi a été vérifié dans sa documentation et retenu.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

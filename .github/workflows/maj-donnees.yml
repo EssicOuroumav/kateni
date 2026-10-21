@@ -1,6 +1,6 @@
 # Kateni — mise à jour automatique des données (résultats, calendrier, coupes d'Europe)
 # Tourne deux fois par jour ; enregistre les CSV modifiés, ce qui met à jour l'app en ligne.
-# Aucun secret nécessaire : les sources sont publiques (football-data.co.uk, Wikipédia).
+# Un seul secret : ODDS_API_KEY (cotes C1/C3), transmis uniquement à l'étape qui en a besoin.
 name: Mise à jour des données
 
 on:
@@ -31,13 +31,17 @@ jobs:
         run: python scripts/maj_donnees.py
       - name: Coupes d'Europe (Wikipédia)
         run: python scripts/maj_europe.py
+      - name: Cotes Ligue des champions et Ligue Europa (OddsPapi, ≈ 60 requêtes/mois sur 250)
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/maj_cotes_europe.py
       - name: Vérifications avant d'enregistrer
         run: python -m pytest -q tests -k "not neon"
       - name: Enregistrer les données si elles ont changé
         run: |
           git config user.name "kateni-bot"
           git config user.email "kateni-bot@users.noreply.github.com"
-          git add -- *_full.csv a_venir.csv a_venir_championnats.csv calendrier_saison.csv buts_minutes.csv
+          git add -- *_full.csv a_venir.csv a_venir_championnats.csv calendrier_saison.csv buts_minutes.csv cotes_europe.csv oddspapi_equipes.json
           if git diff --cached --quiet; then
             echo "Aucune nouvelle donnée."
           else
