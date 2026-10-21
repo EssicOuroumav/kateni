@@ -3,7 +3,7 @@ import streamlit as st
 
 from kateni.cotes import sans_marge
 from kateni.marches import marches, matrice_scores, scores_probables
-from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
+from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, table_analyse, avertir_si_peu_connu, bankroll, choisir_match,
                        choisir_mode, contexte, enregistrer, ligne_analyse)
 
 df, m = contexte()
@@ -68,8 +68,8 @@ if envoye or st.session_state.get("am_resultat", {}).get("cle") == cle_match:
 
 res = st.session_state.get("am_resultat")
 if res and res["cle"] == cle_match:
-    t = pd.DataFrame(res["lignes"])
-    st.dataframe(t, column_config=COLONNES_TABLE, hide_index=True)
+    t = table_analyse(res["lignes"])
+    st.dataframe(t, column_config=COLONNES_TABLE, hide_index=True, placeholder="–")
     proposes = [l for l in res["lignes"] if l["Proposé"]]
     if not proposes:
         st.info("Pas de pari proposé : aucune cote saisie ne dépasse l'espérance minimale. "

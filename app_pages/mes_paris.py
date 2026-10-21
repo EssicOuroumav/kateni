@@ -38,7 +38,7 @@ mode = st.segmented_control("Afficher", ["tous", "fictif", "réel"], default="to
                             required=True)
 vue = paris if mode == "tous" else paris[paris["mode"] == mode]
 st.dataframe(
-    vue.drop(columns=["id"]).iloc[::-1], hide_index=True,
+    vue.drop(columns=["id"]).iloc[::-1], hide_index=True, placeholder="–",
     column_config={
         "prob_kateni": st.column_config.NumberColumn("Kateni", format="percent"),
         "esperance_pct": st.column_config.NumberColumn("Espérance %", format="%.1f"),

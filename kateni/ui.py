@@ -159,6 +159,14 @@ COLONNES_TABLE = {
 }
 
 
+def table_analyse(lignes: list[dict]) -> pd.DataFrame:
+    """Colonnes chiffrées en nombres (cases vides au lieu de « None »)."""
+    t = pd.DataFrame(lignes)
+    for c in ("Modèle", "Marché sans marge", "Kateni", "Cote Betclic", "Espérance", "Mise (FCFA)"):
+        t[c] = pd.to_numeric(t[c], errors="coerce")
+    return t
+
+
 def enregistrer(match: dict, ligne: dict, mode: str, type_: str, minute: str = "",
                 score: str = "") -> bool:
     pari = {

@@ -3,7 +3,7 @@ import streamlit as st
 
 from kateni.cotes import lambdas_depuis_cotes
 from kateni.live import EtatLive, predire_live
-from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
+from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, table_analyse, avertir_si_peu_connu, bankroll, choisir_match,
                        choisir_mode, contexte, enregistrer, ligne_analyse)
 
 df, m = contexte()
@@ -66,7 +66,7 @@ st.caption("Scores finaux les plus probables : " + " · ".join(f"{s} ({q:.0%})" 
 totaux = {k: v for k, v in p.items() if k.startswith("Total buts")}
 with st.expander("Tous les marchés"):
     rows = [{"Marché": k, "Sélection": s, "Probabilité": q} for k, v in p.items() for s, q in v.items()]
-    st.dataframe(pd.DataFrame(rows), hide_index=True,
+    st.dataframe(pd.DataFrame(rows), hide_index=True, placeholder="–",
                  column_config={"Probabilité": st.column_config.NumberColumn(format="percent")})
 
 st.subheader("Évaluer une cote live Betclic", anchor=False)
@@ -79,7 +79,7 @@ cote = c[2].number_input("Cote live", min_value=1.01, value=None, step=0.01, for
 mode = choisir_mode("lv")
 if cote:
     l = ligne_analyse(marche, sel, p[marche][sel], (1 / cote) / (1 + MARGE_SUPPOSEE), cote, bankroll(mode))
-    st.dataframe(pd.DataFrame([l]), column_config=COLONNES_TABLE, hide_index=True)
+    st.dataframe(table_analyse([l]), column_config=COLONNES_TABLE, hide_index=True, placeholder="–")
     if l["Proposé"]:
         if st.button(f"Enregistrer ce pari ({mode})", icon=":material/save:", type="primary"):
             ok = enregistrer(match, l, mode, "live", minute=str(minute), score=f"{bd}-{be}")
