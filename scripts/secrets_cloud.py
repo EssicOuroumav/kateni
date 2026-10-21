@@ -33,10 +33,15 @@ def main():
         print(f"Rien n'a été copié. {e}")
         sys.exit(1)
     subprocess.run(["pbcopy"], input=bloc, text=True, check=True)
-    serveur = hote(url_base(lire_config({}), "prod"))
-    print(f"Copié dans le presse-papiers : bloc [neon] de la branche production (serveur {serveur}).")
-    print("Colle-le dans Streamlit Cloud > ton app > Settings > Secrets, puis Save.")
-    print("Ensuite, copie autre chose (n'importe quel mot) pour vider le presse-papiers.")
+    # Messages volontairement sans crochets ni mots du bloc : rien à copier ici par erreur.
+    print("C'EST PRÊT. Ne sélectionne et ne copie RIEN dans ce Terminal.")
+    print("Va sur Streamlit, clique dans la zone Secrets vide, puis appuie sur Cmd+V.")
+    try:
+        input("Quand c'est collé, reviens ici et appuie sur Entrée pour effacer la mémoire... ")
+    except EOFError:
+        return
+    subprocess.run(["pbcopy"], input="", text=True, check=True)
+    print("Mémoire effacée.")
 
 
 if __name__ == "__main__":
