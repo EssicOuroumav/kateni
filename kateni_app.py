@@ -11,7 +11,7 @@ import streamlit as st
 
 LOGO = Path(__file__).parent / "assets" / "logo_256.png"  # copie légère de logo.png (78 Ko au lieu de 1,4 Mo)
 st.set_page_config(page_title="Kateni", page_icon=str(LOGO) if LOGO.exists() else ":material/sports_soccer:",
-                   layout="wide")
+                   layout="centered")  # lisible sur téléphone
 if LOGO.exists():
     st.logo(str(LOGO), size="large")
 
@@ -21,6 +21,7 @@ page = st.navigation(
         st.Page("app_pages/live.py", title="Live", icon=":material/timer:"),
         st.Page("app_pages/mes_paris.py", title="Mes paris", icon=":material/receipt_long:"),
         st.Page("app_pages/bilan.py", title="Bilan", icon=":material/monitoring:"),
+        st.Page("app_pages/guide.py", title="Guide", icon=":material/help:"),
     ],
     position="top",
 )

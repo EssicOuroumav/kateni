@@ -66,3 +66,6 @@ ALIAS_PATH = RACINE / "equipes_alias.csv"
 # marché seul 0,9933 de log loss, w=0,25 : 0,9954, w=0,5 : 0,9990, modèle seul : 1,0106.
 # Le marché est meilleur : on garde un poids faible tant qu'un backtest ne montre pas mieux.
 POIDS_MODELE = 0.25
+
+# Marge Betclic supposée quand une seule cote d'un marché est saisie (marge non mesurable).
+MARGE_SUPPOSEE = 0.07

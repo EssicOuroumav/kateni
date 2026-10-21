@@ -5,7 +5,7 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
-from kateni.config import (BANKROLL_INITIALE, COMPETITIONS, MIN_EDGE_PCT, POIDS_MODELE,
+from kateni.config import (BANKROLL_INITIALE, COMPETITIONS, MARGE_SUPPOSEE, MIN_EDGE_PCT, POIDS_MODELE,
                            RACINE, STOP_LOSS_PCT)
 from kateni.cotes import esperance, mise
 from kateni.donnees import charger_tout, equipes_de, signature_donnees
@@ -13,7 +13,6 @@ from kateni.equipes import canon
 from kateni.modele import ajuster
 from kateni.stockage import identifiant, obtenir_store
 
-MARGE_SUPPOSEE = 0.07  # marge Betclic supposée quand une seule cote d'un marché est saisie
 
 
 @st.cache_data(ttl=3600, max_entries=2, show_spinner="Chargement des données…")
@@ -50,12 +49,10 @@ def store():
     except ConfigurationBase as e:
         st.error(f"Kateni n'est pas relié à Neon. {e}", icon=":material/database_off:")
         st.markdown(
-            "**Sur le Mac** : dans Neon, ouvre la branche, clique sur Connect, puis Show password et "
-            "Copy snippet, puis lance dans le Terminal "
-            "`python3 ~/Documents/Kateni/scripts/neon_connexion.py production` "
-            "(et `… test` pour la branche test). Relance ensuite Kateni.\n\n"
-            "**En ligne (Streamlit Cloud)** : dans les réglages de l'app, rubrique Secrets, colle le bloc "
-            "copié par `python3 ~/Documents/Kateni/scripts/secrets_cloud.py`.\n\n"
+            "**Sur le Mac** : dans Neon, branche production, Connect, Show password, Copy snippet, "
+            "puis double-clic sur `Neon_production.command` dans le dossier Kateni. Relance ensuite Kateni.\n\n"
+            "**En ligne** : double-clic sur `Secrets_Streamlit.command`, puis colle (Cmd+V) dans "
+            "Streamlit Cloud, réglages de l'app, rubrique Secrets.\n\n"
             "Avant-match et Live restent utilisables ; seul l'enregistrement des paris est bloqué.")
         st.stop()
 
@@ -69,15 +66,21 @@ def a_venir() -> pd.DataFrame:
     return d.reset_index(drop=True)
 
 
+NOMS_COURTS = {"CL": "Ligue des champions", "EL": "Ligue Europa"}
+
+
 def choisir_match(df: pd.DataFrame, cle: str) -> dict:
     """Retourne {competition, dom, ext, date} choisi dans le calendrier ou librement."""
     source = st.segmented_control("Match", ["Calendrier européen", "Choix libre"],
                                   default="Calendrier européen", key=f"{cle}_src", required=True)
     cal = a_venir()
     if source == "Calendrier européen" and len(cal):
-        cal["libelle"] = (cal["Date"] + " " + cal["Heure_CET"].fillna("") + " · " + cal["competition"]
+        jours = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
+        dates = pd.to_datetime(cal["Date"])
+        cal["libelle"] = (pd.Series([f"{jours[d.weekday()]} {d:%d/%m}" for d in dates], index=cal.index) + " · "
+                          + cal["Heure_CET"].fillna("") + " · " + cal["competition"].map(NOMS_COURTS).fillna(cal["competition"])
                           + " · " + cal["HomeTeam"] + " – " + cal["AwayTeam"])
-        i = st.selectbox("Match à venir (heure de Paris)", range(len(cal)),
+        i = st.selectbox("Match à venir (heure de Paris ; Abidjan = 2 h de moins)", range(len(cal)),
                          format_func=lambda k: cal.loc[k, "libelle"], key=f"{cle}_cal")
         r = cal.loc[i]
         return {"competition": r["competition"], "dom": canon(r["HomeTeam"]),
@@ -111,15 +114,25 @@ def prob_kateni(p_modele: float, p_marche: float | None) -> float:
     return POIDS_MODELE * p_modele + (1 - POIDS_MODELE) * p_marche
 
 
+@st.cache_data(ttl=60, show_spinner=False)
+def _gains(mode: str) -> float:
+    paris = _store().lire()
+    paris = paris[(paris["mode"] == mode) & paris["statut"].isin(["gagné", "perdu"])]
+    return float(pd.to_numeric(paris["gain_fcfa"], errors="coerce").fillna(0).sum())
+
+
+def rafraichir() -> None:
+    """À appeler après toute écriture de pari (la bankroll est gardée 60 s en mémoire)."""
+    _gains.clear()
+
+
 def bankroll(mode: str) -> float:
     # Sans Neon, on affiche quand même les analyses (bankroll de départ) ; seul l'enregistrement bloque.
     from kateni.db import ConfigurationBase
     try:
-        paris = _store().lire()
+        return BANKROLL_INITIALE + _gains(mode)
     except ConfigurationBase:
         return float(BANKROLL_INITIALE)
-    paris = paris[(paris["mode"] == mode) & paris["statut"].isin(["gagné", "perdu"])]
-    return BANKROLL_INITIALE + pd.to_numeric(paris["gain_fcfa"], errors="coerce").fillna(0).sum()
 
 
 def choisir_mode(cle: str) -> str:
@@ -132,6 +145,39 @@ def choisir_mode(cle: str) -> str:
                  icon=":material/block:")
     st.caption(f"Bankroll {mode} : {b:,.0f} FCFA".replace(",", " "))
     return mode
+
+
+def fr(x: float) -> str:
+    """Cote à la française : 3.03 -> « 3,03 »."""
+    return f"{x:.2f}".replace(".", ",")
+
+
+def pct(x: float, signe: bool = False) -> str:
+    """Pourcentage à la française : 0.058 -> « +5,8 % »."""
+    return (f"{x:+.1%}" if signe else f"{x:.1%}").replace(".", ",").replace("%", " %")
+
+
+def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
+    """« 1N2 / 1 » -> « Victoire Como » : ce que l'utilisateur lit sur Betclic."""
+    # Mêmes mots que Betclic, pour retrouver le bon choix et sa cote.
+    if marche == "1N2":
+        return {"1": f"Résultat : {dom} gagne", "N": "Résultat : match nul", "2": f"Résultat : {ext} gagne"}[sel]
+    if marche == "Double chance":
+        return {"1N": f"Double chance : {dom} ou nul", "12": f"Double chance : {dom} ou {ext}",
+                "N2": f"Double chance : nul ou {ext}"}[sel]
+    if marche.startswith("Total buts "):
+        ligne = marche.split()[-1].replace(".", ",")
+        return f"Nombre de buts : {'plus' if sel == 'Plus' else 'moins'} de {ligne}"
+    if marche == "Les deux équipes marquent":
+        return f"Les 2 équipes marquent : {sel}"
+    for prefixe, equipe in (("Dom.", dom), ("Ext.", ext)):
+        if marche == f"{prefixe} marque encore":
+            return f"{equipe} marque encore" if sel == "Oui" else f"{equipe} ne marque plus"
+        if marche == f"{prefixe} marque":
+            return f"{equipe} marque" if sel == "Oui" else f"{equipe} ne marque pas"
+    if marche == "Prochain but":
+        return {"Dom.": f"Prochain but : {dom}", "Ext.": f"Prochain but : {ext}", "Aucun": "Plus aucun but"}[sel]
+    return f"{marche} · {sel}"
 
 
 def ligne_analyse(marche: str, sel: str, p_mod: float, p_mar: float | None, cote: float | None,
@@ -179,4 +225,6 @@ def enregistrer(match: dict, ligne: dict, mode: str, type_: str, minute: str = "
         "esperance_pct": round(ligne["Espérance"] * 100, 1), "mise_fcfa": ligne["Mise (FCFA)"],
         "mode": mode,
     }
-    return store().ajouter(pari)
+    ajoute = store().ajouter(pari)
+    rafraichir()
+    return ajoute

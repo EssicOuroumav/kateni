@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 
 from kateni.config import BANKROLL_INITIALE, POIDS_MODELE
-from kateni.ui import store
+from kateni.ui import pct, store
 
 paris = store().lire()
 regles = paris[paris["statut"].isin(["gagné", "perdu"])].copy()
@@ -23,7 +23,7 @@ for mode in ("fictif", "réel"):
             st.metric("Réussite", f"{(d['statut'] == 'gagné').mean():.0%}")
             st.metric("Misé", f"{mises.sum():,.0f} FCFA".replace(",", " "))
             st.metric("Gain net", f"{gains.sum():+,.0f} FCFA".replace(",", " "))
-            st.metric("ROI", f"{roi:+.1%}")
+            st.metric("ROI", pct(roi, True))
             st.metric("Bankroll", f"{BANKROLL_INITIALE + gains.sum():,.0f} FCFA".replace(",", " "))
         # Incertitude : intervalle à 95 % du ROI moyen par pari
         r = (gains / mises.replace(0, np.nan)).dropna()

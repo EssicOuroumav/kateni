@@ -105,3 +105,15 @@ def test_modele_sans_fuite_et_ordre_des_forces():
     m = ajuster(df, date_ref=pd.Timestamp("2025-06-01"))
     assert m.date_donnees < pd.Timestamp("2025-06-01")
     assert m.attaque["Fort"] > m.attaque["Faible"]
+
+
+def test_cote_minimale_coherente_avec_la_decision():
+    from kateni.config import MARGE_SUPPOSEE, POIDS_MODELE
+    from kateni.cotes import cote_minimale
+    for p_mod in (0.2, 0.43, 0.7):
+        c = cote_minimale(p_mod)
+        def ev(cote):
+            p = POIDS_MODELE * p_mod + (1 - POIDS_MODELE) * (1 / cote) / (1 + MARGE_SUPPOSEE)
+            return esperance(p, cote)
+        assert ev(c + 0.01) >= 0.03 > ev(c - 0.01)   # juste au-dessus : pari ; juste en dessous : non
+    assert cote_minimale(0.001) is None

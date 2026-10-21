@@ -5,7 +5,7 @@ Cotes Betclic -> probabilités sans marge, espérance de gain, mise.
 import numpy as np
 from scipy.optimize import minimize
 
-from kateni.config import KELLY_FRACTION, MIN_EDGE_PCT, MISE_MAX_PCT
+from kateni.config import KELLY_FRACTION, MARGE_SUPPOSEE, MIN_EDGE_PCT, MISE_MAX_PCT, POIDS_MODELE
 from kateni.marches import marches, matrice_scores
 
 
@@ -33,6 +33,16 @@ def mise(prob: float, cote: float, bankroll: float) -> dict:
         "mise_pct": round(pct * 100, 2),
         "mise_fcfa": int(round(pct * bankroll / 50) * 50),  # arrondi à 50 FCFA
     }
+
+
+def cote_minimale(p_modele: float) -> float | None:
+    """Plus petite cote Betclic pour laquelle Kateni propose ce pari, quand cette seule cote est saisie.
+    Même règle que l'analyse : p = w·modèle + (1−w)·(1/cote)/(1+marge), puis p·cote − 1 ≥ seuil.
+    None si aucune cote raisonnable (≤ 100) ne suffit."""
+    if p_modele <= 0:
+        return None
+    c = (1 + MIN_EDGE_PCT - (1 - POIDS_MODELE) / (1 + MARGE_SUPPOSEE)) / (POIDS_MODELE * p_modele)
+    return max(1.01, c) if c <= 100 else None
 
 
 def lambdas_depuis_cotes(c1: float, cn: float, c2: float,
