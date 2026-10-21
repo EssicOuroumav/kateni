@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 
-from kateni.config import COMPETITIONS
+from kateni.config import COMPETITIONS, POIDS_MODELE
 from kateni.cotes import sans_marge
 from kateni.donnees import equipes_de
 from kateni.equipes import canon
@@ -12,13 +12,35 @@ df, m = contexte()
 JOURS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
 
 
+def _cote(cotes: dict | None, k: str) -> float | None:
+    v = (cotes or {}).get(k)
+    try:
+        v = float(v)
+    except (TypeError, ValueError):
+        return None
+    return v if v > 1 else None
+
+
 def carte(match: dict, cle: str, cotes: dict | None = None) -> None:
-    """Pronostic complet d'un match, avec le meilleur modèle de sa compétition."""
+    """Pronostic d'un match. Si les cotes du marché sont publiées, le pronostic mélange le modèle (25 %)
+    et le marché (75 %) : +1,5 point de bons pronostics mesuré sur 5 252 matchs de 2025-26."""
     dom, ext = match["dom"], match["ext"]
     ld, le, rho, nom_modele = predire(match)
     mat = matrice_scores(ld, le, rho)
     p = marches(mat)
-    issues = {f"{dom} gagne": p["1N2"]["1"], "Match nul": p["1N2"]["N"], f"{ext} gagne": p["1N2"]["2"]}
+    modele_1n2 = [p["1N2"]["1"], p["1N2"]["N"], p["1N2"]["2"]]
+    c1, cn, c2 = _cote(cotes, "B365H"), _cote(cotes, "B365D"), _cote(cotes, "B365A")
+    avec_marche = bool(c1 and cn and c2)
+    if avec_marche:
+        marche_1n2 = sans_marge([c1, cn, c2])[0]
+        p1n2 = [POIDS_MODELE * a + (1 - POIDS_MODELE) * b for a, b in zip(modele_1n2, marche_1n2)]
+    else:
+        p1n2 = modele_1n2
+    cp, cm = _cote(cotes, "B365>2.5"), _cote(cotes, "B365<2.5")
+    plus25 = p["Total buts 2.5"]["Plus"]
+    if cp and cm:
+        plus25 = POIDS_MODELE * plus25 + (1 - POIDS_MODELE) * sans_marge([cp, cm])[0][0]
+    issues = {f"{dom} gagne": p1n2[0], "Match nul": p1n2[1], f"{ext} gagne": p1n2[2]}
     favori, chance = max(issues.items(), key=lambda x: x[1])
     score, p_score = scores_probables(mat, 1)[0]
     with st.container(border=True):
@@ -26,27 +48,34 @@ def carte(match: dict, cle: str, cotes: dict | None = None) -> None:
         st.markdown(f"**{dom} – {ext}**" + (f"  ·  {quand}" if quand else ""))
         st.markdown(f"Pronostic : **{favori}** ({chance:.0%})"
                     + ("  ·  match serré" if chance < 0.45 else ""))
-        st.caption(f"{dom} {issues[f'{dom} gagne']:.0%} · nul {issues['Match nul']:.0%} · {ext} {issues[f'{ext} gagne']:.0%}"
+        st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"
                    f"  —  score le plus probable **{score}** ({p_score:.0%})"
-                   f"  —  plus de 2,5 buts {p['Total buts 2.5']['Plus']:.0%}"
+                   f"  —  plus de 2,5 buts {plus25:.0%}"
                    f"  —  les 2 équipes marquent {p['Les deux équipes marquent']['Oui']:.0%}")
+        if avec_marche:
+            st.badge("Modèle + cotes du marché", icon=":material/insights:", color="green",
+                     help="Pronostic = 25 % modèle Kateni + 75 % cotes du marché (Bet365, marge retirée). "
+                          "Mesuré sur 5 252 matchs : 50,9 % de bons pronostics contre 49,4 % pour le modèle seul.")
+        else:
+            st.badge("Modèle seul (cotes pas encore publiées)", icon=":material/functions:", color="gray")
         with st.expander("Détail du pronostic"):
+            if avec_marche:
+                st.markdown(
+                    f"- **Modèle Kateni seul** : {dom} {modele_1n2[0]:.0%} · nul {modele_1n2[1]:.0%} · {ext} "
+                    f"{modele_1n2[2]:.0%}\n"
+                    f"- **Marché** (Bet365 {fr(c1)} / {fr(cn)} / {fr(c2)}, marge retirée) : {dom} "
+                    f"{marche_1n2[0]:.0%} · nul {marche_1n2[1]:.0%} · {ext} {marche_1n2[2]:.0%}")
             st.markdown(
-                f"- **Double chance** : {dom} ou nul {p['Double chance']['1N']:.0%} · {dom} ou {ext} "
+                f"- **Double chance** (modèle) : {dom} ou nul {p['Double chance']['1N']:.0%} · {dom} ou {ext} "
                 f"{p['Double chance']['12']:.0%} · nul ou {ext} {p['Double chance']['N2']:.0%}\n"
-                f"- **Nombre de buts** : plus de 1,5 {p['Total buts 1.5']['Plus']:.0%} · plus de 2,5 "
+                f"- **Nombre de buts** (modèle) : plus de 1,5 {p['Total buts 1.5']['Plus']:.0%} · plus de 2,5 "
                 f"{p['Total buts 2.5']['Plus']:.0%} · plus de 3,5 {p['Total buts 3.5']['Plus']:.0%}\n"
                 f"- **Les 2 équipes marquent** : oui {p['Les deux équipes marquent']['Oui']:.0%} · non "
                 f"{p['Les deux équipes marquent']['Non']:.0%}\n"
                 f"- **Buts attendus** : {dom} {fr(ld)} – {fr(le)} {ext}\n"
                 "- **Scores les plus probables** : "
                 + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 5)))
-            if cotes and all(pd.notna(cotes.get(k)) for k in ("B365H", "B365D", "B365A")):
-                pm = sans_marge([cotes["B365H"], cotes["B365D"], cotes["B365A"]])[0]
-                st.caption(f"Pour comparaison, les cotes du marché (Bet365 : {fr(cotes['B365H'])} / "
-                           f"{fr(cotes['B365D'])} / {fr(cotes['B365A'])}) donnent {dom} {pm[0]:.0%} · nul "
-                           f"{pm[1]:.0%} · {ext} {pm[2]:.0%}.")
-            st.caption(f"Calcul : {nom_modele}.")
+            st.caption(f"Calcul du modèle : {nom_modele}.")
             if st.button("Comparer avec mes cotes Betclic", key=f"cmp_{cle}", icon=":material/compare_arrows:"):
                 st.session_state["match_envoye"] = {k: match[k] for k in ("competition", "dom", "ext", "date")}
                 st.switch_page("app_pages/avant_match.py")

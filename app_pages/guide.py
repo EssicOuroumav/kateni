@@ -14,7 +14,11 @@ with st.container(border=True):
         "3. Ouvre **Détail du pronostic** pour tout voir (double chance, nombre de buts, 5 scores probables).\n"
         "4. **Simuler un match** : n'importe quelle affiche du championnat, même hors calendrier.\n\n"
         "Pour chaque championnat, Kateni utilise le modèle qui a le mieux prédit depuis août 2025 "
-        "(ton modèle d'origine en Premier League, Ligue 1, Belgique et Turquie, le modèle global ailleurs).")
+        "(ton modèle d'origine en Premier League, Ligue 1, Belgique et Turquie, le modèle global ailleurs).\n\n"
+        "**Badge vert « Modèle + cotes du marché »** : quand les cotes sont publiées (en général 2 à 3 jours "
+        "avant le match), le pronostic mélange le modèle (25 %) et les cotes (75 %). Sur 5 252 matchs de "
+        "2025-26, cela donne 50,9 % de bons pronostics, contre 49,4 % pour le modèle seul. Le détail montre "
+        "les deux séparément.")
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
 
 with st.container(border=True):
