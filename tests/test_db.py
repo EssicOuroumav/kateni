@@ -90,3 +90,14 @@ def test_outil_presse_papiers(tmp_path):
     conf = lire_config({}, f)
     assert url_base(conf, "prod") == PROD and url_base(conf, "test") == TEST
     assert oct(f.stat().st_mode)[-3:] == "600"
+
+
+def test_bloc_cloud_production_seulement():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("sc", "scripts/secrets_cloud.py")
+    sc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(sc)
+    bloc = sc.bloc_cloud({"url": PROD, "url_test": TEST})
+    assert PROD in bloc and TEST not in bloc and 'cible = "prod"' in bloc
+    with pytest.raises(ConfigurationBase):
+        sc.bloc_cloud({"url": "postgresql://u:p@HOTE-pooler.REGION.aws.neon.tech/neondb"})

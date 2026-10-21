@@ -50,13 +50,13 @@ def store():
     except ConfigurationBase as e:
         st.error(f"Kateni n'est pas relié à Neon. {e}", icon=":material/database_off:")
         st.markdown(
-            "1. Crée le projet `kateni` sur neon.com, avec une branche `test`.\n"
-            "2. Dans le Terminal : `cd ~/Documents/Kateni && cp .streamlit/secrets.toml.exemple "
-            ".streamlit/secrets.toml && chmod 600 .streamlit/secrets.toml && open -e .streamlit/secrets.toml`\n"
-            "3. Colle l'adresse de `main` sur la ligne `url` et celle de `test` sur `url_test`, enregistre, "
-            "puis relance Kateni.\n\n"
-            "Les pages Avant-match et Live restent utilisables pour consulter les probabilités ; "
-            "l'enregistrement des paris est bloqué tant que Neon n'est pas relié.")
+            "**Sur le Mac** : dans Neon, ouvre la branche, clique sur Connect, puis Show password et "
+            "Copy snippet, puis lance dans le Terminal "
+            "`python3 ~/Documents/Kateni/scripts/neon_connexion.py production` "
+            "(et `… test` pour la branche test). Relance ensuite Kateni.\n\n"
+            "**En ligne (Streamlit Cloud)** : dans les réglages de l'app, rubrique Secrets, colle le bloc "
+            "copié par `python3 ~/Documents/Kateni/scripts/secrets_cloud.py`.\n\n"
+            "Avant-match et Live restent utilisables ; seul l'enregistrement des paris est bloqué.")
         st.stop()
 
 

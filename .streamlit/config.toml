@@ -1,7 +1,7 @@
 [server]
 # L'adresse d'écoute « localhost » est imposée par le lanceur du Mac (Lancer_Kateni.command,
 # --server.address=localhost) et non ici : sur Streamlit Cloud, l'app doit écouter normalement.
-port = 8501
+# Pas de port ici non plus : Streamlit Cloud impose le sien (8501 reste le défaut sur le Mac).
 headless = true
 
 [browser]
