@@ -135,3 +135,20 @@ def test_meilleur_modele_par_championnat():
     assert "origine" in predire({"competition": "PL", "dom": "Arsenal", "ext": "Chelsea"})[3]
     assert "global" in predire({"competition": "LIGA", "dom": "Barcelona", "ext": "Real Madrid"})[3]
     assert "global" in predire({"competition": "CL", "dom": "Paris SG", "ext": "Barcelona"})[3]
+
+
+def test_maj_europe_ne_vide_jamais_le_calendrier(tmp_path, monkeypatch):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("me", "scripts/maj_europe.py")
+    me = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(me)
+    (tmp_path / "a_venir.csv").write_text("competition,Date,HomeTeam,AwayTeam\nCL,2026-11-03,A,B\n")
+    (tmp_path / "buts_minutes.csv").write_text("minute\n" + "10\n" * 5)
+    monkeypatch.setattr(me, "RACINE", tmp_path)
+
+    def refus(titre):
+        raise OSError("HTTP Error 429: Too Many Requests")
+    monkeypatch.setattr(me, "wikitexte", refus)
+    me.main()
+    assert "A,B" in (tmp_path / "a_venir.csv").read_text()          # calendrier conservé
+    assert len((tmp_path / "buts_minutes.csv").read_text().splitlines()) == 6  # minutes conservées

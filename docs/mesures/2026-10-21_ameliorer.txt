@@ -1,0 +1,70 @@
+Réglage : 4863 matchs (2024-25) · Test : 5882 matchs (2025-26 et début 2026-27)
+
+  demi-vie 180 j · xG 0.0 · rappel 1.0 : 1.0067
+  demi-vie 180 j · xG 0.0 · rappel 3.0 : 1.0079
+  demi-vie 180 j · xG 0.0 · rappel 8.0 : 1.0132
+  demi-vie 180 j · xG 0.5 · rappel 1.0 : 1.0045
+  demi-vie 180 j · xG 0.5 · rappel 3.0 : 1.0061
+  demi-vie 180 j · xG 0.5 · rappel 8.0 : 1.0121
+  demi-vie 180 j · xG 0.8 · rappel 1.0 : 1.0040
+  demi-vie 180 j · xG 0.8 · rappel 3.0 : 1.0057
+  demi-vie 180 j · xG 0.8 · rappel 8.0 : 1.0119
+  demi-vie 270 j · xG 0.0 · rappel 1.0 : 1.0061
+  demi-vie 270 j · xG 0.0 · rappel 3.0 : 1.0071
+  demi-vie 270 j · xG 0.0 · rappel 8.0 : 1.0119
+  demi-vie 270 j · xG 0.5 · rappel 1.0 : 1.0043
+  demi-vie 270 j · xG 0.5 · rappel 3.0 : 1.0055
+  demi-vie 270 j · xG 0.5 · rappel 8.0 : 1.0108
+  demi-vie 270 j · xG 0.8 · rappel 1.0 : 1.0038
+  demi-vie 270 j · xG 0.8 · rappel 3.0 : 1.0051
+  demi-vie 270 j · xG 0.8 · rappel 8.0 : 1.0105
+  demi-vie 365 j · xG 0.0 · rappel 1.0 : 1.0064
+  demi-vie 365 j · xG 0.0 · rappel 3.0 : 1.0071
+  demi-vie 365 j · xG 0.0 · rappel 8.0 : 1.0114
+  demi-vie 365 j · xG 0.5 · rappel 1.0 : 1.0047
+  demi-vie 365 j · xG 0.5 · rappel 3.0 : 1.0056
+  demi-vie 365 j · xG 0.5 · rappel 8.0 : 1.0103
+  demi-vie 365 j · xG 0.8 · rappel 1.0 : 1.0043
+  demi-vie 365 j · xG 0.8 · rappel 3.0 : 1.0053
+  demi-vie 365 j · xG 0.8 · rappel 8.0 : 1.0100
+  demi-vie 540 j · xG 0.0 · rappel 1.0 : 1.0072
+  demi-vie 540 j · xG 0.0 · rappel 3.0 : 1.0076
+  demi-vie 540 j · xG 0.0 · rappel 8.0 : 1.0113
+  demi-vie 540 j · xG 0.5 · rappel 1.0 : 1.0057
+  demi-vie 540 j · xG 0.5 · rappel 3.0 : 1.0062
+  demi-vie 540 j · xG 0.5 · rappel 8.0 : 1.0101
+  demi-vie 540 j · xG 0.8 · rappel 1.0 : 1.0053
+  demi-vie 540 j · xG 0.8 · rappel 3.0 : 1.0058
+  demi-vie 540 j · xG 0.8 · rappel 8.0 : 1.0098
+-> réglage retenu : demi-vie 270 j, poids xG 0.8, rappel 1.0  (326 s)
+
+-> matchs nuls : rho -0.06, facteur nul +3%
+-> correction de confiance : exposant 1.012
+-> poids du modèle d'origine par championnat : {'PL': 0.0, 'LIGA': 0.3, 'L1': 0.6, 'SA': 0.0, 'BL': 0.2, 'POR': 0.8, 'TUR': 0.6, 'BEL': 0.2, 'NED': 0.3, 'CHAMP': 1.0, 'LIGA2': 0.0, 'L2': 1.0, 'MLS': 0.0}
+
+Mesure finale sur la période de test (399 s écoulées)…
+
+                          Version Bons pronostics 1N2 Log loss 1N2  Log loss (matchs avec cotes)
+             Avant (app actuelle)               49.3%       1.0139                        1.0098
+      V2 réglé + nuls + confiance               49.6%       1.0144                        1.0106
+Après (combinaison V1 + V2 réglé)               49.2%       1.0162                        1.0126
+      Cotes du marché (référence)               51.3%            –                        0.9933
+
+Par championnat (log loss 1N2, période de test) :
+        avant   apres        gain
+c                                
+BEL    1.0089  1.0099  moins bien
+BL     0.9689  0.9707  moins bien
+CHAMP  1.0680  1.0817  moins bien
+L1     0.9856  0.9833       mieux
+L2     1.0787  1.0854  moins bien
+LIGA   0.9673  0.9651       mieux
+LIGA2  1.0490  1.0509  moins bien
+MLS    1.0501  1.0486       mieux
+NED    0.9919  0.9905       mieux
+PL     1.0235  1.0317  moins bien
+POR    0.9339  0.9324       mieux
+SA     0.9843  0.9851  moins bien
+TUR    0.9966  0.9949       mieux
+
+Réglages candidats écrits dans reglages_modele_candidat.json (458 s au total)

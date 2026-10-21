@@ -1,291 +1,800 @@
-competition,Date,HomeTeam,AwayTeam,equipe,minute
-CL,2026-09-08,AEK Athens,LASK,H,21
-CL,2026-09-08,Club Brugge,Aston Villa,H,19
-CL,2026-09-08,Club Brugge,Aston Villa,H,61
-CL,2026-09-08,Club Brugge,Aston Villa,A,11
-CL,2026-09-08,Club Brugge,Aston Villa,A,22
-CL,2026-09-08,Club Brugge,Aston Villa,A,43
-CL,2026-09-08,Borussia Dortmund,Villarreal,H,53
-CL,2026-09-08,Borussia Dortmund,Villarreal,H,80
-CL,2026-09-08,Borussia Dortmund,Villarreal,H,85
-CL,2026-09-08,Borussia Dortmund,Villarreal,A,66
-CL,2026-09-08,Borussia Dortmund,Villarreal,A,90
-CL,2026-09-08,Porto,Manchester City,A,47
-CL,2026-09-08,Porto,Manchester City,A,90
-CL,2026-09-08,Lille,Real Betis,H,12
-CL,2026-09-08,Lille,Real Betis,H,36
-CL,2026-09-08,Lille,Real Betis,A,33
-CL,2026-09-08,Lille,Real Betis,A,49
-CL,2026-09-08,Lille,Real Betis,A,53
-CL,2026-09-08,Real Madrid,Inter Milan,H,14
-CL,2026-09-08,Real Madrid,Inter Milan,H,23
-CL,2026-09-08,Real Madrid,Inter Milan,A,77
-CL,2026-09-09,Barcelona,Feyenoord,H,3
-CL,2026-09-09,Barcelona,Feyenoord,H,57
-CL,2026-09-09,Barcelona,Feyenoord,H,22
-CL,2026-09-09,Barcelona,Feyenoord,H,77
-CL,2026-09-09,Barcelona,Feyenoord,H,85
-CL,2026-09-09,Barcelona,Feyenoord,A,82
-CL,2026-09-09,VfB Stuttgart,Viking,H,20
-CL,2026-09-09,VfB Stuttgart,Viking,H,26
-CL,2026-09-09,VfB Stuttgart,Viking,H,32
-CL,2026-09-09,VfB Stuttgart,Viking,A,22
-CL,2026-09-09,Liverpool,Atlético Madrid,H,40
-CL,2026-09-09,Liverpool,Atlético Madrid,H,50
-CL,2026-09-09,Liverpool,Atlético Madrid,A,17
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,17
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,23
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,31
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,47
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,57
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,88
-CL,2026-09-09,Paris Saint-Germain,Slovan Bratislava,A,59
-CL,2026-09-09,Sporting CP,Galatasaray,H,27
-CL,2026-09-09,Sporting CP,Galatasaray,H,57
-CL,2026-09-09,Sporting CP,Galatasaray,H,63
-CL,2026-09-09,Sporting CP,Galatasaray,A,5
-CL,2026-09-09,Napoli,Arsenal,A,75
-CL,2026-09-10,Fenerbahçe,Roma,H,48
-CL,2026-09-10,Fenerbahçe,Roma,A,39
-CL,2026-09-10,PSV Eindhoven,Shakhtar Donetsk,H,48
-CL,2026-09-10,PSV Eindhoven,Shakhtar Donetsk,A,45
-CL,2026-09-10,Como,RB Leipzig,H,15
-CL,2026-09-10,Como,RB Leipzig,H,38
-CL,2026-09-10,Como,RB Leipzig,H,54
-CL,2026-09-10,Como,RB Leipzig,H,90
-CL,2026-09-10,Como,RB Leipzig,A,58
-CL,2026-09-10,Bayern Munich,Bodø/Glimt,H,47
-CL,2026-09-10,Bayern Munich,Bodø/Glimt,H,61
-CL,2026-09-10,Bayern Munich,Bodø/Glimt,H,77
-CL,2026-09-10,Bayern Munich,Bodø/Glimt,H,83
-CL,2026-09-10,Bayern Munich,Bodø/Glimt,H,90
-CL,2026-09-10,Manchester United,Sabah,H,27
-CL,2026-09-10,Manchester United,Sabah,H,42
-CL,2026-09-10,Manchester United,Sabah,H,45
-CL,2026-09-10,Manchester United,Sabah,H,68
-CL,2026-09-10,Slavia Prague,Lens,H,51
-CL,2026-09-10,Slavia Prague,Lens,H,88
-CL,2026-09-10,Slavia Prague,Lens,A,73
-CL,2026-09-10,Slavia Prague,Lens,A,90
-CL,2026-09-10,Slavia Prague,Lens,A,90
-CL,2026-10-13,Lens,Sporting CP,A,22
-CL,2026-10-13,Lens,Sporting CP,A,74
-CL,2026-10-13,Sabah,Slavia Prague,H,49
-CL,2026-10-13,Sabah,Slavia Prague,H,88
-CL,2026-10-13,Arsenal,Lille,H,64
-CL,2026-10-13,Arsenal,Lille,H,67
-CL,2026-10-13,Arsenal,Lille,H,71
-CL,2026-10-13,Atlético Madrid,Manchester United,H,1
-CL,2026-10-13,Atlético Madrid,Manchester United,H,79
-CL,2026-10-13,Inter Milan,Club Brugge,H,44
-CL,2026-10-13,Inter Milan,Club Brugge,H,81
-CL,2026-10-13,Inter Milan,Club Brugge,H,90
-CL,2026-10-13,Inter Milan,Club Brugge,A,30
-CL,2026-10-13,Inter Milan,Club Brugge,A,63
-CL,2026-10-13,Inter Milan,Club Brugge,A,74
-CL,2026-10-13,Inter Milan,Club Brugge,A,87
-CL,2026-10-13,Galatasaray,Barcelona,H,28
-CL,2026-10-13,Galatasaray,Barcelona,A,43
-CL,2026-10-13,Galatasaray,Barcelona,A,50
-CL,2026-10-13,Galatasaray,Barcelona,A,53
-CL,2026-10-13,Galatasaray,Barcelona,A,65
-CL,2026-10-13,RB Leipzig,PSV Eindhoven,H,75
-CL,2026-10-13,Viking,Bayern Munich,H,2
-CL,2026-10-13,Viking,Bayern Munich,H,38
-CL,2026-10-13,Viking,Bayern Munich,H,90
-CL,2026-10-13,Viking,Bayern Munich,A,54
-CL,2026-10-13,Viking,Bayern Munich,A,60
-CL,2026-10-13,Viking,Bayern Munich,A,71
-CL,2026-10-13,Villarreal,Napoli,H,23
-CL,2026-10-13,Villarreal,Napoli,H,26
-CL,2026-10-13,Villarreal,Napoli,H,86
-CL,2026-10-13,Villarreal,Napoli,A,8
-CL,2026-10-14,Feyenoord,Como,H,20
-CL,2026-10-14,Feyenoord,Como,H,52
-CL,2026-10-14,Feyenoord,Como,H,81
-CL,2026-10-14,Feyenoord,Como,A,18
-CL,2026-10-14,Feyenoord,Como,A,90
-CL,2026-10-14,LASK,Liverpool,H,63
-CL,2026-10-14,LASK,Liverpool,H,74
-CL,2026-10-14,LASK,Liverpool,H,77
-CL,2026-10-14,LASK,Liverpool,A,22
-CL,2026-10-14,LASK,Liverpool,A,24
-CL,2026-10-14,LASK,Liverpool,A,37
-CL,2026-10-14,LASK,Liverpool,A,66
-CL,2026-10-14,LASK,Liverpool,A,51
-CL,2026-10-14,LASK,Liverpool,A,72
-CL,2026-10-14,Roma,Real Madrid,H,20
-CL,2026-10-14,Roma,Real Madrid,H,51
-CL,2026-10-14,Roma,Real Madrid,H,57
-CL,2026-10-14,Roma,Real Madrid,A,25
-CL,2026-10-14,Roma,Real Madrid,A,82
-CL,2026-10-14,Roma,Real Madrid,A,85
-CL,2026-10-14,Roma,Real Madrid,A,90
-CL,2026-10-14,Aston Villa,Fenerbahçe,H,12
-CL,2026-10-14,Aston Villa,Fenerbahçe,H,31
-CL,2026-10-14,Aston Villa,Fenerbahçe,H,39
-CL,2026-10-14,Aston Villa,Fenerbahçe,H,68
-CL,2026-10-14,Aston Villa,Fenerbahçe,H,72
-CL,2026-10-14,Aston Villa,Fenerbahçe,H,90
-CL,2026-10-14,Shakhtar Donetsk,AEK Athens,H,34
-CL,2026-10-14,Shakhtar Donetsk,AEK Athens,H,80
-CL,2026-10-14,Shakhtar Donetsk,AEK Athens,H,86
-CL,2026-10-14,Shakhtar Donetsk,AEK Athens,A,28
-CL,2026-10-14,Bodø/Glimt,Borussia Dortmund,H,52
-CL,2026-10-14,Manchester City,Paris Saint-Germain,H,53
-CL,2026-10-14,Manchester City,Paris Saint-Germain,H,75
-CL,2026-10-14,Manchester City,Paris Saint-Germain,A,13
-CL,2026-10-14,Manchester City,Paris Saint-Germain,A,15
-CL,2026-10-14,Manchester City,Paris Saint-Germain,A,32
-CL,2026-10-14,Manchester City,Paris Saint-Germain,A,63
-CL,2026-10-14,Real Betis,Porto,H,47
-CL,2026-10-14,Real Betis,Porto,H,74
-CL,2026-10-14,Real Betis,Porto,H,84
-CL,2026-10-14,Real Betis,Porto,A,54
-CL,2026-10-14,Real Betis,Porto,A,61
-CL,2026-10-14,Slovan Bratislava,VfB Stuttgart,A,29
-CL,2026-10-14,Slovan Bratislava,VfB Stuttgart,A,65
-CL,2026-10-14,Slovan Bratislava,VfB Stuttgart,A,90
-CL,2026-10-20,Fenerbahçe,Slavia Prague,H,4
-CL,2026-10-20,Fenerbahçe,Slavia Prague,H,11
-CL,2026-10-20,Fenerbahçe,Slavia Prague,A,15
-CL,2026-10-20,Fenerbahçe,Slavia Prague,A,90
-CL,2026-10-20,Sabah,Borussia Dortmund,H,39
-CL,2026-10-20,Sabah,Borussia Dortmund,A,10
-CL,2026-10-20,Sabah,Borussia Dortmund,A,53
-CL,2026-10-20,Roma,Slovan Bratislava,H,21
-CL,2026-10-20,Roma,Slovan Bratislava,H,39
-CL,2026-10-20,Roma,Slovan Bratislava,H,52
-CL,2026-10-20,Roma,Slovan Bratislava,H,58
-CL,2026-10-20,Porto,PSV Eindhoven,A,57
-CL,2026-10-20,Liverpool,Villarreal,H,36
-CL,2026-10-20,Liverpool,Villarreal,H,65
-CL,2026-10-20,Liverpool,Villarreal,H,45
-CL,2026-10-20,Liverpool,Villarreal,H,69
-CL,2026-10-20,Liverpool,Villarreal,A,4
-CL,2026-10-20,Liverpool,Villarreal,A,29
-CL,2026-10-20,Liverpool,Villarreal,A,87
-CL,2026-10-20,Manchester City,AEK Athens,H,12
-CL,2026-10-20,Manchester City,AEK Athens,H,34
-CL,2026-10-20,Manchester City,AEK Athens,H,65
-CL,2026-10-20,Manchester City,AEK Athens,H,76
-CL,2026-10-20,Manchester City,AEK Athens,H,57
-CL,2026-10-20,Manchester City,AEK Athens,A,52
-CL,2026-10-20,Paris Saint-Germain,Barcelona,H,38
-CL,2026-10-20,Paris Saint-Germain,Barcelona,H,72
-CL,2026-10-20,Paris Saint-Germain,Barcelona,H,81
-CL,2026-10-20,Paris Saint-Germain,Barcelona,H,86
-CL,2026-10-20,Paris Saint-Germain,Barcelona,A,55
-CL,2026-10-20,Paris Saint-Germain,Barcelona,A,79
-CL,2026-10-20,Napoli,Bodø/Glimt,H,1
-CL,2026-10-20,Napoli,Bodø/Glimt,H,41
-CL,2026-10-20,Napoli,Bodø/Glimt,H,75
-CL,2026-10-20,Napoli,Bodø/Glimt,H,88
-CL,2026-10-20,Napoli,Bodø/Glimt,A,27
-CL,2026-10-20,Napoli,Bodø/Glimt,A,62
-CL,2026-10-20,Napoli,Bodø/Glimt,A,90
-CL,2026-10-20,VfB Stuttgart,Atlético Madrid,H,36
-CL,2026-10-20,VfB Stuttgart,Atlético Madrid,A,47
-EL,2026-09-16,Ararat-Armenia,Sparta Prague,H,55
-EL,2026-09-16,Ararat-Armenia,Sparta Prague,A,20
-EL,2026-09-16,Ararat-Armenia,Sparta Prague,A,22
-EL,2026-09-16,Ararat-Armenia,Sparta Prague,A,53
-EL,2026-09-16,Ararat-Armenia,Sparta Prague,A,71
-EL,2026-09-16,Omonia,Celta Vigo,H,88
-EL,2026-09-16,Milan,Benfica,A,16
-EL,2026-09-16,Milan,Benfica,A,53
-EL,2026-09-16,Bayer Leverkusen,Celje,H,15
-EL,2026-09-16,Bayer Leverkusen,Celje,H,74
-EL,2026-09-16,Olympiacos,Jagiellonia Białystok,H,43
-EL,2026-09-16,Olympiacos,Jagiellonia Białystok,H,84
-EL,2026-09-16,Olympiacos,Jagiellonia Białystok,A,20
-EL,2026-09-16,Anderlecht,Lyon,H,61
-EL,2026-09-16,Anderlecht,Lyon,A,8
-EL,2026-09-16,Anderlecht,Lyon,A,22
-EL,2026-09-16,Sunderland,AZ,H,66
-EL,2026-09-17,OFI,TSG Hoffenheim,H,30
-EL,2026-09-17,OFI,TSG Hoffenheim,H,84
-EL,2026-09-17,Levski Sofia,Red Bull Salzburg,A,39
-EL,2026-09-17,Beşiktaş,Marseille,H,15
-EL,2026-09-17,Beşiktaş,Marseille,H,56
-EL,2026-09-17,Beşiktaş,Marseille,H,59
-EL,2026-09-17,Beşiktaş,Marseille,H,81
-EL,2026-09-17,Beşiktaş,Marseille,A,30
-EL,2026-09-17,Celtic,Ferencváros,H,44
-EL,2026-09-17,Celtic,Ferencváros,A,20
-EL,2026-09-17,Celtic,Ferencváros,A,45
-EL,2026-09-17,Celtic,Ferencváros,A,47
-EL,2026-09-17,Crystal Palace,Lech Poznań,H,10
-EL,2026-09-17,Crystal Palace,Lech Poznań,H,27
-EL,2026-09-17,Crystal Palace,Lech Poznań,H,34
-EL,2026-09-17,Crystal Palace,Lech Poznań,H,89
-EL,2026-09-17,Viktoria Plzeň,Union Saint-Gilloise,A,18
-EL,2026-09-17,Viktoria Plzeň,Union Saint-Gilloise,A,43
-EL,2026-09-17,Viktoria Plzeň,Union Saint-Gilloise,A,59
-EL,2026-09-17,Juventus,NEC,H,9
-EL,2026-09-17,Juventus,NEC,H,24
-EL,2026-09-17,Juventus,NEC,H,35
-EL,2026-09-17,Juventus,NEC,H,75
-EL,2026-09-17,Juventus,NEC,H,82
-EL,2026-09-17,Lillestrøm,Torreense,H,79
-EL,2026-09-17,Lillestrøm,Torreense,A,23
-EL,2026-09-17,Lillestrøm,Torreense,A,49
-EL,2026-09-17,Real Sociedad,Bournemouth,H,57
-EL,2026-09-17,Real Sociedad,Bournemouth,A,11
-EL,2026-09-17,Real Sociedad,Bournemouth,A,20
-EL,2026-10-15,Sparta Prague,Lillestrøm,H,56
-EL,2026-10-15,Sparta Prague,Lillestrøm,A,90
-EL,2026-10-15,AZ,Hapoel Be'er Sheva,H,49
-EL,2026-10-15,AZ,Hapoel Be'er Sheva,H,77
-EL,2026-10-15,AZ,Hapoel Be'er Sheva,A,55
-EL,2026-10-15,Red Bull Salzburg,Milan,A,15
-EL,2026-10-15,Red Bull Salzburg,Milan,A,32
-EL,2026-10-15,Red Bull Salzburg,Milan,A,49
-EL,2026-10-15,Red Bull Salzburg,Milan,A,72
-EL,2026-10-15,Lech Poznań,Bayer Leverkusen,A,29
-EL,2026-10-15,Lech Poznań,Bayer Leverkusen,A,41
-EL,2026-10-15,Lech Poznań,Bayer Leverkusen,A,32
-EL,2026-10-15,Lech Poznań,Bayer Leverkusen,A,89
-EL,2026-10-15,Celje,Omonia,A,17
-EL,2026-10-15,Celje,Omonia,A,59
-EL,2026-10-15,Celje,Omonia,A,85
-EL,2026-10-15,Lyon,Crystal Palace,H,8
-EL,2026-10-15,Lyon,Crystal Palace,H,45
-EL,2026-10-15,Lyon,Crystal Palace,H,76
-EL,2026-10-15,Lyon,Crystal Palace,A,50
-EL,2026-10-15,Lyon,Crystal Palace,A,81
-EL,2026-10-15,Union Saint-Gilloise,Real Sociedad,H,88
-EL,2026-10-15,Union Saint-Gilloise,Real Sociedad,A,46
-EL,2026-10-15,Torreense,Sunderland,H,37
-EL,2026-10-15,Torreense,Sunderland,A,67
-EL,2026-10-15,Torreense,Sunderland,A,90
-EL,2026-10-15,Bournemouth,Sturm Graz,H,43
-EL,2026-10-15,Bournemouth,Sturm Graz,H,76
-EL,2026-10-15,Bournemouth,Sturm Graz,H,90
-EL,2026-10-15,Ferencváros,Viktoria Plzeň,H,49
-EL,2026-10-15,Ferencváros,Viktoria Plzeň,H,81
-EL,2026-10-15,Ferencváros,Viktoria Plzeň,A,90
-EL,2026-10-15,Dinamo Zagreb,Anderlecht,H,90
-EL,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,H,13
-EL,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,H,38
-EL,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,H,51
-EL,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,A,11
-EL,2026-10-15,NEC,Levski Sofia,H,64
-EL,2026-10-15,NEC,Levski Sofia,A,35
-EL,2026-10-15,Marseille,Olympiacos,A,42
-EL,2026-10-15,Celta Vigo,Juventus,H,18
-EL,2026-10-15,Celta Vigo,Juventus,A,58
-EL,2026-10-15,Celta Vigo,Juventus,A,90
-EL,2026-10-15,Benfica,Celtic,H,5
-EL,2026-10-15,Benfica,Celtic,H,36
-EL,2026-10-15,Benfica,Celtic,H,23
-EL,2026-10-15,Benfica,Celtic,H,89
-EL,2026-10-15,Benfica,Celtic,A,63
-EL,2026-10-15,Rennes,OFI,H,76
-EL,2026-10-15,Rennes,OFI,H,90
-EL,2026-10-15,Rennes,OFI,A,10
-EL,2026-10-15,TSG Hoffenheim,Beşiktaş,H,68
-EL,2026-10-15,TSG Hoffenheim,Beşiktaş,H,88
-EL,2026-10-15,TSG Hoffenheim,Beşiktaş,A,60
-EL,2026-10-15,TSG Hoffenheim,Beşiktaş,A,72
-EL,2026-10-15,TSG Hoffenheim,Beşiktaş,A,79
+competition,Saison,Date,HomeTeam,AwayTeam,equipe,minute
+CL,2026-27,2026-09-08,AEK Athens,LASK,H,21
+CL,2026-27,2026-09-08,Club Brugge,Aston Villa,H,19
+CL,2026-27,2026-09-08,Club Brugge,Aston Villa,H,61
+CL,2026-27,2026-09-08,Club Brugge,Aston Villa,A,11
+CL,2026-27,2026-09-08,Club Brugge,Aston Villa,A,22
+CL,2026-27,2026-09-08,Club Brugge,Aston Villa,A,43
+CL,2026-27,2026-09-08,Borussia Dortmund,Villarreal,H,53
+CL,2026-27,2026-09-08,Borussia Dortmund,Villarreal,H,80
+CL,2026-27,2026-09-08,Borussia Dortmund,Villarreal,H,85
+CL,2026-27,2026-09-08,Borussia Dortmund,Villarreal,A,66
+CL,2026-27,2026-09-08,Borussia Dortmund,Villarreal,A,90
+CL,2026-27,2026-09-08,Porto,Manchester City,A,47
+CL,2026-27,2026-09-08,Porto,Manchester City,A,90
+CL,2026-27,2026-09-08,Lille,Real Betis,H,12
+CL,2026-27,2026-09-08,Lille,Real Betis,H,36
+CL,2026-27,2026-09-08,Lille,Real Betis,A,33
+CL,2026-27,2026-09-08,Lille,Real Betis,A,49
+CL,2026-27,2026-09-08,Lille,Real Betis,A,53
+CL,2026-27,2026-09-08,Real Madrid,Inter Milan,H,14
+CL,2026-27,2026-09-08,Real Madrid,Inter Milan,H,23
+CL,2026-27,2026-09-08,Real Madrid,Inter Milan,A,77
+CL,2026-27,2026-09-09,Barcelona,Feyenoord,H,3
+CL,2026-27,2026-09-09,Barcelona,Feyenoord,H,57
+CL,2026-27,2026-09-09,Barcelona,Feyenoord,H,22
+CL,2026-27,2026-09-09,Barcelona,Feyenoord,H,77
+CL,2026-27,2026-09-09,Barcelona,Feyenoord,H,85
+CL,2026-27,2026-09-09,Barcelona,Feyenoord,A,82
+CL,2026-27,2026-09-09,VfB Stuttgart,Viking,H,20
+CL,2026-27,2026-09-09,VfB Stuttgart,Viking,H,26
+CL,2026-27,2026-09-09,VfB Stuttgart,Viking,H,32
+CL,2026-27,2026-09-09,VfB Stuttgart,Viking,A,22
+CL,2026-27,2026-09-09,Liverpool,Atlético Madrid,H,40
+CL,2026-27,2026-09-09,Liverpool,Atlético Madrid,H,50
+CL,2026-27,2026-09-09,Liverpool,Atlético Madrid,A,17
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,17
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,23
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,31
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,47
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,57
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,H,88
+CL,2026-27,2026-09-09,Paris Saint-Germain,Slovan Bratislava,A,59
+CL,2026-27,2026-09-09,Sporting CP,Galatasaray,H,27
+CL,2026-27,2026-09-09,Sporting CP,Galatasaray,H,57
+CL,2026-27,2026-09-09,Sporting CP,Galatasaray,H,63
+CL,2026-27,2026-09-09,Sporting CP,Galatasaray,A,5
+CL,2026-27,2026-09-09,Napoli,Arsenal,A,75
+CL,2026-27,2026-09-10,Fenerbahçe,Roma,H,48
+CL,2026-27,2026-09-10,Fenerbahçe,Roma,A,39
+CL,2026-27,2026-09-10,PSV Eindhoven,Shakhtar Donetsk,H,48
+CL,2026-27,2026-09-10,PSV Eindhoven,Shakhtar Donetsk,A,45
+CL,2026-27,2026-09-10,Como,RB Leipzig,H,15
+CL,2026-27,2026-09-10,Como,RB Leipzig,H,38
+CL,2026-27,2026-09-10,Como,RB Leipzig,H,54
+CL,2026-27,2026-09-10,Como,RB Leipzig,H,90
+CL,2026-27,2026-09-10,Como,RB Leipzig,A,58
+CL,2026-27,2026-09-10,Bayern Munich,Bodø/Glimt,H,47
+CL,2026-27,2026-09-10,Bayern Munich,Bodø/Glimt,H,61
+CL,2026-27,2026-09-10,Bayern Munich,Bodø/Glimt,H,77
+CL,2026-27,2026-09-10,Bayern Munich,Bodø/Glimt,H,83
+CL,2026-27,2026-09-10,Bayern Munich,Bodø/Glimt,H,90
+CL,2026-27,2026-09-10,Manchester United,Sabah,H,27
+CL,2026-27,2026-09-10,Manchester United,Sabah,H,42
+CL,2026-27,2026-09-10,Manchester United,Sabah,H,45
+CL,2026-27,2026-09-10,Manchester United,Sabah,H,68
+CL,2026-27,2026-09-10,Slavia Prague,Lens,H,51
+CL,2026-27,2026-09-10,Slavia Prague,Lens,H,88
+CL,2026-27,2026-09-10,Slavia Prague,Lens,A,73
+CL,2026-27,2026-09-10,Slavia Prague,Lens,A,90
+CL,2026-27,2026-09-10,Slavia Prague,Lens,A,90
+CL,2026-27,2026-10-13,Lens,Sporting CP,A,22
+CL,2026-27,2026-10-13,Lens,Sporting CP,A,74
+CL,2026-27,2026-10-13,Sabah,Slavia Prague,H,49
+CL,2026-27,2026-10-13,Sabah,Slavia Prague,H,88
+CL,2026-27,2026-10-13,Arsenal,Lille,H,64
+CL,2026-27,2026-10-13,Arsenal,Lille,H,67
+CL,2026-27,2026-10-13,Arsenal,Lille,H,71
+CL,2026-27,2026-10-13,Atlético Madrid,Manchester United,H,1
+CL,2026-27,2026-10-13,Atlético Madrid,Manchester United,H,79
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,H,44
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,H,81
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,H,90
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,A,30
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,A,63
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,A,74
+CL,2026-27,2026-10-13,Inter Milan,Club Brugge,A,87
+CL,2026-27,2026-10-13,Galatasaray,Barcelona,H,28
+CL,2026-27,2026-10-13,Galatasaray,Barcelona,A,43
+CL,2026-27,2026-10-13,Galatasaray,Barcelona,A,50
+CL,2026-27,2026-10-13,Galatasaray,Barcelona,A,53
+CL,2026-27,2026-10-13,Galatasaray,Barcelona,A,65
+CL,2026-27,2026-10-13,RB Leipzig,PSV Eindhoven,H,75
+CL,2026-27,2026-10-13,Viking,Bayern Munich,H,2
+CL,2026-27,2026-10-13,Viking,Bayern Munich,H,38
+CL,2026-27,2026-10-13,Viking,Bayern Munich,H,90
+CL,2026-27,2026-10-13,Viking,Bayern Munich,A,54
+CL,2026-27,2026-10-13,Viking,Bayern Munich,A,60
+CL,2026-27,2026-10-13,Viking,Bayern Munich,A,71
+CL,2026-27,2026-10-13,Villarreal,Napoli,H,23
+CL,2026-27,2026-10-13,Villarreal,Napoli,H,26
+CL,2026-27,2026-10-13,Villarreal,Napoli,H,86
+CL,2026-27,2026-10-13,Villarreal,Napoli,A,8
+CL,2026-27,2026-10-14,Feyenoord,Como,H,20
+CL,2026-27,2026-10-14,Feyenoord,Como,H,52
+CL,2026-27,2026-10-14,Feyenoord,Como,H,81
+CL,2026-27,2026-10-14,Feyenoord,Como,A,18
+CL,2026-27,2026-10-14,Feyenoord,Como,A,90
+CL,2026-27,2026-10-14,LASK,Liverpool,H,63
+CL,2026-27,2026-10-14,LASK,Liverpool,H,74
+CL,2026-27,2026-10-14,LASK,Liverpool,H,77
+CL,2026-27,2026-10-14,LASK,Liverpool,A,22
+CL,2026-27,2026-10-14,LASK,Liverpool,A,24
+CL,2026-27,2026-10-14,LASK,Liverpool,A,37
+CL,2026-27,2026-10-14,LASK,Liverpool,A,66
+CL,2026-27,2026-10-14,LASK,Liverpool,A,51
+CL,2026-27,2026-10-14,LASK,Liverpool,A,72
+CL,2026-27,2026-10-14,Roma,Real Madrid,H,20
+CL,2026-27,2026-10-14,Roma,Real Madrid,H,51
+CL,2026-27,2026-10-14,Roma,Real Madrid,H,57
+CL,2026-27,2026-10-14,Roma,Real Madrid,A,25
+CL,2026-27,2026-10-14,Roma,Real Madrid,A,82
+CL,2026-27,2026-10-14,Roma,Real Madrid,A,85
+CL,2026-27,2026-10-14,Roma,Real Madrid,A,90
+CL,2026-27,2026-10-14,Aston Villa,Fenerbahçe,H,12
+CL,2026-27,2026-10-14,Aston Villa,Fenerbahçe,H,31
+CL,2026-27,2026-10-14,Aston Villa,Fenerbahçe,H,39
+CL,2026-27,2026-10-14,Aston Villa,Fenerbahçe,H,68
+CL,2026-27,2026-10-14,Aston Villa,Fenerbahçe,H,72
+CL,2026-27,2026-10-14,Aston Villa,Fenerbahçe,H,90
+CL,2026-27,2026-10-14,Shakhtar Donetsk,AEK Athens,H,34
+CL,2026-27,2026-10-14,Shakhtar Donetsk,AEK Athens,H,80
+CL,2026-27,2026-10-14,Shakhtar Donetsk,AEK Athens,H,86
+CL,2026-27,2026-10-14,Shakhtar Donetsk,AEK Athens,A,28
+CL,2026-27,2026-10-14,Bodø/Glimt,Borussia Dortmund,H,52
+CL,2026-27,2026-10-14,Manchester City,Paris Saint-Germain,H,53
+CL,2026-27,2026-10-14,Manchester City,Paris Saint-Germain,H,75
+CL,2026-27,2026-10-14,Manchester City,Paris Saint-Germain,A,13
+CL,2026-27,2026-10-14,Manchester City,Paris Saint-Germain,A,15
+CL,2026-27,2026-10-14,Manchester City,Paris Saint-Germain,A,32
+CL,2026-27,2026-10-14,Manchester City,Paris Saint-Germain,A,63
+CL,2026-27,2026-10-14,Real Betis,Porto,H,47
+CL,2026-27,2026-10-14,Real Betis,Porto,H,74
+CL,2026-27,2026-10-14,Real Betis,Porto,H,84
+CL,2026-27,2026-10-14,Real Betis,Porto,A,54
+CL,2026-27,2026-10-14,Real Betis,Porto,A,61
+CL,2026-27,2026-10-14,Slovan Bratislava,VfB Stuttgart,A,29
+CL,2026-27,2026-10-14,Slovan Bratislava,VfB Stuttgart,A,65
+CL,2026-27,2026-10-14,Slovan Bratislava,VfB Stuttgart,A,90
+CL,2026-27,2026-10-20,Fenerbahçe,Slavia Prague,H,4
+CL,2026-27,2026-10-20,Fenerbahçe,Slavia Prague,H,11
+CL,2026-27,2026-10-20,Fenerbahçe,Slavia Prague,A,15
+CL,2026-27,2026-10-20,Fenerbahçe,Slavia Prague,A,90
+CL,2026-27,2026-10-20,Sabah,Borussia Dortmund,H,39
+CL,2026-27,2026-10-20,Sabah,Borussia Dortmund,A,10
+CL,2026-27,2026-10-20,Sabah,Borussia Dortmund,A,53
+CL,2026-27,2026-10-20,Roma,Slovan Bratislava,H,21
+CL,2026-27,2026-10-20,Roma,Slovan Bratislava,H,39
+CL,2026-27,2026-10-20,Roma,Slovan Bratislava,H,52
+CL,2026-27,2026-10-20,Roma,Slovan Bratislava,H,58
+CL,2026-27,2026-10-20,Porto,PSV Eindhoven,A,57
+CL,2026-27,2026-10-20,Liverpool,Villarreal,H,36
+CL,2026-27,2026-10-20,Liverpool,Villarreal,H,65
+CL,2026-27,2026-10-20,Liverpool,Villarreal,H,45
+CL,2026-27,2026-10-20,Liverpool,Villarreal,H,69
+CL,2026-27,2026-10-20,Liverpool,Villarreal,A,4
+CL,2026-27,2026-10-20,Liverpool,Villarreal,A,29
+CL,2026-27,2026-10-20,Liverpool,Villarreal,A,87
+CL,2026-27,2026-10-20,Manchester City,AEK Athens,H,12
+CL,2026-27,2026-10-20,Manchester City,AEK Athens,H,34
+CL,2026-27,2026-10-20,Manchester City,AEK Athens,H,65
+CL,2026-27,2026-10-20,Manchester City,AEK Athens,H,76
+CL,2026-27,2026-10-20,Manchester City,AEK Athens,H,57
+CL,2026-27,2026-10-20,Manchester City,AEK Athens,A,52
+CL,2026-27,2026-10-20,Paris Saint-Germain,Barcelona,H,38
+CL,2026-27,2026-10-20,Paris Saint-Germain,Barcelona,H,72
+CL,2026-27,2026-10-20,Paris Saint-Germain,Barcelona,H,81
+CL,2026-27,2026-10-20,Paris Saint-Germain,Barcelona,H,86
+CL,2026-27,2026-10-20,Paris Saint-Germain,Barcelona,A,55
+CL,2026-27,2026-10-20,Paris Saint-Germain,Barcelona,A,79
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,H,1
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,H,41
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,H,75
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,H,88
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,A,27
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,A,62
+CL,2026-27,2026-10-20,Napoli,Bodø/Glimt,A,90
+CL,2026-27,2026-10-20,VfB Stuttgart,Atlético Madrid,H,36
+CL,2026-27,2026-10-20,VfB Stuttgart,Atlético Madrid,A,47
+EL,2026-27,2026-09-16,Ararat-Armenia,Sparta Prague,H,55
+EL,2026-27,2026-09-16,Ararat-Armenia,Sparta Prague,A,20
+EL,2026-27,2026-09-16,Ararat-Armenia,Sparta Prague,A,22
+EL,2026-27,2026-09-16,Ararat-Armenia,Sparta Prague,A,53
+EL,2026-27,2026-09-16,Ararat-Armenia,Sparta Prague,A,71
+EL,2026-27,2026-09-16,Omonia,Celta Vigo,H,88
+EL,2026-27,2026-09-16,Milan,Benfica,A,16
+EL,2026-27,2026-09-16,Milan,Benfica,A,53
+EL,2026-27,2026-09-16,Bayer Leverkusen,Celje,H,15
+EL,2026-27,2026-09-16,Bayer Leverkusen,Celje,H,74
+EL,2026-27,2026-09-16,Olympiacos,Jagiellonia Białystok,H,43
+EL,2026-27,2026-09-16,Olympiacos,Jagiellonia Białystok,H,84
+EL,2026-27,2026-09-16,Olympiacos,Jagiellonia Białystok,A,20
+EL,2026-27,2026-09-16,Anderlecht,Lyon,H,61
+EL,2026-27,2026-09-16,Anderlecht,Lyon,A,8
+EL,2026-27,2026-09-16,Anderlecht,Lyon,A,22
+EL,2026-27,2026-09-16,Sunderland,AZ,H,66
+EL,2026-27,2026-09-17,OFI,TSG Hoffenheim,H,30
+EL,2026-27,2026-09-17,OFI,TSG Hoffenheim,H,84
+EL,2026-27,2026-09-17,Levski Sofia,Red Bull Salzburg,A,39
+EL,2026-27,2026-09-17,Beşiktaş,Marseille,H,15
+EL,2026-27,2026-09-17,Beşiktaş,Marseille,H,56
+EL,2026-27,2026-09-17,Beşiktaş,Marseille,H,59
+EL,2026-27,2026-09-17,Beşiktaş,Marseille,H,81
+EL,2026-27,2026-09-17,Beşiktaş,Marseille,A,30
+EL,2026-27,2026-09-17,Celtic,Ferencváros,H,44
+EL,2026-27,2026-09-17,Celtic,Ferencváros,A,20
+EL,2026-27,2026-09-17,Celtic,Ferencváros,A,45
+EL,2026-27,2026-09-17,Celtic,Ferencváros,A,47
+EL,2026-27,2026-09-17,Crystal Palace,Lech Poznań,H,10
+EL,2026-27,2026-09-17,Crystal Palace,Lech Poznań,H,27
+EL,2026-27,2026-09-17,Crystal Palace,Lech Poznań,H,34
+EL,2026-27,2026-09-17,Crystal Palace,Lech Poznań,H,89
+EL,2026-27,2026-09-17,Viktoria Plzeň,Union Saint-Gilloise,A,18
+EL,2026-27,2026-09-17,Viktoria Plzeň,Union Saint-Gilloise,A,43
+EL,2026-27,2026-09-17,Viktoria Plzeň,Union Saint-Gilloise,A,59
+EL,2026-27,2026-09-17,Juventus,NEC,H,9
+EL,2026-27,2026-09-17,Juventus,NEC,H,24
+EL,2026-27,2026-09-17,Juventus,NEC,H,35
+EL,2026-27,2026-09-17,Juventus,NEC,H,75
+EL,2026-27,2026-09-17,Juventus,NEC,H,82
+EL,2026-27,2026-09-17,Lillestrøm,Torreense,H,79
+EL,2026-27,2026-09-17,Lillestrøm,Torreense,A,23
+EL,2026-27,2026-09-17,Lillestrøm,Torreense,A,49
+EL,2026-27,2026-09-17,Real Sociedad,Bournemouth,H,57
+EL,2026-27,2026-09-17,Real Sociedad,Bournemouth,A,11
+EL,2026-27,2026-09-17,Real Sociedad,Bournemouth,A,20
+EL,2026-27,2026-10-15,Sparta Prague,Lillestrøm,H,56
+EL,2026-27,2026-10-15,Sparta Prague,Lillestrøm,A,90
+EL,2026-27,2026-10-15,AZ,Hapoel Be'er Sheva,H,49
+EL,2026-27,2026-10-15,AZ,Hapoel Be'er Sheva,H,77
+EL,2026-27,2026-10-15,AZ,Hapoel Be'er Sheva,A,55
+EL,2026-27,2026-10-15,Red Bull Salzburg,Milan,A,15
+EL,2026-27,2026-10-15,Red Bull Salzburg,Milan,A,32
+EL,2026-27,2026-10-15,Red Bull Salzburg,Milan,A,49
+EL,2026-27,2026-10-15,Red Bull Salzburg,Milan,A,72
+EL,2026-27,2026-10-15,Lech Poznań,Bayer Leverkusen,A,29
+EL,2026-27,2026-10-15,Lech Poznań,Bayer Leverkusen,A,41
+EL,2026-27,2026-10-15,Lech Poznań,Bayer Leverkusen,A,32
+EL,2026-27,2026-10-15,Lech Poznań,Bayer Leverkusen,A,89
+EL,2026-27,2026-10-15,Celje,Omonia,A,17
+EL,2026-27,2026-10-15,Celje,Omonia,A,59
+EL,2026-27,2026-10-15,Celje,Omonia,A,85
+EL,2026-27,2026-10-15,Lyon,Crystal Palace,H,8
+EL,2026-27,2026-10-15,Lyon,Crystal Palace,H,45
+EL,2026-27,2026-10-15,Lyon,Crystal Palace,H,76
+EL,2026-27,2026-10-15,Lyon,Crystal Palace,A,50
+EL,2026-27,2026-10-15,Lyon,Crystal Palace,A,81
+EL,2026-27,2026-10-15,Union Saint-Gilloise,Real Sociedad,H,88
+EL,2026-27,2026-10-15,Union Saint-Gilloise,Real Sociedad,A,46
+EL,2026-27,2026-10-15,Torreense,Sunderland,H,37
+EL,2026-27,2026-10-15,Torreense,Sunderland,A,67
+EL,2026-27,2026-10-15,Torreense,Sunderland,A,90
+EL,2026-27,2026-10-15,Bournemouth,Sturm Graz,H,43
+EL,2026-27,2026-10-15,Bournemouth,Sturm Graz,H,76
+EL,2026-27,2026-10-15,Bournemouth,Sturm Graz,H,90
+EL,2026-27,2026-10-15,Ferencváros,Viktoria Plzeň,H,49
+EL,2026-27,2026-10-15,Ferencváros,Viktoria Plzeň,H,81
+EL,2026-27,2026-10-15,Ferencváros,Viktoria Plzeň,A,90
+EL,2026-27,2026-10-15,Dinamo Zagreb,Anderlecht,H,90
+EL,2026-27,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,H,13
+EL,2026-27,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,H,38
+EL,2026-27,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,H,51
+EL,2026-27,2026-10-15,Jagiellonia Białystok,Ararat-Armenia,A,11
+EL,2026-27,2026-10-15,NEC,Levski Sofia,H,64
+EL,2026-27,2026-10-15,NEC,Levski Sofia,A,35
+EL,2026-27,2026-10-15,Marseille,Olympiacos,A,42
+EL,2026-27,2026-10-15,Celta Vigo,Juventus,H,18
+EL,2026-27,2026-10-15,Celta Vigo,Juventus,A,58
+EL,2026-27,2026-10-15,Celta Vigo,Juventus,A,90
+EL,2026-27,2026-10-15,Benfica,Celtic,H,5
+EL,2026-27,2026-10-15,Benfica,Celtic,H,36
+EL,2026-27,2026-10-15,Benfica,Celtic,H,23
+EL,2026-27,2026-10-15,Benfica,Celtic,H,89
+EL,2026-27,2026-10-15,Benfica,Celtic,A,63
+EL,2026-27,2026-10-15,Rennes,OFI,H,76
+EL,2026-27,2026-10-15,Rennes,OFI,H,90
+EL,2026-27,2026-10-15,Rennes,OFI,A,10
+EL,2026-27,2026-10-15,TSG Hoffenheim,Beşiktaş,H,68
+EL,2026-27,2026-10-15,TSG Hoffenheim,Beşiktaş,H,88
+EL,2026-27,2026-10-15,TSG Hoffenheim,Beşiktaş,A,60
+EL,2026-27,2026-10-15,TSG Hoffenheim,Beşiktaş,A,72
+EL,2026-27,2026-10-15,TSG Hoffenheim,Beşiktaş,A,79
+EL,2025-26,2025-09-24,Midtjylland,Sturm Graz,H,7
+EL,2025-26,2025-09-24,Midtjylland,Sturm Graz,H,88
+EL,2025-26,2025-09-24,Red Star Belgrade,Celtic,H,65
+EL,2025-26,2025-09-24,Red Star Belgrade,Celtic,A,55
+EL,2025-26,2025-09-24,Dinamo Zagreb,Fenerbahçe,H,21
+EL,2025-26,2025-09-24,Dinamo Zagreb,Fenerbahçe,H,50
+EL,2025-26,2025-09-24,Dinamo Zagreb,Fenerbahçe,H,90
+EL,2025-26,2025-09-24,Dinamo Zagreb,Fenerbahçe,A,25
+EL,2025-26,2025-09-24,Malmö FF,Ludogorets Razgrad,H,78
+EL,2025-26,2025-09-24,Malmö FF,Ludogorets Razgrad,A,8
+EL,2025-26,2025-09-24,Malmö FF,Ludogorets Razgrad,A,23
+EL,2025-26,2025-09-24,Nice,Roma,H,77
+EL,2025-26,2025-09-24,Nice,Roma,A,52
+EL,2025-26,2025-09-24,Nice,Roma,A,55
+EL,2025-26,2025-09-24,Real Betis,Nottingham Forest,H,15
+EL,2025-26,2025-09-24,Real Betis,Nottingham Forest,H,85
+EL,2025-26,2025-09-24,Real Betis,Nottingham Forest,A,18
+EL,2025-26,2025-09-24,Real Betis,Nottingham Forest,A,23
+EL,2025-26,2025-09-24,Braga,Feyenoord,H,79
+EL,2025-26,2025-09-24,SC Freiburg,Basel,H,31
+EL,2025-26,2025-09-24,SC Freiburg,Basel,H,57
+EL,2025-26,2025-09-24,SC Freiburg,Basel,A,84
+EL,2025-26,2025-09-25,Go Ahead Eagles,FCSB,A,13
+EL,2025-26,2025-09-25,Lille,Brann,H,54
+EL,2025-26,2025-09-25,Lille,Brann,H,80
+EL,2025-26,2025-09-25,Lille,Brann,A,60
+EL,2025-26,2025-09-25,Aston Villa,Bologna,H,13
+EL,2025-26,2025-09-25,Young Boys,Panathinaikos,H,25
+EL,2025-26,2025-09-25,Young Boys,Panathinaikos,A,10
+EL,2025-26,2025-09-25,Young Boys,Panathinaikos,A,13
+EL,2025-26,2025-09-25,Young Boys,Panathinaikos,A,19
+EL,2025-26,2025-09-25,Young Boys,Panathinaikos,A,68
+EL,2025-26,2025-09-25,Red Bull Salzburg,Porto,A,90
+EL,2025-26,2025-09-25,Utrecht,Lyon,A,75
+EL,2025-26,2025-09-25,Ferencváros,Viktoria Plzeň,H,90
+EL,2025-26,2025-09-25,Ferencváros,Viktoria Plzeň,A,16
+EL,2025-26,2025-09-25,Rangers,Genk,A,55
+EL,2025-26,2025-09-25,VfB Stuttgart,Celta Vigo,H,51
+EL,2025-26,2025-09-25,VfB Stuttgart,Celta Vigo,H,68
+EL,2025-26,2025-09-25,VfB Stuttgart,Celta Vigo,A,86
+EL,2025-26,2025-10-02,Roma,Lille,A,6
+EL,2025-26,2025-10-02,Bologna,SC Freiburg,H,29
+EL,2025-26,2025-10-02,Bologna,SC Freiburg,A,57
+EL,2025-26,2025-10-02,Celtic,Braga,A,20
+EL,2025-26,2025-10-02,Celtic,Braga,A,85
+EL,2025-26,2025-10-02,Viktoria Plzeň,Malmö FF,H,34
+EL,2025-26,2025-10-02,Viktoria Plzeň,Malmö FF,H,44
+EL,2025-26,2025-10-02,Viktoria Plzeň,Malmö FF,H,53
+EL,2025-26,2025-10-02,Fenerbahçe,Nice,H,3
+EL,2025-26,2025-10-02,Fenerbahçe,Nice,H,25
+EL,2025-26,2025-10-02,Fenerbahçe,Nice,A,37
+EL,2025-26,2025-10-02,FCSB,Young Boys,A,11
+EL,2025-26,2025-10-02,FCSB,Young Boys,A,36
+EL,2025-26,2025-10-02,Panathinaikos,Go Ahead Eagles,H,55
+EL,2025-26,2025-10-02,Panathinaikos,Go Ahead Eagles,A,75
+EL,2025-26,2025-10-02,Panathinaikos,Go Ahead Eagles,A,82
+EL,2025-26,2025-10-02,Ludogorets Razgrad,Real Betis,A,31
+EL,2025-26,2025-10-02,Ludogorets Razgrad,Real Betis,A,53
+EL,2025-26,2025-10-02,Brann,Utrecht,H,41
+EL,2025-26,2025-10-02,Basel,VfB Stuttgart,H,3
+EL,2025-26,2025-10-02,Basel,VfB Stuttgart,H,84
+EL,2025-26,2025-10-02,Porto,Red Star Belgrade,H,8
+EL,2025-26,2025-10-02,Porto,Red Star Belgrade,H,89
+EL,2025-26,2025-10-02,Porto,Red Star Belgrade,A,32
+EL,2025-26,2025-10-02,Feyenoord,Aston Villa,A,61
+EL,2025-26,2025-10-02,Feyenoord,Aston Villa,A,79
+EL,2025-26,2025-10-02,Genk,Ferencváros,A,44
+EL,2025-26,2025-10-02,Maccabi Tel Aviv,Dinamo Zagreb,H,14
+EL,2025-26,2025-10-02,Maccabi Tel Aviv,Dinamo Zagreb,A,16
+EL,2025-26,2025-10-02,Maccabi Tel Aviv,Dinamo Zagreb,A,19
+EL,2025-26,2025-10-02,Maccabi Tel Aviv,Dinamo Zagreb,A,72
+EL,2025-26,2025-10-02,Nottingham Forest,Midtjylland,H,22
+EL,2025-26,2025-10-02,Nottingham Forest,Midtjylland,H,90
+EL,2025-26,2025-10-02,Nottingham Forest,Midtjylland,A,18
+EL,2025-26,2025-10-02,Nottingham Forest,Midtjylland,A,24
+EL,2025-26,2025-10-02,Nottingham Forest,Midtjylland,A,88
+EL,2025-26,2025-10-02,Lyon,Red Bull Salzburg,H,11
+EL,2025-26,2025-10-02,Lyon,Red Bull Salzburg,H,57
+EL,2025-26,2025-10-02,Celta Vigo,PAOK,H,45
+EL,2025-26,2025-10-02,Celta Vigo,PAOK,H,53
+EL,2025-26,2025-10-02,Celta Vigo,PAOK,H,70
+EL,2025-26,2025-10-02,Celta Vigo,PAOK,A,37
+EL,2025-26,2025-10-02,Sturm Graz,Rangers,H,7
+EL,2025-26,2025-10-02,Sturm Graz,Rangers,H,35
+EL,2025-26,2025-10-02,Sturm Graz,Rangers,A,49
+EL,2025-26,2025-10-23,Red Bull Salzburg,Ferencváros,H,13
+EL,2025-26,2025-10-23,Red Bull Salzburg,Ferencváros,H,72
+EL,2025-26,2025-10-23,Red Bull Salzburg,Ferencváros,A,50
+EL,2025-26,2025-10-23,Red Bull Salzburg,Ferencváros,A,56
+EL,2025-26,2025-10-23,Red Bull Salzburg,Ferencváros,A,58
+EL,2025-26,2025-10-23,Fenerbahçe,VfB Stuttgart,H,34
+EL,2025-26,2025-10-23,FCSB,Bologna,H,54
+EL,2025-26,2025-10-23,FCSB,Bologna,A,9
+EL,2025-26,2025-10-23,FCSB,Bologna,A,12
+EL,2025-26,2025-10-23,Go Ahead Eagles,Aston Villa,H,42
+EL,2025-26,2025-10-23,Go Ahead Eagles,Aston Villa,H,61
+EL,2025-26,2025-10-23,Go Ahead Eagles,Aston Villa,A,4
+EL,2025-26,2025-10-23,Lyon,Basel,H,3
+EL,2025-26,2025-10-23,Lyon,Basel,H,90
+EL,2025-26,2025-10-23,Braga,Red Star Belgrade,H,22
+EL,2025-26,2025-10-23,Braga,Red Star Belgrade,H,72
+EL,2025-26,2025-10-23,Brann,Rangers,H,40
+EL,2025-26,2025-10-23,Brann,Rangers,H,55
+EL,2025-26,2025-10-23,Brann,Rangers,H,79
+EL,2025-26,2025-10-23,Feyenoord,Panathinaikos,H,45
+EL,2025-26,2025-10-23,Feyenoord,Panathinaikos,H,55
+EL,2025-26,2025-10-23,Feyenoord,Panathinaikos,H,90
+EL,2025-26,2025-10-23,Feyenoord,Panathinaikos,A,18
+EL,2025-26,2025-10-23,Roma,Viktoria Plzeň,H,54
+EL,2025-26,2025-10-23,Roma,Viktoria Plzeň,A,20
+EL,2025-26,2025-10-23,Roma,Viktoria Plzeň,A,22
+EL,2025-26,2025-10-23,Young Boys,Ludogorets Razgrad,H,45
+EL,2025-26,2025-10-23,Young Boys,Ludogorets Razgrad,H,53
+EL,2025-26,2025-10-23,Young Boys,Ludogorets Razgrad,H,63
+EL,2025-26,2025-10-23,Young Boys,Ludogorets Razgrad,A,26
+EL,2025-26,2025-10-23,Young Boys,Ludogorets Razgrad,A,90
+EL,2025-26,2025-10-23,Celtic,Sturm Graz,H,61
+EL,2025-26,2025-10-23,Celtic,Sturm Graz,H,64
+EL,2025-26,2025-10-23,Celtic,Sturm Graz,A,15
+EL,2025-26,2025-10-23,Lille,PAOK,H,57
+EL,2025-26,2025-10-23,Lille,PAOK,H,68
+EL,2025-26,2025-10-23,Lille,PAOK,H,78
+EL,2025-26,2025-10-23,Lille,PAOK,A,18
+EL,2025-26,2025-10-23,Lille,PAOK,A,23
+EL,2025-26,2025-10-23,Lille,PAOK,A,74
+EL,2025-26,2025-10-23,Lille,PAOK,A,42
+EL,2025-26,2025-10-23,Maccabi Tel Aviv,Midtjylland,A,44
+EL,2025-26,2025-10-23,Maccabi Tel Aviv,Midtjylland,A,84
+EL,2025-26,2025-10-23,Maccabi Tel Aviv,Midtjylland,A,71
+EL,2025-26,2025-10-23,Malmö FF,Dinamo Zagreb,H,45
+EL,2025-26,2025-10-23,Malmö FF,Dinamo Zagreb,A,90
+EL,2025-26,2025-10-23,Nottingham Forest,Porto,H,19
+EL,2025-26,2025-10-23,Nottingham Forest,Porto,H,77
+EL,2025-26,2025-10-23,Celta Vigo,Nice,H,2
+EL,2025-26,2025-10-23,Celta Vigo,Nice,H,75
+EL,2025-26,2025-10-23,Celta Vigo,Nice,A,16
+EL,2025-26,2025-10-23,SC Freiburg,Utrecht,H,20
+EL,2025-26,2025-10-23,SC Freiburg,Utrecht,H,45
+EL,2025-26,2025-11-06,Red Bull Salzburg,Go Ahead Eagles,H,59
+EL,2025-26,2025-11-06,Red Bull Salzburg,Go Ahead Eagles,H,80
+EL,2025-26,2025-11-06,Basel,FCSB,H,19
+EL,2025-26,2025-11-06,Basel,FCSB,H,73
+EL,2025-26,2025-11-06,Basel,FCSB,H,88
+EL,2025-26,2025-11-06,Basel,FCSB,A,57
+EL,2025-26,2025-11-06,Midtjylland,Celtic,H,33
+EL,2025-26,2025-11-06,Midtjylland,Celtic,H,35
+EL,2025-26,2025-11-06,Midtjylland,Celtic,H,41
+EL,2025-26,2025-11-06,Midtjylland,Celtic,A,81
+EL,2025-26,2025-11-06,Utrecht,Porto,H,48
+EL,2025-26,2025-11-06,Utrecht,Porto,A,66
+EL,2025-26,2025-11-06,Red Star Belgrade,Lille,H,85
+EL,2025-26,2025-11-06,Dinamo Zagreb,Celta Vigo,A,4
+EL,2025-26,2025-11-06,Dinamo Zagreb,Celta Vigo,A,44
+EL,2025-26,2025-11-06,Dinamo Zagreb,Celta Vigo,A,28
+EL,2025-26,2025-11-06,Malmö FF,Panathinaikos,A,85
+EL,2025-26,2025-11-06,Nice,SC Freiburg,H,25
+EL,2025-26,2025-11-06,Nice,SC Freiburg,A,29
+EL,2025-26,2025-11-06,Nice,SC Freiburg,A,39
+EL,2025-26,2025-11-06,Nice,SC Freiburg,A,42
+EL,2025-26,2025-11-06,Aston Villa,Maccabi Tel Aviv,H,45
+EL,2025-26,2025-11-06,Aston Villa,Maccabi Tel Aviv,H,59
+EL,2025-26,2025-11-06,Ferencváros,Ludogorets Razgrad,H,32
+EL,2025-26,2025-11-06,Ferencváros,Ludogorets Razgrad,H,53
+EL,2025-26,2025-11-06,Ferencváros,Ludogorets Razgrad,H,87
+EL,2025-26,2025-11-06,Ferencváros,Ludogorets Razgrad,A,78
+EL,2025-26,2025-11-06,PAOK,Young Boys,H,54
+EL,2025-26,2025-11-06,PAOK,Young Boys,H,67
+EL,2025-26,2025-11-06,PAOK,Young Boys,H,72
+EL,2025-26,2025-11-06,PAOK,Young Boys,H,76
+EL,2025-26,2025-11-06,Rangers,Roma,A,13
+EL,2025-26,2025-11-06,Rangers,Roma,A,36
+EL,2025-26,2025-11-06,Real Betis,Lyon,H,30
+EL,2025-26,2025-11-06,Real Betis,Lyon,H,35
+EL,2025-26,2025-11-06,Braga,Genk,H,30
+EL,2025-26,2025-11-06,Braga,Genk,H,71
+EL,2025-26,2025-11-06,Braga,Genk,H,86
+EL,2025-26,2025-11-06,Braga,Genk,A,45
+EL,2025-26,2025-11-06,Braga,Genk,A,48
+EL,2025-26,2025-11-06,Braga,Genk,A,59
+EL,2025-26,2025-11-06,Braga,Genk,A,72
+EL,2025-26,2025-11-06,VfB Stuttgart,Feyenoord,H,84
+EL,2025-26,2025-11-06,VfB Stuttgart,Feyenoord,H,90
+EL,2025-26,2025-11-27,Roma,Midtjylland,H,7
+EL,2025-26,2025-11-27,Roma,Midtjylland,H,83
+EL,2025-26,2025-11-27,Roma,Midtjylland,A,86
+EL,2025-26,2025-11-27,Aston Villa,Young Boys,H,27
+EL,2025-26,2025-11-27,Aston Villa,Young Boys,H,42
+EL,2025-26,2025-11-27,Aston Villa,Young Boys,A,90
+EL,2025-26,2025-11-27,Porto,Nice,H,1
+EL,2025-26,2025-11-27,Porto,Nice,H,33
+EL,2025-26,2025-11-27,Porto,Nice,H,61
+EL,2025-26,2025-11-27,Fenerbahçe,Ferencváros,H,69
+EL,2025-26,2025-11-27,Fenerbahçe,Ferencváros,A,66
+EL,2025-26,2025-11-27,Feyenoord,Celtic,H,11
+EL,2025-26,2025-11-27,Feyenoord,Celtic,A,31
+EL,2025-26,2025-11-27,Feyenoord,Celtic,A,43
+EL,2025-26,2025-11-27,Feyenoord,Celtic,A,82
+EL,2025-26,2025-11-27,Lille,Dinamo Zagreb,H,21
+EL,2025-26,2025-11-27,Lille,Dinamo Zagreb,H,36
+EL,2025-26,2025-11-27,Lille,Dinamo Zagreb,H,69
+EL,2025-26,2025-11-27,Lille,Dinamo Zagreb,H,86
+EL,2025-26,2025-11-27,PAOK,Brann,H,64
+EL,2025-26,2025-11-27,PAOK,Brann,A,89
+EL,2025-26,2025-11-27,Ludogorets Razgrad,Celta Vigo,H,11
+EL,2025-26,2025-11-27,Ludogorets Razgrad,Celta Vigo,H,49
+EL,2025-26,2025-11-27,Ludogorets Razgrad,Celta Vigo,H,62
+EL,2025-26,2025-11-27,Ludogorets Razgrad,Celta Vigo,A,70
+EL,2025-26,2025-11-27,Ludogorets Razgrad,Celta Vigo,A,90
+EL,2025-26,2025-11-27,Bologna,Red Bull Salzburg,H,26
+EL,2025-26,2025-11-27,Bologna,Red Bull Salzburg,H,51
+EL,2025-26,2025-11-27,Bologna,Red Bull Salzburg,H,53
+EL,2025-26,2025-11-27,Bologna,Red Bull Salzburg,H,86
+EL,2025-26,2025-11-27,Bologna,Red Bull Salzburg,A,33
+EL,2025-26,2025-11-27,Red Star Belgrade,FCSB,H,50
+EL,2025-26,2025-11-27,Go Ahead Eagles,VfB Stuttgart,A,20
+EL,2025-26,2025-11-27,Go Ahead Eagles,VfB Stuttgart,A,35
+EL,2025-26,2025-11-27,Go Ahead Eagles,VfB Stuttgart,A,59
+EL,2025-26,2025-11-27,Go Ahead Eagles,VfB Stuttgart,A,90
+EL,2025-26,2025-11-27,Genk,Basel,H,14
+EL,2025-26,2025-11-27,Genk,Basel,H,45
+EL,2025-26,2025-11-27,Genk,Basel,A,57
+EL,2025-26,2025-11-27,Maccabi Tel Aviv,Lyon,A,4
+EL,2025-26,2025-11-27,Maccabi Tel Aviv,Lyon,A,25
+EL,2025-26,2025-11-27,Maccabi Tel Aviv,Lyon,A,51
+EL,2025-26,2025-11-27,Maccabi Tel Aviv,Lyon,A,53
+EL,2025-26,2025-11-27,Maccabi Tel Aviv,Lyon,A,35
+EL,2025-26,2025-11-27,Maccabi Tel Aviv,Lyon,A,62
+EL,2025-26,2025-11-27,Nottingham Forest,Malmö FF,H,27
+EL,2025-26,2025-11-27,Nottingham Forest,Malmö FF,H,44
+EL,2025-26,2025-11-27,Nottingham Forest,Malmö FF,H,59
+EL,2025-26,2025-11-27,Panathinaikos,Sturm Graz,H,18
+EL,2025-26,2025-11-27,Panathinaikos,Sturm Graz,H,74
+EL,2025-26,2025-11-27,Panathinaikos,Sturm Graz,A,34
+EL,2025-26,2025-11-27,Rangers,Braga,H,45
+EL,2025-26,2025-11-27,Rangers,Braga,A,69
+EL,2025-26,2025-11-27,Real Betis,Utrecht,H,42
+EL,2025-26,2025-11-27,Real Betis,Utrecht,H,50
+EL,2025-26,2025-11-27,Real Betis,Utrecht,A,55
+EL,2025-26,2025-12-11,Young Boys,Lille,H,61
+EL,2025-26,2025-12-11,Midtjylland,Genk,H,17
+EL,2025-26,2025-12-11,Utrecht,Nottingham Forest,H,73
+EL,2025-26,2025-12-11,Utrecht,Nottingham Forest,A,52
+EL,2025-26,2025-12-11,Utrecht,Nottingham Forest,A,88
+EL,2025-26,2025-12-11,Ferencváros,Rangers,H,45
+EL,2025-26,2025-12-11,Ferencváros,Rangers,H,72
+EL,2025-26,2025-12-11,Ferencváros,Rangers,A,27
+EL,2025-26,2025-12-11,Dinamo Zagreb,Real Betis,H,89
+EL,2025-26,2025-12-11,Dinamo Zagreb,Real Betis,A,31
+EL,2025-26,2025-12-11,Dinamo Zagreb,Real Betis,A,34
+EL,2025-26,2025-12-11,Dinamo Zagreb,Real Betis,A,38
+EL,2025-26,2025-12-11,Nice,Braga,A,28
+EL,2025-26,2025-12-11,Ludogorets Razgrad,PAOK,H,33
+EL,2025-26,2025-12-11,Ludogorets Razgrad,PAOK,H,70
+EL,2025-26,2025-12-11,Ludogorets Razgrad,PAOK,H,77
+EL,2025-26,2025-12-11,Ludogorets Razgrad,PAOK,A,39
+EL,2025-26,2025-12-11,Ludogorets Razgrad,PAOK,A,48
+EL,2025-26,2025-12-11,Ludogorets Razgrad,PAOK,A,90
+EL,2025-26,2025-12-11,Sturm Graz,Red Star Belgrade,A,55
+EL,2025-26,2025-12-11,VfB Stuttgart,Maccabi Tel Aviv,H,24
+EL,2025-26,2025-12-11,VfB Stuttgart,Maccabi Tel Aviv,H,37
+EL,2025-26,2025-12-11,VfB Stuttgart,Maccabi Tel Aviv,H,50
+EL,2025-26,2025-12-11,VfB Stuttgart,Maccabi Tel Aviv,H,90
+EL,2025-26,2025-12-11,VfB Stuttgart,Maccabi Tel Aviv,A,52
+EL,2025-26,2025-12-11,Celtic,Roma,A,6
+EL,2025-26,2025-12-11,Celtic,Roma,A,36
+EL,2025-26,2025-12-11,Celtic,Roma,A,45
+EL,2025-26,2025-12-11,Porto,Malmö FF,H,30
+EL,2025-26,2025-12-11,Porto,Malmö FF,H,36
+EL,2025-26,2025-12-11,Porto,Malmö FF,A,90
+EL,2025-26,2025-12-11,Basel,Aston Villa,H,34
+EL,2025-26,2025-12-11,Basel,Aston Villa,A,12
+EL,2025-26,2025-12-11,Basel,Aston Villa,A,53
+EL,2025-26,2025-12-11,FCSB,Feyenoord,H,11
+EL,2025-26,2025-12-11,FCSB,Feyenoord,H,54
+EL,2025-26,2025-12-11,FCSB,Feyenoord,H,87
+EL,2025-26,2025-12-11,FCSB,Feyenoord,H,90
+EL,2025-26,2025-12-11,FCSB,Feyenoord,A,41
+EL,2025-26,2025-12-11,FCSB,Feyenoord,A,44
+EL,2025-26,2025-12-11,FCSB,Feyenoord,A,51
+EL,2025-26,2025-12-11,Lyon,Go Ahead Eagles,H,3
+EL,2025-26,2025-12-11,Lyon,Go Ahead Eagles,H,11
+EL,2025-26,2025-12-11,Lyon,Go Ahead Eagles,A,6
+EL,2025-26,2025-12-11,Celta Vigo,Bologna,H,17
+EL,2025-26,2025-12-11,Celta Vigo,Bologna,A,66
+EL,2025-26,2025-12-11,Celta Vigo,Bologna,A,74
+EL,2025-26,2025-12-11,SC Freiburg,Red Bull Salzburg,H,50
+EL,2025-26,2025-12-11,Brann,Fenerbahçe,A,5
+EL,2025-26,2025-12-11,Brann,Fenerbahçe,A,36
+EL,2025-26,2025-12-11,Brann,Fenerbahçe,A,44
+EL,2025-26,2025-12-11,Brann,Fenerbahçe,A,65
+EL,2025-26,2026-01-22,Bologna,Celtic,H,58
+EL,2025-26,2026-01-22,Bologna,Celtic,H,72
+EL,2025-26,2026-01-22,Bologna,Celtic,A,6
+EL,2025-26,2026-01-22,Bologna,Celtic,A,40
+EL,2025-26,2026-01-22,Young Boys,Lyon,A,45
+EL,2025-26,2026-01-22,Viktoria Plzeň,Porto,H,6
+EL,2025-26,2026-01-22,Viktoria Plzeň,Porto,A,90
+EL,2025-26,2026-01-22,Fenerbahçe,Aston Villa,A,25
+EL,2025-26,2026-01-22,Feyenoord,Sturm Graz,H,5
+EL,2025-26,2026-01-22,Feyenoord,Sturm Graz,H,68
+EL,2025-26,2026-01-22,Feyenoord,Sturm Graz,H,90
+EL,2025-26,2026-01-22,Malmö FF,Red Star Belgrade,A,16
+EL,2025-26,2026-01-22,PAOK,Real Betis,H,67
+EL,2025-26,2026-01-22,PAOK,Real Betis,H,86
+EL,2025-26,2026-01-22,SC Freiburg,Maccabi Tel Aviv,H,82
+EL,2025-26,2026-01-22,Brann,Midtjylland,H,19
+EL,2025-26,2026-01-22,Brann,Midtjylland,H,68
+EL,2025-26,2026-01-22,Brann,Midtjylland,H,90
+EL,2025-26,2026-01-22,Brann,Midtjylland,A,4
+EL,2025-26,2026-01-22,Brann,Midtjylland,A,70
+EL,2025-26,2026-01-22,Brann,Midtjylland,A,31
+EL,2025-26,2026-01-22,Roma,VfB Stuttgart,H,40
+EL,2025-26,2026-01-22,Roma,VfB Stuttgart,H,90
+EL,2025-26,2026-01-22,Red Bull Salzburg,Basel,H,4
+EL,2025-26,2026-01-22,Red Bull Salzburg,Basel,H,12
+EL,2025-26,2026-01-22,Red Bull Salzburg,Basel,H,35
+EL,2025-26,2026-01-22,Red Bull Salzburg,Basel,A,56
+EL,2025-26,2026-01-22,Ferencváros,Panathinaikos,H,62
+EL,2025-26,2026-01-22,Ferencváros,Panathinaikos,A,86
+EL,2025-26,2026-01-22,Dinamo Zagreb,FCSB,H,7
+EL,2025-26,2026-01-22,Dinamo Zagreb,FCSB,H,11
+EL,2025-26,2026-01-22,Dinamo Zagreb,FCSB,H,71
+EL,2025-26,2026-01-22,Dinamo Zagreb,FCSB,H,90
+EL,2025-26,2026-01-22,Dinamo Zagreb,FCSB,A,42
+EL,2025-26,2026-01-22,Nice,Go Ahead Eagles,H,10
+EL,2025-26,2026-01-22,Nice,Go Ahead Eagles,H,41
+EL,2025-26,2026-01-22,Nice,Go Ahead Eagles,H,59
+EL,2025-26,2026-01-22,Nice,Go Ahead Eagles,A,68
+EL,2025-26,2026-01-22,Rangers,Ludogorets Razgrad,H,33
+EL,2025-26,2026-01-22,Celta Vigo,Lille,H,1
+EL,2025-26,2026-01-22,Celta Vigo,Lille,H,69
+EL,2025-26,2026-01-22,Celta Vigo,Lille,A,86
+EL,2025-26,2026-01-22,Braga,Nottingham Forest,H,54
+EL,2025-26,2026-01-22,Utrecht,Genk,A,54
+EL,2025-26,2026-01-22,Utrecht,Genk,A,83
+EL,2025-26,2026-01-29,Aston Villa,Red Bull Salzburg,H,64
+EL,2025-26,2026-01-29,Aston Villa,Red Bull Salzburg,H,76
+EL,2025-26,2026-01-29,Aston Villa,Red Bull Salzburg,H,87
+EL,2025-26,2026-01-29,Aston Villa,Red Bull Salzburg,A,33
+EL,2025-26,2026-01-29,Aston Villa,Red Bull Salzburg,A,49
+EL,2025-26,2026-01-29,Celtic,Utrecht,H,6
+EL,2025-26,2026-01-29,Celtic,Utrecht,H,10
+EL,2025-26,2026-01-29,Celtic,Utrecht,H,19
+EL,2025-26,2026-01-29,Celtic,Utrecht,H,66
+EL,2025-26,2026-01-29,Celtic,Utrecht,A,44
+EL,2025-26,2026-01-29,Celtic,Utrecht,A,62
+EL,2025-26,2026-01-29,Porto,Rangers,H,27
+EL,2025-26,2026-01-29,Porto,Rangers,H,36
+EL,2025-26,2026-01-29,Porto,Rangers,H,41
+EL,2025-26,2026-01-29,Porto,Rangers,A,6
+EL,2025-26,2026-01-29,Basel,Viktoria Plzeň,A,39
+EL,2025-26,2026-01-29,Midtjylland,Dinamo Zagreb,H,49
+EL,2025-26,2026-01-29,Midtjylland,Dinamo Zagreb,H,74
+EL,2025-26,2026-01-29,Red Star Belgrade,Celta Vigo,H,89
+EL,2025-26,2026-01-29,Red Star Belgrade,Celta Vigo,A,88
+EL,2025-26,2026-01-29,FCSB,Fenerbahçe,H,71
+EL,2025-26,2026-01-29,FCSB,Fenerbahçe,A,19
+EL,2025-26,2026-01-29,Genk,Malmö FF,H,45
+EL,2025-26,2026-01-29,Genk,Malmö FF,H,82
+EL,2025-26,2026-01-29,Genk,Malmö FF,A,4
+EL,2025-26,2026-01-29,Lille,SC Freiburg,H,90
+EL,2025-26,2026-01-29,Maccabi Tel Aviv,Bologna,A,35
+EL,2025-26,2026-01-29,Maccabi Tel Aviv,Bologna,A,47
+EL,2025-26,2026-01-29,Maccabi Tel Aviv,Bologna,A,90
+EL,2025-26,2026-01-29,Nottingham Forest,Ferencváros,H,17
+EL,2025-26,2026-01-29,Nottingham Forest,Ferencváros,H,21
+EL,2025-26,2026-01-29,Nottingham Forest,Ferencváros,H,55
+EL,2025-26,2026-01-29,Nottingham Forest,Ferencváros,H,90
+EL,2025-26,2026-01-29,Lyon,PAOK,H,34
+EL,2025-26,2026-01-29,Lyon,PAOK,H,55
+EL,2025-26,2026-01-29,Lyon,PAOK,H,88
+EL,2025-26,2026-01-29,Lyon,PAOK,H,90
+EL,2025-26,2026-01-29,Lyon,PAOK,A,20
+EL,2025-26,2026-01-29,Lyon,PAOK,A,66
+EL,2025-26,2026-01-29,Panathinaikos,Roma,H,58
+EL,2025-26,2026-01-29,Panathinaikos,Roma,A,80
+EL,2025-26,2026-01-29,Ludogorets Razgrad,Nice,H,42
+EL,2025-26,2026-01-29,Real Betis,Feyenoord,H,17
+EL,2025-26,2026-01-29,Real Betis,Feyenoord,H,32
+EL,2025-26,2026-01-29,Real Betis,Feyenoord,A,77
+EL,2025-26,2026-01-29,Sturm Graz,Brann,H,85
+EL,2025-26,2026-01-29,VfB Stuttgart,Young Boys,H,6
+EL,2025-26,2026-01-29,VfB Stuttgart,Young Boys,H,7
+EL,2025-26,2026-01-29,VfB Stuttgart,Young Boys,H,90
+EL,2025-26,2026-01-29,VfB Stuttgart,Young Boys,A,42
+EL,2025-26,2026-01-29,VfB Stuttgart,Young Boys,A,57
+EL,2025-26,2026-02-19,Ludogorets Razgrad,Ferencváros,H,24
+EL,2025-26,2026-02-19,Ludogorets Razgrad,Ferencváros,H,67
+EL,2025-26,2026-02-19,Ludogorets Razgrad,Ferencváros,A,27
+EL,2025-26,2026-02-26,Ferencváros,Ludogorets Razgrad,H,14
+EL,2025-26,2026-02-26,Ferencváros,Ludogorets Razgrad,H,30
+EL,2025-26,2026-02-19,Panathinaikos,Viktoria Plzeň,H,31
+EL,2025-26,2026-02-19,Panathinaikos,Viktoria Plzeň,H,61
+EL,2025-26,2026-02-19,Panathinaikos,Viktoria Plzeň,A,11
+EL,2025-26,2026-02-19,Panathinaikos,Viktoria Plzeň,A,80
+EL,2025-26,2026-02-26,Viktoria Plzeň,Panathinaikos,H,62
+EL,2025-26,2026-02-26,Viktoria Plzeň,Panathinaikos,A,9
+EL,2025-26,2026-02-19,Dinamo Zagreb,Genk,H,44
+EL,2025-26,2026-02-19,Dinamo Zagreb,Genk,A,15
+EL,2025-26,2026-02-19,Dinamo Zagreb,Genk,A,21
+EL,2025-26,2026-02-19,Dinamo Zagreb,Genk,A,90
+EL,2025-26,2026-02-26,Genk,Dinamo Zagreb,H,51
+EL,2025-26,2026-02-26,Genk,Dinamo Zagreb,H,101
+EL,2025-26,2026-02-26,Genk,Dinamo Zagreb,H,114
+EL,2025-26,2026-02-26,Genk,Dinamo Zagreb,A,45
+EL,2025-26,2026-02-26,Genk,Dinamo Zagreb,A,57
+EL,2025-26,2026-02-26,Genk,Dinamo Zagreb,A,75
+EL,2025-26,2026-02-19,PAOK,Celta Vigo,H,77
+EL,2025-26,2026-02-19,PAOK,Celta Vigo,A,34
+EL,2025-26,2026-02-19,PAOK,Celta Vigo,A,43
+EL,2025-26,2026-02-26,Celta Vigo,PAOK,H,63
+EL,2025-26,2026-02-19,Celtic,VfB Stuttgart,H,21
+EL,2025-26,2026-02-19,Celtic,VfB Stuttgart,A,15
+EL,2025-26,2026-02-19,Celtic,VfB Stuttgart,A,28
+EL,2025-26,2026-02-19,Celtic,VfB Stuttgart,A,57
+EL,2025-26,2026-02-19,Celtic,VfB Stuttgart,A,90
+EL,2025-26,2026-02-26,VfB Stuttgart,Celtic,A,1
+EL,2025-26,2026-02-19,Fenerbahçe,Nottingham Forest,A,21
+EL,2025-26,2026-02-19,Fenerbahçe,Nottingham Forest,A,43
+EL,2025-26,2026-02-19,Fenerbahçe,Nottingham Forest,A,50
+EL,2025-26,2026-02-26,Nottingham Forest,Fenerbahçe,H,68
+EL,2025-26,2026-02-26,Nottingham Forest,Fenerbahçe,A,22
+EL,2025-26,2026-02-26,Nottingham Forest,Fenerbahçe,A,48
+EL,2025-26,2026-02-19,Brann,Bologna,A,9
+EL,2025-26,2026-02-26,Bologna,Brann,H,56
+EL,2025-26,2026-02-19,Lille,Red Star Belgrade,A,45
+EL,2025-26,2026-02-26,Red Star Belgrade,Lille,A,4
+EL,2025-26,2026-02-26,Red Star Belgrade,Lille,A,99
+EL,2025-26,2026-03-12,Ferencváros,Braga,H,32
+EL,2025-26,2026-03-12,Ferencváros,Braga,H,69
+EL,2025-26,2026-03-18,Braga,Ferencváros,H,11
+EL,2025-26,2026-03-18,Braga,Ferencváros,H,53
+EL,2025-26,2026-03-18,Braga,Ferencváros,H,15
+EL,2025-26,2026-03-18,Braga,Ferencváros,H,34
+EL,2025-26,2026-03-12,Panathinaikos,Real Betis,H,88
+EL,2025-26,2026-03-19,Real Betis,Panathinaikos,H,8
+EL,2025-26,2026-03-19,Real Betis,Panathinaikos,H,45
+EL,2025-26,2026-03-19,Real Betis,Panathinaikos,H,53
+EL,2025-26,2026-03-19,Real Betis,Panathinaikos,H,66
+EL,2025-26,2026-03-12,Genk,SC Freiburg,H,24
+EL,2025-26,2026-03-19,SC Freiburg,Genk,H,19
+EL,2025-26,2026-03-19,SC Freiburg,Genk,H,25
+EL,2025-26,2026-03-19,SC Freiburg,Genk,H,53
+EL,2025-26,2026-03-19,SC Freiburg,Genk,H,57
+EL,2025-26,2026-03-19,SC Freiburg,Genk,H,79
+EL,2025-26,2026-03-19,SC Freiburg,Genk,A,39
+EL,2025-26,2026-03-12,Celta Vigo,Lyon,H,25
+EL,2025-26,2026-03-12,Celta Vigo,Lyon,A,87
+EL,2025-26,2026-03-19,Lyon,Celta Vigo,A,61
+EL,2025-26,2026-03-19,Lyon,Celta Vigo,A,90
+EL,2025-26,2026-03-12,VfB Stuttgart,Porto,H,40
+EL,2025-26,2026-03-12,VfB Stuttgart,Porto,A,21
+EL,2025-26,2026-03-12,VfB Stuttgart,Porto,A,27
+EL,2025-26,2026-03-19,Porto,VfB Stuttgart,H,21
+EL,2025-26,2026-03-19,Porto,VfB Stuttgart,H,72
+EL,2025-26,2026-03-12,Nottingham Forest,Midtjylland,A,80
+EL,2025-26,2026-03-19,Midtjylland,Nottingham Forest,H,69
+EL,2025-26,2026-03-19,Midtjylland,Nottingham Forest,A,41
+EL,2025-26,2026-03-19,Midtjylland,Nottingham Forest,A,52
+EL,2025-26,2026-03-12,Bologna,Roma,H,50
+EL,2025-26,2026-03-12,Bologna,Roma,A,71
+EL,2025-26,2026-03-19,Roma,Bologna,H,32
+EL,2025-26,2026-03-19,Roma,Bologna,H,69
+EL,2025-26,2026-03-19,Roma,Bologna,H,80
+EL,2025-26,2026-03-19,Roma,Bologna,A,22
+EL,2025-26,2026-03-19,Roma,Bologna,A,45
+EL,2025-26,2026-03-19,Roma,Bologna,A,58
+EL,2025-26,2026-03-19,Roma,Bologna,A,111
+EL,2025-26,2026-03-12,Lille,Aston Villa,A,61
+EL,2025-26,2026-03-19,Aston Villa,Lille,H,54
+EL,2025-26,2026-03-19,Aston Villa,Lille,H,86
+EL,2025-26,2026-04-08,Braga,Real Betis,H,5
+EL,2025-26,2026-04-08,Braga,Real Betis,A,61
+EL,2025-26,2026-04-16,Real Betis,Braga,H,13
+EL,2025-26,2026-04-16,Real Betis,Braga,H,26
+EL,2025-26,2026-04-16,Real Betis,Braga,A,38
+EL,2025-26,2026-04-16,Real Betis,Braga,A,49
+EL,2025-26,2026-04-16,Real Betis,Braga,A,53
+EL,2025-26,2026-04-16,Real Betis,Braga,A,74
+EL,2025-26,2026-04-09,SC Freiburg,Celta Vigo,H,10
+EL,2025-26,2026-04-09,SC Freiburg,Celta Vigo,H,32
+EL,2025-26,2026-04-09,SC Freiburg,Celta Vigo,H,78
+EL,2025-26,2026-04-16,Celta Vigo,SC Freiburg,H,90
+EL,2025-26,2026-04-16,Celta Vigo,SC Freiburg,A,33
+EL,2025-26,2026-04-16,Celta Vigo,SC Freiburg,A,39
+EL,2025-26,2026-04-16,Celta Vigo,SC Freiburg,A,50
+EL,2025-26,2026-04-09,Porto,Nottingham Forest,H,11
+EL,2025-26,2026-04-09,Porto,Nottingham Forest,A,13
+EL,2025-26,2026-04-16,Nottingham Forest,Porto,H,12
+EL,2025-26,2026-04-09,Bologna,Aston Villa,H,90
+EL,2025-26,2026-04-09,Bologna,Aston Villa,A,44
+EL,2025-26,2026-04-09,Bologna,Aston Villa,A,51
+EL,2025-26,2026-04-09,Bologna,Aston Villa,A,90
+EL,2025-26,2026-04-16,Aston Villa,Bologna,H,16
+EL,2025-26,2026-04-16,Aston Villa,Bologna,H,26
+EL,2025-26,2026-04-16,Aston Villa,Bologna,H,39
+EL,2025-26,2026-04-16,Aston Villa,Bologna,H,89
+EL,2025-26,2026-04-30,Braga,SC Freiburg,H,8
+EL,2025-26,2026-04-30,Braga,SC Freiburg,H,90
+EL,2025-26,2026-04-30,Braga,SC Freiburg,A,16
+EL,2025-26,2026-05-07,SC Freiburg,Braga,H,19
+EL,2025-26,2026-05-07,SC Freiburg,Braga,H,72
+EL,2025-26,2026-05-07,SC Freiburg,Braga,H,41
+EL,2025-26,2026-05-07,SC Freiburg,Braga,A,79
+EL,2025-26,2026-04-30,Nottingham Forest,Aston Villa,H,71
+EL,2025-26,2026-05-07,Aston Villa,Nottingham Forest,H,36
+EL,2025-26,2026-05-07,Aston Villa,Nottingham Forest,H,58
+EL,2025-26,2026-05-07,Aston Villa,Nottingham Forest,H,77
+EL,2025-26,2026-05-07,Aston Villa,Nottingham Forest,H,80

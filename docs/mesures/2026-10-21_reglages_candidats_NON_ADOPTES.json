@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-21",
+  "demi_vie": 270,
+  "poids_xg": 0.8,
+  "ridge": 1.0,
+  "rho": -0.06,
+  "facteur_nul": 0.03,
+  "exposant": 1.012,
+  "poids_v1": {
+    "PL": 0.0,
+    "LIGA": 0.3,
+    "L1": 0.6,
+    "SA": 0.0,
+    "BL": 0.2,
+    "POR": 0.8,
+    "TUR": 0.6,
+    "BEL": 0.2,
+    "NED": 0.3,
+    "CHAMP": 1.0,
+    "LIGA2": 0.0,
+    "L2": 1.0,
+    "MLS": 0.0
+  },
+  "mesure_test": [
+    {
+      "Version": "Avant (app actuelle)",
+      "Bons pronostics 1N2": "49.3%",
+      "Log loss 1N2": 1.0139,
+      "Log loss (matchs avec cotes)": 1.0098
+    },
+    {
+      "Version": "V2 réglé + nuls + confiance",
+      "Bons pronostics 1N2": "49.6%",
+      "Log loss 1N2": 1.0144,
+      "Log loss (matchs avec cotes)": 1.0106
+    },
+    {
+      "Version": "Après (combinaison V1 + V2 réglé)",
+      "Bons pronostics 1N2": "49.2%",
+      "Log loss 1N2": 1.0162,
+      "Log loss (matchs avec cotes)": 1.0126
+    },
+    {
+      "Version": "Cotes du marché (référence)",
+      "Bons pronostics 1N2": "51.3%",
+      "Log loss 1N2": "–",
+      "Log loss (matchs avec cotes)": 0.9933
+    }
+  ]
+}

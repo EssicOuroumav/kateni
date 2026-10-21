@@ -25,7 +25,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from kateni.config import COLONNES_BASE, COLONNES_OPTION, COMPETITIONS, RACINE  # noqa: E402
+from kateni.config import COLONNES_BASE, COLONNES_OPTION, COMPETITIONS, FORMAT_NEW, RACINE  # noqa: E402
 
 BASE_URL = "https://www.football-data.co.uk"
 DOSSIER_BRUT = RACINE / "data_brut"
@@ -66,8 +66,8 @@ def maj_competition(code: str) -> None:
         return
     DOSSIER_BRUT.mkdir(exist_ok=True)
     morceaux = []
-    if comp.fd_code == "USA":
-        texte = telecharger(f"{BASE_URL}/new/USA.csv")
+    if comp.fd_code in FORMAT_NEW:
+        texte = telecharger(f"{BASE_URL}/new/{comp.fd_code}.csv")
         if texte:
             morceaux.append(normaliser(pd.read_csv(StringIO(texte))))
     else:
@@ -120,8 +120,10 @@ def maj_calendrier() -> None:
     texte = telecharger(f"{BASE_URL}/new_league_fixtures.csv")
     if texte:
         f = pd.read_csv(StringIO(texte)).rename(columns={"Home": "HomeTeam", "Away": "AwayTeam"})
-        f = f[(f["Country"] == "USA") & (f["League"] == "MLS")]
-        f["competition"] = "MLS"
+        pays = {"USA": "MLS", "Austria": "AUT", "Switzerland": "SUI", "Norway": "NOR", "Denmark": "DAN",
+                "Sweden": "SUE", "Poland": "POL", "Romania": "ROU"}
+        f["competition"] = f["Country"].map(pays)
+        f = f[f["competition"].notna() & ~((f["Country"] == "USA") & (f["League"] != "MLS"))]
         lignes.append(f)
     if not lignes:
         print("Calendrier des championnats : rien téléchargé")

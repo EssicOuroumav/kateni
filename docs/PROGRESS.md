@@ -44,6 +44,21 @@ Plan validé le 21/10/2026 : lots 0 à 3 (voir le plan dans la conversation, ré
 - Calendrier des championnats : `fixtures.csv` et `new_league_fixtures.csv` de football-data (`scripts/maj_donnees.py`), fusionné avec la C1 et la C3.
 - Vérifié sur la copie de test : Prédictions (Liga, PL), envoi vers Cotes Betclic avec les mêmes chiffres ; 23 tests.
 
+## Lot 1 — tentative d'amélioration du modèle (21/10/2026)
+Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/ameliorer.py`, journal dans `docs/mesures/`).
+| Version (période de test) | Bons pronostics 1N2 | Log loss 1N2 |
+|---|---|---|
+| Avant (app actuelle) | 49,3 % | 1,0139 |
+| V2 réglé (demi-vie 270 j, xG 0,8, rappel 1) + nuls + confiance | 49,6 % | 1,0144 |
+| Combinaison V1 + V2 réglé | 49,2 % | 1,0162 |
+| Cotes du marché | 51,3 % | 0,993 (matchs avec cotes) |
+**Décision : rien n'est adopté** (les réglages gagnants en 2024-25 ne gagnent pas en 2025-26). Plafond actuel ≈ information (compositions, blessures), pas réglages.
+
+## Données ajoutées (21/10/2026)
+- 9 championnats (Écosse, Grèce, Autriche, Suisse, Norvège, Danemark, Suède, Pologne, Roumanie) : ≈ 27 000 matchs ; 67 clubs européens sur 84 ont désormais leur championnat. Mesures : C1/C3 sans gain (log loss 0,9144 dans les deux cas, 270 matchs) ; championnats principaux inchangés (1,0168 contre 1,0173). Gardés pour la couverture (24 championnats prédictibles).
+- Ligue Europa 2025-26 (188 matchs), absente d'openfootball, récupérée sur Wikipédia ; 799 buts avec minute.
+- `scripts/maj_europe.py` : pause et nouvel essai sur erreur 429, calendrier et minutes jamais réécrits si une page ne répond pas (test hors ligne).
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
@@ -59,6 +74,8 @@ Plan validé le 21/10/2026 : lots 0 à 3 (voir le plan dans la conversation, ré
 | « Chance selon Kateni » 43 % puis 32 % au verdict | même nom pour le modèle seul et le mélange modèle + marché | « chance selon le modèle » / « chance retenue » |
 | En ligne, `ImportError` sur les 4 pages après la mise à jour du design (local OK, GitHub à jour) | Streamlit Cloud recharge les pages après un `git push` mais garde en mémoire les anciens modules `kateni/*` | **Reboot app** (Manage app > ⋮ > Reboot) après toute mise à jour qui modifie `kateni/` ; à reporter dans `starter` (stack Streamlit) |
 | Le propriétaire ne retrouvait plus son projet (« même l'ancien modèle faisait mieux ») | l'assistant a réorganisé l'app autour des cotes au lieu de la prédiction, sans le valider avec lui | page Prédictions en premier ; mesure des deux modèles avant de conclure ; règle : **faire valider tout changement de parcours principal avant de le coder** |
+| Calendrier `a_venir.csv` vidé | relances répétées du script → Wikipédia renvoie 429 ; le script réécrivait le calendrier même sans données | restauré depuis Git ; pause + nouvel essai ; calendrier conservé si une page échoue ; test `test_maj_europe_ne_vide_jamais_le_calendrier` |
+| Alias proposé « Red Star Belgrade » → « Red Star » | rapprochement automatique de noms (Red Star FC = Ligue 2 française) | refusé : les alias sont vérifiés à la main |
 | Cases « None » dans les tableaux | affichage par défaut de Streamlit pour une valeur manquante (pas un problème de type) | `st.dataframe(..., placeholder="–")` |
 | Le modèle ne bat pas le marché | fait mesuré, pas un bug | Kateni s'ancre sur les cotes saisies ; peu de paris proposés |
 

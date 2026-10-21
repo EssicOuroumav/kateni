@@ -17,6 +17,8 @@ Usage :
 import json
 import re
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -26,14 +28,17 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from kateni.config import COMPETITIONS, RACINE  # noqa: E402
 
-SAISON = "2026-27"
+SAISON = "2026-27"  # saison en cours : ses matchs à venir alimentent a_venir.csv
+# (compétition, saison) -> pages Wikipédia. Les saisons passées comblent les trous des autres sources
+# (la Ligue Europa 2025-26 manquait dans openfootball).
 PAGES = {
-    "CL": f"{SAISON.replace('-', '–')} UEFA Champions League league phase",
-    "EL": f"{SAISON.replace('-', '–')} UEFA Europa League league phase",
+    ("CL", "2026-27"): ["2026–27 UEFA Champions League league phase", "2026–27 UEFA Champions League knockout phase"],
+    ("EL", "2026-27"): ["2026–27 UEFA Europa League league phase", "2026–27 UEFA Europa League knockout phase"],
+    ("EL", "2025-26"): ["2025–26 UEFA Europa League league phase", "2025–26 UEFA Europa League knockout phase"],
 }
 API = "https://en.wikipedia.org/w/api.php"
 
-RE_BOX = re.compile(r"\{\{#invoke:Football box\|main(.*?)\n\}\}", re.S)
+RE_BOX = re.compile(r"\{\{(?:#invoke:Football box\|main|Football box)\s*(.*?)\n\}\}", re.S)
 RE_CHAMP = re.compile(r"^\|(\w+)\s*=\s*(.*?)(?=^\|\w+\s*=|\Z)", re.S | re.M)
 RE_LIEN = re.compile(r"\[\[(?:[^\]|]*\|)?([^\]]+)\]\]")
 RE_DATE = re.compile(r"Start date\|(\d{4})\|(\d{1,2})\|(\d{1,2})")
@@ -42,15 +47,24 @@ RE_BUT = re.compile(r"\{\{goal\|([^}]*)\}\}")
 
 
 def wikitexte(titre: str) -> str:
+    """Texte brut d'une page ; chaîne vide si la page n'existe pas encore (phase finale à venir)."""
     params = urllib.parse.urlencode({"action": "parse", "page": titre, "prop": "wikitext",
                                      "format": "json", "formatversion": "2"})
     req = urllib.request.Request(f"{API}?{params}", headers={"User-Agent": "Kateni/2 (usage personnel)"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)["parse"]["wikitext"]
+    for essai in range(4):
+        time.sleep(1.5)  # politesse envers Wikipédia (limite de débit : erreur 429)
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.load(r).get("parse", {}).get("wikitext", "")
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or essai == 3:
+                raise
+            time.sleep(10 * (essai + 1))  # attendre avant de réessayer
+    return ""
 
 
 def nom_equipe(brut: str) -> str:
-    brut = re.sub(r"\{\{fbaicon\|\w+\}\}", "", brut)
+    brut = re.sub(r"\{\{(?:fbaicon|flagicon|fbicon)\|[^}]*\}\}", "", brut)
     m = RE_LIEN.search(brut)
     return (m.group(1) if m else brut).strip()
 
@@ -66,7 +80,7 @@ def minutes_buts(brut: str) -> list[int]:
     return minutes
 
 
-def parser(texte: str) -> tuple[list[dict], list[dict], list[dict]]:
+def parser(texte: str, saison: str = SAISON) -> tuple[list[dict], list[dict], list[dict]]:
     joues, a_venir, buts = [], [], []
     for box in RE_BOX.findall(texte):
         champs = {k: v.strip() for k, v in RE_CHAMP.findall(box)}
@@ -83,7 +97,7 @@ def parser(texte: str) -> tuple[list[dict], list[dict], list[dict]]:
             m_h, m_a = minutes_buts(champs.get("goals1", "")), minutes_buts(champs.get("goals2", ""))
             ht_h, ht_a = sum(m <= 45 for m in m_h), sum(m <= 45 for m in m_a)
             ligne = {"Date": date, "HomeTeam": home, "AwayTeam": away, "FTHG": fthg, "FTAG": ftag,
-                     "FTR": ftr, "Saison": SAISON}
+                     "FTR": ftr, "Saison": saison}
             # Mi-temps seulement si les minutes sont complètes (sinon on ne devine pas)
             if len(m_h) == fthg and len(m_a) == ftag:
                 ligne.update({"HTHG": ht_h, "HTAG": ht_a})
@@ -100,27 +114,47 @@ def parser(texte: str) -> tuple[list[dict], list[dict], list[dict]]:
 
 def main():
     tous_a_venir, tous_buts = [], []
-    for code, titre in PAGES.items():
-        comp = COMPETITIONS[code]
+    courantes_ok = True
+    par_comp: dict[str, list[tuple[str, list[dict]]]] = {}
+    for (code, saison), titres in PAGES.items():
+        joues, a_venir, buts = [], [], []
         try:
-            joues, a_venir, buts = parser(wikitexte(titre))
+            for titre in titres:
+                j, a, b = parser(wikitexte(titre), saison)
+                joues += j; a_venir += a; buts += b
         except Exception as e:
-            print(f"{comp.nom} : échec de lecture Wikipédia ({e}) — fichier inchangé")
+            print(f"{COMPETITIONS[code].nom} {saison} : échec de lecture Wikipédia ({e}) — inchangé")
+            courantes_ok = courantes_ok and saison != SAISON
             continue
-        chemin = RACINE / comp.fichier
-        ancien = pd.read_csv(chemin) if chemin.exists() else pd.DataFrame()
-        ancien = ancien[ancien.get("Saison", "") != SAISON] if len(ancien) else ancien
-        neuf = pd.concat([ancien, pd.DataFrame(joues)], ignore_index=True)
+        print(f"{COMPETITIONS[code].nom} {saison} : {len(joues)} matchs joués, {len(a_venir)} à venir")
+        if joues:
+            par_comp.setdefault(code, []).append((saison, joues))
+        if saison == SAISON:
+            tous_a_venir += [{"competition": code, **m} for m in a_venir]
+        tous_buts += [{"competition": code, "Saison": saison, **b} for b in buts]
+
+    for code, lots in par_comp.items():
+        chemin = RACINE / COMPETITIONS[code].fichier
+        ancien = pd.read_csv(chemin) if chemin.exists() else pd.DataFrame(columns=["Saison"])
+        saisons = {s for s, _ in lots}
+        garde = ancien[~ancien["Saison"].isin(saisons)]
+        neuf = pd.concat([garde] + [pd.DataFrame(j) for _, j in lots], ignore_index=True)
         neuf = neuf.drop_duplicates(subset=["Date", "HomeTeam", "AwayTeam"], keep="last").sort_values("Date")
         neuf.to_csv(chemin, index=False)
-        print(f"{comp.nom} {SAISON} : {len(joues)} matchs joués, {len(a_venir)} à venir "
-              f"(fichier : {len(ancien)} -> {len(neuf)} matchs)")
-        tous_a_venir += [{"competition": code, **m} for m in a_venir]
-        tous_buts += [{"competition": code, **b} for b in buts]
+        print(f"  {chemin.name} : {len(ancien)} -> {len(neuf)} matchs")
 
-    pd.DataFrame(tous_a_venir).to_csv(RACINE / "a_venir.csv", index=False)
-    if tous_buts:
-        pd.DataFrame(tous_buts).to_csv(RACINE / "buts_minutes.csv", index=False)
+    # Le calendrier n'est réécrit que si TOUTES les pages de la saison en cours ont répondu
+    if courantes_ok:
+        pd.DataFrame(tous_a_venir).to_csv(RACINE / "a_venir.csv", index=False)
+    else:
+        print("a_venir.csv conservé : une page de la saison en cours n'a pas répondu")
+    # Ne jamais réduire le fichier des minutes de buts si une page n'a pas répondu cette fois
+    chemin_buts = RACINE / "buts_minutes.csv"
+    avant = len(pd.read_csv(chemin_buts)) if chemin_buts.exists() else 0
+    if len(tous_buts) >= avant:
+        pd.DataFrame(tous_buts).to_csv(chemin_buts, index=False)
+    else:
+        print(f"buts_minutes.csv conservé ({avant} buts) : une page n'a pas répondu ({len(tous_buts)} lus)")
     print(f"a_venir.csv : {len(tous_a_venir)} matchs ; buts_minutes.csv : {len(tous_buts)} buts")
 
 

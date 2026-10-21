@@ -8,6 +8,9 @@ from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent
 
+# Championnats publiés au format « new/XXX.csv » de football-data (un fichier, toutes saisons)
+FORMAT_NEW = {"USA", "AUT", "SWZ", "NOR", "DNK", "SWE", "POL", "ROU"}
+
 
 @dataclass(frozen=True)
 class Competition:
@@ -33,6 +36,16 @@ COMPETITIONS: dict[str, Competition] = {c.code: c for c in [
     Competition("LIGA2", "La Liga 2 (Espagne)", "SP2_full.csv", "SP2", 2023, True),
     Competition("L2", "Ligue 2 (France)", "F2_full.csv", "F2", 2023, True),
     Competition("MLS", "MLS (USA)", "USA_full.csv", "USA", 2012, True),
+    # Ajoutés le 21/10/2026 : championnats des clubs de C1/C3 (forces réelles au lieu d'un niveau par défaut)
+    Competition("SCO", "Premiership (Écosse)", "SC0_full.csv", "SC0", 2020, True),
+    Competition("GRE", "Super League (Grèce)", "G1_full.csv", "G1", 2020, True),
+    Competition("AUT", "Bundesliga (Autriche)", "AUT_full.csv", "AUT", 2012, True),
+    Competition("SUI", "Super League (Suisse)", "SWZ_full.csv", "SWZ", 2012, True),
+    Competition("NOR", "Eliteserien (Norvège)", "NOR_full.csv", "NOR", 2012, True),
+    Competition("DAN", "Superliga (Danemark)", "DNK_full.csv", "DNK", 2012, True),
+    Competition("SUE", "Allsvenskan (Suède)", "SWE_full.csv", "SWE", 2012, True),
+    Competition("POL", "Ekstraklasa (Pologne)", "POL_full.csv", "POL", 2012, True),
+    Competition("ROU", "Superliga (Roumanie)", "ROU_full.csv", "ROU", 2012, True),
     Competition("CL", "Champions League", "CL_full.csv", None, 2011, False),
     Competition("EL", "Europa League", "EL_full.csv", None, 2020, False),
 ]}
