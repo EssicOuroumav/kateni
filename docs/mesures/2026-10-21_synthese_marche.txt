@@ -1,0 +1,38 @@
+MATCHS : 5256 (avec cotes : 5252), 12 championnats européens, 01/08/2025 -> 20/10/2026
+
+1N2                        Kateni    Marché (Bet365, marge retirée)
+Bons pronostics             49.4%     51.3%
+Log loss (bas=mieux)       1.0093    0.9933
+RPS (bas=mieux)            0.2065    0.2016
+Marge moyenne Bet365 1N2 : 6.9%
+Quand Kateni donne un favori à ≥ 60 % : 823 matchs, il gagne 73.4% (marché sur ces matchs : 73.5%)
+Nuls : réels 26.0% · moyenne prévue Kateni 25.2% · marché 25.4%
+
+PLUS DE 2,5 BUTS (5252 matchs) : bons pronostics Kateni 56.2% · marché 57.1%
+
+CALIBRATION (Kateni annonce X % pour le favori → il gagne réellement Y %)
+  33%-40% :  1045 matchs · annoncé 37.9% · réel 36.0%
+  40%-50% :  2197 matchs · annoncé 44.5% · réel 43.9%
+  50%-60% :  1190 matchs · annoncé 54.3% · réel 54.7%
+  60%-70% :   501 matchs · annoncé 64.3% · réel 69.3%
+  70%-100% :   323 matchs · annoncé 76.4% · réel 79.9%
+
+PARIS SIMULÉS à 1 FCFA (cote Bet365 d'avant-match), pari si espérance Kateni ≥ 3 %
+  modèle seul : 3522 paris · ROI -14.7% · battre la cote de clôture : 44% des paris
+  Référence « parier tout favori du marché » : ROI -5.4%
+
+PAR CHAMPIONNAT (bons pronostics 1N2)
+       matchs kateni marche  écart
+c                                 
+BEL       372  48.1%  50.3%  -2.2%
+BL        360  53.9%  55.3%  -1.4%
+CHAMP     683  42.6%  46.3%  -3.7%
+L1        369  52.3%  54.5%  -2.2%
+L2        385  41.8%  42.6%  -0.8%
+LIGA      468  52.8%  55.1%  -2.4%
+LIGA2     572  47.9%  49.8%  -1.9%
+NED       387  50.6%  52.7%  -2.1%
+PL        450  48.2%  48.9%  -0.7%
+POR       378  55.6%  55.8%  -0.3%
+SA        450  53.3%  54.7%  -1.3%
+TUR       378  50.5%  53.4%  -2.9%
