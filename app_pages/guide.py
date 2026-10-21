@@ -33,7 +33,12 @@ with st.container(border=True):
         "**Badge vert « Modèle + cotes du marché »** : quand les cotes sont publiées (en général 2 à 3 jours "
         "avant le match), le pronostic mélange le modèle (25 %) et les cotes (75 %). Sur 5 252 matchs de "
         "2025-26, cela donne 50,9 % de bons pronostics, contre 49,4 % pour le modèle seul. Le détail montre "
-        "les deux séparément.")
+        "les deux séparément.\n\n"
+        "**Absences et compositions** : Kateni relève les cotes **Pinnacle** (le bookmaker de référence) "
+        "**juste avant chaque match**, après la publication des compositions. Les blessés, suspendus et "
+        "remplaçants entrent ainsi dans le pronostic au travers de la cote. Le détail indique l'heure du relevé "
+        "(« Pinnacle, relevées le 24/10 à 13:00 ») : un relevé fait moins d'une heure avant le match tient "
+        "compte des absents.")
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
 
 with st.container(border=True):

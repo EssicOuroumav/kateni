@@ -28,7 +28,7 @@ def _cote(cotes: dict | None, k: str) -> float | None:
     return v if v > 1 else None
 
 
-COLS_COTES = ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker")
+COLS_COTES = ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker", "releve")
 
 
 def pronostic(match: dict, cotes: dict | None = None) -> dict:
@@ -57,6 +57,10 @@ def _pronostic(competition: str, dom: str, ext: str, c: tuple, _sig: tuple) -> d
         plus25 = POIDS_MODELE * plus25 + (1 - POIDS_MODELE) * sans_marge([cp, cm])[0][0]
     bookmaker = (cotes or {}).get("bookmaker")
     bookmaker = bookmaker if isinstance(bookmaker, str) and bookmaker else "Bet365"
+    releve = (cotes or {}).get("releve")
+    if isinstance(releve, str) and releve:
+        t = pd.Timestamp(releve)
+        bookmaker += f", relevées le {t:%d/%m} à {t:%H:%M}"
     return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
             "marche_1n2": marche_1n2, "cotes_1n2": (c1, cn, c2), "p1n2": p1n2, "plus25": plus25}
 

@@ -186,11 +186,11 @@ def test_calendrier_heure_abidjan_et_sans_doublon(tmp_path):
     assert c[c.dom == "Arsenal"].iloc[0].ext == "Tottenham"  # nom de la nouvelle source relié
 
 
-def test_cotes_europe_rattachees_au_calendrier(tmp_path):
+def test_cotes_pinnacle_rattachees_au_calendrier(tmp_path):
     from datetime import date
     from kateni.calendrier import charger
     (tmp_path / "a_venir.csv").write_text("competition,Date,Heure_CET,HomeTeam,AwayTeam\nCL,2026-10-21,18:45,Como,Manchester United\n")
-    (tmp_path / "cotes_europe.csv").write_text(
+    (tmp_path / "cotes_pinnacle.csv").write_text(
         "competition,DateUtc,HomeTeam,AwayTeam,B365H,B365D,B365A,B365>2.5,B365<2.5,BTTS_oui,BTTS_non,bookmaker\n"
         "CL,2026-10-21T16:45:00.000Z,Como 1907,Manchester United,2.46,3.8,2.79,1.558,2.52,1.48,2.78,Pinnacle\n")
     r = charger(tmp_path, depuis=date(2026, 10, 20)).iloc[0]
@@ -208,3 +208,31 @@ def test_evenements_classes_et_coherents():
     assert c["Nombre de buts : plus de 2,5"] + c["Nombre de buts : moins de 2,5"] == pytest.approx(1)
     assert c["Double chance : Como ou nul"] == pytest.approx(c["Résultat : Como gagne"] + c["Résultat : match nul"])
     assert c["Como marque"] + c["Como ne marque pas"] == pytest.approx(1)
+
+
+def test_rattachement_strict_des_cotes(tmp_path):
+    from datetime import date
+    from kateni.calendrier import charger, ressemblance
+    assert ressemblance("Arsenal FC", "Arsenal") == 1.0
+    assert ressemblance("Manchester City", "Man United") < 0.75      # pas de confusion entre les deux Manchester
+    (tmp_path / "calendrier_saison.csv").write_text(
+        "competition,DateUtc,HomeTeam,AwayTeam\nPL,2026-10-24 11:30:00Z,Aston Villa,Man City\n"
+        "PL,2026-10-24 14:00:00Z,Man Utd,Brighton\n")
+    (tmp_path / "cotes_pinnacle.csv").write_text(
+        "competition,DateUtc,HomeTeam,AwayTeam,B365H,B365D,B365A,B365>2.5,B365<2.5,BTTS_oui,BTTS_non,bookmaker,releve\n"
+        "PL,2026-10-24T11:30:00.000Z,Aston Villa FC,Manchester City FC,3.9,3.9,1.9,1.7,2.2,1.6,2.3,Pinnacle,2026-10-24 10:45\n"
+        "PL,2026-10-24T14:00:00.000Z,Chelsea FC,Arsenal FC,2.5,3.3,2.9,1.8,2.0,1.7,2.1,Pinnacle,2026-10-24 13:00\n")
+    c = charger(tmp_path, depuis=date(2026, 10, 23)).set_index("dom")
+    assert c.loc["Aston Villa", "bookmaker"] == "Pinnacle" and float(c.loc["Aston Villa", "B365A"]) == 1.9
+    assert c.loc["Aston Villa", "releve"] == "2026-10-24 10:45"
+    assert pd.isna(c.loc["Man United", "B365H"])                      # Chelsea–Arsenal ne se rattache à rien
+
+
+def test_rythme_du_budget_oddspapi():
+    import importlib.util
+    from datetime import datetime, timezone
+    spec = importlib.util.spec_from_file_location("mc", "scripts/maj_cotes.py")
+    mc = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mc)
+    jour10 = datetime(2026, 10, 10, tzinfo=timezone.utc)                # 10/31 du mois -> rythme ≈ 74 + 10
+    assert mc.dans_le_rythme(60, jour10) and not mc.dans_le_rythme(100, jour10)

@@ -5,6 +5,7 @@ Trois sources, de la plus riche à la plus lointaine :
   1. a_venir_championnats.csv (football-data) : quelques jours à l'avance, AVEC les cotes ; heure de Londres
   2. a_venir.csv (Wikipédia) : C1 et C3 ; heure de Paris
   3. calendrier_saison.csv (fixturedownload) : toute la saison ; déjà en UTC
+Puis les cotes Pinnacle (cotes_pinnacle.csv, relevées juste avant les matchs) remplacent les autres cotes.
 Un même match présent dans deux sources (même compétition, mêmes équipes, dates à moins de 3 jours)
 n'est gardé qu'une fois, dans la source la plus riche (celle qui a les cotes).
 """
@@ -20,28 +21,69 @@ from kateni.equipes import canon
 
 UTC = ZoneInfo("UTC")
 COLONNES = ["competition", "Date", "Heure", "HomeTeam", "AwayTeam", "dom", "ext", "source",
-            "B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker"]
+            "B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker", "releve"]
 COTES = ["B365H", "B365D", "B365A", "B365>2.5", "B365<2.5"]
 
 
-def _ajouter_cotes_europe(d: pd.DataFrame, racine: Path) -> pd.DataFrame:
-    """Cotes C1/C3 (OddsPapi, Pinnacle) rattachées aux matchs du calendrier : même compétition, mêmes
-    équipes, coup d'envoi à moins de 2 jours."""
-    ce = _lire(racine / "cotes_europe.csv")
+def _norm(nom: str) -> str:
+    import re
+    import unicodedata
+    n = unicodedata.normalize("NFKD", str(nom)).encode("ascii", "ignore").decode().lower()
+    n = re.sub(r"\b(fc|cf|ac|sc|afc|ssc|as|fk|sk|bk|if|club|cd|ud|rcd|sd|ca|rc|sv|vfl|vfb|tsg|ogc|osc|kv|sl|"
+               r"de|la|calcio|1907|1909|04|05|07)\b", " ", n)
+    return re.sub(r"[^a-z0-9]", "", n)
+
+
+def ressemblance(a: str, b: str) -> float:
+    """0 à 1 : « Arsenal FC » ~ « Arsenal » = 1 ; « Man City » ~ « Man United » < 0,7."""
+    import re
+    from difflib import SequenceMatcher
+    y = _norm(b)
+    # Variantes du nom : tel quel, puis sans « FC », « AFC »… avant de consulter la table d'alias
+    sans = re.sub(r"\b(FC|AFC|CF|SC|AC|FK|SK|BK|CD|SL)\b", "", str(a)).strip()
+    meilleur = 0.0
+    for v in {a, sans}:
+        x = _norm(canon(v))
+        if not x or not y:
+            continue
+        if x == y or (min(len(x), len(y)) >= 5 and (x in y or y in x)):
+            return 1.0
+        meilleur = max(meilleur, SequenceMatcher(None, x, y).ratio())
+    return meilleur
+
+
+def _ajouter_cotes_pinnacle(d: pd.DataFrame, racine: Path) -> pd.DataFrame:
+    """Cotes Pinnacle (relevées juste avant les matchs, voir scripts/maj_cotes.py) rattachées au calendrier.
+    Rattachement strict : même compétition, deux noms ressemblants (≥ 0,75 chacun) et un seul match candidat
+    net, coup d'envoi à moins de 6 h. Si les deux noms correspondent EXACTEMENT, jusqu'à 4 jours d'écart :
+    le match a été déplacé (télévisions) et la date/heure de Pinnacle, plus récente, remplace celle du
+    calendrier. Les cotes Pinnacle remplacent alors les cotes Bet365."""
+    ce = _lire(racine / "cotes_pinnacle.csv")
     if not len(ce):
         return d
     ce["instant"] = pd.to_datetime(ce["DateUtc"], utc=True, errors="coerce")
-    ce["dom"], ce["ext"] = ce["HomeTeam"].map(canon), ce["AwayTeam"].map(canon)
-    index = {}
-    for _, r in ce.iterrows():
-        index.setdefault((r["competition"], r["dom"], r["ext"]), []).append(r)
-    for i, r in d[d["competition"].isin(["CL", "EL"])].iterrows():
-        for c in index.get((r["competition"], r["dom"], r["ext"]), []):
-            if abs((c["instant"] - r["instant"]).total_seconds()) < 2 * 86400:
-                for col in COTES:
-                    d.at[i, col] = c[col]
-                d.at[i, "bookmaker"] = c.get("bookmaker", "Pinnacle")
-                break
+    if "releve" not in ce.columns:
+        ce["releve"] = pd.NA
+    for _, c in ce.dropna(subset=["instant"]).iterrows():
+        cand = d[(d["competition"] == c["competition"])
+                 & ((d["instant"] - c["instant"]).abs() < pd.Timedelta(days=4))]
+        scores = []
+        for i, r in cand.iterrows():
+            sc = min(ressemblance(c["HomeTeam"], r["dom"]), ressemblance(c["AwayTeam"], r["ext"]))
+            proche = abs(r["instant"] - c["instant"]) < pd.Timedelta(hours=6)
+            if sc >= 0.999 or (proche and sc >= 0.75):
+                scores.append((sc, i))
+        scores.sort(reverse=True)
+        if not scores or (len(scores) > 1 and scores[1][0] >= scores[0][0] - 0.05):
+            continue
+        i = scores[0][1]
+        if abs(d.at[i, "instant"] - c["instant"]) >= pd.Timedelta(hours=6):
+            d.at[i, "instant"] = c["instant"]       # match déplacé : on suit Pinnacle
+            d.at[i, "heure_connue"] = True
+        for col in COTES:
+            d.at[i, col] = c[col]
+        d.at[i, "bookmaker"] = "Pinnacle"
+        d.at[i, "releve"] = c["releve"]
     return d
 
 
@@ -100,7 +142,8 @@ def charger(racine: Path = RACINE, depuis: date | None = None) -> pd.DataFrame:
     for col in COTES:
         if col not in d.columns:
             d[col] = pd.NA
-    d = _ajouter_cotes_europe(d, racine)
+    d["releve"] = pd.NA
+    d = _ajouter_cotes_pinnacle(d, racine)
 
     depuis = depuis or date.today()
     d = d[d["instant"].dt.date >= depuis - timedelta(days=1)]

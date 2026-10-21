@@ -85,7 +85,8 @@ def _calendrier(_sig: tuple) -> pd.DataFrame:
 
 def a_venir() -> pd.DataFrame:
     """Calendrier unifié (C1/C3, championnats, saison complète), heures d'Abidjan. Voir kateni/calendrier.py."""
-    fichiers = ("a_venir.csv", "a_venir_championnats.csv", "calendrier_saison.csv", "equipes_alias.csv")
+    fichiers = ("a_venir.csv", "a_venir_championnats.csv", "calendrier_saison.csv", "equipes_alias.csv",
+                "cotes_pinnacle.csv")
     sig = tuple((f, (RACINE / f).stat().st_mtime if (RACINE / f).exists() else 0) for f in fichiers) + (str(date.today()),)
     return _calendrier(sig)
 

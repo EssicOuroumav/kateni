@@ -1,0 +1,45 @@
+# Kateni — cotes Pinnacle relevées juste avant les matchs (absences et compositions comprises)
+# Toutes les heures de 10 h à 20 h (UTC = heure d'Abidjan). À chaque passage, seules les compétitions dont un
+# match commence dans 20 à 80 minutes sont relevées (scripts/maj_cotes.py) : la plupart des passages ne
+# coûtent aucune requête OddsPapi. Budget suivi par le script (rythme mensuel, plafond 230/250).
+name: Cotes avant match
+
+on:
+  schedule:
+    - cron: "0 10-20 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kateni-donnees      # jamais en même temps que la mise à jour des données (évite les conflits d'envoi)
+  cancel-in-progress: false
+
+jobs:
+  cotes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Dépendance (pandas seulement, version figée)
+        run: pip install pandas==2.3.3
+      - name: Cotes Pinnacle des matchs qui commencent bientôt
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/maj_cotes.py --mode fenetre
+      - name: Enregistrer les cotes si elles ont changé
+        run: |
+          git config user.name "kateni-bot"
+          git config user.email "kateni-bot@users.noreply.github.com"
+          git add -- cotes_pinnacle.csv oddspapi_equipes.json
+          if git diff --cached --quiet; then
+            echo "Aucune nouvelle cote."
+          else
+            git commit -m "Cotes avant match du $(date -u +%d/%m/%Y\ %H:%M) UTC"
+            git pull --rebase
+            git push
+          fi

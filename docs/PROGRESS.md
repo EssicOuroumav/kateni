@@ -93,6 +93,13 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 
 - **Live** : liste « Ce qui peut encore arriver » (fin de match, marque encore, prochain but, totaux ouverts) classée, sans les événements certains ou impossibles ; cotes d'avant-match **automatiques** quand Kateni les connaît (Bet365/Pinnacle), saisie manuelle sinon. Vérifié : Como – Man United, Pinnacle repris tout seul ; 60e, 1-0 → « Como ou nul 91 % », « Como gagne 68 % ».
 
+
+## Absences des joueurs : cotes Pinnacle relevées juste avant les matchs (21/10/2026, option A)
+- Analyse : aucun effet d'absence mesurable avec nos données (pas d'historique des compositions ; études : effets modestes et variables) → pas d'ajustement inventé. Les bookmakers intègrent les absences ; le problème était l'**heure** de nos cotes (Bet365 relevée des jours avant).
+- `scripts/maj_cotes.py` (remplace `maj_cotes_europe.py`) : 24 compétitions ; **5 par appel au plus** (limite OddsPapi découverte : erreur 400) ; passage **horaire 10 h-20 h UTC** (`.github/workflows/cotes-avant-match.yml`) ne relevant que les compétitions dont un match commence dans 20 à 80 min ; passage du matin pour C1/C3 ; rythme mensuel surveillé (prioritaires seules si dépassement) et plafond 230/250.
+- `kateni/calendrier.py` : rattachement strict par compétition + ressemblance des deux noms (sans confondre les deux Manchester) ; match déplacé détecté (noms identiques, ≤ 4 jours) → date/heure de Pinnacle ; heure du relevé affichée. Essai réel (2 requêtes) : 129/129 matchs rattachés après 4 alias ajoutés ; Toulouse – Troyes déplacé au 25/10 16:15 automatiquement. Rapport de rattachement dans le journal du robot.
+- Budget estimé ≈ 130 requêtes/mois ; 14/250 utilisées au 21/10.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

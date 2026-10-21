@@ -39,7 +39,11 @@ if len(ligne):
     r0 = ligne.iloc[0]
     q = [_cote(r0.get(k)) for k in ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5")]
     if all(q[:3]):
-        auto = (q, r0.get("bookmaker") or "marché")
+        bk = r0.get("bookmaker") if isinstance(r0.get("bookmaker"), str) else "marché"
+        rel = r0.get("releve")
+        if isinstance(rel, str) and rel:
+            bk += f" (relevées le {pd.Timestamp(rel):%d/%m} à {pd.Timestamp(rel):%H:%M})"
+        auto = (q, bk)
 sources = (["Cotes du marché (automatique)"] if auto else []) + ["Cotes Betclic saisies", "Modèle Kateni"]
 source = st.segmented_control(
     "D'où vient la force des équipes ?", sources, default=sources[0], key=f"lv_source_{dom}_{ext}", required=True,
