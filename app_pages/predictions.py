@@ -48,6 +48,11 @@ def carte(match: dict, cle: str, cotes: dict | None = None) -> None:
         st.markdown(f"**{dom} – {ext}**" + (f"  ·  {quand}" if quand else ""))
         st.markdown(f"Pronostic : **{favori}** ({chance:.0%})"
                     + ("  ·  match serré" if chance < 0.45 else ""))
+        jours = (pd.to_datetime(match["date"]) - pd.Timestamp.today().normalize()).days
+        if jours > 7:
+            st.caption(f":material/update: **Pronostic provisoire** (match dans {jours} jours) : il est recalculé "
+                       "après chaque journée de championnat, puis avec les cotes 2 à 3 jours avant le match. "
+                       "Le pronostic qui compte est celui de la veille.")
         st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"
                    f"  —  score le plus probable **{score}** ({p_score:.0%})"
                    f"  —  plus de 2,5 buts {plus25:.0%}"
@@ -82,6 +87,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None) -> None:
 
 
 # ---------------------------------------------------------------- choix du championnat
+st.caption(f"Données à jour jusqu'au {df['Date'].max():%d/%m/%Y} · mises à jour automatiques deux fois par jour.")
 cal = a_venir()
 codes = list(COMPETITIONS)
 avec_matchs = set(cal["competition"]) if len(cal) else set()
@@ -93,9 +99,10 @@ comp = st.selectbox(
 st.subheader("Prochains matchs", anchor=False)
 prochains = cal[cal["competition"] == comp] if len(cal) else cal
 if not len(prochains):
-    st.info("Aucun match à venir publié pour ce championnat pour l'instant. Le calendrier se remplit avant "
-            "chaque journée : dans **Mes paris**, clique sur **Mettre à jour les résultats**. En attendant, "
-            "utilise **Simuler un match** plus bas.", icon=":material/event_busy:")
+    st.info("Aucun match publié pour ce championnat pour l'instant. Rien à faire de ton côté : Kateni récupère "
+            "le calendrier **tout seul, deux fois par jour** (5 h 15 et 14 h 15, heure d'Abidjan), dès que la source "
+            "le publie, en général quelques jours avant chaque journée. En attendant, utilise **Simuler un match** "
+            "plus bas.", icon=":material/event_busy:")
 for i, r in prochains.head(40).iterrows():
     d = pd.to_datetime(r["Date"])
     match = {"competition": comp, "dom": canon(r["HomeTeam"]), "ext": canon(r["AwayTeam"]),

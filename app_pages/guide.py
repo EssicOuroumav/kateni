@@ -47,8 +47,9 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Après le match", anchor=False)
     st.markdown(
-        "Ouvre **Mes paris** et clique sur **Mettre à jour les résultats** : les paris terminés sont réglés "
-        "tout seuls (gagné ou perdu). **Bilan** montre si Kateni gagne vraiment sur la durée.")
+        "Les résultats arrivent **tout seuls** (deux fois par jour). Ouvre **Mes paris** : les paris terminés y sont "
+        "réglés automatiquement. Le bouton **Mettre à jour les résultats** sert seulement à forcer une mise à jour "
+        "immédiate. **Bilan** montre si Kateni gagne vraiment sur la durée.")
     st.page_link("app_pages/mes_paris.py", label="Aller à Mes paris", icon=":material/receipt_long:")
 
 with st.container(border=True):
