@@ -36,7 +36,7 @@ Pas de comptes d'utilisateurs, pas de paiement, pas de fichiers déposés, pas d
 - [x] **Secrets** : `.streamlit/secrets.toml`, `.env` et `paris.csv` sont dans `.gitignore`. À vérifier à chaque commit avec `git status`.
 
 ## 5. Constats
-- **F1 (moyenne)** : Streamlit écoute par défaut sur toutes les interfaces, donc l'app aurait été visible depuis un Wi-Fi public. Correction : `server.address = "localhost"`. Preuve : `lsof` (§3). **Corrigé.**
+- **F1 (moyenne)** : Streamlit écoute par défaut sur toutes les interfaces, donc l'app aurait été visible depuis un Wi-Fi public. Correction : `--server.address=localhost` dans le lanceur du Mac. Preuve : `lsof` (§3). **Corrigé.**
 - **F2 (faible)** : `paris.csv` (données financières) ne doit pas être dans Git. Correction : `.gitignore`. Une sauvegarde du fichier reste à organiser (lot 2 : base en ligne).
 - **F4 (moyenne)** : bascule silencieuse vers une autre base, d'où deux journaux différents ou des essais dans les vrais paris. Correction : `kateni/db.py`, sans repli (cible absente = erreur), et branche `test` séparée de `main`. Preuves : `tests/test_db.py::test_aucun_repli_vers_la_prod` et `test_pas_de_repli_sur_le_csv_si_neon_est_configure`. **Corrigé.**
 - **F5 (faible)** : injection par nom de colonne dans `PostgresStore.mettre_a_jour`. Correction : liste blanche + `psycopg.sql.Identifier` ; valeurs toujours paramétrées. Preuve : `tests/test_db.py::test_neon_idempotence_et_mise_a_jour` (sur la branche test, **à exécuter** quand elle existera).
