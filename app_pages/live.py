@@ -4,7 +4,8 @@ from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, lambdas_depuis_cotes
 from kateni.live import EtatLive, predire_live
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
-                       choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, table_analyse)
+                       choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, predire,
+                       table_analyse)
 
 df, m = contexte()
 st.caption("Pendant le match : saisis la minute et le score, Kateni calcule la suite. "
@@ -22,7 +23,7 @@ source = st.segmented_control(
     default="Cotes Betclic d'avant-match", key="lv_source", required=True,
     help="Les cotes d'avant-match sont le meilleur point de départ : le backtest montre que le marché "
          "prédit mieux que le modèle. Prends le modèle si tu n'as pas noté les cotes.")
-lam_mod = m.lambdas(dom, ext, match["competition"])
+lam_mod = predire(match)[:2]
 if source == "Modèle Kateni":
     avertir_si_peu_connu(m, dom, ext)
     lam = lam_mod

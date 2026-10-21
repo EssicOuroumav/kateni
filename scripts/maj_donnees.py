@@ -107,10 +107,38 @@ def maj_competition(code: str) -> None:
     print(f"{comp.nom} : {n_avant} -> {len(neuf)} matchs, dernier le {neuf['Date'].max():%d/%m/%Y}")
 
 
+def maj_calendrier() -> None:
+    """Matchs à venir des championnats (avec cotes Bet365 quand elles sont publiées) -> a_venir_championnats.csv."""
+    par_div = {c.fd_code: c.code for c in COMPETITIONS.values() if c.fd_code}
+    lignes = []
+    texte = telecharger(f"{BASE_URL}/fixtures.csv")
+    if texte:
+        f = pd.read_csv(StringIO(texte))
+        f = f[f["Div"].isin(par_div)]
+        f["competition"] = f["Div"].map(par_div)
+        lignes.append(f)
+    texte = telecharger(f"{BASE_URL}/new_league_fixtures.csv")
+    if texte:
+        f = pd.read_csv(StringIO(texte)).rename(columns={"Home": "HomeTeam", "Away": "AwayTeam"})
+        f = f[(f["Country"] == "USA") & (f["League"] == "MLS")]
+        f["competition"] = "MLS"
+        lignes.append(f)
+    if not lignes:
+        print("Calendrier des championnats : rien téléchargé")
+        return
+    cal = pd.concat(lignes, ignore_index=True)
+    cal["Date"] = pd.to_datetime(cal["Date"], dayfirst=True, errors="coerce").dt.strftime("%Y-%m-%d")
+    garder = ["competition", "Date", "Time", "HomeTeam", "AwayTeam", "B365H", "B365D", "B365A", "B365>2.5", "B365<2.5"]
+    cal = cal[[c for c in garder if c in cal.columns]].rename(columns={"Time": "Heure_UK"})
+    cal.to_csv(RACINE / "a_venir_championnats.csv", index=False)
+    print(f"Calendrier des championnats : {len(cal)} matchs à venir ({cal['Date'].min()} -> {cal['Date'].max()})")
+
+
 def main():
     codes = sys.argv[1:] or list(COMPETITIONS)
     for code in codes:
         maj_competition(code)
+    maj_calendrier()
 
 
 if __name__ == "__main__":

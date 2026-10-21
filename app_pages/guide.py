@@ -6,9 +6,21 @@ st.markdown("Kateni calcule la **chance réelle** de chaque pari et la compare �
             "Il ne te dit de jouer que lorsque la cote paie plus que ce que le pari vaut vraiment.")
 
 with st.container(border=True):
-    st.subheader("Avant un match", anchor=False)
+    st.subheader("Prédire les matchs", anchor=False)
     st.markdown(
-        "1. Ouvre **Avant-match** et choisis le match.\n"
+        "1. Ouvre **Prédictions** et choisis ton championnat.\n"
+        "2. Kateni affiche **tous les matchs à venir**, chacun avec son pronostic : qui gagne et avec quelle "
+        "chance, le score le plus probable, plus ou moins de 2,5 buts, les 2 équipes marquent.\n"
+        "3. Ouvre **Détail du pronostic** pour tout voir (double chance, nombre de buts, 5 scores probables).\n"
+        "4. **Simuler un match** : n'importe quelle affiche du championnat, même hors calendrier.\n\n"
+        "Pour chaque championnat, Kateni utilise le modèle qui a le mieux prédit depuis août 2025 "
+        "(ton modèle d'origine en Premier League, Ligue 1, Belgique et Turquie, le modèle global ailleurs).")
+    st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
+
+with st.container(border=True):
+    st.subheader("Comparer avec Betclic (facultatif)", anchor=False)
+    st.markdown(
+        "1. Ouvre **Cotes Betclic** (ou, dans Prédictions, « Comparer avec mes cotes Betclic »).\n"
         "2. Pour chaque choix (« Résultat : Como gagne », « Les 2 équipes marquent : Oui »…), Kateni affiche "
         "une **cote minimale**.\n"
         "3. Ouvre le même match sur **Betclic**. Pour chaque choix, regarde la cote :\n"
@@ -16,7 +28,7 @@ with st.container(border=True):
         "   - **inférieure** : laisse la case vide, ce choix ne vaut pas le coup.\n"
         "4. Au **verdict**, « À jouer » donne la **mise conseillée** en FCFA. Clique sur "
         "**Enregistrer ce pari**, puis place-le sur Betclic (mode réel) ou ne le place pas (mode fictif).")
-    st.page_link("app_pages/avant_match.py", label="Aller à Avant-match", icon=":material/event:")
+    st.page_link("app_pages/avant_match.py", label="Aller à Cotes Betclic", icon=":material/compare_arrows:")
 
 with st.container(border=True):
     st.subheader("Pendant un match", anchor=False)

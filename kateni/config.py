@@ -69,3 +69,10 @@ POIDS_MODELE = 0.25
 
 # Marge Betclic supposée quand une seule cote d'un marché est saisie (marge non mesurable).
 MARGE_SUPPOSEE = 0.07
+
+# Modèle utilisé pour chaque compétition : celui qui a le mieux prédit (log loss 1N2) les matchs du
+# 01/08/2025 au 20/10/2026, chacun prédit sans fuite (comparaison V1/V2 du 21/10/2026).
+# V1 = modèle d'origine (kateni/modele_v1.py), V2 = modèle global (kateni/modele.py).
+# V1 meilleur : PL 1,0236 contre 1,0283 ; L1 0,9855/0,9892 ; BEL 1,0121/1,0143 ; TUR 0,9966/0,9970.
+# Toutes les autres (dont C1, C3 et MLS, non mesurables) : V2.
+MODELE_PAR_COMPETITION = {"PL": "V1", "L1": "V1", "BEL": "V1", "TUR": "V1"}

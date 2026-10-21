@@ -4,11 +4,12 @@ from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, esperance, sans_marge
 from kateni.marches import marches, matrice_scores, scores_probables
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
-                       choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, table_analyse)
+                       choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, predire,
+                       table_analyse)
 
 df, m = contexte()
-st.caption(f"Données jusqu'au {m.date_donnees:%d/%m/%Y} · {len(df):,} matchs analysés · "
-           "première fois ? Ouvre le **Guide** (menu du haut).".replace(",", " "))
+st.caption("Compare les pronostics de Kateni aux cotes Betclic d'un match, pour savoir si un pari vaut le coup. "
+           "Première fois ? Ouvre le **Guide** (menu du haut).")
 
 # ---------------------------------------------------------------- 1. Match
 st.subheader("1. Choisis le match", anchor=False)
@@ -16,8 +17,8 @@ match = choisir_match(df, "am")
 dom, ext, comp = match["dom"], match["ext"], match["competition"]
 avertir_si_peu_connu(m, dom, ext)
 
-lam_d, lam_e = m.lambdas(dom, ext, comp)
-mat = matrice_scores(lam_d, lam_e, m.rho)
+lam_d, lam_e, rho, nom_modele = predire(match)
+mat = matrice_scores(lam_d, lam_e, rho)
 p = marches(mat)
 
 # ---------------------------------------------------------------- 2. Chances
@@ -28,7 +29,7 @@ with st.container(border=True):
         st.metric("Match nul", f"{p['1N2']['N']:.0%}")
         st.metric(f"Victoire {ext}", f"{p['1N2']['2']:.0%}")
     st.caption(f"Buts attendus : {dom} {lam_d:.1f} – {lam_e:.1f} {ext} · scores les plus probables : "
-               + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 3)))
+               + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 3)) + f" · calcul : {nom_modele}")
 
 # ---------------------------------------------------------------- 3. Cotes
 st.subheader("3. Compare avec Betclic", anchor=False)

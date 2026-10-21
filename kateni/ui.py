@@ -5,12 +5,13 @@ from datetime import date
 import pandas as pd
 import streamlit as st
 
-from kateni.config import (BANKROLL_INITIALE, COMPETITIONS, MARGE_SUPPOSEE, MIN_EDGE_PCT, POIDS_MODELE,
-                           RACINE, STOP_LOSS_PCT)
+from kateni.config import (BANKROLL_INITIALE, COMPETITIONS, MARGE_SUPPOSEE, MIN_EDGE_PCT,
+                           MODELE_PAR_COMPETITION, POIDS_MODELE, RACINE, STOP_LOSS_PCT)
 from kateni.cotes import esperance, mise
 from kateni.donnees import charger_tout, equipes_de, signature_donnees
 from kateni.equipes import canon
 from kateni.modele import ajuster
+from kateni.modele_v1 import ajuster_v1
 from kateni.stockage import identifiant, obtenir_store
 
 
@@ -25,9 +26,28 @@ def modele(_sig: tuple):
     return ajuster(donnees(_sig))
 
 
+@st.cache_resource(max_entries=32, show_spinner=False)
+def _modele_v1(_sig: tuple, competition: str):
+    d = donnees(_sig)
+    return ajuster_v1(d[d["competition"] == competition])
+
+
 def contexte():
     sig = signature_donnees()
     return donnees(sig), modele(sig)
+
+
+def predire(match: dict) -> tuple[float, float, float, str]:
+    """Buts attendus (dom, ext), rho et nom du modèle, avec le meilleur modèle de la compétition."""
+    sig = signature_donnees()
+    if MODELE_PAR_COMPETITION.get(match["competition"]) == "V1":
+        m1 = _modele_v1(sig, match["competition"])
+        if m1.connait(match["dom"]) and m1.connait(match["ext"]):
+            ld, le = m1.lambdas(match["dom"], match["ext"])
+            return ld, le, m1.rho, "modèle d'origine (le meilleur dans ce championnat)"
+    m2 = modele(sig)
+    ld, le = m2.lambdas(match["dom"], match["ext"], match["competition"])
+    return ld, le, m2.rho, "modèle global"
 
 
 @st.cache_resource
@@ -58,19 +78,41 @@ def store():
 
 
 def a_venir() -> pd.DataFrame:
+    """Matchs à venir : C1/C3 (Wikipédia, heure de Paris) + championnats (football-data, heure UK + 1 h)."""
+    morceaux = []
     p = RACINE / "a_venir.csv"
-    if not p.exists():
-        return pd.DataFrame()
-    d = pd.read_csv(p)
+    if p.exists():
+        morceaux.append(pd.read_csv(p))
+    p = RACINE / "a_venir_championnats.csv"
+    if p.exists():
+        c = pd.read_csv(p)
+        h = pd.to_datetime(c["Heure_UK"], format="%H:%M", errors="coerce") + pd.Timedelta(hours=1)
+        c["Heure_CET"] = h.dt.strftime("%H:%M")
+        # Un match après minuit à Paris change de jour
+        c["Date"] = (pd.to_datetime(c["Date"]) + pd.to_timedelta((h.dt.day > 1).astype(int), unit="D")
+                     ).dt.strftime("%Y-%m-%d")
+        morceaux.append(c.drop(columns=["Heure_UK"]))
+    if not morceaux:
+        return pd.DataFrame(columns=["competition", "Date", "Heure_CET", "HomeTeam", "AwayTeam"])
+    d = pd.concat(morceaux, ignore_index=True)
     d = d[pd.to_datetime(d["Date"]) >= pd.Timestamp(date.today()) - pd.Timedelta(days=1)]
-    return d.reset_index(drop=True)
+    return d.sort_values(["Date", "Heure_CET"]).reset_index(drop=True)
 
 
-NOMS_COURTS = {"CL": "Ligue des champions", "EL": "Ligue Europa"}
+NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa"}
 
 
 def choisir_match(df: pd.DataFrame, cle: str) -> dict:
     """Retourne {competition, dom, ext, date} choisi dans le calendrier ou librement."""
+    envoye = st.session_state.get("match_envoye")
+    if envoye:
+        with st.container(border=True, horizontal=True, vertical_alignment="center"):
+            st.markdown(f"**{envoye['dom']} – {envoye['ext']}** · {NOMS_COURTS.get(envoye['competition'], '')} "
+                        f"· {pd.to_datetime(envoye['date']):%d/%m}")
+            if st.button("Choisir un autre match", key=f"{cle}_autre", icon=":material/swap_horiz:"):
+                del st.session_state["match_envoye"]
+                st.rerun()
+        return envoye
     source = st.segmented_control("Match", ["Calendrier européen", "Choix libre"],
                                   default="Calendrier européen", key=f"{cle}_src", required=True)
     cal = a_venir()

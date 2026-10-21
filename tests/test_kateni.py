@@ -117,3 +117,21 @@ def test_cote_minimale_coherente_avec_la_decision():
             return esperance(p, cote)
         assert ev(c + 0.01) >= 0.03 > ev(c - 0.01)   # juste au-dessus : pari ; juste en dessous : non
     assert cote_minimale(0.001) is None
+
+
+def test_modele_v1_identique_au_moteur_d_origine():
+    import kateni_engine as origine
+    from kateni.donnees import charger_competition
+    from kateni.modele_v1 import ajuster_v1
+    brut = pd.read_csv("E0_full.csv", parse_dates=["Date"]).dropna(subset=["FTHG", "FTAG", "FTR"])
+    f = origine.calculer_forces(brut)
+    m1 = ajuster_v1(charger_competition("PL"))
+    for h, a in [("Arsenal", "Chelsea"), ("Burnley", "Tottenham")]:
+        assert m1.lambdas(h, a) == pytest.approx(origine.calculer_lambdas(h, a, {}, f), abs=1e-9)
+
+
+def test_meilleur_modele_par_championnat():
+    from kateni.ui import predire
+    assert "origine" in predire({"competition": "PL", "dom": "Arsenal", "ext": "Chelsea"})[3]
+    assert "global" in predire({"competition": "LIGA", "dom": "Barcelona", "ext": "Real Madrid"})[3]
+    assert "global" in predire({"competition": "CL", "dom": "Paris SG", "ext": "Barcelona"})[3]

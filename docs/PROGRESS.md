@@ -36,6 +36,14 @@ Plan validé le 21/10/2026 : lots 0 à 3 (voir le plan dans la conversation, ré
 - Vocabulaire : « chance selon le modèle » (étape 3) ≠ « chance retenue » (modèle 25 % + cote 75 %, verdict).
 - Vérifié sur une copie reliée à la branche `test` (`KATENI_CIBLE=test`, port 8599) : verdicts, double clic = 1 ligne, « Gagné » → +720 FCFA, Live, Guide, Bilan ; données d'essai supprimées ; production : 0 ligne.
 
+## Lot 2 quater — la prédiction redevient le cœur de Kateni (21/10/2026)
+- Retour du propriétaire : son projet est **la prédiction des matchs de ses championnats** ; la page centrée sur les cotes l'avait éloigné de l'essentiel.
+- Comparaison mesurée ancien contre nouveau modèle (5 252 matchs, 08/2025 → 10/2026) : V2 un peu meilleur en moyenne (49,6 % contre 49,0 % de bons pronostics 1N2) ; V1 meilleur en PL, L1, BEL, TUR. Décision du propriétaire : **le meilleur modèle par championnat** (`MODELE_PAR_COMPETITION`).
+- `kateni/modele_v1.py` : copie fidèle de `kateni_engine.py` (test : lambdas identiques à 1e-9).
+- Nouvelle première page **Prédictions** : championnat → tous les matchs à venir avec pronostic (favori et chance, score le plus probable, +2,5 buts, les 2 marquent), détail, comparaison facultative avec les cotes (bouton vers la page **Cotes Betclic**), simulation libre de n'importe quelle affiche.
+- Calendrier des championnats : `fixtures.csv` et `new_league_fixtures.csv` de football-data (`scripts/maj_donnees.py`), fusionné avec la C1 et la C3.
+- Vérifié sur la copie de test : Prédictions (Liga, PL), envoi vers Cotes Betclic avec les mêmes chiffres ; 23 tests.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
@@ -50,6 +58,7 @@ Plan validé le 21/10/2026 : lots 0 à 3 (voir le plan dans la conversation, ré
 | « Les 2 équipes marquent » : le propriétaire croyait devoir répondre oui/non | cases Oui/Non sans explication : elles attendaient la cote de chaque choix | chaque ligne = un choix avec les mots de Betclic, sa cote minimale et une case « Cote Betclic » |
 | « Chance selon Kateni » 43 % puis 32 % au verdict | même nom pour le modèle seul et le mélange modèle + marché | « chance selon le modèle » / « chance retenue » |
 | En ligne, `ImportError` sur les 4 pages après la mise à jour du design (local OK, GitHub à jour) | Streamlit Cloud recharge les pages après un `git push` mais garde en mémoire les anciens modules `kateni/*` | **Reboot app** (Manage app > ⋮ > Reboot) après toute mise à jour qui modifie `kateni/` ; à reporter dans `starter` (stack Streamlit) |
+| Le propriétaire ne retrouvait plus son projet (« même l'ancien modèle faisait mieux ») | l'assistant a réorganisé l'app autour des cotes au lieu de la prédiction, sans le valider avec lui | page Prédictions en premier ; mesure des deux modèles avant de conclure ; règle : **faire valider tout changement de parcours principal avant de le coder** |
 | Cases « None » dans les tableaux | affichage par défaut de Streamlit pour une valeur manquante (pas un problème de type) | `st.dataframe(..., placeholder="–")` |
 | Le modèle ne bat pas le marché | fait mesuré, pas un bug | Kateni s'ancre sur les cotes saisies ; peu de paris proposés |
 
