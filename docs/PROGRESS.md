@@ -91,6 +91,8 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Dans chaque match (« Détail du pronostic ») et en haut du Calendrier (« Les événements les plus probables du jour », seuil réglable, « plus de 0,5 but » écarté car sans intérêt). Pronostic mis en cache par match.
 - Vérifié : 21/10, 64 événements ≥ 70 % (Sporting marque 94,7 %…) ; test de cohérence (sommes, tri).
 
+- **Live** : liste « Ce qui peut encore arriver » (fin de match, marque encore, prochain but, totaux ouverts) classée, sans les événements certains ou impossibles ; cotes d'avant-match **automatiques** quand Kateni les connaît (Bet365/Pinnacle), saisie manuelle sinon. Vérifié : Como – Man United, Pinnacle repris tout seul ; 60e, 1-0 → « Como ou nul 91 % », « Como gagne 68 % ».
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

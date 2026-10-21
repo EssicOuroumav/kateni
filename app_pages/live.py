@@ -1,11 +1,13 @@
+import pandas as pd
 import streamlit as st
 
+from kateni.affichage import COLONNES_EVENEMENTS
 from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, lambdas_depuis_cotes
 from kateni.live import EtatLive, predire_live
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
-                       choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, predire,
-                       table_analyse)
+                       a_venir, choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse,
+                       predire, table_analyse)
 
 df, m = contexte()
 st.caption("Pendant le match : saisis la minute et le score, Kateni calcule la suite. "
@@ -18,17 +20,43 @@ dom, ext = match["dom"], match["ext"]
 
 # ---------------------------------------------------------------- 2. Force avant match
 st.subheader("2. La force des équipes avant le match", anchor=False)
+
+
+def _cote(v):
+    try:
+        v = float(v)
+    except (TypeError, ValueError):
+        return None
+    return v if v > 1 else None
+
+
+# Cotes d'avant-match déjà connues de Kateni pour ce match (Bet365 championnats, Pinnacle C1/C3)
+cal = a_venir()
+ligne = cal[(cal["competition"] == match["competition"]) & (cal["dom"] == dom) & (cal["ext"] == ext)
+            & (cal["Date"] == match["date"])] if len(cal) else cal
+auto = None
+if len(ligne):
+    r0 = ligne.iloc[0]
+    q = [_cote(r0.get(k)) for k in ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5")]
+    if all(q[:3]):
+        auto = (q, r0.get("bookmaker") or "marché")
+sources = (["Cotes du marché (automatique)"] if auto else []) + ["Cotes Betclic saisies", "Modèle Kateni"]
 source = st.segmented_control(
-    "D'où vient la force des équipes ?", ["Cotes Betclic d'avant-match", "Modèle Kateni"],
-    default="Cotes Betclic d'avant-match", key="lv_source", required=True,
-    help="Les cotes d'avant-match sont le meilleur point de départ : le backtest montre que le marché "
-         "prédit mieux que le modèle. Prends le modèle si tu n'as pas noté les cotes.")
+    "D'où vient la force des équipes ?", sources, default=sources[0], key=f"lv_source_{dom}_{ext}", required=True,
+    help="Les cotes d'avant-match sont le meilleur point de départ : le backtest montre que le marché prédit "
+         "mieux que le modèle. Kateni les prend automatiquement quand il les connaît.")
 lam_mod = predire(match)[:2]
-if source == "Modèle Kateni":
+if source == "Cotes du marché (automatique)":
+    q, bk = auto
+    lam = lambdas_depuis_cotes(q[0], q[1], q[2], q[3], q[4], m.rho)
+    st.caption(f"Cotes d'avant-match {bk} : {fr(q[0])} / {fr(q[1])} / {fr(q[2])}"
+               + (f" · plus/moins de 2,5 buts {fr(q[3])} / {fr(q[4])}" if q[3] and q[4] else "")
+               + " — rien à saisir.")
+elif source == "Modèle Kateni":
     avertir_si_peu_connu(m, dom, ext)
     lam = lam_mod
 else:
-    st.caption("Les cotes **d'avant le coup d'envoi** (pas les cotes live). Les 3 premières suffisent.")
+    st.caption("Les cotes Betclic **d'avant le coup d'envoi** (pas les cotes live). Les 3 premières suffisent.")
     c = st.columns(3)
     c1 = c[0].number_input(f"{dom} gagne", min_value=1.01, value=None, step=0.01, format="%.2f", key="lv_c1")
     cn = c[1].number_input("Match nul", min_value=1.01, value=None, step=0.01, format="%.2f", key="lv_cn")
@@ -76,11 +104,18 @@ with st.container(border=True):
     st.caption("Scores finaux les plus probables : " + " · ".join(f"{s} ({q:.0%})" for s, q in r["scores"][:3])
                + f" · prochain but : {dom} {p['Prochain but']['Dom.']:.0%}, {ext} {p['Prochain but']['Ext.']:.0%}")
 
-with st.expander("Tous les pronostics"):
-    for k, v in p.items():
-        if k == "Prochain but":
-            continue
-        st.markdown(" · ".join(f"{libelle(k, s, dom, ext)} **{q:.0%}**" for s, q in v.items()))
+st.markdown("**Ce qui peut encore arriver, du plus probable au moins probable**")
+evts = []
+for k, v in p.items():
+    if k in ("Dom. marque", "Ext. marque", "Total buts 5.5"):  # redondant, ou presque toujours vrai
+        continue
+    for sel, q in v.items():
+        if 0.005 < q < 0.995:  # on retire ce qui est déjà certain ou impossible
+            evts.append({"Événement": libelle(k, sel, dom, ext), "Chance": q, "Cote juste": 1 / q})
+st.dataframe(pd.DataFrame(evts).sort_values("Chance", ascending=False, kind="mergesort"), hide_index=True,
+             column_config=COLONNES_EVENEMENTS, height=360)
+st.caption("Cote juste = 1 ÷ chance. Si la cote live Betclic est plus haute, l'événement est mieux payé qu'il ne "
+           "devrait ; vérifie-le à l'étape 5.")
 
 # ---------------------------------------------------------------- 5. Cote live
 st.subheader("5. Vérifier une cote live Betclic", anchor=False)
