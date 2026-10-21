@@ -236,3 +236,29 @@ def test_rythme_du_budget_oddspapi():
     spec.loader.exec_module(mc)
     jour10 = datetime(2026, 10, 10, tzinfo=timezone.utc)                # 10/31 du mois -> rythme ≈ 74 + 10
     assert mc.dans_le_rythme(60, jour10) and not mc.dans_le_rythme(100, jour10)
+
+
+def test_corners_marches_et_live():
+    from kateni.corners import marches_corners
+    p = marches_corners(5.5, 4.5)
+    assert abs(p["Corners total 9.5"]["Plus"] + p["Corners total 9.5"]["Moins"] - 1) < 1e-9
+    assert p["Corners total 8.5"]["Plus"] > p["Corners total 9.5"]["Plus"] > p["Corners total 10.5"]["Plus"]
+    assert p["Corners Dom. 4.5"]["Plus"] > p["Corners Ext. 4.5"]["Plus"]
+    # live : 9 corners déjà à la 80e -> « plus de 8,5 » déjà joué, n'apparaît plus ; « plus de 9,5 » probable
+    live = marches_corners(5.5, 4.5, 5, 4, 0.15)
+    assert "Corners total 8.5" not in live and live["Corners total 9.5"]["Plus"] > 0.5
+    assert marches_corners(5.5, 4.5, 0, 0, 0.0) == {}
+
+
+def test_reglement_corners():
+    p = {"marche": "Corners total 9.5", "selection": "Plus"}
+    assert gagne(p, 1, 0, 6, 4) is True
+    assert gagne(p, 1, 0, 5, 4) is False
+    assert gagne(p, 1, 0) is None  # corners pas encore publiés
+    assert gagne({"marche": "Corners Ext. 4.5", "selection": "Moins"}, 0, 0, 9, 3) is True
+
+
+def test_terrain_neutre():
+    from kateni.modele import terrain_neutre
+    assert terrain_neutre("CL", "2027-05-29") and terrain_neutre("EL", "2027-05-19")
+    assert not terrain_neutre("CL", "2027-05-05") and not terrain_neutre("PL", "2027-05-29")

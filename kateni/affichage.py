@@ -6,7 +6,9 @@ import streamlit as st
 from kateni.config import POIDS_MODELE
 from kateni.cotes import sans_marge
 from kateni.marches import calibrer, marches, matrice_scores, scores_probables
-from kateni.ui import fr, predire
+from kateni.modele import terrain_neutre
+from kateni.corners import SEUILS_EQUIPE, SEUILS_TOTAL, marches_corners
+from kateni.ui import corners_attendus, fr, predire
 
 JOURS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
 JOURS_LONGS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
@@ -36,12 +38,15 @@ def pronostic(match: dict, cotes: dict | None = None) -> dict:
     (+1,5 point de bons pronostics mesuré sur 5 252 matchs de 2025-26). Mis en cache par match."""
     from kateni.donnees import signature_donnees
     c = tuple(None if pd.isna(v) else v for v in ((cotes or {}).get(k) for k in COLS_COTES))
-    return _pronostic(match["competition"], match["dom"], match["ext"], c, signature_donnees())
+    neutre = match.get("neutre")
+    if neutre is None:
+        neutre = terrain_neutre(match["competition"], match.get("date") or pd.Timestamp.today())
+    return _pronostic(match["competition"], match["dom"], match["ext"], bool(neutre), c, signature_donnees())
 
 
 @st.cache_data(ttl=3600, max_entries=2000, show_spinner=False)
-def _pronostic(competition: str, dom: str, ext: str, c: tuple, _sig: tuple) -> dict:
-    match = {"competition": competition, "dom": dom, "ext": ext}
+def _pronostic(competition: str, dom: str, ext: str, neutre: bool, c: tuple, _sig: tuple) -> dict:
+    match = {"competition": competition, "dom": dom, "ext": ext, "neutre": neutre}
     cotes = dict(zip(COLS_COTES, c))
     ld, le, rho, nom_modele = predire(match)
     mat = matrice_scores(ld, le, rho)
@@ -61,7 +66,10 @@ def _pronostic(competition: str, dom: str, ext: str, c: tuple, _sig: tuple) -> d
     if isinstance(releve, str) and releve:
         t = pd.Timestamp(releve)
         bookmaker += f", relevées le {t:%d/%m} à {t:%H:%M}"
-    return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
+    corners = corners_attendus(match)
+    if corners:
+        p = {**p, **marches_corners(*corners)}
+    return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "neutre": neutre, "corners": corners, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
             "marche_1n2": marche_1n2, "cotes_1n2": (c1, cn, c2), "p1n2": p1n2, "plus25": plus25}
 
 
@@ -69,7 +77,9 @@ EVENEMENTS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
               ("Double chance", "1N"), ("Double chance", "12"), ("Double chance", "N2"),
               *[(f"Total buts {x}", c) for x in ("0.5", "1.5", "2.5", "3.5", "4.5") for c in ("Plus", "Moins")],
               ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
-              ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non")]
+              ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non"),
+              *[(f"Corners total {x}", c) for x in SEUILS_TOTAL for c in ("Plus", "Moins")],
+              *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in SEUILS_EQUIPE for c in ("Plus", "Moins")]]
 
 
 def evenements(match: dict, r: dict) -> pd.DataFrame:
@@ -82,6 +92,8 @@ def evenements(match: dict, r: dict) -> pd.DataFrame:
              ("Total buts 2.5", "Plus"): r["plus25"], ("Total buts 2.5", "Moins"): 1 - r["plus25"]}
     lignes = []
     for marche, sel in EVENEMENTS:
+        if marche not in p:  # corners inconnus pour ce match
+            continue
         q = proba.get((marche, sel), p[marche][sel])
         lignes.append({"Événement": libelle(marche, sel, match["dom"], match["ext"]), "Chance": q,
                        "Cote juste": 1 / q if q > 0.005 else None})
@@ -123,6 +135,9 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
             else:
                 st.badge("Modèle seul", icon=":material/functions:", color="gray",
                          help="Les cotes du marché ne sont pas encore publiées (en général 2 à 3 jours avant).")
+            if r["neutre"]:
+                st.badge("Terrain neutre", icon=":material/stadium:", color="blue",
+                         help="Aucune des deux équipes ne joue chez elle : Kateni retire l'avantage du terrain.")
             if jours > 7:
                 st.badge("Provisoire", icon=":material/update:", color="orange",
                          help=f"Match dans {jours} jours : le pronostic est recalculé après chaque journée de "
@@ -146,7 +161,11 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                 f"- **Les 2 équipes marquent** : oui {p['Les deux équipes marquent']['Oui']:.0%} · non "
                 f"{p['Les deux équipes marquent']['Non']:.0%}\n"
                 f"- **Buts attendus** : {dom} {fr(r['ld'])} – {fr(r['le'])} {ext}\n"
-                "- **Scores les plus probables** : "
+                + (f"- **Corners attendus** : {dom} {fr(r['corners'][0])} – {fr(r['corners'][1])} {ext} "
+                   f"(total {fr(sum(r['corners']))}) · plus de 8,5 {p['Corners total 8.5']['Plus']:.0%} · plus de 9,5 "
+                   f"{p['Corners total 9.5']['Plus']:.0%} · plus de 10,5 {p['Corners total 10.5']['Plus']:.0%}\n"
+                   if r["corners"] else "- **Corners** : pas d'historique de corners pour l'un des deux clubs\n")
+                + "- **Scores les plus probables** : "
                 + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 5)))
             st.markdown("**Événements, du plus probable au moins probable**")
             st.dataframe(evenements(match, r), hide_index=True, column_config=COLONNES_EVENEMENTS,

@@ -1,0 +1,37 @@
+Réglage : 4796 matchs · Test : 5822 matchs
+
+  demi-vie 180 j · rappel  3.0 : erreur quadratique 7.124 (8 s)
+  demi-vie 180 j · rappel 10.0 : erreur quadratique 7.071 (13 s)
+  demi-vie 180 j · rappel 30.0 : erreur quadratique 7.079 (18 s)
+  demi-vie 180 j · rappel 100.0 : erreur quadratique 7.277 (21 s)
+  demi-vie 365 j · rappel  3.0 : erreur quadratique 7.103 (28 s)
+  demi-vie 365 j · rappel 10.0 : erreur quadratique 7.063 (33 s)
+  demi-vie 365 j · rappel 30.0 : erreur quadratique 7.060 (38 s)
+  demi-vie 365 j · rappel 100.0 : erreur quadratique 7.188 (42 s)
+
+-> retenu : demi-vie 365 j, rappel 30.0, taille équipe 11.2, taille total 74.7
+
+Période de test (2025-26) :
+  Corners total — écart moyen : modèle 2.67 · naïf 2.68
+  Corners total — log loss  : modèle 2.6104 · naïf 2.6152
+  Corners équipe — log loss : modèle 2.3308 · naïf 2.3797
+
+               Marché  Chance moyenne annoncée  Fréquence réelle  Brier  Brier naïf
+    Total plus de 7.5                    0.727             0.726  0.195       0.199
+    Total plus de 8.5                    0.613             0.612  0.233       0.237
+    Total plus de 9.5                    0.493             0.498  0.246       0.250
+   Total plus de 10.5                    0.379             0.387  0.234       0.237
+   Total plus de 11.5                    0.278             0.283  0.200       0.203
+   Total plus de 12.5                    0.195             0.197  0.156       0.158
+ Domicile plus de 2.5                    0.837             0.829  0.136       0.142
+ Domicile plus de 3.5                    0.707             0.706  0.197       0.208
+ Domicile plus de 4.5                    0.564             0.570  0.232       0.245
+ Domicile plus de 5.5                    0.425             0.431  0.230       0.245
+ Domicile plus de 6.5                    0.306             0.306  0.199       0.213
+Extérieur plus de 2.5                    0.746             0.745  0.182       0.190
+Extérieur plus de 3.5                    0.580             0.580  0.230       0.244
+Extérieur plus de 4.5                    0.420             0.424  0.230       0.244
+Extérieur plus de 5.5                    0.286             0.289  0.194       0.205
+Extérieur plus de 6.5                    0.184             0.190  0.147       0.154
+
+Durée : 67 s

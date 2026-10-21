@@ -2,11 +2,12 @@ import pandas as pd
 import streamlit as st
 
 from kateni.affichage import COLONNES_EVENEMENTS
+from kateni.corners import marches_corners
 from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, lambdas_depuis_cotes
-from kateni.live import EtatLive, predire_live
+from kateni.live import EtatLive, fraction_restante, predire_live
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
-                       a_venir, choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse,
+                       a_venir, choisir_mode, contexte, corners_attendus, enregistrer, fr, libelle, pct, ligne_analyse,
                        predire, table_analyse)
 
 df, m = contexte()
@@ -89,10 +90,20 @@ with st.container(border=True):
         rd = c[0].number_input(f"Cartons rouges {dom}", min_value=0, max_value=4, value=0, key="lv_rd")
         re_ = c[1].number_input(f"Cartons rouges {ext}", min_value=0, max_value=4, value=0, key="lv_re")
         add = st.slider("Temps additionnel prévu en 2e mi-temps (minutes)", 0, 15, 5, key="lv_add")
+    corners = corners_attendus(match)
+    if corners:
+        with st.expander("Corners (facultatif)"):
+            c = st.columns(2)
+            kd = c[0].number_input(f"Corners {dom} déjà", min_value=0, max_value=30, value=0, key="lv_kd")
+            ke = c[1].number_input(f"Corners {ext} déjà", min_value=0, max_value=30, value=0, key="lv_ke")
+            st.caption(f"Avant le match, Kateni attendait {fr(corners[0])} corners pour {dom} et "
+                       f"{fr(corners[1])} pour {ext}.")
 
 etat = EtatLive(minute=minute, buts_d=bd, buts_e=be, rouges_d=rd, rouges_e=re_, additionnel_mt2=add)
 r = predire_live(lam[0], lam[1], etat)
 p = r["marches"]
+if corners:
+    p = {**p, **marches_corners(*corners, kd, ke, fraction_restante(minute, add))}
 
 # ---------------------------------------------------------------- 4. Prévision
 st.subheader(f"4. Ce que prévoit Kateni : {dom} {bd}-{be} {ext}, {minute}e minute", anchor=False)

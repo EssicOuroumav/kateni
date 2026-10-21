@@ -6,18 +6,28 @@ from kateni.equipes import canon
 from kateni.marches import regler
 
 
-def resultat(df_matchs: pd.DataFrame, date_match: str, dom: str, ext: str) -> tuple[int, int] | None:
+def resultat(df_matchs: pd.DataFrame, date_match: str, dom: str, ext: str) -> tuple | None:
+    """(buts dom, buts ext, corners dom, corners ext) ; corners None s'ils ne sont pas publiés."""
     d = pd.to_datetime(date_match)
     m = df_matchs[(df_matchs["HomeTeam"] == canon(dom)) & (df_matchs["AwayTeam"] == canon(ext))
                   & (df_matchs["Date"].between(d - pd.Timedelta(days=1), d + pd.Timedelta(days=1)))]
     if not len(m):
         return None
     r = m.iloc[-1]
-    return int(r.FTHG), int(r.FTAG)
+    hc, ac = pd.to_numeric(pd.Series([r.get("HC"), r.get("AC")]), errors="coerce")
+    corners = (None, None) if pd.isna(hc) or pd.isna(ac) else (int(hc), int(ac))
+    return int(r.FTHG), int(r.FTAG), *corners
 
 
-def gagne(pari: dict, buts_d: int, buts_e: int) -> bool | None:
+def gagne(pari: dict, buts_d: int, buts_e: int, corners_d: int | None = None,
+          corners_e: int | None = None) -> bool | None:
     marche, sel = pari["marche"], pari["selection"]
+    if marche.startswith("Corners "):  # « Corners total 9.5 », « Corners Dom. 4.5 »…
+        if corners_d is None or corners_e is None:
+            return None  # corners pas encore publiés : réglé à la mise à jour suivante
+        _, qui, ligne = marche.split()
+        n = {"total": corners_d + corners_e, "Dom.": corners_d, "Ext.": corners_e}[qui]
+        return (n > float(ligne)) == (sel == "Plus")
     if marche in ("Dom. marque encore", "Ext. marque encore"):
         avant = str(pari.get("score_au_pari") or "0-0").split("-")
         deja = int(avant[0]) if marche.startswith("Dom") else int(avant[1])

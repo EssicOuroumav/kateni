@@ -32,6 +32,15 @@ ANNEES_MAX = 6           # matchs plus anciens ignorés (poids < 2 %)
 COUPES = {"CL", "EL"}
 
 
+def terrain_neutre(competition: str, date) -> bool:
+    """Finales de C1 et de C3 : match unique sur terrain neutre, mi-mai à fin juin
+    (les demi-finales retour se jouent au plus tard début mai)."""
+    if competition not in COUPES:
+        return False
+    d = pd.Timestamp(date)
+    return (d.month == 5 and d.day >= 15) or d.month == 6
+
+
 @dataclass
 class Modele:
     mu: float
@@ -42,6 +51,7 @@ class Modele:
     date_donnees: pd.Timestamp
     rho: float = RHO_DC
     inconnues: set = field(default_factory=set)
+    dom_equipe: dict = field(default_factory=dict)   # avantage du terrain propre au club (vide = non utilisé)
 
     def connait(self, equipe: str) -> bool:
         return equipe in self.attaque
@@ -50,7 +60,7 @@ class Modele:
         h = self.avantage_dom.get(competition, np.mean(list(self.avantage_dom.values())))
         a_d, d_d = self.attaque.get(dom, 0.0), self.defense.get(dom, 0.0)
         a_e, d_e = self.attaque.get(ext, 0.0), self.defense.get(ext, 0.0)
-        lam_d = float(np.exp(self.mu + h + a_d - d_e))
+        lam_d = float(np.exp(self.mu + h + self.dom_equipe.get(dom, 0.0) + a_d - d_e))
         lam_e = float(np.exp(self.mu + a_e - d_d))
         return lam_d, lam_e
 
@@ -76,8 +86,10 @@ def _cible(df: pd.DataFrame, cote: str) -> np.ndarray:
 
 
 def ajuster(df: pd.DataFrame, date_ref: pd.Timestamp | None = None,
-            demi_vie: float = DEMI_VIE_JOURS, ridge: float = RIDGE) -> Modele:
-    """Ajuste le modèle sur les matchs STRICTEMENT antérieurs à date_ref (anti-fuite)."""
+            demi_vie: float = DEMI_VIE_JOURS, ridge: float = RIDGE,
+            ridge_dom: float | None = None) -> Modele:
+    """Ajuste le modèle sur les matchs STRICTEMENT antérieurs à date_ref (anti-fuite).
+    ridge_dom : si fourni, ajoute un avantage du terrain propre à chaque club, rappelé vers 0 avec cette force."""
     date_ref = date_ref or (df["Date"].max() + pd.Timedelta(days=1))
     d = df[(df["Date"] < date_ref) & (df["Date"] >= date_ref - pd.Timedelta(days=365 * ANNEES_MAX))]
     d = d.reset_index(drop=True)
@@ -98,16 +110,18 @@ def ajuster(df: pd.DataFrame, date_ref: pd.Timestamp | None = None,
     w = np.power(0.5, age / demi_vie)
     y_d, y_e = _cible(d, "H"), _cible(d, "A")
 
-    # vecteur : [mu, home(c), att(n), def(n), att_hors, def_hors]
+    nd = n if ridge_dom is not None else 0
+    # vecteur : [mu, home(c), att(n), def(n), att_hors, def_hors, dom_equipe(nd)]
     def nll(theta):
         mu, h = theta[0], theta[1:1 + c]
         a_r, d_r = theta[1 + c:1 + c + n], theta[1 + c + n:1 + c + 2 * n]
-        att, dfn = a_r + hors * theta[-2], d_r + hors * theta[-1]
-        eta_d = mu + h[i_c] + att[i_d] - dfn[i_e]
+        hd = theta[3 + c + 2 * n:]
+        att, dfn = a_r + hors * theta[1 + c + 2 * n], d_r + hors * theta[2 + c + 2 * n]
+        eta_d = mu + h[i_c] + att[i_d] - dfn[i_e] + (hd[i_d] if nd else 0.0)
         eta_e = mu + att[i_e] - dfn[i_d]
         lam_d, lam_e = np.exp(eta_d), np.exp(eta_e)
         f = np.sum(w * (lam_d - y_d * eta_d)) + np.sum(w * (lam_e - y_e * eta_e))
-        f += ridge * (np.sum(a_r ** 2) + np.sum(d_r ** 2))
+        f += ridge * (np.sum(a_r ** 2) + np.sum(d_r ** 2)) + (ridge_dom * np.sum(hd ** 2) if nd else 0.0)
         r_d, r_e = w * (lam_d - y_d), w * (lam_e - y_e)
         g = np.zeros_like(theta)
         g[0] = r_d.sum() + r_e.sum()
@@ -116,16 +130,18 @@ def ajuster(df: pd.DataFrame, date_ref: pd.Timestamp | None = None,
         g_def = -np.bincount(i_e, r_d, minlength=n) - np.bincount(i_d, r_e, minlength=n)
         g[1 + c:1 + c + n] = g_att + 2 * ridge * a_r
         g[1 + c + n:1 + c + 2 * n] = g_def + 2 * ridge * d_r
-        g[-2] = np.dot(g_att, hors)
-        g[-1] = np.dot(g_def, hors)
+        g[1 + c + 2 * n] = np.dot(g_att, hors)
+        g[2 + c + 2 * n] = np.dot(g_def, hors)
+        if nd:
+            g[3 + c + 2 * n:] = np.bincount(i_d, r_d, minlength=n) + 2 * ridge_dom * hd
         return f, g
 
-    theta0 = np.zeros(1 + c + 2 * n + 2)
+    theta0 = np.zeros(3 + c + 2 * n + nd)
     theta0[0] = np.log(max(0.1, np.average((y_d + y_e) / 2, weights=w)))
     res = minimize(nll, theta0, jac=True, method="L-BFGS-B", options={"maxiter": 2000})
     t = res.x
-    att = t[1 + c:1 + c + n] + hors * t[-2]
-    dfn = t[1 + c + n:1 + c + 2 * n] + hors * t[-1]
+    att = t[1 + c:1 + c + n] + hors * t[1 + c + 2 * n]
+    dfn = t[1 + c + n:1 + c + 2 * n] + hors * t[2 + c + 2 * n]
     n_pond = np.bincount(i_d, w, minlength=n) + np.bincount(i_e, w, minlength=n)
     return Modele(
         mu=float(t[0]),
@@ -134,4 +150,5 @@ def ajuster(df: pd.DataFrame, date_ref: pd.Timestamp | None = None,
         defense={k: float(v) for k, v in zip(equipes, dfn)},
         n_matchs={k: float(v) for k, v in zip(equipes, n_pond)},
         date_donnees=d["Date"].max(),
+        dom_equipe={k: float(v) for k, v in zip(equipes, t[3 + c + 2 * n:])} if nd else {},
     )

@@ -40,5 +40,6 @@ equipes = equipes_de(df, comp)
 c1, c2 = st.columns(2)
 dom = c1.selectbox("Équipe à domicile", equipes, key=f"pr_dom_{comp}")
 ext = c2.selectbox("Équipe à l'extérieur", [e for e in equipes if e != dom], key=f"pr_ext_{comp}")
-carte({"competition": comp, "dom": dom, "ext": ext, "date": pd.Timestamp.today().strftime("%Y-%m-%d")},
-      f"libre_{comp}_{dom}_{ext}")
+neutre = st.toggle("Terrain neutre (ni l'un ni l'autre ne joue chez lui)", key=f"pr_neutre_{comp}")
+carte({"competition": comp, "dom": dom, "ext": ext, "date": pd.Timestamp.today().strftime("%Y-%m-%d"),
+       "neutre": neutre}, f"libre_{comp}_{dom}_{ext}_{neutre}")

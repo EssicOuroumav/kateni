@@ -38,7 +38,17 @@ with st.container(border=True):
         "**juste avant chaque match**, après la publication des compositions. Les blessés, suspendus et "
         "remplaçants entrent ainsi dans le pronostic au travers de la cote. Le détail indique l'heure du relevé "
         "(« Pinnacle, relevées le 24/10 à 13:00 ») : un relevé fait moins d'une heure avant le match tient "
-        "compte des absents.")
+        "compte des absents.\n\n"
+        "**Domicile, extérieur, terrain neutre** : l'avantage du terrain est mesuré pour chaque championnat (plus "
+        "fort en Turquie qu'en Premier League, par exemple). Un avantage propre à chaque club a été testé sur "
+        "8 592 matchs : il n'améliore pas les pronostics, donc il n'est pas utilisé. Sur **terrain neutre** "
+        "(finales de C1 et C3, reconnues toutes seules, ou interrupteur « Terrain neutre » en simulation), "
+        "Kateni retire l'avantage du terrain.\n\n"
+        "**Corners** : Kateni prévoit les corners de chaque équipe et du match (« Corners : plus de 9,5 », "
+        "« Corners Arsenal : plus de 4,5 »…), dans le détail du pronostic, les listes d'événements, Cotes Betclic, "
+        "Live (saisis les corners déjà obtenus) et Mes paris. Vérifié sur 5 822 matchs de 2025-26 : les chances "
+        "annoncées correspondent à ce qui arrive. Pas de corners pour les clubs des championnats sans données "
+        "(Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS).")
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
 
 with st.container(border=True):

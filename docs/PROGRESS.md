@@ -100,6 +100,12 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - `kateni/calendrier.py` : rattachement strict par compétition + ressemblance des deux noms (sans confondre les deux Manchester) ; match déplacé détecté (noms identiques, ≤ 4 jours) → date/heure de Pinnacle ; heure du relevé affichée. Essai réel (2 requêtes) : 129/129 matchs rattachés après 4 alias ajoutés ; Toulouse – Troyes déplacé au 25/10 16:15 automatiquement. Rapport de rattachement dans le journal du robot.
 - Budget estimé ≈ 130 requêtes/mois ; 14/250 utilisées au 21/10.
 
+## Domicile/extérieur, terrain neutre et corners (21/10/2026)
+- Avantage du terrain propre à chaque club (option `ridge_dom` de `modele.ajuster`) : réglage 2024-25, test 2025-26 sur 8 592 matchs : log loss 1N2 1,0148 contre 1,0146 sans → **non adopté** (`docs/mesures/2026-10-21_avantage_terrain_par_club_NON_ADOPTE.txt`). L'avantage par championnat reste.
+- Terrain neutre : `modele.terrain_neutre` (finales C1/C3, mi-mai à juin) + interrupteur en simulation et en choix libre ; prédiction = moyenne géométrique des deux sens du match.
+- Corners : colonnes HC/AC conservées (14 championnats), `kateni/corners.py` (modèle global sur les corners, rappel 30, demi-vie 365 j, binomiale négative). Test 2025-26 (5 822 matchs) : bien calibré, nettement meilleur que la moyenne du championnat par équipe, à peine meilleur pour le total (`docs/mesures/2026-10-21_corners.txt`). Affiché dans le détail, les listes d'événements, Cotes Betclic, Live (corners déjà obtenus), Mes paris ; paris corners réglés automatiquement.
+- Pas de cotes de corners du marché : le pronostic corners est le modèle seul.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

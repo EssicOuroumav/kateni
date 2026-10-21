@@ -54,6 +54,7 @@ COMPETITIONS: dict[str, Competition] = {c.code: c for c in [
 COLONNES_BASE = ["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR"]
 COLONNES_OPTION = [
     "HTHG", "HTAG", "HR", "AR", "HxG", "AxG",
+    "HC", "AC",                                               # corners (championnats principaux)
     "B365H", "B365D", "B365A", "B365>2.5", "B365<2.5",       # cotes d'ouverture (veille du match)
     "B365CH", "B365CD", "B365CA", "B365C>2.5", "B365C<2.5",  # cotes de clôture
     "PSCH", "PSCD", "PSCA",                                   # Pinnacle clôture (référence du marché)

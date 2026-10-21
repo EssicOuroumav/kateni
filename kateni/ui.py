@@ -2,6 +2,7 @@
 
 from datetime import date
 
+import numpy as np
 import pandas as pd
 import streamlit as st
 
@@ -10,7 +11,7 @@ from kateni.config import (BANKROLL_INITIALE, COMPETITIONS, MARGE_SUPPOSEE, MIN_
 from kateni.cotes import esperance, mise
 from kateni.donnees import charger_tout, equipes_de, signature_donnees
 from kateni.equipes import canon
-from kateni.modele import ajuster
+from kateni.modele import ajuster, terrain_neutre
 from kateni.modele_v1 import ajuster_v1
 from kateni.stockage import identifiant, obtenir_store
 
@@ -32,13 +33,46 @@ def _modele_v1(_sig: tuple, competition: str):
     return ajuster_v1(d[d["competition"] == competition])
 
 
+@st.cache_resource(max_entries=2, show_spinner=False)
+def modele_corners(_sig: tuple):
+    from kateni.corners import ajuster_corners
+    return ajuster_corners(donnees(_sig))
+
+
+def corners_attendus(match: dict) -> tuple[float, float] | None:
+    """Corners attendus (dom, ext) ; None si l'un des clubs n'a pas d'historique de corners
+    (championnats sans corners : Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS)."""
+    from kateni.corners import RAPPEL_MIN
+    m = modele_corners(signature_donnees())
+    dom, ext, comp = match["dom"], match["ext"], match["competition"]
+    if min(m.n_matchs.get(dom, 0.0), m.n_matchs.get(ext, 0.0)) < RAPPEL_MIN:
+        return None
+    neutre = match.get("neutre")
+    if neutre is None:
+        neutre = terrain_neutre(comp, match.get("date") or pd.Timestamp.today())
+    cd, ce = m.lambdas(dom, ext, comp)
+    if neutre:
+        ce2, cd2 = m.lambdas(ext, dom, comp)
+        cd, ce = float(np.sqrt(cd * cd2)), float(np.sqrt(ce * ce2))
+    return cd, ce
+
+
 def contexte():
     sig = signature_donnees()
     return donnees(sig), modele(sig)
 
 
 def predire(match: dict) -> tuple[float, float, float, str]:
-    """Buts attendus (dom, ext), rho et nom du modèle, avec le meilleur modèle de la compétition."""
+    """Buts attendus (dom, ext), rho et nom du modèle, avec le meilleur modèle de la compétition.
+    Terrain neutre (finale européenne, ou choisi à la main) : moyenne des deux sens du match, ce qui
+    retire l'avantage du terrain aux deux équipes."""
+    neutre = match.get("neutre")
+    if neutre is None:
+        neutre = terrain_neutre(match["competition"], match.get("date") or pd.Timestamp.today())
+    if neutre:
+        a, b = {**match, "neutre": False}, {**match, "dom": match["ext"], "ext": match["dom"], "neutre": False}
+        (ld1, le1, rho, nom), (ld2, le2, _, _) = predire(a), predire(b)
+        return float(np.sqrt(ld1 * le2)), float(np.sqrt(le1 * ld2)), rho, nom + ", terrain neutre"
     sig = signature_donnees()
     if MODELE_PAR_COMPETITION.get(match["competition"]) == "V1":
         m1 = _modele_v1(sig, match["competition"])
@@ -127,7 +161,9 @@ def choisir_match(df: pd.DataFrame, cle: str) -> dict:
     dom = c1.selectbox("Équipe à domicile", equipes, key=f"{cle}_dom")
     ext = c2.selectbox("Équipe à l'extérieur", [e for e in equipes if e != dom], key=f"{cle}_ext")
     jour = st.date_input("Date du match", value=date.today(), key=f"{cle}_date", format="DD/MM/YYYY")
-    return {"competition": comp, "dom": dom, "ext": ext, "date": jour.isoformat()}
+    neutre = st.toggle("Terrain neutre (ni l'un ni l'autre ne joue chez lui)", key=f"{cle}_neutre",
+                       value=terrain_neutre(comp, jour))
+    return {"competition": comp, "dom": dom, "ext": ext, "date": jour.isoformat(), "neutre": neutre}
 
 
 def avertir_si_peu_connu(m, dom: str, ext: str) -> None:
@@ -208,6 +244,11 @@ def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
             return f"{equipe} marque encore" if sel == "Oui" else f"{equipe} ne marque plus"
         if marche == f"{prefixe} marque":
             return f"{equipe} marque" if sel == "Oui" else f"{equipe} ne marque pas"
+    if marche.startswith("Corners "):
+        mots = marche.split()
+        ligne = mots[-1].replace(".", ",")
+        qui = {"total": "", "Dom.": f" {dom}", "Ext.": f" {ext}"}[mots[1]]
+        return f"Corners{qui} : {'plus' if sel == 'Plus' else 'moins'} de {ligne}"
     if marche == "Prochain but":
         return {"Dom.": f"Prochain but : {dom}", "Ext.": f"Prochain but : {ext}", "Aucun": "Plus aucun but"}[sel]
     return f"{marche} · {sel}"

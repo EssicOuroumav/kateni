@@ -38,7 +38,9 @@ if n:
 CHOIX = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
          ("Double chance", "1N"), ("Double chance", "12"), ("Double chance", "N2"),
          *[(f"Total buts {x}", c) for x in ("1.5", "2.5", "3.5") for c in ("Plus", "Moins")],
-         ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non")]
+         ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
+         *[(f"Corners total {x}", c) for x in ("7.5", "8.5", "9.5", "10.5", "11.5") for c in ("Plus", "Moins")],
+         *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in ("3.5", "4.5", "5.5") for c in ("Plus", "Moins")]]
 with st.expander("Noter un pari placé sur Betclic", icon=":material/edit_note:",
                  expanded=st.session_state.get("mp_ouvert", False)):
     st.caption("N'importe quel pari, même si Kateni ne le proposait pas. Il sera réglé tout seul (gagné ou perdu) "
@@ -59,18 +61,19 @@ with st.expander("Noter un pari placé sur Betclic", icon=":material/edit_note:"
             st.error("Saisis la cote et la mise.", icon=":material/error:")
         else:
             marche, sel = choix
-            prob = pronostic(match)["p"][marche][sel]
+            prob = pronostic(match)["p"].get(marche, {}).get(sel)  # None : corners inconnus pour ce club
             pari = {
                 "id": identifiant(match["date"], match["dom"], match["ext"], marche, sel, mode_pari, f"{cote}|{mise}"),
                 "date_match": match["date"], "competition": match["competition"], "dom": match["dom"],
                 "ext": match["ext"], "type": "avant-match", "marche": marche, "selection": sel, "cote": cote,
-                "prob_kateni": round(prob, 4), "esperance_pct": round(esperance(prob, cote) * 100, 1),
+                "prob_kateni": None if prob is None else round(prob, 4),
+                "esperance_pct": None if prob is None else round(esperance(prob, cote) * 100, 1),
                 "mise_fcfa": mise, "mode": mode_pari,
             }
             if s.ajouter(pari):
                 rafraichir()
                 st.success(f"Noté : {libelle(marche, sel, match['dom'], match['ext'])} à {fr(cote)}, "
-                           f"{int(mise)} FCFA ({mode_pari}). Chance selon Kateni : {prob:.0%}.",
+                           f"{int(mise)} FCFA ({mode_pari})." + (f" Chance selon Kateni : {prob:.0%}." if prob is not None else ""),
                            icon=":material/check_circle:")
             else:
                 st.info("Ce pari était déjà noté (même match, même choix, même cote et même mise).",

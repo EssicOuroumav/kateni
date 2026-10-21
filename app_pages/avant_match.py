@@ -2,9 +2,10 @@ import streamlit as st
 
 from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, esperance, sans_marge
+from kateni.corners import marches_corners
 from kateni.marches import calibrer, marches, matrice_scores, scores_probables
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
-                       choisir_mode, contexte, enregistrer, fr, libelle, pct, ligne_analyse, predire,
+                       choisir_mode, contexte, corners_attendus, enregistrer, fr, libelle, pct, ligne_analyse, predire,
                        table_analyse)
 
 df, m = contexte()
@@ -20,6 +21,9 @@ avertir_si_peu_connu(m, dom, ext)
 lam_d, lam_e, rho, nom_modele = predire(match)
 mat = matrice_scores(lam_d, lam_e, rho)
 p = calibrer(marches(mat))
+corners = corners_attendus(match)
+if corners:
+    p = {**p, **marches_corners(*corners)}
 
 # ---------------------------------------------------------------- 2. Chances
 st.subheader("2. Les chances selon le modèle", anchor=False)
@@ -29,7 +33,8 @@ with st.container(border=True):
         st.metric("Match nul", f"{p['1N2']['N']:.0%}")
         st.metric(f"Victoire {ext}", f"{p['1N2']['2']:.0%}")
     st.caption(f"Buts attendus : {dom} {lam_d:.1f} – {lam_e:.1f} {ext} · scores les plus probables : "
-               + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 3)) + f" · calcul : {nom_modele}")
+               + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 3)) + f" · calcul : {nom_modele}"
+               + (f" · corners attendus {fr(corners[0])} – {fr(corners[1])}" if corners else ""))
 
 # ---------------------------------------------------------------- 3. Cotes
 st.subheader("3. Compare avec Betclic", anchor=False)
@@ -43,6 +48,9 @@ GROUPES = {
     "Nombre de buts": [(f"Total buts {x}", s) for x in ("1.5", "2.5", "3.5") for s in ("Plus", "Moins")],
     "Les deux marquent": [("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non")],
 }
+if corners:
+    GROUPES["Corners"] = ([(f"Corners total {x}", s) for x in ("8.5", "9.5", "10.5") for s in ("Plus", "Moins")]
+                          + [(f"Corners {e} {x}", s) for e in ("Dom.", "Ext.") for x in ("4.5",) for s in ("Plus", "Moins")])
 cle_match = f"{match['date']}|{dom}|{ext}"
 saisies = {}
 for onglet, (groupe, items) in zip(st.tabs(list(GROUPES)), GROUPES.items()):
