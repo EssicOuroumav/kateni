@@ -5,13 +5,16 @@ Kateni — module live (nouveau)
 
 Modèle de Poisson dépendant de l'état du match (Dixon & Robinson, 1998) :
 - taux de buts croissant au fil du match : w(t) = 1 + KAPPA·t/90
-  (KAPPA = 0,5 donne 45 % des buts en 1re mi-temps, ordre de grandeur observé) ;
+  (KAPPA mesuré : 53,9 % des buts attendus après la pause, avant l'effet du score) ;
 - temps additionnel ajouté au taux de fin de période ;
-- l'équipe menée attaque plus, celle qui mène un peu moins ;
+- l'équipe menée d'un but attaque plus (+15 %), celle qui mène d'un but un peu moins (−5 %) ;
 - carton rouge : l'équipe à 10 marque moins, l'adversaire un peu plus.
 
-Coefficients tirés de la littérature (Maia et al., IJF 2026 ; Dixon & Robinson
-1998) en attendant leur recalibrage sur nos données de mi-temps (lot 1).
+Coefficients MESURÉS sur nos matchs (scripts/calibrer_live.py, 21/10/2026) : réglés sur 4 796 matchs
+de 2024-25 (score à la mi-temps -> score final), vérifiés sur 5 822 matchs de 2025-26
+(log loss du résultat final prédit à la mi-temps : 0,8158 avec les coefficients des études -> 0,8153).
+Les cartons rouges gardent les valeurs des études (Maia et al., IJF 2026) : nos données ne donnent pas
+la minute des expulsions.
 """
 
 from dataclasses import dataclass
@@ -20,10 +23,11 @@ import numpy as np
 
 from kateni.marches import marches, matrice_finale, matrice_scores, scores_probables
 
-KAPPA = 0.5
-MENE_DE_1 = 1.10     # équipe menée d'un but : +10 %
-MENE_DE_2 = 1.20     # menée de deux buts ou plus : +20 %
-MENE = 0.95          # équipe qui mène : -5 %
+KAPPA = 0.2027   # profil des buts : 53,9 % des buts attendus après la pause (mesuré)
+MENE_DE_1 = 1.154    # équipe menée d'un but : +15 % (mesuré ; études : +10 %)
+MENE_DE_2 = 1.047    # menée de deux buts ou plus : +5 % (mesuré ; études : +20 %)
+MENE = 0.947         # équipe qui mène d'un but : -5 % (mesuré)
+MENE_DE_2_PLUS = 1.004  # équipe qui mène de deux buts ou plus : inchangé (mesuré)
 ROUGE_SUBI = 0.70    # par carton rouge reçu : -30 %
 ROUGE_ADVERSE = 1.20  # par carton rouge de l'adversaire : +20 %
 ADDITIONNEL_MT1 = 2.0
@@ -57,7 +61,9 @@ def multiplicateur_score(ecart_pour: int) -> float:
         return MENE_DE_2
     if ecart_pour == -1:
         return MENE_DE_1
-    if ecart_pour >= 1:
+    if ecart_pour >= 2:
+        return MENE_DE_2_PLUS
+    if ecart_pour == 1:
         return MENE
     return 1.0
 

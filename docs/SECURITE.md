@@ -21,7 +21,8 @@ Pas de comptes d'utilisateurs, pas de paiement, pas de fichiers déposés, pas d
 | Point d'entrée | Qui l'appelle | Protection | Preuve |
 |---|---|---|---|
 | App locale `:8501` | le propriétaire | écoute sur `127.0.0.1` uniquement (`--server.address=localhost` dans `Lancer_Kateni.command`, retiré de `config.toml` pour ne pas gêner Streamlit Cloud) | `lsof -nP -iTCP:8501 -sTCP:LISTEN` → `127.0.0.1:8501` (21/10/2026, après le déplacement) |
-| App Streamlit Cloud (lot 2) | le propriétaire | app privée, lecteurs invités par e-mail | **à vérifier** : ouverture en navigation privée, attendu « accès refusé » |
+| App Streamlit Cloud (https://kateni.streamlit.app) | le propriétaire | app privée (connexion Streamlit obligatoire) | **prouvé le 21/10/2026** : sans connexion, `/`, `/mes_paris`, `/_stcore/health`, `/app/static/…` → 303 vers la connexion Streamlit (curl) |
+| Robot GitHub (mise à jour des données) | GitHub Actions, 2 fois par jour | droits limités à l'écriture du dépôt ; aucun secret ; tests avant enregistrement | `.github/workflows/maj-donnees.yml` ; exécutions réussies le 21/10/2026 |
 | Base Neon (lot 2) | l'app (Mac et Streamlit Cloud) | adresse avec mot de passe dans `.streamlit/secrets.toml` (Mac) et dans les secrets de Streamlit Cloud ; TLS (`sslmode=require`) ; pas d'API publique (Neon Data API non activée) | **à vérifier** : `python3 scripts/db.py verifier` après création ; Data API désactivée dans la console |
 
 ## 4. Cas d'abus

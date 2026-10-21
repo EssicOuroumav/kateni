@@ -1,0 +1,12 @@
+Réglage 2024-25 : 4796 matchs · Test 2025-26 : 5822 matchs
+
+Coefficient               actuel (études)    mesuré
+F2 (part 2e mi-temps)               0.566     0.539
+menée de 1                          1.100     1.154
+menée de 2+                         1.200     1.047
+mène de 1                           0.950     0.947
+mène de 2+                          0.950     1.004
+
+Résultat final prédit à la mi-temps, log loss sur le TEST (plus bas = mieux) :
+  coefficients actuels : 0.8158
+  coefficients mesurés : 0.8153
