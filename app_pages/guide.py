@@ -68,14 +68,14 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Pendant un match", anchor=False)
     st.markdown(
-        "1. Ouvre **Live** et choisis le match.\n"
-        "2. Si Kateni connaît déjà les cotes d'avant-match du match (championnats et coupes d'Europe, quelques jours "
-        "avant), il les prend **tout seul** : « Cotes du marché (automatique) ». Sinon, saisis les cotes Betclic "
-        "d'avant le coup d'envoi (1, N, 2).\n"
-        "3. Saisis la **minute** et le **score** (et les cartons rouges s'il y en a).\n"
+        "1. Ouvre **Live** : les **matchs en cours** s'affichent, avec la minute estimée. Touche **Analyser en "
+        "direct** sur le tien (s'il n'y a pas de match en cours, les prochains s'affichent).\n"
+        "2. Kateni prend **tout seul** la minute et la force des équipes (cotes d'avant-match, sinon son modèle).\n"
+        "3. Saisis le **score** (et, si besoin, les cartons rouges, les corners ou une minute corrigée).\n"
         "4. Kateni donne la chance que chaque équipe marque encore, le résultat final, et la liste **« Ce qui peut "
         "encore arriver »**, du plus probable au moins probable, avec la cote juste.\n"
-        "5. Pour jouer, choisis le pari, saisis la **cote live** Betclic : même verdict qu'avant-match.")
+        "5. Pour jouer, ouvre « Vérifier une cote live Betclic » : même verdict qu'avant-match.\n"
+        "6. **Changer de match** te ramène à la liste.")
     st.page_link("app_pages/live.py", label="Aller à Live", icon=":material/timer:")
 
 with st.container(border=True):

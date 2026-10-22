@@ -106,3 +106,20 @@ def predire_live(lam_d: float, lam_e: float, e: EtatLive) -> dict:
         "marches": p,
         "scores": scores_probables(m_fin),
     }
+
+
+DUREE_PAUSE = 15        # minutes de mi-temps
+FIN_PROBABLE = 115      # un match est considéré terminé ~115 min après le coup d'envoi
+
+
+def minute_estimee(ecoule: float) -> tuple[int, str]:
+    """Minute de jeu probable à partir des minutes écoulées depuis le coup d'envoi (horloge réelle) :
+    1re mi-temps ~47 min (temps additionnel compris), pause de 15 min, puis 2e mi-temps.
+    Rend (minute, étiquette) ; l'utilisateur peut la corriger."""
+    ecoule = max(0.0, float(ecoule))
+    if ecoule <= 47:
+        return min(45, int(ecoule)), f"{min(45, int(ecoule))}e minute"
+    if ecoule <= 47 + DUREE_PAUSE:
+        return 45, "mi-temps"
+    m = int(ecoule - 2 - DUREE_PAUSE)
+    return min(90, m), (f"{m}e minute" if m <= 90 else "temps additionnel")

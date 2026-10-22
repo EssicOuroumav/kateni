@@ -324,3 +324,11 @@ def test_combine_meme_match_calcule_ensemble():
     assert abs(chance_combine([a, b], pron) - attendu) < 1e-9
     autre = {**a, "dom": "C", "ext": "D", "marche": "1N2", "selection": "1"}
     assert abs(chance_combine([a, b, autre], pron) - attendu * 0.45) < 1e-9
+
+
+def test_minute_estimee_depuis_le_coup_d_envoi():
+    from kateni.live import minute_estimee
+    assert minute_estimee(10) == (10, "10e minute")
+    assert minute_estimee(50) == (45, "mi-temps")
+    assert minute_estimee(80) == (63, "63e minute")
+    assert minute_estimee(112)[0] == 90
