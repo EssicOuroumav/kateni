@@ -29,11 +29,11 @@ POIDS_XG = 0.5           # cible = 0,5 × buts + 0,5 × xG quand le xG est connu
 RIDGE = 3.0              # rappel vers la moyenne
 RHO_DC = -0.06           # corrélation des petits scores (valeur usuelle de la littérature)
 ANNEES_MAX = 6           # matchs plus anciens ignorés (poids < 2 %)
-COUPES = {"CL", "EL"}
+COUPES = {"CL", "EL", "ECL"}
 
 
 def terrain_neutre(competition: str, date) -> bool:
-    """Finales de C1 et de C3 : match unique sur terrain neutre, mi-mai à fin juin
+    """Finales de C1, C3 et Ligue Conférence : match unique sur terrain neutre, mi-mai à fin juin
     (les demi-finales retour se jouent au plus tard début mai)."""
     if competition not in COUPES:
         return False

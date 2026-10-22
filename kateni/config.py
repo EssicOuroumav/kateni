@@ -48,6 +48,7 @@ COMPETITIONS: dict[str, Competition] = {c.code: c for c in [
     Competition("ROU", "Superliga (Roumanie)", "ROU_full.csv", "ROU", 2012, True),
     Competition("CL", "Champions League", "CL_full.csv", None, 2011, False),
     Competition("EL", "Europa League", "EL_full.csv", None, 2020, False),
+    Competition("ECL", "Conference League", "ECL_full.csv", None, 2024, False),  # ajoutée le 22/10/2026
 ]}
 
 # Colonnes conservées dans les *_full.csv (toutes optionnelles sauf les 6 premières)

@@ -189,7 +189,8 @@ def a_venir() -> pd.DataFrame:
     return cal
 
 
-NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa"}
+NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa",
+                                                                  "ECL": "Ligue Conférence"}
 
 
 def choisir_match(df: pd.DataFrame, cle: str) -> dict:

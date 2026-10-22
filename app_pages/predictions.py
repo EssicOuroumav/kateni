@@ -12,7 +12,7 @@ st.caption(f"Données à jour jusqu'au {df['Date'].max():%d/%m/%Y} · mises à j
 
 # ---------------------------------------------------------------- choix du championnat
 cal = a_venir()
-codes = ["CL", "EL"] + [c for c in COMPETITIONS if c not in ("CL", "EL")]
+codes = ["CL", "EL", "ECL"] + [c for c in COMPETITIONS if c not in ("CL", "EL", "ECL")]
 avec_matchs = set(cal["competition"]) if len(cal) else set()
 comp = st.selectbox(
     "Championnat", codes, key="pr_comp",

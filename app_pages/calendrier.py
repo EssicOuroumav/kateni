@@ -9,7 +9,7 @@ from kateni.ui import NOMS_COURTS, a_venir, contexte
 
 df, m = contexte()
 cal = a_venir()
-ORDRE = ["CL", "EL"] + [c for c in COMPETITIONS if c not in ("CL", "EL")]
+ORDRE = ["CL", "EL", "ECL"] + [c for c in COMPETITIONS if c not in ("CL", "EL", "ECL")]
 
 st.caption(f"Tous les matchs, jour par jour, avec le pronostic de Kateni · heures d'Abidjan · données à jour "
            f"jusqu'au {df['Date'].max():%d/%m/%Y} (mises à jour automatiques deux fois par jour).")

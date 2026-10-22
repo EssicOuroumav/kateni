@@ -29,7 +29,7 @@ LIMITE_SURE = 230
 PAR_APPEL = 5
 
 # Identifiants OddsPapi (liste complète : docs/mesures/oddspapi_tournois.json, relevée le 21/10/2026)
-TOURNOIS = {"CL": 7, "EL": 679, "PL": 17, "LIGA": 8, "SA": 23, "BL": 35, "L1": 34, "NED": 37, "POR": 238,
+TOURNOIS = {"CL": 7, "EL": 679, "ECL": 34480, "PL": 17, "LIGA": 8, "SA": 23, "BL": 35, "L1": 34, "NED": 37, "POR": 238,
             "TUR": 52, "BEL": 38, "CHAMP": 18, "LIGA2": 54, "L2": 182, "SCO": 36, "GRE": 185, "AUT": 45,
             "SUI": 215, "NOR": 20, "DAN": 39, "SUE": 40, "POL": 202, "ROU": 152, "MLS": 242}
 PRIORITAIRES = ["CL", "EL", "PL", "LIGA", "SA", "BL", "L1"]   # gardées même quand le budget se resserre

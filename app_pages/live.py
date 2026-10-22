@@ -31,7 +31,7 @@ def _cote(v):
     return v if v > 1 else None
 
 
-# Cotes d'avant-match déjà connues de Kateni pour ce match (Bet365 championnats, Pinnacle C1/C3)
+# Cotes d'avant-match déjà connues de Kateni pour ce match (Bet365 championnats, Pinnacle juste avant les matchs)
 cal = a_venir()
 ligne = cal[(cal["competition"] == match["competition"]) & (cal["dom"] == dom) & (cal["ext"] == ext)
             & (cal["Date"] == match["date"])] if len(cal) else cal

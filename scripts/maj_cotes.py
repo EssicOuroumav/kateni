@@ -9,7 +9,7 @@ Contraintes OddsPapi (offre gratuite) : 250 requêtes par mois, 5 compétitions 
 Le code du relevé est dans kateni/pinnacle.py (partagé avec l'app, qui relève aussi elle-même les cotes
 quand on l'ouvre peu avant un match : voir kateni/ui.py, cotes_imminentes). Stratégie :
   --fenetre (passage horaire 10 h-20 h) : seulement les compétitions dont un match commence dans 20 à 80 min
-  --matin   (passage de 5 h 15)         : C1 et C3 si elles jouent dans les 36 h (cotes de la veille)
+  --matin   (passage de 5 h 15)         : C1, C3 et Ligue Conférence si elles jouent dans les 36 h (cotes de la veille)
 Rythme : si la consommation du mois dépasse le rythme prévu, seules les compétitions prioritaires sont
 relevées ; plafond dur à 230 requêtes. La clé vient de ODDS_API_KEY ou de .streamlit/secrets.toml et
 n'est jamais affichée. En cas d'échec, les cotes déjà relevées sont conservées.
@@ -40,7 +40,7 @@ def a_relever(mode: str, maintenant: datetime) -> list[str]:
         codes = set(cal.loc[dans, "competition"])
     else:  # matin : C1/C3 du jour et du lendemain
         dans = (debut > maintenant) & (debut <= maintenant + timedelta(hours=36))
-        codes = set(cal.loc[dans, "competition"]) & {"CL", "EL"}
+        codes = set(cal.loc[dans, "competition"]) & {"CL", "EL", "ECL"}
     return [c for c in ORDRE if c in codes]
 
 

@@ -116,6 +116,11 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Essai réel sur la branche test : combiné Levante gagne + moins de 4,5 buts (21/10, 3-1) réglé « gagné », +950 FCFA pour 500 à 2,90 ; ligne d'essai supprimée ensuite.
 - Erreur : la sauvegarde de prod lancée AVANT la migration a échoué (le nouveau code lit la colonne `selections`). Sans conséquence (0 pari en prod, vérifié) ; sauvegarde refaite après. Leçon : sauvegarder avec l'ancien code, ou migrer avant de changer le code de lecture.
 
+## Ligue Conférence (22/10/2026)
+- Code `ECL`, source Wikipédia (`scripts/maj_europe.py`, saisons 2024-25 à 2026-27 : 332 matchs joués, 80 à venir), coupe européenne du modèle global (`COUPES`), finale sur terrain neutre, cotes Pinnacle (OddsPapi 34480).
+- 6 alias ajoutés (Heidenheim, Lausanne, Mjallby, St Truiden, Guimaraes, Buyuksehyr) ; les 42 autres clubs jouent dans des championnats non couverts : niveau commun estimé, d'où l'intérêt des cotes du marché.
+- Premier relevé Pinnacle (22/10, 19:4x) : 0 match (journée en cours, la suivante pas encore cotée) ; à vérifier à la prochaine journée.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

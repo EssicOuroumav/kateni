@@ -89,14 +89,6 @@ CL,2027-01-27,21:00,Slavia Prague,Aston Villa
 CL,2027-01-27,21:00,Napoli,Viking
 CL,2027-01-27,21:00,Villarreal,Manchester United
 CL,2027-01-27,21:00,Slovan Bratislava,Inter Milan
-EL,2026-10-22,18:45,Ararat-Armenia,AZ
-EL,2026-10-22,18:45,Ferencváros,Torreense
-EL,2026-10-22,18:45,Dinamo Zagreb,NEC
-EL,2026-10-22,18:45,Juventus,Rennes
-EL,2026-10-22,18:45,Lech Poznań,Sunderland
-EL,2026-10-22,18:45,OFI,Bayer Leverkusen
-EL,2026-10-22,18:45,Union Saint-Gilloise,Hapoel Be'er Sheva
-EL,2026-10-22,18:45,Sturm Graz,Marseille
 EL,2026-10-22,21:00,Bournemouth,Milan
 EL,2026-10-22,21:00,Beşiktaş,Crystal Palace
 EL,2026-10-22,21:00,Celtic,Celta Vigo
@@ -197,3 +189,83 @@ EL,2027-01-28,21:00,Torreense,Olympiacos
 EL,2027-01-28,21:00,Benfica,AZ
 EL,2027-01-28,21:00,Sunderland,Levski Sofia
 EL,2027-01-28,21:00,TSG Hoffenheim,Ferencváros
+ECL,2026-10-22,21:00,Ajax,Atalanta
+ECL,2026-10-22,21:00,AGF,Egnatia
+ECL,2026-10-22,21:00,Monaco,SC Freiburg
+ECL,2026-10-22,21:00,Midtjylland,Sint-Truiden
+ECL,2026-10-22,21:00,Thun,Hajduk Split
+ECL,2026-10-22,21:00,Borac Banja Luka,KuPS
+ECL,2026-10-22,21:00,Lincoln Red Imps,Twente
+ECL,2026-10-22,21:00,Braga,Gent
+ECL,2026-11-05,18:45,AGF,Braga
+ECL,2026-11-05,18:45,Atalanta,Kairat
+ECL,2026-11-05,18:45,Midtjylland,Ajax
+ECL,2026-11-05,18:45,Thun,Heart of Midlothian
+ECL,2026-11-05,18:45,Red Star Belgrade,Inter Club d'Escaldes
+ECL,2026-11-05,18:45,KuPS,Gent
+ECL,2026-11-05,18:45,Lincoln Red Imps,Hajduk Split
+ECL,2026-11-05,18:45,Mjällby AIF,Borac Banja Luka
+ECL,2026-11-05,18:45,Trabzonspor,SC Freiburg
+ECL,2026-11-05,21:00,Monaco,Nordsjælland
+ECL,2026-11-05,21:00,Copenhagen,Iberia 1999
+ECL,2026-11-05,21:00,Lugano,Kauno Žalgiris
+ECL,2026-11-05,21:00,Twente,Pafos
+ECL,2026-11-05,21:00,Getafe,Brighton & Hove Albion
+ECL,2026-11-05,21:00,Sint-Truiden,Brann
+ECL,2026-11-05,21:00,Panathinaikos,CSKA Sofia
+ECL,2026-11-05,21:00,Riga,Jablonec
+ECL,2026-11-05,21:00,Universitatea Craiova,Egnatia
+ECL,2026-11-26,16:30,Kairat,Mjällby AIF
+ECL,2026-11-26,18:45,Ajax,Thun
+ECL,2026-11-26,18:45,Brighton & Hove Albion,Universitatea Craiova
+ECL,2026-11-26,18:45,Iberia 1999,Getafe
+ECL,2026-11-26,18:45,Jablonec,Lugano
+ECL,2026-11-26,18:45,Kauno Žalgiris,Riga
+ECL,2026-11-26,18:45,Heart of Midlothian,Monaco
+ECL,2026-11-26,18:45,Egnatia,Lincoln Red Imps
+ECL,2026-11-26,18:45,Pafos,Midtjylland
+ECL,2026-11-26,18:45,Brann,AGF
+ECL,2026-11-26,21:00,Nordsjælland,Panathinaikos
+ECL,2026-11-26,21:00,Borac Banja Luka,Atalanta
+ECL,2026-11-26,21:00,Hajduk Split,Sint-Truiden
+ECL,2026-11-26,21:00,Inter Club d'Escaldes,Copenhagen
+ECL,2026-11-26,21:00,Gent,Red Star Belgrade
+ECL,2026-11-26,21:00,CSKA Sofia,Trabzonspor
+ECL,2026-11-26,21:00,Braga,KuPS
+ECL,2026-11-26,21:00,SC Freiburg,Twente
+ECL,2026-12-10,16:30,Kairat,Universitatea Craiova
+ECL,2026-12-10,18:45,Copenhagen,Lugano
+ECL,2026-12-10,18:45,Iberia 1999,Red Star Belgrade
+ECL,2026-12-10,18:45,Getafe,Inter Club d'Escaldes
+ECL,2026-12-10,18:45,KuPS,CSKA Sofia
+ECL,2026-12-10,18:45,Lincoln Red Imps,Midtjylland
+ECL,2026-12-10,18:45,Riga,Atalanta
+ECL,2026-12-10,18:45,SC Freiburg,Panathinaikos
+ECL,2026-12-10,18:45,Brann,Braga
+ECL,2026-12-10,18:45,Trabzonspor,Jablonec
+ECL,2026-12-10,21:00,AGF,Twente
+ECL,2026-12-10,21:00,Brighton & Hove Albion,Monaco
+ECL,2026-12-10,21:00,Thun,Gent
+ECL,2026-12-10,21:00,Heart of Midlothian,Borac Banja Luka
+ECL,2026-12-10,21:00,Hajduk Split,Nordsjælland
+ECL,2026-12-10,21:00,Sint-Truiden,Ajax
+ECL,2026-12-10,21:00,Egnatia,Kauno Žalgiris
+ECL,2026-12-10,21:00,Mjällby AIF,Pafos
+ECL,2026-12-17,21:00,Ajax,Getafe
+ECL,2026-12-17,21:00,Monaco,Lincoln Red Imps
+ECL,2026-12-17,21:00,Atalanta,Mjällby AIF
+ECL,2026-12-17,21:00,Lugano,Sint-Truiden
+ECL,2026-12-17,21:00,Midtjylland,Hajduk Split
+ECL,2026-12-17,21:00,Nordsjælland,KuPS
+ECL,2026-12-17,21:00,Twente,Kairat
+ECL,2026-12-17,21:00,Borac Banja Luka,Riga
+ECL,2026-12-17,21:00,Red Star Belgrade,Trabzonspor
+ECL,2026-12-17,21:00,Jablonec,Iberia 1999
+ECL,2026-12-17,21:00,Kauno Žalgiris,SC Freiburg
+ECL,2026-12-17,21:00,Inter Club d'Escaldes,AGF
+ECL,2026-12-17,21:00,Gent,Brann
+ECL,2026-12-17,21:00,Pafos,Heart of Midlothian
+ECL,2026-12-17,21:00,Panathinaikos,Brighton & Hove Albion
+ECL,2026-12-17,21:00,CSKA Sofia,Thun
+ECL,2026-12-17,21:00,Braga,Egnatia
+ECL,2026-12-17,21:00,Universitatea Craiova,Copenhagen

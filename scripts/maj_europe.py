@@ -1,5 +1,5 @@
 """
-Kateni — résultats et calendrier européens (C1, C3) depuis Wikipédia
+Kateni — résultats et calendrier européens (C1, C3, Ligue Conférence) depuis Wikipédia
 ======================================================================
 Aucune source gratuite en CSV n'est à jour pour la saison 2026-27 :
 on lit les « Football box » des pages Wikipédia (anglais) de la phase de
@@ -35,6 +35,10 @@ PAGES = {
     ("CL", "2026-27"): ["2026–27 UEFA Champions League league phase", "2026–27 UEFA Champions League knockout phase"],
     ("EL", "2026-27"): ["2026–27 UEFA Europa League league phase", "2026–27 UEFA Europa League knockout phase"],
     ("EL", "2025-26"): ["2025–26 UEFA Europa League league phase", "2025–26 UEFA Europa League knockout phase"],
+    # Ligue Conférence (ajoutée le 22/10/2026) : deux saisons passées pour connaître ses clubs
+    ("ECL", "2026-27"): ["2026–27 UEFA Conference League league phase", "2026–27 UEFA Conference League knockout phase"],
+    ("ECL", "2025-26"): ["2025–26 UEFA Conference League league phase", "2025–26 UEFA Conference League knockout phase"],
+    ("ECL", "2024-25"): ["2024–25 UEFA Conference League league phase", "2024–25 UEFA Conference League knockout phase"],
 }
 API = "https://en.wikipedia.org/w/api.php"
 

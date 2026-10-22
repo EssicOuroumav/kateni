@@ -1,0 +1,333 @@
+Saison,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HTHG,HTAG
+2024-25,2024-10-02,Vitória de Guimarães,Celje,3.0,1.0,H,2.0,0.0
+2024-25,2024-10-02,İstanbul Başakşehir,Rapid Wien,1.0,2.0,A,1.0,1.0
+2024-25,2024-10-03,1. FC Heidenheim,Olimpija Ljubljana,2.0,1.0,H,1.0,0.0
+2024-25,2024-10-03,Astana,TSC,1.0,0.0,H,1.0,0.0
+2024-25,2024-10-03,Borac Banja Luka,Panathinaikos,1.0,1.0,D,0.0,1.0
+2024-25,2024-10-03,Cercle Brugge,St. Gallen,6.0,2.0,H,3.0,0.0
+2024-25,2024-10-03,Chelsea,Gent,4.0,2.0,H,1.0,0.0
+2024-25,2024-10-03,Copenhagen,Jagiellonia Białystok,1.0,2.0,A,1.0,0.0
+2024-25,2024-10-03,Dinamo Minsk,Heart of Midlothian,1.0,2.0,A,1.0,1.0
+2024-25,2024-10-03,Fiorentina,The New Saints,2.0,0.0,H,0.0,0.0
+2024-25,2024-10-03,LASK,Djurgårdens IF,2.0,2.0,D,1.0,0.0
+2024-25,2024-10-03,Legia Warsaw,Real Betis,1.0,0.0,H,1.0,0.0
+2024-25,2024-10-03,Lugano,HJK,3.0,0.0,H,1.0,0.0
+2024-25,2024-10-03,Molde,Larne,3.0,0.0,H,0.0,0.0
+2024-25,2024-10-03,Noah,Mladá Boleslav,2.0,0.0,H,0.0,0.0
+2024-25,2024-10-03,Omonia,Víkingur Reykjavík,4.0,0.0,H,0.0,0.0
+2024-25,2024-10-03,Petrocub Hîncești,Pafos,1.0,4.0,A,1.0,2.0
+2024-25,2024-10-03,Shamrock Rovers,APOEL,1.0,1.0,D,0.0,0.0
+2024-25,2024-10-24,APOEL,Borac Banja Luka,0.0,1.0,A,0.0,0.0
+2024-25,2024-10-24,Celje,İstanbul Başakşehir,5.0,1.0,H,3.0,0.0
+2024-25,2024-10-24,Djurgårdens IF,Vitória de Guimarães,1.0,2.0,A,0.0,0.0
+2024-25,2024-10-24,Gent,Molde,2.0,1.0,H,1.0,0.0
+2024-25,2024-10-24,HJK,Dinamo Minsk,1.0,0.0,H,0.0,0.0
+2024-25,2024-10-24,Heart of Midlothian,Omonia,2.0,0.0,H,2.0,0.0
+2024-25,2024-10-24,Jagiellonia Białystok,Petrocub Hîncești,2.0,0.0,H,0.0,0.0
+2024-25,2024-10-24,Larne,Shamrock Rovers,1.0,4.0,A,0.0,3.0
+2024-25,2024-10-24,Mladá Boleslav,Lugano,0.0,1.0,A,0.0,1.0
+2024-25,2024-10-24,Olimpija Ljubljana,LASK,2.0,0.0,H,1.0,0.0
+2024-25,2024-10-24,Pafos,1. FC Heidenheim,0.0,1.0,A,0.0,1.0
+2024-25,2024-10-24,Panathinaikos,Chelsea,1.0,4.0,A,0.0,1.0
+2024-25,2024-10-24,Rapid Wien,Noah,1.0,0.0,H,1.0,0.0
+2024-25,2024-10-24,Real Betis,Copenhagen,1.0,1.0,D,1.0,0.0
+2024-25,2024-10-24,St. Gallen,Fiorentina,2.0,4.0,A,1.0,0.0
+2024-25,2024-10-24,TSC,Legia Warsaw,0.0,3.0,A,0.0,1.0
+2024-25,2024-10-24,The New Saints,Astana,2.0,0.0,H,1.0,0.0
+2024-25,2024-10-24,Víkingur Reykjavík,Cercle Brugge,3.0,1.0,H,1.0,1.0
+2024-25,2024-11-07,APOEL,Fiorentina,2.0,1.0,H,2.0,0.0
+2024-25,2024-11-07,Chelsea,Noah,8.0,0.0,H,6.0,0.0
+2024-25,2024-11-07,Copenhagen,İstanbul Başakşehir,2.0,2.0,D,0.0,1.0
+2024-25,2024-11-07,Djurgårdens IF,Panathinaikos,2.0,1.0,H,0.0,1.0
+2024-25,2024-11-07,Gent,Omonia,1.0,0.0,H,1.0,0.0
+2024-25,2024-11-07,HJK,Olimpija Ljubljana,0.0,2.0,A,0.0,0.0
+2024-25,2024-11-07,Heart of Midlothian,1. FC Heidenheim,0.0,2.0,A,0.0,0.0
+2024-25,2024-11-07,Jagiellonia Białystok,Molde,3.0,0.0,H,1.0,0.0
+2024-25,2024-11-07,LASK,Cercle Brugge,0.0,0.0,D,0.0,0.0
+2024-25,2024-11-07,Larne,St. Gallen,1.0,2.0,A,1.0,1.0
+2024-25,2024-11-07,Legia Warsaw,Dinamo Minsk,4.0,0.0,H,1.0,0.0
+2024-25,2024-11-07,Pafos,Astana,1.0,0.0,H,0.0,0.0
+2024-25,2024-11-07,Petrocub Hîncești,Rapid Wien,0.0,3.0,A,0.0,1.0
+2024-25,2024-11-07,Real Betis,Celje,2.0,1.0,H,0.0,0.0
+2024-25,2024-11-07,Shamrock Rovers,The New Saints,2.0,1.0,H,2.0,1.0
+2024-25,2024-11-07,TSC,Lugano,4.0,1.0,H,1.0,0.0
+2024-25,2024-11-07,Vitória de Guimarães,Mladá Boleslav,2.0,1.0,H,1.0,0.0
+2024-25,2024-11-07,Víkingur Reykjavík,Borac Banja Luka,2.0,0.0,H,2.0,0.0
+2024-25,2024-11-27,İstanbul Başakşehir,Petrocub Hîncești,1.0,1.0,D,1.0,0.0
+2024-25,2024-11-28,1. FC Heidenheim,Chelsea,0.0,2.0,A,0.0,0.0
+2024-25,2024-11-28,Astana,Vitória de Guimarães,1.0,1.0,D,1.0,0.0
+2024-25,2024-11-28,Borac Banja Luka,LASK,2.0,1.0,H,0.0,0.0
+2024-25,2024-11-28,Celje,Jagiellonia Białystok,3.0,3.0,D,1.0,1.0
+2024-25,2024-11-28,Cercle Brugge,Heart of Midlothian,2.0,0.0,H,1.0,0.0
+2024-25,2024-11-28,Dinamo Minsk,Copenhagen,1.0,2.0,A,1.0,1.0
+2024-25,2024-11-28,Fiorentina,Pafos,3.0,2.0,H,1.0,0.0
+2024-25,2024-11-28,Lugano,Gent,2.0,0.0,H,1.0,0.0
+2024-25,2024-11-28,Mladá Boleslav,Real Betis,2.0,1.0,H,0.0,1.0
+2024-25,2024-11-28,Molde,APOEL,0.0,1.0,A,0.0,1.0
+2024-25,2024-11-28,Noah,Víkingur Reykjavík,0.0,0.0,D,0.0,0.0
+2024-25,2024-11-28,Olimpija Ljubljana,Larne,1.0,0.0,H,0.0,0.0
+2024-25,2024-11-28,Omonia,Legia Warsaw,0.0,3.0,A,0.0,1.0
+2024-25,2024-11-28,Panathinaikos,HJK,1.0,0.0,H,1.0,0.0
+2024-25,2024-11-28,Rapid Wien,Shamrock Rovers,1.0,1.0,D,1.0,0.0
+2024-25,2024-11-28,St. Gallen,TSC,2.0,2.0,D,1.0,1.0
+2024-25,2024-11-28,The New Saints,Djurgårdens IF,0.0,1.0,A,0.0,1.0
+2024-25,2024-12-12,Astana,Chelsea,1.0,3.0,A,1.0,3.0
+2024-25,2024-12-12,Copenhagen,Heart of Midlothian,2.0,0.0,H,0.0,0.0
+2024-25,2024-12-12,Dinamo Minsk,Larne,2.0,0.0,H,0.0,0.0
+2024-25,2024-12-12,Fiorentina,LASK,7.0,0.0,H,3.0,0.0
+2024-25,2024-12-12,Gent,TSC,3.0,0.0,H,3.0,0.0
+2024-25,2024-12-12,HJK,Molde,2.0,2.0,D,1.0,2.0
+2024-25,2024-12-12,Legia Warsaw,Lugano,1.0,2.0,A,1.0,1.0
+2024-25,2024-12-12,Mladá Boleslav,Jagiellonia Białystok,1.0,0.0,H,0.0,0.0
+2024-25,2024-12-12,Noah,APOEL,1.0,3.0,A,1.0,1.0
+2024-25,2024-12-12,Olimpija Ljubljana,Cercle Brugge,1.0,4.0,A,1.0,2.0
+2024-25,2024-12-12,Omonia,Rapid Wien,3.0,1.0,H,0.0,0.0
+2024-25,2024-12-12,Pafos,Celje,2.0,0.0,H,0.0,0.0
+2024-25,2024-12-12,Petrocub Hîncești,Real Betis,0.0,1.0,A,0.0,0.0
+2024-25,2024-12-12,Shamrock Rovers,Borac Banja Luka,3.0,0.0,H,1.0,0.0
+2024-25,2024-12-12,St. Gallen,Vitória de Guimarães,1.0,4.0,A,0.0,1.0
+2024-25,2024-12-12,The New Saints,Panathinaikos,0.0,2.0,A,0.0,1.0
+2024-25,2024-12-12,Víkingur Reykjavík,Djurgårdens IF,1.0,2.0,A,0.0,0.0
+2024-25,2024-12-12,İstanbul Başakşehir,1. FC Heidenheim,3.0,1.0,H,2.0,0.0
+2024-25,2024-12-19,1. FC Heidenheim,St. Gallen,1.0,1.0,D,1.0,0.0
+2024-25,2024-12-19,APOEL,Astana,1.0,1.0,D,0.0,0.0
+2024-25,2024-12-19,Borac Banja Luka,Omonia,0.0,0.0,D,0.0,0.0
+2024-25,2024-12-19,Celje,The New Saints,3.0,2.0,H,2.0,2.0
+2024-25,2024-12-19,Cercle Brugge,İstanbul Başakşehir,1.0,1.0,D,0.0,0.0
+2024-25,2024-12-19,Chelsea,Shamrock Rovers,5.0,1.0,H,4.0,1.0
+2024-25,2024-12-19,Djurgårdens IF,Legia Warsaw,3.0,1.0,H,2.0,0.0
+2024-25,2024-12-19,Heart of Midlothian,Petrocub Hîncești,2.0,2.0,D,0.0,1.0
+2024-25,2024-12-19,Jagiellonia Białystok,Olimpija Ljubljana,0.0,0.0,D,0.0,0.0
+2024-25,2024-12-19,LASK,Víkingur Reykjavík,1.0,1.0,D,1.0,1.0
+2024-25,2024-12-19,Larne,Gent,1.0,0.0,H,0.0,0.0
+2024-25,2024-12-19,Lugano,Pafos,2.0,2.0,D,2.0,1.0
+2024-25,2024-12-19,Molde,Mladá Boleslav,4.0,3.0,H,2.0,1.0
+2024-25,2024-12-19,Panathinaikos,Dinamo Minsk,4.0,0.0,H,1.0,0.0
+2024-25,2024-12-19,Rapid Wien,Copenhagen,3.0,0.0,H,1.0,0.0
+2024-25,2024-12-19,Real Betis,HJK,1.0,0.0,H,1.0,0.0
+2024-25,2024-12-19,TSC,Noah,4.0,3.0,H,1.0,2.0
+2024-25,2024-12-19,Vitória de Guimarães,Fiorentina,1.0,1.0,D,1.0,0.0
+2024-25,2025-02-13,Borac Banja Luka,Olimpija Ljubljana,1.0,0.0,H,0.0,0.0
+2024-25,2025-02-13,Celje,APOEL,2.0,2.0,D,1.0,1.0
+2024-25,2025-02-13,Copenhagen,1. FC Heidenheim,1.0,2.0,A,1.0,0.0
+2024-25,2025-02-13,Gent,Real Betis,0.0,3.0,A,0.0,0.0
+2024-25,2025-02-13,Molde,Shamrock Rovers,0.0,1.0,A,0.0,0.0
+2024-25,2025-02-13,Omonia,Pafos,1.0,1.0,D,0.0,0.0
+2024-25,2025-02-13,TSC,Jagiellonia Białystok,1.0,3.0,A,1.0,1.0
+2024-25,2025-02-13,Víkingur Reykjavík,Panathinaikos,2.0,1.0,H,1.0,0.0
+2024-25,2025-02-20,1. FC Heidenheim,Copenhagen,1.0,3.0,A,0.0,1.0
+2024-25,2025-02-20,APOEL,Celje,0.0,2.0,A,0.0,1.0
+2024-25,2025-02-20,Jagiellonia Białystok,TSC,3.0,1.0,H,1.0,1.0
+2024-25,2025-02-20,Olimpija Ljubljana,Borac Banja Luka,0.0,0.0,D,0.0,0.0
+2024-25,2025-02-20,Pafos,Omonia,2.0,1.0,H,1.0,0.0
+2024-25,2025-02-20,Panathinaikos,Víkingur Reykjavík,2.0,0.0,H,0.0,0.0
+2024-25,2025-02-20,Real Betis,Gent,0.0,1.0,A,0.0,0.0
+2024-25,2025-02-20,Shamrock Rovers,Molde,0.0,1.0,A,0.0,1.0
+2024-25,2025-03-06,Borac Banja Luka,Rapid Wien,1.0,1.0,D,0.0,1.0
+2024-25,2025-03-06,Celje,Lugano,1.0,0.0,H,1.0,0.0
+2024-25,2025-03-06,Copenhagen,Chelsea,1.0,2.0,A,0.0,0.0
+2024-25,2025-03-06,Jagiellonia Białystok,Cercle Brugge,3.0,0.0,H,0.0,0.0
+2024-25,2025-03-06,Molde,Legia Warsaw,3.0,2.0,H,3.0,0.0
+2024-25,2025-03-06,Pafos,Djurgårdens IF,1.0,0.0,H,0.0,0.0
+2024-25,2025-03-06,Panathinaikos,Fiorentina,3.0,2.0,H,2.0,2.0
+2024-25,2025-03-06,Real Betis,Vitória de Guimarães,2.0,2.0,D,0.0,0.0
+2024-25,2025-03-13,Cercle Brugge,Jagiellonia Białystok,2.0,0.0,H,1.0,0.0
+2024-25,2025-03-13,Chelsea,Copenhagen,1.0,0.0,H,0.0,0.0
+2024-25,2025-03-13,Djurgårdens IF,Pafos,3.0,0.0,H,1.0,0.0
+2024-25,2025-03-13,Fiorentina,Panathinaikos,3.0,1.0,H,2.0,0.0
+2024-25,2025-03-13,Legia Warsaw,Molde,2.0,0.0,H,1.0,0.0
+2024-25,2025-03-13,Lugano,Celje,5.0,4.0,H,3.0,1.0
+2024-25,2025-03-13,Rapid Wien,Borac Banja Luka,2.0,1.0,H,0.0,0.0
+2024-25,2025-03-13,Vitória de Guimarães,Real Betis,0.0,4.0,A,0.0,2.0
+2024-25,2025-04-10,Celje,Fiorentina,1.0,2.0,A,0.0,1.0
+2024-25,2025-04-10,Djurgårdens IF,Rapid Wien,0.0,1.0,A,0.0,0.0
+2024-25,2025-04-10,Legia Warsaw,Chelsea,0.0,3.0,A,0.0,0.0
+2024-25,2025-04-10,Real Betis,Jagiellonia Białystok,2.0,0.0,H,2.0,0.0
+2024-25,2025-04-17,Chelsea,Legia Warsaw,1.0,2.0,A,1.0,1.0
+2024-25,2025-04-17,Fiorentina,Celje,2.0,2.0,D,1.0,0.0
+2024-25,2025-04-17,Jagiellonia Białystok,Real Betis,1.0,1.0,D,0.0,0.0
+2024-25,2025-04-17,Rapid Wien,Djurgårdens IF,1.0,4.0,A,1.0,1.0
+2024-25,2025-05-01,Djurgårdens IF,Chelsea,1.0,4.0,A,0.0,2.0
+2024-25,2025-05-01,Real Betis,Fiorentina,2.0,1.0,H,1.0,0.0
+2024-25,2025-05-08,Chelsea,Djurgårdens IF,1.0,0.0,H,1.0,0.0
+2024-25,2025-05-08,Fiorentina,Real Betis,2.0,2.0,D,2.0,1.0
+2025-26,2025-10-02,AEK Larnaca,AZ,4.0,0.0,H,1.0,0.0
+2025-26,2025-10-02,Aberdeen,Shakhtar Donetsk,2.0,3.0,A,1.0,1.0
+2025-26,2025-10-02,Celje,AEK Athens,3.0,1.0,H,1.0,1.0
+2025-26,2025-10-02,Dynamo Kyiv,Crystal Palace,0.0,2.0,A,0.0,1.0
+2025-26,2025-10-02,Fiorentina,Sigma Olomouc,2.0,0.0,H,1.0,0.0
+2025-26,2025-10-02,Jagiellonia Białystok,Hamrun Spartans,1.0,0.0,H,0.0,0.0
+2025-26,2025-10-02,KuPS,Drita,1.0,1.0,D,0.0,0.0
+2025-26,2025-10-02,Lausanne-Sport,Breiðablik,3.0,0.0,H,3.0,0.0
+2025-26,2025-10-02,Lech Poznań,Rapid Wien,4.0,1.0,H,3.0,0.0
+2025-26,2025-10-02,Legia Warsaw,Samsunspor,0.0,1.0,A,0.0,1.0
+2025-26,2025-10-02,Noah,Rijeka,1.0,0.0,H,1.0,0.0
+2025-26,2025-10-02,Omonia,Mainz 05,0.0,1.0,A,0.0,0.0
+2025-26,2025-10-02,Raków Częstochowa,Universitatea Craiova,2.0,0.0,H,0.0,0.0
+2025-26,2025-10-02,Rayo Vallecano,Shkëndija,2.0,0.0,H,2.0,0.0
+2025-26,2025-10-02,Shelbourne,BK Häcken,0.0,0.0,D,0.0,0.0
+2025-26,2025-10-02,Slovan Bratislava,Strasbourg,1.0,2.0,A,0.0,2.0
+2025-26,2025-10-02,Sparta Prague,Shamrock Rovers,4.0,1.0,H,2.0,0.0
+2025-26,2025-10-02,Zrinjski Mostar,Lincoln Red Imps,5.0,0.0,H,3.0,0.0
+2025-26,2025-10-23,AEK Athens,Aberdeen,6.0,0.0,H,3.0,0.0
+2025-26,2025-10-23,AZ,Slovan Bratislava,1.0,0.0,H,1.0,0.0
+2025-26,2025-10-23,BK Häcken,Rayo Vallecano,2.0,2.0,D,1.0,1.0
+2025-26,2025-10-23,Breiðablik,KuPS,0.0,0.0,D,0.0,0.0
+2025-26,2025-10-23,Crystal Palace,AEK Larnaca,0.0,1.0,A,0.0,0.0
+2025-26,2025-10-23,Drita,Omonia,1.0,1.0,D,1.0,1.0
+2025-26,2025-10-23,Hamrun Spartans,Lausanne-Sport,0.0,1.0,A,0.0,1.0
+2025-26,2025-10-23,Lincoln Red Imps,Lech Poznań,2.0,1.0,H,1.0,0.0
+2025-26,2025-10-23,Mainz 05,Zrinjski Mostar,1.0,0.0,H,1.0,0.0
+2025-26,2025-10-23,Rapid Wien,Fiorentina,0.0,3.0,A,0.0,1.0
+2025-26,2025-10-23,Rijeka,Sparta Prague,1.0,0.0,H,0.0,0.0
+2025-26,2025-10-23,Samsunspor,Dynamo Kyiv,3.0,0.0,H,2.0,0.0
+2025-26,2025-10-23,Shakhtar Donetsk,Legia Warsaw,1.0,2.0,A,0.0,1.0
+2025-26,2025-10-23,Shamrock Rovers,Celje,0.0,2.0,A,0.0,2.0
+2025-26,2025-10-23,Shkëndija,Shelbourne,1.0,0.0,H,0.0,0.0
+2025-26,2025-10-23,Sigma Olomouc,Raków Częstochowa,1.0,1.0,D,0.0,0.0
+2025-26,2025-10-23,Strasbourg,Jagiellonia Białystok,1.0,1.0,D,0.0,0.0
+2025-26,2025-10-23,Universitatea Craiova,Noah,1.0,1.0,D,1.0,0.0
+2025-26,2025-11-06,AEK Athens,Shamrock Rovers,1.0,1.0,D,0.0,1.0
+2025-26,2025-11-06,AEK Larnaca,Aberdeen,0.0,0.0,D,0.0,0.0
+2025-26,2025-11-06,BK Häcken,Strasbourg,1.0,2.0,A,0.0,1.0
+2025-26,2025-11-06,Celje,Legia Warsaw,2.0,1.0,H,0.0,1.0
+2025-26,2025-11-06,Crystal Palace,AZ,3.0,1.0,H,2.0,0.0
+2025-26,2025-11-06,Dynamo Kyiv,Zrinjski Mostar,6.0,0.0,H,1.0,0.0
+2025-26,2025-11-06,KuPS,Slovan Bratislava,3.0,1.0,H,1.0,1.0
+2025-26,2025-11-06,Lausanne-Sport,Omonia,1.0,1.0,D,1.0,1.0
+2025-26,2025-11-06,Lincoln Red Imps,Rijeka,1.0,1.0,D,0.0,1.0
+2025-26,2025-11-06,Mainz 05,Fiorentina,2.0,1.0,H,0.0,1.0
+2025-26,2025-11-06,Noah,Sigma Olomouc,1.0,2.0,A,1.0,2.0
+2025-26,2025-11-06,Rapid Wien,Universitatea Craiova,0.0,1.0,A,0.0,1.0
+2025-26,2025-11-06,Rayo Vallecano,Lech Poznań,3.0,2.0,H,0.0,2.0
+2025-26,2025-11-06,Samsunspor,Hamrun Spartans,3.0,0.0,H,1.0,0.0
+2025-26,2025-11-06,Shakhtar Donetsk,Breiðablik,2.0,0.0,H,1.0,0.0
+2025-26,2025-11-06,Shelbourne,Drita,0.0,1.0,A,0.0,0.0
+2025-26,2025-11-06,Shkëndija,Jagiellonia Białystok,1.0,1.0,D,0.0,0.0
+2025-26,2025-11-06,Sparta Prague,Raków Częstochowa,0.0,0.0,D,0.0,0.0
+2025-26,2025-11-27,AZ,Shelbourne,2.0,0.0,H,0.0,0.0
+2025-26,2025-11-27,Aberdeen,Noah,1.0,1.0,D,1.0,0.0
+2025-26,2025-11-27,Breiðablik,Samsunspor,2.0,2.0,D,1.0,1.0
+2025-26,2025-11-27,Drita,Shkëndija,1.0,0.0,H,1.0,0.0
+2025-26,2025-11-27,Fiorentina,AEK Athens,0.0,1.0,A,0.0,1.0
+2025-26,2025-11-27,Hamrun Spartans,Lincoln Red Imps,3.0,1.0,H,0.0,0.0
+2025-26,2025-11-27,Jagiellonia Białystok,KuPS,1.0,0.0,H,0.0,0.0
+2025-26,2025-11-27,Lech Poznań,Lausanne-Sport,2.0,0.0,H,0.0,0.0
+2025-26,2025-11-27,Legia Warsaw,Sparta Prague,0.0,1.0,A,0.0,1.0
+2025-26,2025-11-27,Omonia,Dynamo Kyiv,2.0,0.0,H,1.0,0.0
+2025-26,2025-11-27,Raków Częstochowa,Rapid Wien,4.0,1.0,H,2.0,0.0
+2025-26,2025-11-27,Rijeka,AEK Larnaca,0.0,0.0,D,0.0,0.0
+2025-26,2025-11-27,Shamrock Rovers,Shakhtar Donetsk,1.0,2.0,A,0.0,1.0
+2025-26,2025-11-27,Sigma Olomouc,Celje,2.0,1.0,H,2.0,1.0
+2025-26,2025-11-27,Slovan Bratislava,Rayo Vallecano,2.0,1.0,H,0.0,1.0
+2025-26,2025-11-27,Strasbourg,Crystal Palace,2.0,1.0,H,0.0,1.0
+2025-26,2025-11-27,Universitatea Craiova,Mainz 05,1.0,0.0,H,0.0,0.0
+2025-26,2025-11-27,Zrinjski Mostar,BK Häcken,2.0,1.0,H,0.0,1.0
+2025-26,2025-12-11,Aberdeen,Strasbourg,0.0,1.0,A,0.0,1.0
+2025-26,2025-12-11,BK Häcken,AEK Larnaca,1.0,1.0,D,0.0,0.0
+2025-26,2025-12-11,Breiðablik,Shamrock Rovers,3.0,1.0,H,1.0,1.0
+2025-26,2025-12-11,Drita,AZ,0.0,3.0,A,0.0,1.0
+2025-26,2025-12-11,Fiorentina,Dynamo Kyiv,2.0,1.0,H,1.0,0.0
+2025-26,2025-12-11,Hamrun Spartans,Shakhtar Donetsk,0.0,2.0,A,0.0,0.0
+2025-26,2025-12-11,Jagiellonia Białystok,Rayo Vallecano,1.0,2.0,A,1.0,1.0
+2025-26,2025-12-11,KuPS,Lausanne-Sport,0.0,0.0,D,0.0,0.0
+2025-26,2025-12-11,Lech Poznań,Mainz 05,1.0,1.0,D,1.0,1.0
+2025-26,2025-12-11,Lincoln Red Imps,Sigma Olomouc,2.0,1.0,H,1.0,1.0
+2025-26,2025-12-11,Noah,Legia Warsaw,2.0,1.0,H,0.0,1.0
+2025-26,2025-12-11,Raków Częstochowa,Zrinjski Mostar,1.0,0.0,H,1.0,0.0
+2025-26,2025-12-11,Rapid Wien,Omonia,0.0,1.0,A,0.0,1.0
+2025-26,2025-12-11,Rijeka,Celje,3.0,0.0,H,0.0,0.0
+2025-26,2025-12-11,Samsunspor,AEK Athens,1.0,2.0,A,1.0,0.0
+2025-26,2025-12-11,Shelbourne,Crystal Palace,0.0,3.0,A,0.0,3.0
+2025-26,2025-12-11,Shkëndija,Slovan Bratislava,2.0,0.0,H,2.0,0.0
+2025-26,2025-12-11,Universitatea Craiova,Sparta Prague,1.0,2.0,A,0.0,0.0
+2025-26,2025-12-18,AEK Athens,Universitatea Craiova,3.0,2.0,H,0.0,1.0
+2025-26,2025-12-18,AEK Larnaca,Shkëndija,1.0,0.0,H,0.0,0.0
+2025-26,2025-12-18,AZ,Jagiellonia Białystok,0.0,0.0,D,0.0,0.0
+2025-26,2025-12-18,Celje,Shelbourne,0.0,0.0,D,0.0,0.0
+2025-26,2025-12-18,Crystal Palace,KuPS,2.0,2.0,D,1.0,0.0
+2025-26,2025-12-18,Dynamo Kyiv,Noah,2.0,0.0,H,1.0,0.0
+2025-26,2025-12-18,Lausanne-Sport,Fiorentina,1.0,0.0,H,0.0,0.0
+2025-26,2025-12-18,Legia Warsaw,Lincoln Red Imps,4.0,1.0,H,1.0,0.0
+2025-26,2025-12-18,Mainz 05,Samsunspor,2.0,0.0,H,1.0,0.0
+2025-26,2025-12-18,Omonia,Raków Częstochowa,0.0,1.0,A,0.0,0.0
+2025-26,2025-12-18,Rayo Vallecano,Drita,3.0,0.0,H,1.0,0.0
+2025-26,2025-12-18,Shakhtar Donetsk,Rijeka,0.0,0.0,D,0.0,0.0
+2025-26,2025-12-18,Shamrock Rovers,Hamrun Spartans,3.0,1.0,H,2.0,1.0
+2025-26,2025-12-18,Sigma Olomouc,Lech Poznań,1.0,2.0,A,0.0,2.0
+2025-26,2025-12-18,Slovan Bratislava,BK Häcken,1.0,0.0,H,0.0,0.0
+2025-26,2025-12-18,Sparta Prague,Aberdeen,3.0,0.0,H,2.0,0.0
+2025-26,2025-12-18,Strasbourg,Breiðablik,3.0,1.0,H,1.0,1.0
+2025-26,2025-12-18,Zrinjski Mostar,Rapid Wien,1.0,1.0,D,0.0,1.0
+2025-26,2026-02-19,Drita,Celje,2.0,3.0,A,0.0,2.0
+2025-26,2026-02-19,Jagiellonia Białystok,Fiorentina,0.0,3.0,A,0.0,0.0
+2025-26,2026-02-19,KuPS,Lech Poznań,0.0,2.0,A,0.0,2.0
+2025-26,2026-02-19,Noah,AZ,1.0,0.0,H,0.0,0.0
+2025-26,2026-02-19,Omonia,Rijeka,0.0,1.0,A,0.0,0.0
+2025-26,2026-02-19,Shkëndija,Samsunspor,0.0,1.0,A,0.0,0.0
+2025-26,2026-02-19,Sigma Olomouc,Lausanne-Sport,1.0,1.0,D,0.0,1.0
+2025-26,2026-02-19,Zrinjski Mostar,Crystal Palace,1.0,1.0,D,0.0,1.0
+2025-26,2026-02-26,AZ,Noah,4.0,0.0,H,2.0,0.0
+2025-26,2026-02-26,Celje,Drita,3.0,2.0,H,3.0,1.0
+2025-26,2026-02-26,Crystal Palace,Zrinjski Mostar,2.0,0.0,H,1.0,0.0
+2025-26,2026-02-26,Fiorentina,Jagiellonia Białystok,2.0,4.0,A,0.0,2.0
+2025-26,2026-02-26,Lausanne-Sport,Sigma Olomouc,1.0,2.0,A,1.0,2.0
+2025-26,2026-02-26,Lech Poznań,KuPS,1.0,0.0,H,0.0,0.0
+2025-26,2026-02-26,Rijeka,Omonia,3.0,1.0,H,0.0,1.0
+2025-26,2026-02-26,Samsunspor,Shkëndija,4.0,0.0,H,0.0,0.0
+2025-26,2026-03-12,AZ,Sparta Prague,2.0,1.0,H,1.0,0.0
+2025-26,2026-03-12,Celje,AEK Athens,0.0,4.0,A,0.0,3.0
+2025-26,2026-03-12,Crystal Palace,AEK Larnaca,0.0,0.0,D,0.0,0.0
+2025-26,2026-03-12,Fiorentina,Raków Częstochowa,2.0,1.0,H,0.0,0.0
+2025-26,2026-03-12,Lech Poznań,Shakhtar Donetsk,1.0,3.0,A,0.0,1.0
+2025-26,2026-03-12,Rijeka,Strasbourg,1.0,2.0,A,0.0,1.0
+2025-26,2026-03-12,Samsunspor,Rayo Vallecano,1.0,3.0,A,1.0,2.0
+2025-26,2026-03-12,Sigma Olomouc,Mainz 05,0.0,0.0,D,0.0,0.0
+2025-26,2026-03-19,AEK Athens,Celje,0.0,2.0,A,0.0,2.0
+2025-26,2026-03-19,AEK Larnaca,Crystal Palace,1.0,2.0,A,0.0,1.0
+2025-26,2026-03-19,Mainz 05,Sigma Olomouc,2.0,0.0,H,0.0,0.0
+2025-26,2026-03-19,Raków Częstochowa,Fiorentina,1.0,2.0,A,0.0,0.0
+2025-26,2026-03-19,Rayo Vallecano,Samsunspor,0.0,1.0,A,0.0,0.0
+2025-26,2026-03-19,Shakhtar Donetsk,Lech Poznań,1.0,2.0,A,0.0,2.0
+2025-26,2026-03-19,Sparta Prague,AZ,0.0,4.0,A,0.0,1.0
+2025-26,2026-03-19,Strasbourg,Rijeka,1.0,1.0,D,0.0,1.0
+2025-26,2026-04-09,Crystal Palace,Fiorentina,3.0,0.0,H,2.0,0.0
+2025-26,2026-04-09,Mainz 05,Strasbourg,2.0,0.0,H,2.0,0.0
+2025-26,2026-04-09,Rayo Vallecano,AEK Athens,3.0,0.0,H,2.0,0.0
+2025-26,2026-04-09,Shakhtar Donetsk,AZ,3.0,0.0,H,0.0,0.0
+2025-26,2026-04-16,AEK Athens,Rayo Vallecano,3.0,1.0,H,2.0,0.0
+2025-26,2026-04-16,AZ,Shakhtar Donetsk,2.0,2.0,D,0.0,0.0
+2025-26,2026-04-16,Fiorentina,Crystal Palace,2.0,1.0,H,1.0,1.0
+2025-26,2026-04-16,Strasbourg,Mainz 05,4.0,0.0,H,2.0,0.0
+2025-26,2026-04-30,Rayo Vallecano,Strasbourg,1.0,0.0,H,0.0,0.0
+2025-26,2026-04-30,Shakhtar Donetsk,Crystal Palace,1.0,3.0,A,0.0,1.0
+2025-26,2026-05-07,Crystal Palace,Shakhtar Donetsk,2.0,1.0,H,1.0,1.0
+2025-26,2026-05-07,Strasbourg,Rayo Vallecano,0.0,1.0,A,0.0,1.0
+2026-27,2026-10-15,Atalanta,Pafos,3.0,1.0,H,3.0,0.0
+2026-27,2026-10-15,Brann,Lincoln Red Imps,2.0,1.0,H,0.0,0.0
+2026-27,2026-10-15,Brighton & Hove Albion,Kauno Žalgiris,4.0,0.0,H,2.0,0.0
+2026-27,2026-10-15,CSKA Sofia,Monaco,1.0,2.0,A,0.0,2.0
+2026-27,2026-10-15,Copenhagen,Braga,3.0,0.0,H,0.0,0.0
+2026-27,2026-10-15,Egnatia,Midtjylland,1.0,1.0,D,1.0,1.0
+2026-27,2026-10-15,Gent,AGF,1.0,0.0,H,0.0,0.0
+2026-27,2026-10-15,Hajduk Split,Ajax,2.0,1.0,H,1.0,0.0
+2026-27,2026-10-15,Heart of Midlothian,Nordsjælland,1.0,1.0,D,1.0,0.0
+2026-27,2026-10-15,KuPS,Trabzonspor,2.0,4.0,A,0.0,2.0
+2026-27,2026-10-15,Lugano,Red Star Belgrade,3.0,2.0,H,1.0,1.0
+2026-27,2026-10-15,Mjällby AIF,Inter Club d'Escaldes,2.0,0.0,H,0.0,0.0
+2026-27,2026-10-15,Panathinaikos,Borac Banja Luka,2.0,1.0,H,1.0,0.0
+2026-27,2026-10-15,Riga,Kairat,1.0,1.0,D,1.0,1.0
+2026-27,2026-10-15,SC Freiburg,Jablonec,3.0,2.0,H,1.0,1.0
+2026-27,2026-10-15,Sint-Truiden,Iberia 1999,2.0,0.0,H,1.0,0.0
+2026-27,2026-10-15,Twente,Thun,1.0,0.0,H,0.0,0.0
+2026-27,2026-10-15,Universitatea Craiova,Getafe,1.0,1.0,D,0.0,0.0
+2026-27,2026-10-22,Getafe,Lugano,2.0,5.0,A,1.0,3.0
+2026-27,2026-10-22,Iberia 1999,Mjällby AIF,1.0,1.0,D,0.0,0.0
+2026-27,2026-10-22,Inter Club d'Escaldes,Universitatea Craiova,1.0,3.0,A,,
+2026-27,2026-10-22,Jablonec,Brighton & Hove Albion,0.0,0.0,D,0.0,0.0
+2026-27,2026-10-22,Kairat,Panathinaikos,1.0,5.0,A,0.0,2.0
+2026-27,2026-10-22,Kauno Žalgiris,Brann,1.0,4.0,A,1.0,3.0
+2026-27,2026-10-22,Nordsjælland,CSKA Sofia,2.0,2.0,D,,
+2026-27,2026-10-22,Pafos,Riga,1.0,1.0,D,0.0,0.0
+2026-27,2026-10-22,Red Star Belgrade,Copenhagen,2.0,2.0,D,2.0,1.0
+2026-27,2026-10-22,Trabzonspor,Heart of Midlothian,2.0,0.0,H,1.0,0.0

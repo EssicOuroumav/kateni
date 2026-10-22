@@ -17,7 +17,7 @@ with st.container(border=True):
         "plus probable au moins probable (« Inter marque 92 % », « Plus de 1,5 but 84 % »…). Le curseur règle la "
         "chance minimale. Dans chaque match, « Détail du pronostic » donne la même liste pour ce seul match.\n"
         "5. Le calendrier va jusqu'à la **fin de la saison (mai 2027)** pour 12 championnats, jusqu'à fin janvier "
-        "pour la C1 et la C3. Badge **Provisoire** = match dans plus de 7 jours : le pronostic évoluera d'ici là.")
+        "pour la C1, la C3 et la Ligue Conférence. Badge **Provisoire** = match dans plus de 7 jours : le pronostic évoluera d'ici là.")
     st.page_link("app_pages/calendrier.py", label="Aller au Calendrier", icon=":material/calendar_month:")
 
 with st.container(border=True):
@@ -43,7 +43,7 @@ with st.container(border=True):
         "**Domicile, extérieur, terrain neutre** : l'avantage du terrain est mesuré pour chaque championnat (plus "
         "fort en Turquie qu'en Premier League, par exemple). Un avantage propre à chaque club a été testé sur "
         "8 592 matchs : il n'améliore pas les pronostics, donc il n'est pas utilisé. Sur **terrain neutre** "
-        "(finales de C1 et C3, reconnues toutes seules, ou interrupteur « Terrain neutre » en simulation), "
+        "(finales de C1, C3 et Ligue Conférence, reconnues toutes seules, ou interrupteur « Terrain neutre » en simulation), "
         "Kateni retire l'avantage du terrain.\n\n"
         "**Corners** : Kateni prévoit les corners de chaque équipe et du match (« Corners : plus de 9,5 », "
         "« Corners Arsenal : plus de 4,5 »…), dans le détail du pronostic, les listes d'événements, Cotes Betclic, "
