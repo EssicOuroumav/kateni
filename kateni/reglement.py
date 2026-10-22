@@ -40,6 +40,9 @@ def regler_tout(store, df_matchs: pd.DataFrame) -> int:
     paris = store.lire()
     n = 0
     for _, p in paris[paris["statut"] == "en attente"].iterrows():
+        if p.get("type") == "combiné":
+            n += regler_combine(store, p, df_matchs)
+            continue
         r = resultat(df_matchs, p["date_match"], p["dom"], p["ext"])
         if r is None:
             continue
@@ -52,3 +55,29 @@ def regler_tout(store, df_matchs: pd.DataFrame) -> int:
                             score_final=f"{r[0]}-{r[1]}", gain_fcfa=round(gain))
         n += 1
     return n
+
+
+def regler_combine(store, p, df_matchs: pd.DataFrame) -> int:
+    """Règle les sélections connues d'un combiné ; le combiné est réglé dès qu'une sélection est perdue
+    ou quand toutes sont gagnées. Rend 1 si le combiné vient d'être réglé."""
+    from kateni.combine import ecrire_selections, lire_selections, statut_combine
+    selections = lire_selections(p["selections"])
+    change = False
+    for s in selections:
+        if s.get("statut", "en attente") != "en attente":
+            continue
+        r = resultat(df_matchs, s["date_match"], s["dom"], s["ext"])
+        g = None if r is None else gagne(s, *r)
+        if g is not None:
+            s["statut"] = "gagné" if g else "perdu"
+            s["score_final"] = f"{r[0]}-{r[1]}"
+            change = True
+    if not change:
+        return 0
+    statut = statut_combine(selections)
+    champs = {"selections": ecrire_selections(selections)}
+    if statut != "en attente":
+        mise = 0.0 if pd.isna(p["mise_fcfa"]) else float(p["mise_fcfa"])
+        champs.update(statut=statut, gain_fcfa=round(mise * (float(p["cote"]) - 1)) if statut == "gagné" else -round(mise))
+    store.mettre_a_jour(p["id"], **champs)
+    return int(statut != "en attente")

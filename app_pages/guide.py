@@ -84,6 +84,9 @@ with st.container(border=True):
         "**Tu as placé un pari sur Betclic ?** Dans **Mes paris**, ouvre « Noter un pari placé sur Betclic » : "
         "choisis le match, ton pari, la cote et ta mise, puis « Noter ce pari ». N'importe quel pari peut être noté, "
         "même si Kateni ne le proposait pas.\n\n"
+        "**Un combiné ?** Ouvre « Noter un combiné placé sur Betclic » : ajoute chaque sélection (pour un MyCombi, "
+        "plusieurs sélections du même match), puis la **cote totale** et la mise. Kateni affiche la chance que tout "
+        "passe ; le combiné est perdu dès qu'une sélection rate et compté dans le Bilan.\n\n"
         "Les résultats arrivent **tout seuls** (deux fois par jour). Ouvre **Mes paris** : les paris terminés y sont "
         "réglés automatiquement. Le bouton **Mettre à jour les résultats** sert seulement à forcer une mise à jour "
         "immédiate. **Bilan** montre si Kateni gagne vraiment sur la durée.")

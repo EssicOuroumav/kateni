@@ -111,6 +111,11 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - `kateni/pinnacle.py` (code du relevé partagé par le robot et l'app) ; `ui.cotes_imminentes` : quand on ouvre l'app, les compétitions dont un match commence dans moins de 75 min et dont la cote a plus de 30 min sont relevées (au plus une fois par compétition et par demi-heure, verrou partagé, rythme du budget respecté, erreurs silencieuses).
 - La clé OddsPapi doit être dans les secrets de Streamlit Cloud (`[odds_api]`) : `Secrets_Streamlit.command` la copie désormais avec la base.
 
+## Paris combinés (22/10/2026)
+- Migration `db/002_combines.sql` (colonne `selections`, type « combiné ») appliquée sur test puis prod (19:26). Un combiné = une ligne de paris (cote totale, mise, gain) ; sélections en JSON. `kateni/combine.py` : chance (sélections d'un même match calculées ensemble sur la grille des scores), règlement (perdu dès qu'une sélection rate).
+- Essai réel sur la branche test : combiné Levante gagne + moins de 4,5 buts (21/10, 3-1) réglé « gagné », +950 FCFA pour 500 à 2,90 ; ligne d'essai supprimée ensuite.
+- Erreur : la sauvegarde de prod lancée AVANT la migration a échoué (le nouveau code lit la colonne `selections`). Sans conséquence (0 pari en prod, vérifié) ; sauvegarde refaite après. Leçon : sauvegarder avec l'ancien code, ou migrer avant de changer le code de lecture.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

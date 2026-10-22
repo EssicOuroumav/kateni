@@ -4,8 +4,29 @@
     {
       "name": "kateni",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "streamlit", "run", "kateni_app.py", "--server.address=localhost"],
+      "runtimeArgs": [
+        "-m",
+        "streamlit",
+        "run",
+        "kateni_app.py",
+        "--server.address=localhost"
+      ],
       "port": 8501
+    },
+    {
+      "name": "kateni-test",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "KATENI_CIBLE=test",
+        "python3",
+        "-m",
+        "streamlit",
+        "run",
+        "kateni_app.py",
+        "--server.address=localhost",
+        "--server.port=8502"
+      ],
+      "port": 8502
     }
   ]
 }

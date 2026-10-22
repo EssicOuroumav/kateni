@@ -82,19 +82,27 @@ EVENEMENTS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
               *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in SEUILS_EQUIPE for c in ("Plus", "Moins")]]
 
 
+def chance_evenement(r: dict, marche: str, sel: str) -> float | None:
+    """Chance d'un événement, avec les mêmes chiffres que le pronostic affiché (1N2, double chance et
+    +/-2,5 buts : modèle + marché quand les cotes existent). None si inconnue (corners d'un club sans données)."""
+    q1, qn, q2 = r["p1n2"]
+    proba = {("1N2", "1"): q1, ("1N2", "N"): qn, ("1N2", "2"): q2,
+             ("Double chance", "1N"): q1 + qn, ("Double chance", "12"): q1 + q2, ("Double chance", "N2"): qn + q2,
+             ("Total buts 2.5", "Plus"): r["plus25"], ("Total buts 2.5", "Moins"): 1 - r["plus25"]}
+    if (marche, sel) in proba:
+        return proba[(marche, sel)]
+    return r["p"].get(marche, {}).get(sel)
+
+
 def evenements(match: dict, r: dict) -> pd.DataFrame:
     """Tous les événements du match, du plus probable au moins probable, avec les mêmes chiffres que le
     pronostic affiché (1N2, double chance et +/-2,5 buts : modèle + marché quand les cotes existent)."""
     from kateni.ui import libelle
-    p, (q1, qn, q2) = r["p"], r["p1n2"]
-    proba = {("1N2", "1"): q1, ("1N2", "N"): qn, ("1N2", "2"): q2,
-             ("Double chance", "1N"): q1 + qn, ("Double chance", "12"): q1 + q2, ("Double chance", "N2"): qn + q2,
-             ("Total buts 2.5", "Plus"): r["plus25"], ("Total buts 2.5", "Moins"): 1 - r["plus25"]}
     lignes = []
     for marche, sel in EVENEMENTS:
-        if marche not in p:  # corners inconnus pour ce match
+        q = chance_evenement(r, marche, sel)
+        if q is None:  # corners inconnus pour ce match
             continue
-        q = proba.get((marche, sel), p[marche][sel])
         lignes.append({"Événement": libelle(marche, sel, match["dom"], match["ext"]), "Chance": q,
                        "Cote juste": 1 / q if q > 0.005 else None})
     return pd.DataFrame(lignes).sort_values("Chance", ascending=False, kind="mergesort").reset_index(drop=True)

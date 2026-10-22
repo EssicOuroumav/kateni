@@ -285,3 +285,42 @@ def test_cotes_imminentes_releve_seulement_les_matchs_proches(monkeypatch):
                         ligne("LIGA", timedelta(minutes=40), frais)])  # cote déjà fraîche
     assert ui.cotes_imminentes(cal) is True and appels == [["CL"]]
     assert ui.cotes_imminentes(cal) is False and len(appels) == 1  # pas deux relevés dans la demi-heure
+
+
+def test_combine_reglement_perdu_des_qu_une_selection_rate(tmp_path):
+    from kateni.combine import ecrire_selections, lire_selections
+    s = CsvStore(tmp_path / "paris.csv")
+    sel = [{"date_match": "2026-10-22", "competition": "EL", "dom": "Lech Poznan", "ext": "Sunderland",
+            "marche": "Dom. marque", "selection": "Oui", "statut": "en attente"},
+           {"date_match": "2026-10-22", "competition": "EL", "dom": "Ararat-Armenia", "ext": "AZ Alkmaar",
+            "marche": "Dom. marque", "selection": "Oui", "statut": "en attente"},
+           {"date_match": "2026-10-25", "competition": "PL", "dom": "Arsenal", "ext": "Chelsea",
+            "marche": "1N2", "selection": "1", "statut": "en attente"}]
+    pari = {"id": "c1", "date_match": "2026-10-25", "dom": "Combiné (3)", "ext": "", "type": "combiné",
+            "marche": "Combiné", "selection": "3 sélections", "cote": 5.0, "mise_fcfa": 1000, "mode": "réel",
+            "selections": ecrire_selections(sel)}
+    assert s.ajouter(pari)
+    matchs = pd.DataFrame([{"Date": pd.Timestamp("2026-10-22"), "HomeTeam": "Lech Poznan", "AwayTeam": "Sunderland",
+                            "FTHG": 1, "FTAG": 1}])
+    assert regler_tout(s, matchs) == 0                       # 1 gagnée, les autres pas jouées : en attente
+    r = s.lire().iloc[0]
+    assert r["statut"] == "en attente" and lire_selections(r["selections"])[0]["statut"] == "gagné"
+    matchs.loc[1] = [pd.Timestamp("2026-10-22"), "Ararat-Armenia", "AZ Alkmaar", 0, 4]
+    assert regler_tout(s, matchs) == 1                       # Ararat ne marque pas : perdu sans attendre Arsenal
+    r = s.lire().iloc[0]
+    assert r["statut"] == "perdu" and float(r["gain_fcfa"]) == -1000
+
+
+def test_combine_meme_match_calcule_ensemble():
+    from kateni.combine import chance_combine
+    from kateni.marches import matrice_scores
+    mat = matrice_scores(1.5, 1.0, 0.0)
+    r = {"mat": mat, "p1n2": (0.45, 0.27, 0.28), "plus25": 0.5, "p": {}}
+    pron = lambda m: r  # noqa: E731
+    a = {"date_match": "d", "competition": "X", "dom": "A", "ext": "B", "marche": "Total buts 4.5", "selection": "Moins"}
+    b = {**a, "marche": "Ext. marque", "selection": "Oui"}
+    i, j = np.indices(mat.shape)
+    attendu = mat[(i + j < 5) & (j > 0)].sum() / mat.sum()
+    assert abs(chance_combine([a, b], pron) - attendu) < 1e-9
+    autre = {**a, "dom": "C", "ext": "D", "marche": "1N2", "selection": "1"}
+    assert abs(chance_combine([a, b, autre], pron) - attendu * 0.45) < 1e-9

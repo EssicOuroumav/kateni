@@ -19,6 +19,7 @@ COLONNES = [
     "id", "cree_le", "date_match", "competition", "dom", "ext", "type", "minute",
     "score_au_pari", "marche", "selection", "cote", "prob_kateni", "esperance_pct",
     "mise_fcfa", "mode", "statut", "score_final", "gain_fcfa", "cote_cloture",
+    "selections",  # combinés seulement : liste JSON des sélections (migration 002)
 ]
 
 
@@ -43,6 +44,9 @@ class CsvStore:
         # Tout en texte (la sélection « 1 » du 1N2 ne doit pas devenir le nombre 1),
         # puis conversion explicite des seules colonnes numériques.
         df = pd.read_csv(self.chemin, dtype=str, keep_default_na=False)
+        for c in COLONNES:
+            if c not in df.columns:  # fichier d'avant une nouvelle colonne
+                df[c] = ""
         for c in NUMERIQUES:
             df[c] = pd.to_numeric(df[c], errors="coerce")
         return df
