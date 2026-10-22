@@ -351,6 +351,41 @@ EL,2026-27,2026-10-22,Union Saint-Gilloise,Hapoel Be'er Sheva,H,61
 EL,2026-27,2026-10-22,Union Saint-Gilloise,Hapoel Be'er Sheva,H,81
 EL,2026-27,2026-10-22,Union Saint-Gilloise,Hapoel Be'er Sheva,H,77
 EL,2026-27,2026-10-22,Sturm Graz,Marseille,H,13
+EL,2026-27,2026-10-22,Bournemouth,Milan,H,8
+EL,2026-27,2026-10-22,Bournemouth,Milan,H,32
+EL,2026-27,2026-10-22,Bournemouth,Milan,H,84
+EL,2026-27,2026-10-22,Beşiktaş,Crystal Palace,H,45
+EL,2026-27,2026-10-22,Beşiktaş,Crystal Palace,H,73
+EL,2026-27,2026-10-22,Beşiktaş,Crystal Palace,A,51
+EL,2026-27,2026-10-22,Beşiktaş,Crystal Palace,A,55
+EL,2026-27,2026-10-22,Celtic,Celta Vigo,H,47
+EL,2026-27,2026-10-22,Celtic,Celta Vigo,A,68
+EL,2026-27,2026-10-22,Celtic,Celta Vigo,A,71
+EL,2026-27,2026-10-22,Viktoria Plzeň,Levski Sofia,H,62
+EL,2026-27,2026-10-22,Viktoria Plzeň,Levski Sofia,A,44
+EL,2026-27,2026-10-22,Viktoria Plzeň,Levski Sofia,A,65
+EL,2026-27,2026-10-22,Jagiellonia Białystok,Anderlecht,A,22
+EL,2026-27,2026-10-22,Jagiellonia Białystok,Anderlecht,A,72
+EL,2026-27,2026-10-22,Jagiellonia Białystok,Anderlecht,A,80
+EL,2026-27,2026-10-22,Lillestrøm,Real Sociedad,A,25
+EL,2026-27,2026-10-22,Lillestrøm,Real Sociedad,A,27
+EL,2026-27,2026-10-22,Lillestrøm,Real Sociedad,A,33
+EL,2026-27,2026-10-22,Lillestrøm,Real Sociedad,A,72
+EL,2026-27,2026-10-22,Lillestrøm,Real Sociedad,A,64
+EL,2026-27,2026-10-22,Lillestrøm,Real Sociedad,A,80
+EL,2026-27,2026-10-22,Celje,Red Bull Salzburg,H,50
+EL,2026-27,2026-10-22,Celje,Red Bull Salzburg,H,90
+EL,2026-27,2026-10-22,Celje,Red Bull Salzburg,A,9
+EL,2026-27,2026-10-22,Celje,Red Bull Salzburg,A,46
+EL,2026-27,2026-10-22,Olympiacos,Sparta Prague,H,78
+EL,2026-27,2026-10-22,Omonia,Benfica,H,42
+EL,2026-27,2026-10-22,Omonia,Benfica,A,14
+EL,2026-27,2026-10-22,Omonia,Benfica,A,49
+EL,2026-27,2026-10-22,Omonia,Benfica,A,76
+EL,2026-27,2026-10-22,Omonia,Benfica,A,85
+EL,2026-27,2026-10-22,TSG Hoffenheim,Lyon,H,45
+EL,2026-27,2026-10-22,TSG Hoffenheim,Lyon,H,49
+EL,2026-27,2026-10-22,TSG Hoffenheim,Lyon,H,83
 EL,2025-26,2025-09-24,Midtjylland,Sturm Graz,H,7
 EL,2025-26,2025-09-24,Midtjylland,Sturm Graz,H,88
 EL,2025-26,2025-09-24,Red Star Belgrade,Celtic,H,65
@@ -918,9 +953,13 @@ ECL,2026-27,2026-10-22,Kairat,Panathinaikos,A,6
 ECL,2026-27,2026-10-22,Kairat,Panathinaikos,A,24
 ECL,2026-27,2026-10-22,Kairat,Panathinaikos,A,47
 ECL,2026-27,2026-10-22,Kairat,Panathinaikos,A,57
-ECL,2026-27,2026-10-22,Kairat,Panathinaikos,A,74
+ECL,2026-27,2026-10-22,Kairat,Panathinaikos,A,75
 ECL,2026-27,2026-10-22,Iberia 1999,Mjällby AIF,H,55
 ECL,2026-27,2026-10-22,Iberia 1999,Mjällby AIF,A,89
+ECL,2026-27,2026-10-22,Nordsjælland,CSKA Sofia,H,55
+ECL,2026-27,2026-10-22,Nordsjælland,CSKA Sofia,H,68
+ECL,2026-27,2026-10-22,Nordsjælland,CSKA Sofia,A,8
+ECL,2026-27,2026-10-22,Nordsjælland,CSKA Sofia,A,88
 ECL,2026-27,2026-10-22,Red Star Belgrade,Copenhagen,H,34
 ECL,2026-27,2026-10-22,Red Star Belgrade,Copenhagen,H,41
 ECL,2026-27,2026-10-22,Red Star Belgrade,Copenhagen,A,29
@@ -937,10 +976,32 @@ ECL,2026-27,2026-10-22,Getafe,Lugano,A,26
 ECL,2026-27,2026-10-22,Getafe,Lugano,A,7
 ECL,2026-27,2026-10-22,Getafe,Lugano,A,50
 ECL,2026-27,2026-10-22,Getafe,Lugano,A,90
+ECL,2026-27,2026-10-22,Inter Club d'Escaldes,Universitatea Craiova,H,78
+ECL,2026-27,2026-10-22,Inter Club d'Escaldes,Universitatea Craiova,A,3
+ECL,2026-27,2026-10-22,Inter Club d'Escaldes,Universitatea Craiova,A,5
+ECL,2026-27,2026-10-22,Inter Club d'Escaldes,Universitatea Craiova,A,86
 ECL,2026-27,2026-10-22,Pafos,Riga,H,76
 ECL,2026-27,2026-10-22,Pafos,Riga,A,67
 ECL,2026-27,2026-10-22,Trabzonspor,Heart of Midlothian,H,32
 ECL,2026-27,2026-10-22,Trabzonspor,Heart of Midlothian,H,58
+ECL,2026-27,2026-10-22,Ajax,Atalanta,H,87
+ECL,2026-27,2026-10-22,Ajax,Atalanta,H,90
+ECL,2026-27,2026-10-22,AGF,Egnatia,H,49
+ECL,2026-27,2026-10-22,AGF,Egnatia,A,13
+ECL,2026-27,2026-10-22,Monaco,SC Freiburg,H,45
+ECL,2026-27,2026-10-22,Monaco,SC Freiburg,H,83
+ECL,2026-27,2026-10-22,Monaco,SC Freiburg,H,90
+ECL,2026-27,2026-10-22,Midtjylland,Sint-Truiden,A,42
+ECL,2026-27,2026-10-22,Thun,Hajduk Split,A,17
+ECL,2026-27,2026-10-22,Borac Banja Luka,KuPS,H,29
+ECL,2026-27,2026-10-22,Borac Banja Luka,KuPS,H,50
+ECL,2026-27,2026-10-22,Lincoln Red Imps,Twente,H,38
+ECL,2026-27,2026-10-22,Lincoln Red Imps,Twente,A,19
+ECL,2026-27,2026-10-22,Lincoln Red Imps,Twente,A,57
+ECL,2026-27,2026-10-22,Lincoln Red Imps,Twente,A,24
+ECL,2026-27,2026-10-22,Lincoln Red Imps,Twente,A,90
+ECL,2026-27,2026-10-22,Braga,Gent,H,3
+ECL,2026-27,2026-10-22,Braga,Gent,H,76
 ECL,2025-26,2025-10-02,Dynamo Kyiv,Crystal Palace,A,31
 ECL,2025-26,2025-10-02,Dynamo Kyiv,Crystal Palace,A,58
 ECL,2025-26,2025-10-02,Lausanne-Sport,Breiðablik,H,7
