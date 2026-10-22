@@ -98,6 +98,7 @@ def test_bloc_cloud_production_seulement():
     sc = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(sc)
     bloc = sc.bloc_cloud({"url": PROD, "url_test": TEST})
-    assert PROD in bloc and TEST not in bloc and 'cible = "prod"' in bloc
+    assert PROD in bloc and TEST not in bloc and 'cible = "prod"' in bloc and "odds_api" not in bloc
+    assert '[odds_api]\nkey = "abc"' in sc.bloc_cloud({"url": PROD}, "abc")
     with pytest.raises(ConfigurationBase):
         sc.bloc_cloud({"url": "postgresql://u:p@HOTE-pooler.REGION.aws.neon.tech/neondb"})

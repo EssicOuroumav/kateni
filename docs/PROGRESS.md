@@ -106,6 +106,11 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Corners : colonnes HC/AC conservées (14 championnats), `kateni/corners.py` (modèle global sur les corners, rappel 30, demi-vie 365 j, binomiale négative). Test 2025-26 (5 822 matchs) : bien calibré, nettement meilleur que la moyenne du championnat par équipe, à peine meilleur pour le total (`docs/mesures/2026-10-21_corners.txt`). Affiché dans le détail, les listes d'événements, Cotes Betclic, Live (corners déjà obtenus), Mes paris ; paris corners réglés automatiquement.
 - Pas de cotes de corners du marché : le pronostic corners est le modèle seul.
 
+## Relevé des cotes par l'app elle-même (22/10/2026)
+- Constat : le robot GitHub horaire démarre avec 4 à 5 h de retard ; le relevé « juste avant le match » arrivait trop tard.
+- `kateni/pinnacle.py` (code du relevé partagé par le robot et l'app) ; `ui.cotes_imminentes` : quand on ouvre l'app, les compétitions dont un match commence dans moins de 75 min et dont la cote a plus de 30 min sont relevées (au plus une fois par compétition et par demi-heure, verrou partagé, rythme du budget respecté, erreurs silencieuses).
+- La clé OddsPapi doit être dans les secrets de Streamlit Cloud (`[odds_api]`) : `Secrets_Streamlit.command` la copie désormais avec la base.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

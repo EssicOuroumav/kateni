@@ -262,3 +262,26 @@ def test_terrain_neutre():
     from kateni.modele import terrain_neutre
     assert terrain_neutre("CL", "2027-05-29") and terrain_neutre("EL", "2027-05-19")
     assert not terrain_neutre("CL", "2027-05-05") and not terrain_neutre("PL", "2027-05-29")
+
+
+def test_cotes_imminentes_releve_seulement_les_matchs_proches(monkeypatch):
+    from datetime import datetime, timedelta, timezone
+    import kateni.pinnacle as pin
+    import kateni.ui as ui
+    appels = []
+    monkeypatch.setattr(pin, "cle", lambda secrets=None: "cle-de-test")
+    monkeypatch.setattr(pin, "compte", lambda k: (10, 250))
+    monkeypatch.setattr(pin, "relever", lambda codes, *a, **kw: (appels.append(codes) or ([{"x": 1}], codes, 1)))
+    monkeypatch.setattr(pin, "enregistrer", lambda *a: None)
+    ui._essais_cotes()["derniers"].clear()
+    now = datetime.now(timezone.utc)
+    def ligne(comp, dans, releve):
+        t = now + dans
+        return {"competition": comp, "Date": f"{t:%Y-%m-%d}", "Heure": f"{t:%H:%M}", "releve": releve}
+    vieux = f"{now - timedelta(hours=5):%Y-%m-%d %H:%M}"
+    frais = f"{now - timedelta(minutes=10):%Y-%m-%d %H:%M}"
+    cal = pd.DataFrame([ligne("CL", timedelta(minutes=40), vieux),    # proche, cote ancienne -> relevé
+                        ligne("PL", timedelta(hours=3), vieux),        # trop loin
+                        ligne("LIGA", timedelta(minutes=40), frais)])  # cote déjà fraîche
+    assert ui.cotes_imminentes(cal) is True and appels == [["CL"]]
+    assert ui.cotes_imminentes(cal) is False and len(appels) == 1  # pas deux relevés dans la demi-heure

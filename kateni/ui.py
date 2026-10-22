@@ -1,6 +1,7 @@
 """Éléments partagés par les pages Streamlit (données en cache, choix du match, enregistrement)."""
 
-from datetime import date
+import threading
+from datetime import date, datetime, timedelta, timezone
 
 import numpy as np
 import pandas as pd
@@ -117,12 +118,75 @@ def _calendrier(_sig: tuple) -> pd.DataFrame:
     return charger()
 
 
+FENETRE_COTES = timedelta(minutes=75)   # matchs qui commencent dans moins de 75 min
+FRAICHEUR_COTES = timedelta(minutes=30)  # une cote relevée il y a moins de 30 min est assez fraîche
+
+
+@st.cache_resource
+def _essais_cotes() -> dict:
+    """Heure du dernier relevé tenté par compétition, commune à tous les visiteurs (budget OddsPapi)."""
+    return {"verrou": threading.Lock(), "derniers": {}}
+
+
+def cotes_imminentes(cal: pd.DataFrame) -> bool:
+    """Relève les cotes Pinnacle des matchs qui commencent bientôt, si celles du calendrier ont plus de
+    30 min : les compositions et les absents sont alors connus. Le robot GitHub démarre souvent avec des
+    heures de retard ; ainsi, ouvrir l'app peu avant un match suffit. Au plus un relevé par compétition et
+    par demi-heure, rythme du budget mensuel respecté. Vrai si de nouvelles cotes ont été enregistrées."""
+    from kateni.pinnacle import ORDRE, PRIORITAIRES, cle, compte, dans_le_rythme, enregistrer, relever
+    if not len(cal) or "releve" not in cal.columns:
+        return False
+    maintenant = datetime.now(timezone.utc)
+    heure = cal["Heure"].fillna("")
+    debut = pd.to_datetime(cal["Date"] + " " + heure, utc=True, errors="coerce")
+    proche = (heure != "") & (debut > maintenant + timedelta(minutes=2)) & (debut <= maintenant + FENETRE_COTES)
+    releve = pd.to_datetime(cal["releve"], utc=True, errors="coerce")
+    perimee = releve.isna() | (releve < maintenant - FRAICHEUR_COTES)
+    essais = _essais_cotes()
+    jamais = datetime.min.replace(tzinfo=timezone.utc)
+    codes = [c for c in ORDRE if c in set(cal.loc[proche & perimee, "competition"])
+             and maintenant - essais["derniers"].get(c, jamais) > FRAICHEUR_COTES]
+    if not codes:
+        return False
+    try:
+        secrets = dict(st.secrets["odds_api"]) if "odds_api" in st.secrets else {}
+    except Exception:  # aucun fichier de secrets
+        secrets = {}
+    k = cle(secrets)
+    if not k or not essais["verrou"].acquire(blocking=False):
+        return False
+    try:
+        for c in codes:
+            essais["derniers"][c] = maintenant
+        with st.spinner("Relevé des dernières cotes Pinnacle (compositions et absents)…"):
+            utilisees, limite = compte(k)
+            if not dans_le_rythme(utilisees, maintenant):
+                codes = [c for c in codes if c in PRIORITAIRES]
+            if not codes:
+                return False
+            lignes, faits, _ = relever(codes, k, utilisees, limite, maintenant, journal=lambda _m: None)
+            if faits:
+                enregistrer(lignes, faits, maintenant)
+            return bool(faits)
+    except Exception:  # réseau, quota : on garde les cotes déjà connues
+        return False
+    finally:
+        essais["verrou"].release()
+
+
 def a_venir() -> pd.DataFrame:
-    """Calendrier unifié (C1/C3, championnats, saison complète), heures d'Abidjan. Voir kateni/calendrier.py."""
+    """Calendrier unifié (C1/C3, championnats, saison complète), heures d'Abidjan. Voir kateni/calendrier.py.
+    Les cotes des matchs imminents sont relevées au passage (cotes_imminentes)."""
     fichiers = ("a_venir.csv", "a_venir_championnats.csv", "calendrier_saison.csv", "equipes_alias.csv",
                 "cotes_pinnacle.csv")
-    sig = tuple((f, (RACINE / f).stat().st_mtime if (RACINE / f).exists() else 0) for f in fichiers) + (str(date.today()),)
-    return _calendrier(sig)
+
+    def signature():
+        return tuple((f, (RACINE / f).stat().st_mtime if (RACINE / f).exists() else 0)
+                     for f in fichiers) + (str(date.today()),)
+    cal = _calendrier(signature())
+    if cotes_imminentes(cal):
+        cal = _calendrier(signature())
+    return cal
 
 
 NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa"}

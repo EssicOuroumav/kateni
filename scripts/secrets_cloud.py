@@ -4,8 +4,8 @@ Kateni — prépare les secrets de Streamlit Cloud
 Copie dans le presse-papiers le bloc à coller dans Streamlit Cloud
 (réglages de l'app > Secrets). Rien n'est affiché à l'écran sauf le serveur.
 
-Le bloc ne contient QUE la branche production : l'app en ligne n'a pas
-besoin de la branche test (moindre privilège).
+Le bloc ne contient QUE la branche production (l'app en ligne n'a pas
+besoin de la branche test : moindre privilège) et la clé OddsPapi.
 
     python3 ~/Documents/Kateni/scripts/secrets_cloud.py
 """
@@ -18,17 +18,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from kateni.db import ConfigurationBase, hote, lire_config, url_base  # noqa: E402
 
 
-def bloc_cloud(conf: dict) -> str:
+def bloc_cloud(conf: dict, cle_odds: str | None = None) -> str:
     url = url_base(conf, "prod")
     if "HOTE-pooler" in url:
         raise ConfigurationBase("L'adresse de production est encore l'exemple : "
                                 "lance d'abord scripts/neon_connexion.py production.")
-    return f'[neon]\ncible = "prod"\nurl = "{url}"\n'
+    bloc = f'[neon]\ncible = "prod"\nurl = "{url}"\n'
+    if cle_odds:  # l'app relève elle-même les cotes Pinnacle des matchs imminents
+        bloc += f'\n[odds_api]\nkey = "{cle_odds}"\n'
+    return bloc
 
 
 def main():
     try:
-        bloc = bloc_cloud(lire_config({}))  # le fichier du Mac seulement, pas l'environnement
+        from kateni.pinnacle import cle
+        bloc = bloc_cloud(lire_config({}), cle())  # le fichier du Mac seulement
     except ConfigurationBase as e:
         print(f"Rien n'a été copié. {e}")
         sys.exit(1)
