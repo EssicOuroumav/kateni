@@ -121,6 +121,12 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - 6 alias ajoutés (Heidenheim, Lausanne, Mjallby, St Truiden, Guimaraes, Buyuksehyr) ; les 42 autres clubs jouent dans des championnats non couverts : niveau commun estimé, d'où l'intérêt des cotes du marché.
 - Premier relevé Pinnacle (22/10, 19:4x) : 0 match (journée en cours, la suivante pas encore cotée) ; à vérifier à la prochaine journée.
 
+## Quatre championnats ajoutés (22/10/2026)
+- 2. Bundesliga (`BL2`, D2, 1 908 matchs, corners), Chine (`CHN`, 3 032), Japon (`JPN`, 4 633), Irlande (`IRL`, 2 733) : football-data, cotes Pinnacle (OddsPapi 44, 649, 196, 192). Shamrock Rovers et Shelbourne (Ligue Conférence) sont désormais reliés à leur championnat.
+- Étudiés et écartés par le propriétaire : Australie, Arabie saoudite, Israël, Islande, Vietnam (pas de source gratuite avec dates et calendrier). Déjà présents : Ligue 2, Liga 2, Danemark, Norvège, Suisse.
+- Calendrier de ces championnats : seulement les matchs publiés par football-data quelques jours avant (pas de calendrier de saison gratuit).
+- Correctif : `maj_calendrier` gardait un calendrier incomplet quand une des deux sources ne répondait pas ; il conserve maintenant les matchs précédents de la source muette (essai avec panne simulée).
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

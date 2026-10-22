@@ -9,7 +9,7 @@ from pathlib import Path
 RACINE = Path(__file__).resolve().parent.parent
 
 # Championnats publiés au format « new/XXX.csv » de football-data (un fichier, toutes saisons)
-FORMAT_NEW = {"USA", "AUT", "SWZ", "NOR", "DNK", "SWE", "POL", "ROU"}
+FORMAT_NEW = {"USA", "AUT", "SWZ", "NOR", "DNK", "SWE", "POL", "ROU", "CHN", "JPN", "IRL"}
 
 
 @dataclass(frozen=True)
@@ -46,6 +46,11 @@ COMPETITIONS: dict[str, Competition] = {c.code: c for c in [
     Competition("SUE", "Allsvenskan (Suède)", "SWE_full.csv", "SWE", 2012, True),
     Competition("POL", "Ekstraklasa (Pologne)", "POL_full.csv", "POL", 2012, True),
     Competition("ROU", "Superliga (Roumanie)", "ROU_full.csv", "ROU", 2012, True),
+    # Ajoutés le 22/10/2026 à la demande du propriétaire
+    Competition("BL2", "2. Bundesliga (Allemagne)", "D2_full.csv", "D2", 2020, True),
+    Competition("CHN", "Super League (Chine)", "CHN_full.csv", "CHN", 2012, True),
+    Competition("JPN", "J1 League (Japon)", "JPN_full.csv", "JPN", 2012, True),
+    Competition("IRL", "Premier Division (Irlande)", "IRL_full.csv", "IRL", 2012, True),
     Competition("CL", "Champions League", "CL_full.csv", None, 2011, False),
     Competition("EL", "Europa League", "EL_full.csv", None, 2020, False),
     Competition("ECL", "Conference League", "ECL_full.csv", None, 2024, False),  # ajoutée le 22/10/2026

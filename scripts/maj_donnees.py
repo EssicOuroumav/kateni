@@ -110,20 +110,31 @@ def maj_competition(code: str) -> None:
 def maj_calendrier() -> None:
     """Matchs à venir des championnats (avec cotes Bet365 quand elles sont publiées) -> a_venir_championnats.csv."""
     par_div = {c.fd_code: c.code for c in COMPETITIONS.values() if c.fd_code}
+    codes_new = {c.code for c in COMPETITIONS.values() if c.fd_code in FORMAT_NEW}
+    chemin = RACINE / "a_venir_championnats.csv"
+    ancien = pd.read_csv(chemin) if chemin.exists() else pd.DataFrame(columns=["competition", "Date"])
+    # même présentation que les fichiers téléchargés (date jj/mm/aaaa, colonne Time)
+    ancien = ancien.rename(columns={"Heure_UK": "Time"}).assign(
+        Date=lambda a: pd.to_datetime(a["Date"], errors="coerce").dt.strftime("%d/%m/%Y"))
     lignes = []
     texte = telecharger(f"{BASE_URL}/fixtures.csv")
+    if not texte:  # source muette : on garde ses matchs précédents (jamais de calendrier vidé)
+        lignes.append(ancien[~ancien["competition"].isin(codes_new)])
     if texte:
         f = pd.read_csv(StringIO(texte))
         f = f[f["Div"].isin(par_div)]
         f["competition"] = f["Div"].map(par_div)
         lignes.append(f)
     texte = telecharger(f"{BASE_URL}/new_league_fixtures.csv")
+    if not texte:
+        lignes.append(ancien[ancien["competition"].isin(codes_new)])
     if texte:
         f = pd.read_csv(StringIO(texte)).rename(columns={"Home": "HomeTeam", "Away": "AwayTeam"})
         pays = {"USA": "MLS", "Austria": "AUT", "Switzerland": "SUI", "Norway": "NOR", "Denmark": "DAN",
-                "Sweden": "SUE", "Poland": "POL", "Romania": "ROU"}
+                "Sweden": "SUE", "Poland": "POL", "Romania": "ROU", "China": "CHN", "Japan": "JPN", "Ireland": "IRL"}
         f["competition"] = f["Country"].map(pays)
-        f = f[f["competition"].notna() & ~((f["Country"] == "USA") & (f["League"] != "MLS"))]
+        principale = {"USA": "MLS", "Japan": "J1 League", "Ireland": "Premier Division", "China": "Super League"}
+        f = f[f["competition"].notna() & (f["League"] == f["Country"].map(principale).fillna(f["League"]))]
         lignes.append(f)
     if not lignes:
         print("Calendrier des championnats : rien téléchargé")
