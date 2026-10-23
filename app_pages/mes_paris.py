@@ -42,38 +42,42 @@ with st.expander("Noter un pari placé sur Betclic", icon=":material/edit_note:"
     st.caption("N'importe quel pari, même si Kateni ne le proposait pas. Il sera réglé tout seul (gagné ou perdu) "
                "après le match, et compté dans le Bilan.")
     from kateni.affichage import pronostic  # import local : évite de charger l'affichage si la section reste fermée
-    match = choisir_match(df, "mp")
-    with st.form("mp_form", clear_on_submit=True, border=False):
-        choix = st.selectbox("Ton pari", CHOIX, format_func=lambda c: libelle(c[0], c[1], match["dom"], match["ext"]))
-        c1, c2 = st.columns(2)
-        cote = c1.number_input("Cote Betclic", min_value=1.01, value=None, step=0.01, format="%.2f")
-        mise = c2.number_input("Ta mise (FCFA)", min_value=0, value=None, step=100)
-        mode_pari = st.segmented_control("Type", ["réel", "fictif"], default="réel", required=True,
-                                         help="Réel : tu l'as vraiment placé sur Betclic. Fictif : pour tester.")
-        noter = st.form_submit_button("Noter ce pari", icon=":material/save:", type="primary")
-    if noter:
-        st.session_state["mp_ouvert"] = True
-        if not cote or not mise:
-            st.error("Saisis la cote et la mise.", icon=":material/error:")
-        else:
-            marche, sel = choix
-            prob = pronostic(match)["p"].get(marche, {}).get(sel)  # None : corners inconnus pour ce club
-            pari = {
-                "id": identifiant(match["date"], match["dom"], match["ext"], marche, sel, mode_pari, f"{cote}|{mise}"),
-                "date_match": match["date"], "competition": match["competition"], "dom": match["dom"],
-                "ext": match["ext"], "type": "avant-match", "marche": marche, "selection": sel, "cote": cote,
-                "prob_kateni": None if prob is None else round(prob, 4),
-                "esperance_pct": None if prob is None else round(esperance(prob, cote) * 100, 1),
-                "mise_fcfa": mise, "mode": mode_pari,
-            }
-            if s.ajouter(pari):
-                rafraichir()
-                st.success(f"Noté : {libelle(marche, sel, match['dom'], match['ext'])} à {fr(cote)}, "
-                           f"{int(mise)} FCFA ({mode_pari})." + (f" Chance selon Kateni : {prob:.0%}." if prob is not None else ""),
-                           icon=":material/check_circle:")
+    match = choisir_match(df, "mp", vide=True)
+    if match is None:
+        st.caption("Choisis d'abord le match de ton pari.")
+    else:
+        with st.form("mp_form", clear_on_submit=True, border=False):
+            choix = st.selectbox("Ton pari", CHOIX, index=None, placeholder="Choisis ton pari",
+                                 format_func=lambda c: libelle(c[0], c[1], match["dom"], match["ext"]))
+            c1, c2 = st.columns(2)
+            cote = c1.number_input("Cote Betclic", min_value=1.01, value=None, step=0.01, format="%.2f")
+            mise = c2.number_input("Ta mise (FCFA)", min_value=0, value=None, step=100)
+            mode_pari = st.segmented_control("Type", ["réel", "fictif"], default="réel", required=True,
+                                             help="Réel : tu l'as vraiment placé sur Betclic. Fictif : pour tester.")
+            noter = st.form_submit_button("Noter ce pari", icon=":material/save:", type="primary")
+        if noter:
+            st.session_state["mp_ouvert"] = True
+            if not choix or not cote or not mise:
+                st.error("Choisis ton pari, puis saisis la cote et la mise.", icon=":material/error:")
             else:
-                st.info("Ce pari était déjà noté (même match, même choix, même cote et même mise).",
-                        icon=":material/info:")
+                marche, sel = choix
+                prob = pronostic(match)["p"].get(marche, {}).get(sel)  # None : corners inconnus pour ce club
+                pari = {
+                    "id": identifiant(match["date"], match["dom"], match["ext"], marche, sel, mode_pari, f"{cote}|{mise}"),
+                    "date_match": match["date"], "competition": match["competition"], "dom": match["dom"],
+                    "ext": match["ext"], "type": "avant-match", "marche": marche, "selection": sel, "cote": cote,
+                    "prob_kateni": None if prob is None else round(prob, 4),
+                    "esperance_pct": None if prob is None else round(esperance(prob, cote) * 100, 1),
+                    "mise_fcfa": mise, "mode": mode_pari,
+                }
+                if s.ajouter(pari):
+                    rafraichir()
+                    st.success(f"Noté : {libelle(marche, sel, match['dom'], match['ext'])} à {fr(cote)}, "
+                               f"{int(mise)} FCFA ({mode_pari})." + (f" Chance selon Kateni : {prob:.0%}." if prob is not None else ""),
+                               icon=":material/check_circle:")
+                else:
+                    st.info("Ce pari était déjà noté (même match, même choix, même cote et même mise).",
+                            icon=":material/info:")
 
 # ---------------------------------------------------------------- noter un combiné placé sur Betclic
 ICONES = {"gagné": "✅", "perdu": "❌", "en attente": "⏳", "annulé": "↩️"}
@@ -86,10 +90,10 @@ with st.expander("Noter un combiné placé sur Betclic", icon=":material/stacks:
     if st.session_state.get("cb_message"):
         st.success(st.session_state.pop("cb_message"), icon=":material/check_circle:")
     selections = st.session_state.setdefault("cb_selections", [])
-    m_cb = choisir_match(df, "cb")
-    choix_cb = st.selectbox("Sélection", CHOIX, key="cb_choix",
+    m_cb = choisir_match(df, "cb", vide=True) or {"dom": "équipe 1", "ext": "équipe 2"}
+    choix_cb = st.selectbox("Sélection", CHOIX, key="cb_choix", index=None, placeholder="Choisis ton pari",
                             format_func=lambda c: libelle(c[0], c[1], m_cb["dom"], m_cb["ext"]))
-    if st.button("Ajouter au combiné", icon=":material/add:"):
+    if st.button("Ajouter au combiné", icon=":material/add:", disabled="date" not in m_cb or choix_cb is None):
         nouvelle = {"date_match": str(m_cb["date"]), "competition": m_cb["competition"], "dom": m_cb["dom"],
                     "ext": m_cb["ext"], "marche": choix_cb[0], "selection": choix_cb[1], "statut": "en attente"}
         if any(cle_match(x) == cle_match(nouvelle) and x["marche"] == nouvelle["marche"] for x in selections):
@@ -141,6 +145,46 @@ with st.expander("Noter un combiné placé sur Betclic", icon=":material/stacks:
                     st.rerun()
                 else:
                     st.info("Ce combiné était déjà noté.", icon=":material/info:")
+
+# ---------------------------------------------------------------- ticket déjà terminé (sans le détail)
+with st.expander("Noter un ticket déjà terminé (sans le détail des matchs)", icon=":material/receipt:"):
+    st.caption("Pour un ticket déjà gagné ou perdu, ou dont des matchs ne sont pas dans Kateni (coupes, petites "
+               "divisions) : seulement la cote, la mise et le résultat. Il compte tout de suite dans le Bilan.")
+    with st.form("tk_form", clear_on_submit=True, border=False):
+        c1, c2 = st.columns(2)
+        genre = c1.segmented_control("Ticket", ["Simple", "Combiné"], default="Combiné", required=True)
+        n_sel = c2.number_input("Nombre de sélections", min_value=1, max_value=40, value=None,
+                                placeholder="ex. 14 (combiné seulement)")
+        c1, c2, c3 = st.columns(3)
+        jour_tk = c1.date_input("Date", value="today", format="DD/MM/YYYY")
+        cote_tk = c2.number_input("Cote totale", min_value=1.01, value=None, step=0.01, format="%.2f")
+        mise_tk = c3.number_input("Mise (FCFA)", min_value=0, value=None, step=100)
+        c1, c2 = st.columns(2)
+        resultat = c1.segmented_control("Résultat", ["perdu", "gagné", "annulé"], default=None)
+        mode_tk = c2.segmented_control("Type", ["réel", "fictif"], default="réel", required=True)
+        noter_tk = st.form_submit_button("Noter ce ticket", icon=":material/save:", type="primary")
+    if noter_tk:
+        if not cote_tk or not mise_tk or not resultat:
+            st.error("Saisis la cote totale, la mise et le résultat.", icon=":material/error:")
+        else:
+            n = int(n_sel) if genre == "Combiné" and n_sel else 1
+            nom = f"Combiné ({n})" if genre == "Combiné" else "Pari simple"
+            gain = {"gagné": round(mise_tk * (cote_tk - 1)), "perdu": -round(mise_tk), "annulé": 0}[resultat]
+            pari = {
+                "id": identifiant(jour_tk.isoformat(), nom, "", "Ticket", f"{n}|{resultat}", mode_tk,
+                                  f"{cote_tk}|{mise_tk}"),
+                "date_match": jour_tk.isoformat(), "competition": "", "dom": nom, "ext": "",
+                "type": "combiné" if genre == "Combiné" else "avant-match", "marche": "Ticket",
+                "selection": f"{n} sélection{'s' if n > 1 else ''}", "cote": cote_tk, "mise_fcfa": mise_tk,
+                "mode": mode_tk, "statut": resultat, "gain_fcfa": gain,
+            }
+            if s.ajouter(pari):
+                rafraichir()
+                gain_txt = f"{gain:+,}".replace(",", " ")
+                st.success(f"Ticket noté : {nom} à {fr(cote_tk)}, {int(mise_tk)} FCFA, {resultat} ({gain_txt} FCFA).",
+                           icon=":material/check_circle:")
+            else:
+                st.info("Ce ticket était déjà noté.", icon=":material/info:")
 
 paris = s.lire()
 if not len(paris):
@@ -217,7 +261,7 @@ else:
         "Mise": st.column_config.NumberColumn(format="%d"),
         "Gain FCFA": st.column_config.NumberColumn(format="%+d"),
     })
-    combines = hist[hist["type"] == "combiné"]
+    combines = hist[(hist["type"] == "combiné") & (hist["selections"] != "")]
     for p in combines.itertuples():
         with st.expander(f"{p.dom} du {pd.to_datetime(p.date_match):%d/%m} à {fr(p.cote)} : {p.statut}"):
             st.markdown("\n".join(

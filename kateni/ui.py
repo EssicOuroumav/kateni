@@ -193,8 +193,9 @@ NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des
                                                                   "ECL": "Ligue Conférence"}
 
 
-def choisir_match(df: pd.DataFrame, cle: str) -> dict:
-    """Retourne {competition, dom, ext, date} choisi dans le calendrier ou librement."""
+def choisir_match(df: pd.DataFrame, cle: str, vide: bool = False) -> dict | None:
+    """Retourne {competition, dom, ext, date} choisi dans le calendrier ou librement.
+    vide=True : aucun match choisi d'office (on tape le nom d'une équipe) ; None tant que rien n'est choisi."""
     envoye = st.session_state.get("match_envoye")
     if envoye:
         with st.container(border=True, horizontal=True, vertical_alignment="center"):
@@ -213,8 +214,11 @@ def choisir_match(df: pd.DataFrame, cle: str) -> dict:
         cal["libelle"] = (pd.Series([f"{jours[d.weekday()]} {d:%d/%m}" for d in dates], index=cal.index) + " · "
                           + cal["Heure"].fillna("") + " · " + cal["competition"].map(NOMS_COURTS).fillna(cal["competition"])
                           + " · " + cal["dom"] + " – " + cal["ext"])
-        i = st.selectbox("Match à venir (heure d'Abidjan)", range(len(cal)),
-                         format_func=lambda k: cal.loc[k, "libelle"], key=f"{cle}_cal")
+        i = st.selectbox("Match (heure d'Abidjan)", range(len(cal)), format_func=lambda k: cal.loc[k, "libelle"],
+                         key=f"{cle}_cal", index=None if vide else 0,
+                         placeholder="Tape le nom d'une équipe pour trouver le match")
+        if i is None:
+            return None
         r = cal.loc[i]
         return {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
     if source == "Calendrier":
