@@ -1,27 +1,12 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
 LIGA,2026-10-10 12:00:00Z,Rayo Vallecano,Athletic Club
-TUR,2026-10-23 17:00:00Z,Alanyaspor,Kocaelispor
-L2,2026-10-23 18:00:00Z,AS Nancy Lorraine,Stade Lavallois MFC
-L2,2026-10-23 18:00:00Z,Clermont Foot 63,EN Avant Guingamp
-L2,2026-10-23 18:00:00Z,FC Sochaux-Montbéliard,FC Annecy
-L2,2026-10-23 18:00:00Z,Pau FC,Grenoble Foot 38
-L2,2026-10-23 18:00:00Z,USL Dunkerque,FC Metz
-NED,2026-10-23 18:00:00Z,Go Ahead Eagles,Telstar
-BL,2026-10-23 18:30:00Z,VfB Stuttgart,Borussia Mönchengladbach
-L1,2026-10-23 18:45:00Z,Stade Brestois 29,OGC Nice
-SA,2026-10-23 18:45:00Z,Torino,Monza
-CHAMP,2026-10-23 19:00:00Z,Bolton Wanderers,Middlesbrough
-LIGA,2026-10-23 19:00:00Z,Deportivo Alavés,Málaga CF
-PL,2026-10-23 19:00:00Z,Ipswich,Nott'm Forest
-POR,2026-10-23 19:45:00Z,Vitória SC,Marítimo M.
 TUR,2026-10-24 10:30:00Z,Eyüpspor,Kasimpasa
 CHAMP,2026-10-24 11:30:00Z,Charlton Athletic,Norwich City
 CHAMP,2026-10-24 11:30:00Z,Portsmouth,Millwall
 CHAMP,2026-10-24 11:30:00Z,Sheffield United,Derby County
 PL,2026-10-24 11:30:00Z,Aston Villa,Man City
 L2,2026-10-24 12:00:00Z,Dijon FCO,Rodez Aveyron Football
-L2,2026-10-24 12:00:00Z,Montpellier Hérault SC,Red Star FC
 LIGA,2026-10-24 12:00:00Z,Rayo Vallecano,Elche CF
 SA,2026-10-24 13:00:00Z,Cagliari,Bologna
 SA,2026-10-24 13:00:00Z,Como,Sassuolo
@@ -48,7 +33,6 @@ SCO,2026-10-24 14:00:00Z,St. Mirren,Dundee
 LIGA,2026-10-24 14:15:00Z,R. Racing Club,RCD Espanyol de Barcelona
 NED,2026-10-24 14:30:00Z,FC Utrecht,PEC Zwolle
 POR,2026-10-24 14:30:00Z,Estrela Amadora,Casa Pia AC
-L1,2026-10-24 15:15:00Z,Toulouse FC,Estac Troyes
 SA,2026-10-24 16:00:00Z,Napoli,Roma
 TUR,2026-10-24 16:00:00Z,Samsunspor,Amedspor
 BL,2026-10-24 16:30:00Z,Borussia Dortmund,Eintracht Frankfurt
@@ -57,8 +41,8 @@ PL,2026-10-24 16:30:00Z,Chelsea,Spurs
 NED,2026-10-24 16:45:00Z,Willem II,SC Cambuur
 POR,2026-10-24 17:00:00Z,FC Alverca,FC Arouca
 MLS,2026-10-24 17:30:00Z,CF Montréal,Nashville SC
-L2,2026-10-24 18:00:00Z,AS Saint-Étienne,FC Nantes
 L1,2026-10-24 18:45:00Z,RC Lens,Paris FC
+L2,2026-10-24 18:45:00Z,AS Saint-Étienne,FC Nantes
 SA,2026-10-24 18:45:00Z,Lazio,Parma
 LIGA,2026-10-24 19:00:00Z,Atlético de Madrid,RC Deportivo
 NED,2026-10-24 19:00:00Z,ADO Den Haag,sc Heerenveen
@@ -100,6 +84,7 @@ L1,2026-10-25 16:15:00Z,AJ Auxerre,Le Mans FC
 L1,2026-10-25 16:15:00Z,Angers SCO,FC Lorient
 L1,2026-10-25 16:15:00Z,Olympique de Marseille,Havre Athletic Club
 L1,2026-10-25 16:15:00Z,Stade Rennais FC,RC Strasbourg Alsace
+L1,2026-10-25 16:15:00Z,Toulouse FC,Estac Troyes
 BL,2026-10-25 16:30:00Z,Sport-Club Freiburg,FC Bayern München
 PL,2026-10-25 16:30:00Z,Sunderland,Leeds
 SA,2026-10-25 17:00:00Z,Lecce,Juventus
@@ -107,7 +92,6 @@ LIGA,2026-10-25 17:30:00Z,Real Sociedad,Levante UD
 POR,2026-10-25 18:00:00Z,CD Nacional,SC Braga
 POR,2026-10-25 18:00:00Z,Rio Ave FC,FC Famalicão
 NED,2026-10-25 19:00:00Z,AZ,FC Twente
-L1,2026-10-25 19:45:00Z,Paris Saint-Germain,Olympique Lyonnais
 SA,2026-10-25 19:45:00Z,Udinese,Milan
 LIGA,2026-10-25 20:00:00Z,FC Barcelona,Real Madrid
 POR,2026-10-25 20:30:00Z,Sporting CP,Académico
@@ -116,6 +100,8 @@ TUR,2026-10-26 16:00:00Z,Besiktas,Istanbul Basaksehir
 TUR,2026-10-26 16:00:00Z,Çaykur Rizespor,Trabzonspor
 TUR,2026-10-26 18:30:00Z,Galatasaray,Fenerbahçe
 POR,2026-10-26 18:45:00Z,Santa Clara,SL Benfica
+L1,2026-10-26 19:30:00Z,Paris Saint-Germain,Olympique Lyonnais
+L2,2026-10-26 19:45:00Z,Montpellier Hérault SC,Red Star FC
 L2,2026-10-26 19:45:00Z,US Boulogne CO,Stade DE Reims
 LIGA,2026-10-26 20:00:00Z,Sevilla FC,CA Osasuna
 SA,2026-10-27 17:30:00Z,Sassuolo,Lazio
@@ -399,6 +385,7 @@ L2,2026-11-20 19:00:00Z,FC Metz,US Boulogne CO
 L2,2026-11-20 19:00:00Z,Red Star FC,Pau FC
 BL,2026-11-20 19:30:00Z,FC Bayern München,1. FC Köln
 L1,2026-11-20 19:45:00Z,Estac Troyes,Havre Athletic Club
+LIGA,2026-11-20 20:00:00Z,Athletic Club,RCD Espanyol de Barcelona
 TUR,2026-11-21 10:30:00Z,Gençlerbirligi,Gaziantep
 CHAMP,2026-11-21 12:30:00Z,Millwall,Queens Park Rangers
 CHAMP,2026-11-21 12:30:00Z,Norwich City,Cardiff City
@@ -406,6 +393,7 @@ CHAMP,2026-11-21 12:30:00Z,Southampton,Derby County
 PL,2026-11-21 12:30:00Z,Man City,Fulham
 L2,2026-11-21 13:00:00Z,FC Nantes,Grenoble Foot 38
 L2,2026-11-21 13:00:00Z,Stade Lavallois MFC,Montpellier Hérault SC
+LIGA,2026-11-21 13:00:00Z,Deportivo Alavés,RC Deportivo
 TUR,2026-11-21 13:00:00Z,Amedspor,Çaykur Rizespor
 TUR,2026-11-21 13:00:00Z,Galatasaray,Samsunspor
 SA,2026-11-21 14:00:00Z,Como,Cagliari
@@ -432,11 +420,13 @@ SCO,2026-11-21 15:00:00Z,Celtic,St. Mirren
 SCO,2026-11-21 15:00:00Z,Falkirk,St. Johnstone
 SCO,2026-11-21 15:00:00Z,Hibernian,Dundee United
 SCO,2026-11-21 15:00:00Z,Kilmarnock,Aberdeen
+LIGA,2026-11-21 15:15:00Z,Rayo Vallecano,Valencia CF
 NED,2026-11-21 15:30:00Z,N.E.C. Nijmegen,PSV
 TUR,2026-11-21 16:00:00Z,Kocaelispor,Fenerbahçe
 L1,2026-11-21 16:15:00Z,OGC Nice,Paris Saint-Germain
 SA,2026-11-21 17:00:00Z,Parma,Roma
 BL,2026-11-21 17:30:00Z,FC Schalke 04,VfB Stuttgart
+LIGA,2026-11-21 17:30:00Z,Sevilla FC,Real Betis
 PL,2026-11-21 17:30:00Z,Newcastle,Arsenal
 NED,2026-11-21 17:45:00Z,FC Utrecht,SC Cambuur
 NED,2026-11-21 17:45:00Z,Feyenoord,Excelsior Rotterdam
@@ -447,23 +437,15 @@ L1,2026-11-21 19:45:00Z,LOSC Lille,Olympique Lyonnais
 L1,2026-11-21 19:45:00Z,RC Lens,Toulouse FC
 L1,2026-11-21 19:45:00Z,RC Strasbourg Alsace,Stade Brestois 29
 SA,2026-11-21 19:45:00Z,Napoli,Torino
+LIGA,2026-11-21 20:00:00Z,Real Madrid,Celta
 NED,2026-11-21 20:00:00Z,FC Groningen,sc Heerenveen
 NED,2026-11-21 20:00:00Z,Telstar,PEC Zwolle
 SCO,2026-11-21 20:00:00Z,Motherwell,Rangers
-LIGA,2026-11-22 00:00:00Z,Athletic Club,RCD Espanyol de Barcelona
-LIGA,2026-11-22 00:00:00Z,CA Osasuna,Málaga CF
-LIGA,2026-11-22 00:00:00Z,Deportivo Alavés,RC Deportivo
-LIGA,2026-11-22 00:00:00Z,FC Barcelona,Villarreal CF
-LIGA,2026-11-22 00:00:00Z,Getafe CF,Atlético de Madrid
-LIGA,2026-11-22 00:00:00Z,Levante UD,Elche CF
-LIGA,2026-11-22 00:00:00Z,R. Racing Club,Real Sociedad
-LIGA,2026-11-22 00:00:00Z,Rayo Vallecano,Valencia CF
-LIGA,2026-11-22 00:00:00Z,Real Madrid,Celta
-LIGA,2026-11-22 00:00:00Z,Sevilla FC,Real Betis
 TUR,2026-11-22 10:30:00Z,Erzurumspor,Göztepe
 NED,2026-11-22 11:15:00Z,FC Twente,Willem II
 SA,2026-11-22 11:30:00Z,Juventus,Venezia
 CHAMP,2026-11-22 12:00:00Z,Burnley,Blackburn Rovers
+LIGA,2026-11-22 13:00:00Z,FC Barcelona,Villarreal CF
 TUR,2026-11-22 13:00:00Z,Kasimpasa,Alanyaspor
 TUR,2026-11-22 13:00:00Z,Konyaspor,Besiktas
 NED,2026-11-22 13:30:00Z,Ajax,ADO Den Haag
@@ -473,17 +455,21 @@ PL,2026-11-22 14:00:00Z,Hull,Brighton
 SA,2026-11-22 14:00:00Z,Bologna,Udinese
 SA,2026-11-22 14:00:00Z,Sassuolo,Genoa
 BL,2026-11-22 14:30:00Z,FC Augsburg,1. FSV Mainz 05
+LIGA,2026-11-22 15:15:00Z,R. Racing Club,Real Sociedad
 NED,2026-11-22 15:45:00Z,Go Ahead Eagles,Fortuna Sittard
 TUR,2026-11-22 16:00:00Z,Trabzonspor,Eyüpspor
 L1,2026-11-22 16:15:00Z,FC Lorient,Stade Rennais FC
 BL,2026-11-22 16:30:00Z,SV Werder Bremen,Hamburger SV
 PL,2026-11-22 16:30:00Z,Liverpool,Man Utd
 SA,2026-11-22 17:00:00Z,Milan,Frosinone
+LIGA,2026-11-22 17:30:00Z,CA Osasuna,Málaga CF
 L1,2026-11-22 19:45:00Z,Olympique de Marseille,Le Mans FC
 SA,2026-11-22 19:45:00Z,Atalanta,Internazionale
+LIGA,2026-11-22 20:00:00Z,Getafe CF,Atlético de Madrid
 TUR,2026-11-23 17:00:00Z,Istanbul Basaksehir,Çorum
 L2,2026-11-23 19:45:00Z,FC Sochaux-Montbéliard,USL Dunkerque
 SA,2026-11-23 19:45:00Z,Monza,Fiorentina
+LIGA,2026-11-23 20:00:00Z,Levante UD,Elche CF
 PL,2026-11-23 20:00:00Z,Brentford,Everton
 CHAMP,2026-11-24 19:45:00Z,Bristol City,Wrexham
 CHAMP,2026-11-24 19:45:00Z,Cardiff City,Preston North End
@@ -592,22 +578,22 @@ TUR,2026-11-30 18:00:00Z,Besiktas,Galatasaray
 SA,2026-11-30 19:45:00Z,Cagliari,Milan
 POR,2026-11-30 20:15:00Z,Casa Pia AC,SC Braga
 POR,2026-11-30 20:15:00Z,SL Benfica,FC Famalicão
+PL,2026-12-01 20:00:00Z,Coventry,Ipswich
+PL,2026-12-02 19:30:00Z,Chelsea,Crystal Palace
+PL,2026-12-02 19:30:00Z,Hull,Nott'm Forest
+PL,2026-12-02 19:30:00Z,Liverpool,Sunderland
+PL,2026-12-02 19:30:00Z,Man City,Leeds
 SCO,2026-12-02 19:45:00Z,Dundee,Celtic
 SCO,2026-12-02 19:45:00Z,Falkirk,Motherwell
 SCO,2026-12-02 19:45:00Z,Heart of Midlothian,Aberdeen
 SCO,2026-12-02 19:45:00Z,Kilmarnock,Hibernian
 SCO,2026-12-02 19:45:00Z,Rangers,Dundee United
 SCO,2026-12-02 19:45:00Z,St. Johnstone,St. Mirren
-PL,2026-12-02 20:00:00Z,Aston Villa,Everton
-PL,2026-12-02 20:00:00Z,Bournemouth,Brighton
-PL,2026-12-02 20:00:00Z,Brentford,Arsenal
-PL,2026-12-02 20:00:00Z,Chelsea,Crystal Palace
-PL,2026-12-02 20:00:00Z,Coventry,Ipswich
-PL,2026-12-02 20:00:00Z,Hull,Nott'm Forest
-PL,2026-12-02 20:00:00Z,Liverpool,Sunderland
-PL,2026-12-02 20:00:00Z,Man City,Leeds
-PL,2026-12-02 20:00:00Z,Newcastle,Man Utd
-PL,2026-12-02 20:00:00Z,Spurs,Fulham
+PL,2026-12-02 20:15:00Z,Aston Villa,Everton
+PL,2026-12-02 20:15:00Z,Bournemouth,Brighton
+PL,2026-12-02 20:15:00Z,Brentford,Arsenal
+PL,2026-12-02 20:15:00Z,Newcastle,Man Utd
+PL,2026-12-03 20:00:00Z,Spurs,Fulham
 BL,2026-12-04 00:00:00Z,1. FC Union Berlin,Hamburger SV
 BL,2026-12-04 00:00:00Z,Bayer 04 Leverkusen,Borussia Mönchengladbach
 BL,2026-12-04 00:00:00Z,Eintracht Frankfurt,SV Werder Bremen
@@ -624,22 +610,15 @@ L2,2026-12-04 19:00:00Z,FC Annecy,Stade Lavallois MFC
 L2,2026-12-04 19:00:00Z,Grenoble Foot 38,EN Avant Guingamp
 L2,2026-12-04 19:00:00Z,US Boulogne CO,Pau FC
 NED,2026-12-04 19:00:00Z,Telstar,FC Groningen
+L1,2026-12-04 19:45:00Z,Toulouse FC,Paris Saint-Germain
 SA,2026-12-04 19:45:00Z,Bologna,Roma
 CHAMP,2026-12-04 20:00:00Z,Sheffield United,West Ham United
-L1,2026-12-04 23:00:00Z,AS Monaco,Angers SCO
-L1,2026-12-04 23:00:00Z,Estac Troyes,Olympique Lyonnais
-L1,2026-12-04 23:00:00Z,LOSC Lille,AJ Auxerre
-L1,2026-12-04 23:00:00Z,Olympique de Marseille,OGC Nice
-L1,2026-12-04 23:00:00Z,Paris FC,Le Mans FC
-L1,2026-12-04 23:00:00Z,RC Lens,Havre Athletic Club
-L1,2026-12-04 23:00:00Z,RC Strasbourg Alsace,FC Lorient
-L1,2026-12-04 23:00:00Z,Stade Rennais FC,Stade Brestois 29
-L1,2026-12-04 23:00:00Z,Toulouse FC,Paris Saint-Germain
 TUR,2026-12-05 10:30:00Z,Konyaspor,Gaziantep
 CHAMP,2026-12-05 12:30:00Z,Bolton Wanderers,Blackburn Rovers
 CHAMP,2026-12-05 12:30:00Z,Bristol City,Swansea City
 CHAMP,2026-12-05 12:30:00Z,Middlesbrough,Derby County
 CHAMP,2026-12-05 12:30:00Z,Watford,Millwall
+PL,2026-12-05 12:30:00Z,Chelsea,Liverpool
 L2,2026-12-05 13:00:00Z,Montpellier Hérault SC,FC Nantes
 L2,2026-12-05 13:00:00Z,USL Dunkerque,Red Star FC
 TUR,2026-12-05 13:00:00Z,Amedspor,Alanyaspor
@@ -652,27 +631,28 @@ CHAMP,2026-12-05 15:00:00Z,Stoke City,Queens Park Rangers
 CHAMP,2026-12-05 15:00:00Z,Wolverhampton Wanderers,Southampton
 PL,2026-12-05 15:00:00Z,Aston Villa,Crystal Palace
 PL,2026-12-05 15:00:00Z,Bournemouth,Hull
-PL,2026-12-05 15:00:00Z,Brentford,Man City
-PL,2026-12-05 15:00:00Z,Chelsea,Liverpool
-PL,2026-12-05 15:00:00Z,Everton,Fulham
 PL,2026-12-05 15:00:00Z,Leeds,Ipswich
 PL,2026-12-05 15:00:00Z,Man Utd,Coventry
-PL,2026-12-05 15:00:00Z,Newcastle,Sunderland
-PL,2026-12-05 15:00:00Z,Nott'm Forest,Brighton
-PL,2026-12-05 15:00:00Z,Spurs,Arsenal
 SCO,2026-12-05 15:00:00Z,Aberdeen,Dundee United
 SCO,2026-12-05 15:00:00Z,Celtic,St. Johnstone
 SCO,2026-12-05 15:00:00Z,Dundee,Falkirk
 SCO,2026-12-05 15:00:00Z,Motherwell,Kilmarnock
 NED,2026-12-05 15:30:00Z,Willem II,Feyenoord
 TUR,2026-12-05 16:00:00Z,Istanbul Basaksehir,Fenerbahçe
+L1,2026-12-05 16:15:00Z,LOSC Lille,AJ Auxerre
 SA,2026-12-05 17:00:00Z,Frosinone,Internazionale
+PL,2026-12-05 17:30:00Z,Nott'm Forest,Brighton
 SCO,2026-12-05 17:30:00Z,St. Mirren,Heart of Midlothian
 NED,2026-12-05 17:45:00Z,Sparta Rotterdam,N.E.C. Nijmegen
 NED,2026-12-05 19:00:00Z,AZ,PSV
+L1,2026-12-05 19:45:00Z,AS Monaco,Angers SCO
+L1,2026-12-05 19:45:00Z,Paris FC,Le Mans FC
+L1,2026-12-05 19:45:00Z,RC Lens,Havre Athletic Club
+L1,2026-12-05 19:45:00Z,RC Strasbourg Alsace,FC Lorient
 L2,2026-12-05 19:45:00Z,AS Saint-Étienne,AS Nancy Lorraine
 SA,2026-12-05 19:45:00Z,Napoli,Lecce
 NED,2026-12-05 20:00:00Z,Fortuna Sittard,PEC Zwolle
+PL,2026-12-05 20:00:00Z,Brentford,Man City
 LIGA,2026-12-06 00:00:00Z,Athletic Club,Real Madrid
 LIGA,2026-12-06 00:00:00Z,Atlético de Madrid,Real Betis
 LIGA,2026-12-06 00:00:00Z,CA Osasuna,Elche CF
@@ -700,10 +680,16 @@ TUR,2026-12-06 13:00:00Z,Besiktas,Samsunspor
 TUR,2026-12-06 13:00:00Z,Gençlerbirligi,Eyüpspor
 NED,2026-12-06 13:30:00Z,Ajax,FC Utrecht
 NED,2026-12-06 13:30:00Z,Go Ahead Eagles,FC Twente
+L1,2026-12-06 14:00:00Z,Estac Troyes,Olympique Lyonnais
+PL,2026-12-06 14:00:00Z,Everton,Fulham
+PL,2026-12-06 14:00:00Z,Newcastle,Sunderland
 SA,2026-12-06 14:00:00Z,Lazio,Atalanta
 NED,2026-12-06 15:45:00Z,ADO Den Haag,Excelsior Rotterdam
 TUR,2026-12-06 16:00:00Z,Trabzonspor,Çorum
+L1,2026-12-06 16:15:00Z,Stade Rennais FC,Stade Brestois 29
+PL,2026-12-06 16:30:00Z,Spurs,Arsenal
 SA,2026-12-06 17:00:00Z,Juventus,Udinese
+L1,2026-12-06 19:45:00Z,Olympique de Marseille,OGC Nice
 SA,2026-12-06 19:45:00Z,Milan,Parma
 TUR,2026-12-07 17:00:00Z,Kasimpasa,Göztepe
 SA,2026-12-07 17:30:00Z,Venezia,Sassuolo
@@ -737,17 +723,9 @@ L2,2026-12-11 19:00:00Z,EN Avant Guingamp,Dijon FCO
 L2,2026-12-11 19:00:00Z,FC Nantes,FC Annecy
 L2,2026-12-11 19:00:00Z,Stade Lavallois MFC,USL Dunkerque
 L2,2026-12-11 19:00:00Z,US Boulogne CO,Rodez Aveyron Football
+L1,2026-12-11 19:45:00Z,AJ Auxerre,Toulouse FC
 SA,2026-12-11 19:45:00Z,Udinese,Frosinone
 CHAMP,2026-12-11 20:00:00Z,Bolton Wanderers,Wrexham
-L1,2026-12-11 23:00:00Z,AJ Auxerre,Toulouse FC
-L1,2026-12-11 23:00:00Z,Angers SCO,RC Strasbourg Alsace
-L1,2026-12-11 23:00:00Z,FC Lorient,LOSC Lille
-L1,2026-12-11 23:00:00Z,Havre Athletic Club,Le Mans FC
-L1,2026-12-11 23:00:00Z,OGC Nice,RC Lens
-L1,2026-12-11 23:00:00Z,Olympique Lyonnais,Olympique de Marseille
-L1,2026-12-11 23:00:00Z,Paris Saint-Germain,Paris FC
-L1,2026-12-11 23:00:00Z,Stade Brestois 29,Estac Troyes
-L1,2026-12-11 23:00:00Z,Stade Rennais FC,AS Monaco
 TUR,2026-12-12 10:30:00Z,Erzurumspor,Kasimpasa
 CHAMP,2026-12-12 12:30:00Z,Preston North End,Middlesbrough
 CHAMP,2026-12-12 12:30:00Z,Queens Park Rangers,Watford
@@ -763,24 +741,23 @@ CHAMP,2026-12-12 15:00:00Z,Portsmouth,Birmingham City
 CHAMP,2026-12-12 15:00:00Z,Sheffield United,Burnley
 CHAMP,2026-12-12 15:00:00Z,West Ham United,Bristol City
 CHAMP,2026-12-12 15:00:00Z,Wolverhampton Wanderers,Millwall
-PL,2026-12-12 15:00:00Z,Arsenal,Bournemouth
-PL,2026-12-12 15:00:00Z,Brighton,Everton
-PL,2026-12-12 15:00:00Z,Coventry,Aston Villa
-PL,2026-12-12 15:00:00Z,Crystal Palace,Man Utd
 PL,2026-12-12 15:00:00Z,Fulham,Brentford
-PL,2026-12-12 15:00:00Z,Hull,Spurs
 PL,2026-12-12 15:00:00Z,Ipswich,Newcastle
 PL,2026-12-12 15:00:00Z,Liverpool,Leeds
-PL,2026-12-12 15:00:00Z,Man City,Chelsea
-PL,2026-12-12 15:00:00Z,Sunderland,Nott'm Forest
 SCO,2026-12-12 15:00:00Z,Dundee United,St. Mirren
 SCO,2026-12-12 15:00:00Z,Falkirk,Aberdeen
 SCO,2026-12-12 15:00:00Z,Kilmarnock,Dundee
 NED,2026-12-12 15:30:00Z,FC Utrecht,Fortuna Sittard
 TUR,2026-12-12 16:00:00Z,Eyüpspor,Galatasaray
+L1,2026-12-12 16:15:00Z,Paris Saint-Germain,Paris FC
 SA,2026-12-12 17:00:00Z,Lecce,Sassuolo
+PL,2026-12-12 17:30:00Z,Man City,Chelsea
 NED,2026-12-12 17:45:00Z,sc Heerenveen,Go Ahead Eagles
 L2,2026-12-12 19:00:00Z,FC Metz,Stade DE Reims
+L1,2026-12-12 19:45:00Z,Angers SCO,RC Strasbourg Alsace
+L1,2026-12-12 19:45:00Z,Havre Athletic Club,Le Mans FC
+L1,2026-12-12 19:45:00Z,OGC Nice,RC Lens
+L1,2026-12-12 19:45:00Z,Stade Brestois 29,Estac Troyes
 SA,2026-12-12 19:45:00Z,Como,Bologna
 NED,2026-12-12 20:00:00Z,PEC Zwolle,Excelsior Rotterdam
 LIGA,2026-12-13 00:00:00Z,Atlético de Madrid,Valencia CF
@@ -811,18 +788,27 @@ TUR,2026-12-13 13:00:00Z,Çaykur Rizespor,Istanbul Basaksehir
 NED,2026-12-13 13:30:00Z,FC Groningen,Feyenoord
 NED,2026-12-13 13:30:00Z,Willem II,ADO Den Haag
 CHAMP,2026-12-13 14:00:00Z,Lincoln City,Norwich City
+L1,2026-12-13 14:00:00Z,FC Lorient,LOSC Lille
+PL,2026-12-13 14:00:00Z,Arsenal,Bournemouth
+PL,2026-12-13 14:00:00Z,Brighton,Everton
+PL,2026-12-13 14:00:00Z,Sunderland,Nott'm Forest
 SA,2026-12-13 14:00:00Z,Internazionale,Torino
 SCO,2026-12-13 15:00:00Z,Celtic,Hibernian
 SCO,2026-12-13 15:00:00Z,Heart of Midlothian,Motherwell
 NED,2026-12-13 15:45:00Z,AZ,N.E.C. Nijmegen
 TUR,2026-12-13 16:00:00Z,Fenerbahçe,Trabzonspor
+L1,2026-12-13 16:15:00Z,Stade Rennais FC,AS Monaco
+PL,2026-12-13 16:30:00Z,Coventry,Aston Villa
 SA,2026-12-13 17:00:00Z,Parma,Fiorentina
 NED,2026-12-13 19:00:00Z,Ajax,SC Cambuur
+PL,2026-12-13 19:00:00Z,Crystal Palace,Man Utd
+L1,2026-12-13 19:45:00Z,Olympique Lyonnais,Olympique de Marseille
 SA,2026-12-13 19:45:00Z,Napoli,Milan
 TUR,2026-12-14 17:00:00Z,Gaziantep,Besiktas
 SA,2026-12-14 17:30:00Z,Atalanta,Genoa
 L2,2026-12-14 19:45:00Z,FC Sochaux-Montbéliard,Montpellier Hérault SC
 SA,2026-12-14 19:45:00Z,Juventus,Monza
+PL,2026-12-14 20:00:00Z,Hull,Spurs
 BL,2026-12-18 00:00:00Z,1. FC Union Berlin,TSG Hoffenheim
 BL,2026-12-18 00:00:00Z,1. FSV Mainz 05,1. FC Köln
 BL,2026-12-18 00:00:00Z,Bayer 04 Leverkusen,Eintracht Frankfurt
@@ -844,6 +830,7 @@ CHAMP,2026-12-19 12:30:00Z,Bristol City,Cardiff City
 CHAMP,2026-12-19 12:30:00Z,Millwall,Charlton Athletic
 CHAMP,2026-12-19 12:30:00Z,Swansea City,Preston North End
 CHAMP,2026-12-19 12:30:00Z,Watford,Bolton Wanderers
+PL,2026-12-19 12:30:00Z,Brentford,Newcastle
 TUR,2026-12-19 13:00:00Z,Istanbul Basaksehir,Erzurumspor
 SA,2026-12-19 14:00:00Z,Sassuolo,Parma
 CHAMP,2026-12-19 15:00:00Z,Burnley,Stoke City
@@ -852,16 +839,10 @@ CHAMP,2026-12-19 15:00:00Z,Middlesbrough,Portsmouth
 CHAMP,2026-12-19 15:00:00Z,Norwich City,Wolverhampton Wanderers
 CHAMP,2026-12-19 15:00:00Z,Southampton,Blackburn Rovers
 CHAMP,2026-12-19 15:00:00Z,Wrexham,Queens Park Rangers
-PL,2026-12-19 15:00:00Z,Arsenal,Man Utd
 PL,2026-12-19 15:00:00Z,Bournemouth,Coventry
-PL,2026-12-19 15:00:00Z,Brentford,Newcastle
-PL,2026-12-19 15:00:00Z,Brighton,Ipswich
-PL,2026-12-19 15:00:00Z,Chelsea,Aston Villa
 PL,2026-12-19 15:00:00Z,Leeds,Fulham
-PL,2026-12-19 15:00:00Z,Liverpool,Spurs
 PL,2026-12-19 15:00:00Z,Man City,Hull
 PL,2026-12-19 15:00:00Z,Nott'm Forest,Everton
-PL,2026-12-19 15:00:00Z,Sunderland,Crystal Palace
 SCO,2026-12-19 15:00:00Z,Dundee United,Kilmarnock
 SCO,2026-12-19 15:00:00Z,Hibernian,St. Johnstone
 SCO,2026-12-19 15:00:00Z,Motherwell,Dundee
@@ -869,6 +850,7 @@ SCO,2026-12-19 15:00:00Z,St. Mirren,Falkirk
 NED,2026-12-19 15:30:00Z,Excelsior Rotterdam,AZ
 TUR,2026-12-19 16:00:00Z,Galatasaray,Alanyaspor
 SA,2026-12-19 17:00:00Z,Milan,Como
+PL,2026-12-19 17:30:00Z,Liverpool,Spurs
 NED,2026-12-19 17:45:00Z,Fortuna Sittard,Sparta Rotterdam
 SA,2026-12-19 19:45:00Z,Roma,Juventus
 NED,2026-12-19 20:00:00Z,FC Utrecht,sc Heerenveen
@@ -898,15 +880,19 @@ SCO,2026-12-20 12:00:00Z,Aberdeen,Celtic
 TUR,2026-12-20 13:00:00Z,Samsunspor,Gaziantep
 NED,2026-12-20 13:30:00Z,Feyenoord,FC Twente
 NED,2026-12-20 13:30:00Z,SC Cambuur,FC Groningen
+PL,2026-12-20 14:00:00Z,Brighton,Ipswich
+PL,2026-12-20 14:00:00Z,Sunderland,Crystal Palace
 SA,2026-12-20 14:00:00Z,Torino,Cagliari
 SA,2026-12-20 14:00:00Z,Venezia,Monza
 SCO,2026-12-20 14:30:00Z,Rangers,Heart of Midlothian
 NED,2026-12-20 15:45:00Z,Go Ahead Eagles,Ajax
 TUR,2026-12-20 16:00:00Z,Besiktas,Çaykur Rizespor
+PL,2026-12-20 16:30:00Z,Arsenal,Man Utd
 SA,2026-12-20 17:00:00Z,Genoa,Udinese
 NED,2026-12-20 19:00:00Z,PSV,PEC Zwolle
 SA,2026-12-20 19:45:00Z,Atalanta,Napoli
 TUR,2026-12-21 17:00:00Z,Trabzonspor,Kocaelispor
+PL,2026-12-21 20:00:00Z,Chelsea,Aston Villa
 CHAMP,2026-12-26 12:30:00Z,Bolton Wanderers,Burnley
 CHAMP,2026-12-26 12:30:00Z,Sheffield United,Middlesbrough
 PL,2026-12-26 12:30:00Z,Aston Villa,Leeds
@@ -985,15 +971,6 @@ CHAMP,2027-01-01 15:00:00Z,West Bromwich Albion,Stoke City
 CHAMP,2027-01-01 15:00:00Z,Wrexham,Bolton Wanderers
 CHAMP,2027-01-01 17:30:00Z,Burnley,Sheffield United
 PL,2027-01-01 20:00:00Z,Leeds,Everton
-L1,2027-01-01 23:00:00Z,AS Monaco,OGC Nice
-L1,2027-01-01 23:00:00Z,Estac Troyes,Stade Rennais FC
-L1,2027-01-01 23:00:00Z,FC Lorient,AJ Auxerre
-L1,2027-01-01 23:00:00Z,LOSC Lille,RC Strasbourg Alsace
-L1,2027-01-01 23:00:00Z,Le Mans FC,Olympique Lyonnais
-L1,2027-01-01 23:00:00Z,Paris FC,Havre Athletic Club
-L1,2027-01-01 23:00:00Z,RC Lens,Paris Saint-Germain
-L1,2027-01-01 23:00:00Z,Stade Brestois 29,Olympique de Marseille
-L1,2027-01-01 23:00:00Z,Toulouse FC,Angers SCO
 L2,2027-01-01 23:00:00Z,Clermont Foot 63,Pau FC
 L2,2027-01-01 23:00:00Z,Dijon FCO,FC Nantes
 L2,2027-01-01 23:00:00Z,FC Annecy,AS Saint-Étienne
@@ -1016,9 +993,15 @@ PL,2027-01-02 15:00:00Z,Sunderland,Hull
 SCO,2027-01-02 15:00:00Z,Falkirk,Hibernian
 SCO,2027-01-02 15:00:00Z,Heart of Midlothian,Kilmarnock
 SCO,2027-01-02 15:00:00Z,Motherwell,St. Johnstone
+L1,2027-01-02 16:00:00Z,Stade Brestois 29,Olympique de Marseille
 SA,2027-01-02 17:00:00Z,Roma,Frosinone
 PL,2027-01-02 17:30:00Z,Bournemouth,Aston Villa
 SA,2027-01-02 19:45:00Z,Monza,Milan
+L1,2027-01-02 20:00:00Z,AS Monaco,OGC Nice
+L1,2027-01-02 20:00:00Z,Estac Troyes,Stade Rennais FC
+L1,2027-01-02 20:00:00Z,FC Lorient,AJ Auxerre
+L1,2027-01-02 20:00:00Z,Paris FC,Havre Athletic Club
+L1,2027-01-02 20:00:00Z,Toulouse FC,Angers SCO
 LIGA,2027-01-03 00:00:00Z,Celta,RC Deportivo
 LIGA,2027-01-03 00:00:00Z,Levante UD,Valencia CF
 LIGA,2027-01-03 00:00:00Z,Málaga CF,Elche CF
@@ -1031,12 +1014,15 @@ LIGA,2027-01-03 00:00:00Z,Real Sociedad,CA Osasuna
 LIGA,2027-01-03 00:00:00Z,Villarreal CF,Sevilla FC
 SA,2027-01-03 11:30:00Z,Internazionale,Sassuolo
 SCO,2027-01-03 12:00:00Z,Rangers,Celtic
+L1,2027-01-03 14:00:00Z,Le Mans FC,Olympique Lyonnais
 PL,2027-01-03 14:00:00Z,Chelsea,Newcastle
 SA,2027-01-03 14:00:00Z,Como,Lecce
 SA,2027-01-03 14:00:00Z,Udinese,Atalanta
 SCO,2027-01-03 14:30:00Z,St. Mirren,Aberdeen
+L1,2027-01-03 16:15:00Z,LOSC Lille,RC Strasbourg Alsace
 PL,2027-01-03 16:30:00Z,Man City,Spurs
 SA,2027-01-03 17:00:00Z,Parma,Napoli
+L1,2027-01-03 19:45:00Z,RC Lens,Paris Saint-Germain
 SA,2027-01-03 19:45:00Z,Bologna,Juventus
 SA,2027-01-05 17:30:00Z,Genoa,Monza
 SA,2027-01-05 17:30:00Z,Venezia,Roma
@@ -1139,15 +1125,7 @@ BL,2027-01-15 00:00:00Z,SV Werder Bremen,SV Elversberg
 BL,2027-01-15 00:00:00Z,TSG Hoffenheim,RB Leipzig
 BL,2027-01-15 00:00:00Z,VfB Stuttgart,1. FSV Mainz 05
 NED,2027-01-15 19:00:00Z,sc Heerenveen,Sparta Rotterdam
-L1,2027-01-15 23:00:00Z,AJ Auxerre,Estac Troyes
-L1,2027-01-15 23:00:00Z,AS Monaco,Stade Brestois 29
-L1,2027-01-15 23:00:00Z,Angers SCO,Paris Saint-Germain
-L1,2027-01-15 23:00:00Z,OGC Nice,Havre Athletic Club
-L1,2027-01-15 23:00:00Z,Olympique Lyonnais,FC Lorient
-L1,2027-01-15 23:00:00Z,Olympique de Marseille,LOSC Lille
-L1,2027-01-15 23:00:00Z,Paris FC,Toulouse FC
-L1,2027-01-15 23:00:00Z,RC Strasbourg Alsace,Le Mans FC
-L1,2027-01-15 23:00:00Z,Stade Rennais FC,RC Lens
+L1,2027-01-15 19:45:00Z,Olympique de Marseille,LOSC Lille
 SA,2027-01-16 00:00:00Z,Atalanta,Roma
 SA,2027-01-16 00:00:00Z,Cagliari,Como
 SA,2027-01-16 00:00:00Z,Juventus,Genoa
@@ -1181,8 +1159,13 @@ PL,2027-01-16 15:00:00Z,Man City,Nott'm Forest
 PL,2027-01-16 15:00:00Z,Newcastle,Fulham
 PL,2027-01-16 15:00:00Z,Spurs,Leeds
 NED,2027-01-16 15:30:00Z,Telstar,N.E.C. Nijmegen
+L1,2027-01-16 16:15:00Z,Angers SCO,Paris Saint-Germain
 NED,2027-01-16 17:45:00Z,Excelsior Rotterdam,Feyenoord
 NED,2027-01-16 19:00:00Z,ADO Den Haag,PEC Zwolle
+L1,2027-01-16 19:45:00Z,AJ Auxerre,Estac Troyes
+L1,2027-01-16 19:45:00Z,OGC Nice,Havre Athletic Club
+L1,2027-01-16 19:45:00Z,RC Strasbourg Alsace,Le Mans FC
+L1,2027-01-16 19:45:00Z,Stade Rennais FC,RC Lens
 NED,2027-01-16 20:00:00Z,Fortuna Sittard,PSV
 TUR,2027-01-16 21:00:00Z,Alanyaspor,Istanbul Basaksehir
 TUR,2027-01-16 21:00:00Z,Erzurumspor,Trabzonspor
@@ -1215,7 +1198,10 @@ POR,2027-01-17 00:00:00Z,Sporting CP,Estrela Amadora
 NED,2027-01-17 11:15:00Z,FC Utrecht,FC Twente
 NED,2027-01-17 13:30:00Z,Ajax,FC Groningen
 NED,2027-01-17 13:30:00Z,Go Ahead Eagles,AZ
+L1,2027-01-17 14:00:00Z,Paris FC,Toulouse FC
 NED,2027-01-17 15:45:00Z,SC Cambuur,Willem II
+L1,2027-01-17 16:15:00Z,AS Monaco,Stade Brestois 29
+L1,2027-01-17 19:45:00Z,Olympique Lyonnais,FC Lorient
 L2,2027-01-21 23:00:00Z,Clermont Foot 63,AS Saint-Étienne
 L2,2027-01-21 23:00:00Z,EN Avant Guingamp,AS Nancy Lorraine
 L2,2027-01-21 23:00:00Z,FC Metz,Dijon FCO
@@ -1235,15 +1221,7 @@ BL,2027-01-22 00:00:00Z,SV Werder Bremen,Sport-Club Freiburg
 BL,2027-01-22 00:00:00Z,TSG Hoffenheim,1. FC Köln
 BL,2027-01-22 00:00:00Z,VfB Stuttgart,FC Bayern München
 NED,2027-01-22 19:00:00Z,Excelsior Rotterdam,Fortuna Sittard
-L1,2027-01-22 23:00:00Z,Estac Troyes,AS Monaco
-L1,2027-01-22 23:00:00Z,FC Lorient,Olympique de Marseille
-L1,2027-01-22 23:00:00Z,Havre Athletic Club,Stade Rennais FC
-L1,2027-01-22 23:00:00Z,LOSC Lille,Paris FC
-L1,2027-01-22 23:00:00Z,Le Mans FC,Angers SCO
-L1,2027-01-22 23:00:00Z,Paris Saint-Germain,AJ Auxerre
-L1,2027-01-22 23:00:00Z,RC Lens,Stade Brestois 29
-L1,2027-01-22 23:00:00Z,RC Strasbourg Alsace,Olympique Lyonnais
-L1,2027-01-22 23:00:00Z,Toulouse FC,OGC Nice
+L1,2027-01-22 19:45:00Z,Estac Troyes,AS Monaco
 SA,2027-01-23 00:00:00Z,Bologna,Atalanta
 SA,2027-01-23 00:00:00Z,Como,Napoli
 SA,2027-01-23 00:00:00Z,Fiorentina,Sassuolo
@@ -1282,8 +1260,13 @@ SCO,2027-01-23 15:00:00Z,Hibernian,Kilmarnock
 SCO,2027-01-23 15:00:00Z,Motherwell,Dundee United
 SCO,2027-01-23 15:00:00Z,Rangers,St. Johnstone
 NED,2027-01-23 15:30:00Z,Ajax,Telstar
+L1,2027-01-23 16:15:00Z,LOSC Lille,Paris FC
 NED,2027-01-23 17:45:00Z,Feyenoord,PEC Zwolle
 NED,2027-01-23 19:00:00Z,FC Twente,sc Heerenveen
+L1,2027-01-23 19:45:00Z,Le Mans FC,Angers SCO
+L1,2027-01-23 19:45:00Z,Paris Saint-Germain,AJ Auxerre
+L1,2027-01-23 19:45:00Z,RC Lens,Stade Brestois 29
+L1,2027-01-23 19:45:00Z,Toulouse FC,OGC Nice
 NED,2027-01-23 20:00:00Z,PSV,ADO Den Haag
 TUR,2027-01-23 21:00:00Z,Alanyaspor,Gaziantep
 TUR,2027-01-23 21:00:00Z,Erzurumspor,Amedspor
@@ -1316,8 +1299,11 @@ POR,2027-01-24 00:00:00Z,Vitória SC,Sporting CP
 NED,2027-01-24 11:15:00Z,Go Ahead Eagles,SC Cambuur
 NED,2027-01-24 13:30:00Z,N.E.C. Nijmegen,Willem II
 NED,2027-01-24 13:30:00Z,Sparta Rotterdam,FC Groningen
+L1,2027-01-24 14:00:00Z,Havre Athletic Club,Stade Rennais FC
 SCO,2027-01-24 15:00:00Z,St. Mirren,Celtic
 NED,2027-01-24 15:45:00Z,AZ,FC Utrecht
+L1,2027-01-24 16:15:00Z,FC Lorient,Olympique de Marseille
+L1,2027-01-24 19:45:00Z,RC Strasbourg Alsace,Olympique Lyonnais
 CHAMP,2027-01-26 19:45:00Z,Bolton Wanderers,Charlton Athletic
 CHAMP,2027-01-26 19:45:00Z,Burnley,Queens Park Rangers
 CHAMP,2027-01-26 19:45:00Z,Lincoln City,Watford
@@ -1349,15 +1335,7 @@ BL,2027-01-29 00:00:00Z,RB Leipzig,SV Werder Bremen
 BL,2027-01-29 00:00:00Z,SV Elversberg,Borussia Mönchengladbach
 BL,2027-01-29 00:00:00Z,Sport-Club Freiburg,SC Paderborn 07
 NED,2027-01-29 19:00:00Z,FC Utrecht,Excelsior Rotterdam
-L1,2027-01-29 23:00:00Z,AS Monaco,Paris Saint-Germain
-L1,2027-01-29 23:00:00Z,Angers SCO,Havre Athletic Club
-L1,2027-01-29 23:00:00Z,Le Mans FC,OGC Nice
-L1,2027-01-29 23:00:00Z,Olympique Lyonnais,LOSC Lille
-L1,2027-01-29 23:00:00Z,Olympique de Marseille,Estac Troyes
-L1,2027-01-29 23:00:00Z,Paris FC,AJ Auxerre
-L1,2027-01-29 23:00:00Z,Stade Brestois 29,RC Strasbourg Alsace
-L1,2027-01-29 23:00:00Z,Stade Rennais FC,FC Lorient
-L1,2027-01-29 23:00:00Z,Toulouse FC,RC Lens
+L1,2027-01-29 19:45:00Z,Stade Brestois 29,RC Strasbourg Alsace
 SA,2027-01-30 00:00:00Z,Atalanta,Fiorentina
 SA,2027-01-30 00:00:00Z,Cagliari,Parma
 SA,2027-01-30 00:00:00Z,Genoa,Lecce
@@ -1396,8 +1374,13 @@ SCO,2027-01-30 15:00:00Z,Heart of Midlothian,St. Mirren
 SCO,2027-01-30 15:00:00Z,Kilmarnock,Motherwell
 SCO,2027-01-30 15:00:00Z,St. Johnstone,Dundee United
 NED,2027-01-30 15:30:00Z,Sparta Rotterdam,Telstar
+L1,2027-01-30 16:15:00Z,AS Monaco,Paris Saint-Germain
 NED,2027-01-30 17:45:00Z,ADO Den Haag,Go Ahead Eagles
 NED,2027-01-30 19:00:00Z,Willem II,PSV
+L1,2027-01-30 19:45:00Z,Angers SCO,Havre Athletic Club
+L1,2027-01-30 19:45:00Z,Le Mans FC,OGC Nice
+L1,2027-01-30 19:45:00Z,Paris FC,AJ Auxerre
+L1,2027-01-30 19:45:00Z,Toulouse FC,RC Lens
 NED,2027-01-30 20:00:00Z,PEC Zwolle,Fortuna Sittard
 TUR,2027-01-30 21:00:00Z,Amedspor,Kocaelispor
 TUR,2027-01-30 21:00:00Z,Besiktas,Alanyaspor
@@ -1430,8 +1413,11 @@ POR,2027-01-31 00:00:00Z,SL Benfica,Moreirense FC
 NED,2027-01-31 11:15:00Z,sc Heerenveen,Ajax
 NED,2027-01-31 13:30:00Z,AZ,Feyenoord
 NED,2027-01-31 13:30:00Z,FC Twente,SC Cambuur
+L1,2027-01-31 14:00:00Z,Stade Rennais FC,FC Lorient
 SCO,2027-01-31 15:00:00Z,Celtic,Falkirk
 NED,2027-01-31 15:45:00Z,FC Groningen,N.E.C. Nijmegen
+L1,2027-01-31 16:15:00Z,Olympique de Marseille,Estac Troyes
+L1,2027-01-31 19:45:00Z,Olympique Lyonnais,LOSC Lille
 SCO,2027-02-03 19:45:00Z,Aberdeen,Falkirk
 SCO,2027-02-03 19:45:00Z,Dundee United,Hibernian
 SCO,2027-02-03 19:45:00Z,Heart of Midlothian,Dundee
