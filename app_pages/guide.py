@@ -49,7 +49,10 @@ with st.container(border=True):
         "« Corners Arsenal : plus de 4,5 »…), dans le détail du pronostic, les listes d'événements, Cotes Betclic, "
         "Live (saisis les corners déjà obtenus) et Mes paris. Vérifié sur 5 822 matchs de 2025-26 : les chances "
         "annoncées correspondent à ce qui arrive. Pas de corners pour les clubs des championnats sans données "
-        "(Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS).")
+        "(Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS).\n\n"
+        "**Tirs, tirs cadrés, fautes et « plus grand nombre »** (qui aura le plus de corners, de tirs…) : même "
+        "méthode que les corners, vérifiée sur 2025-26, pour les 15 championnats qui publient ces statistiques. "
+        "Les corners de la 1re mi-temps ne sont pas disponibles (aucune source gratuite).")
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
 
 with st.container(border=True):

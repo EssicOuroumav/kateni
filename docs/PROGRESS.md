@@ -127,6 +127,14 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Calendrier de ces championnats : seulement les matchs publiés par football-data quelques jours avant (pas de calendrier de saison gratuit).
 - Correctif : `maj_calendrier` gardait un calendrier incomplet quand une des deux sources ne répondait pas ; il conserve maintenant les matchs précédents de la source muette (essai avec panne simulée).
 
+## Forme récente et confrontations directes (25/10/2026) — NON ADOPTÉES
+- Demande du propriétaire après Man United – Bournemouth (0-3). `scripts/mesure_forme.py` : sur le pronostic de l'app (25 % modèle + 75 % marché), correction par la forme (écart au modèle sur les 6 derniers matchs) ou par les confrontations directes (4 dernières, 4 ans), réglée sur 2024-25, testée sur 6 189 matchs : log loss 0,9948 contre 0,9947, bons pronostics identiques (51,1 %). Coefficients réglés presque nuls (+0,006 et +0,030) : le marché intègre déjà ces informations. `docs/mesures/2026-10-25_forme_face_a_face.txt`.
+
+## Tirs, tirs cadrés, fautes, « plus grand nombre » (25/10/2026)
+- Colonnes HS/AS, HST/AST, HF/AF conservées (15 championnats). `kateni/statistiques.py` (même méthode que les corners). Mesure `docs/mesures/2026-10-25_stats.txt` (test 2025-26, 6 200 matchs) : meilleur que la moyenne du championnat pour chaque statistique ; « plus grand nombre » bien calibré (bons pronostics : tirs 66 %, tirs cadrés 60 %, corners 58 %, fautes 57 %).
+- Affichés dans le détail, les listes d'événements, Cotes Betclic (onglet « Tirs et fautes », « plus grand nombre de corners »), Mes paris ; réglés automatiquement.
+- Corners de la 1re mi-temps : pas de source gratuite, non fait.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

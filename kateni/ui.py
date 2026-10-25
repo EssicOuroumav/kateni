@@ -40,6 +40,33 @@ def modele_corners(_sig: tuple):
     return ajuster_corners(donnees(_sig))
 
 
+@st.cache_resource(max_entries=8, show_spinner=False)
+def modele_stat(_sig: tuple, nom: str):
+    from kateni.statistiques import ajuster_stat
+    return ajuster_stat(donnees(_sig), nom)
+
+
+def stats_attendues(match: dict) -> dict:
+    """{« Tirs » : (dom, ext), « Tirs cadrés » : …, « Fautes » : …} pour les clubs dont la statistique
+    est connue (mêmes championnats que les corners) ; terrain neutre : moyenne des deux sens."""
+    from kateni.statistiques import RAPPEL_MIN, STATS
+    dom, ext, comp = match["dom"], match["ext"], match["competition"]
+    neutre = match.get("neutre")
+    if neutre is None:
+        neutre = terrain_neutre(comp, match.get("date") or pd.Timestamp.today())
+    out = {}
+    for nom in STATS:
+        m = modele_stat(signature_donnees(), nom)
+        if min(m.n_matchs.get(dom, 0.0), m.n_matchs.get(ext, 0.0)) < RAPPEL_MIN:
+            continue
+        a, b = m.lambdas(dom, ext, comp)
+        if neutre:
+            b2, a2 = m.lambdas(ext, dom, comp)
+            a, b = float(np.sqrt(a * a2)), float(np.sqrt(b * b2))
+        out[nom] = (a, b)
+    return out
+
+
 def corners_attendus(match: dict) -> tuple[float, float] | None:
     """Corners attendus (dom, ext) ; None si l'un des clubs n'a pas d'historique de corners
     (championnats sans corners : Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS)."""
@@ -313,6 +340,16 @@ def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
             return f"{equipe} marque encore" if sel == "Oui" else f"{equipe} ne marque plus"
         if marche == f"{prefixe} marque":
             return f"{equipe} marque" if sel == "Oui" else f"{equipe} ne marque pas"
+    for stat in ("Corners", "Tirs cadrés", "Tirs", "Fautes"):
+        if marche == f"{stat} plus grand nombre":
+            return {"1": f"Plus de {stat.lower()} : {dom}", "N": f"Plus de {stat.lower()} : égalité",
+                    "2": f"Plus de {stat.lower()} : {ext}"}[sel]
+        if stat != "Corners" and marche.startswith(stat + " "):
+            reste = marche[len(stat) + 1:].split()
+            if reste[0] in ("total", "Dom.", "Ext."):
+                ligne = reste[-1].replace(".", ",")
+                qui = {"total": "", "Dom.": f" {dom}", "Ext.": f" {ext}"}[reste[0]]
+                return f"{stat}{qui} : {'plus' if sel == 'Plus' else 'moins'} de {ligne}"
     if marche.startswith("Corners "):
         mots = marche.split()
         ligne = mots[-1].replace(".", ",")

@@ -8,7 +8,8 @@ from kateni.cotes import sans_marge
 from kateni.marches import calibrer, marches, matrice_scores, scores_probables
 from kateni.modele import terrain_neutre
 from kateni.corners import SEUILS_EQUIPE, SEUILS_TOTAL, marches_corners
-from kateni.ui import corners_attendus, fr, predire
+from kateni.statistiques import STATS, marches_stat, plus_grand_nombre
+from kateni.ui import corners_attendus, fr, predire, stats_attendues
 
 JOURS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
 JOURS_LONGS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
@@ -68,8 +69,12 @@ def _pronostic(competition: str, dom: str, ext: str, neutre: bool, c: tuple, _si
         bookmaker += f", relevées le {t:%d/%m} à {t:%H:%M}"
     corners = corners_attendus(match)
     if corners:
-        p = {**p, **marches_corners(*corners)}
-    return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "neutre": neutre, "corners": corners, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
+        from kateni.corners import TAILLE_EQUIPE
+        p = {**p, **marches_corners(*corners), "Corners plus grand nombre": plus_grand_nombre(*corners, TAILLE_EQUIPE)}
+    stats = stats_attendues(match)
+    for nom, (a, b) in stats.items():
+        p = {**p, **marches_stat(nom, a, b)}
+    return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "neutre": neutre, "corners": corners, "stats": stats, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
             "marche_1n2": marche_1n2, "cotes_1n2": (c1, cn, c2), "p1n2": p1n2, "plus25": plus25}
 
 
@@ -79,7 +84,12 @@ EVENEMENTS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
               ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
               ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non"),
               *[(f"Corners total {x}", c) for x in SEUILS_TOTAL for c in ("Plus", "Moins")],
-              *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in SEUILS_EQUIPE for c in ("Plus", "Moins")]]
+              *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in SEUILS_EQUIPE for c in ("Plus", "Moins")],
+              *[("Corners plus grand nombre", c) for c in ("1", "N", "2")],
+              *[(f"{n} plus grand nombre", c) for n in STATS for c in ("1", "N", "2")],
+              *[(f"{n} total {x}", c) for n, v in STATS.items() for x in v[5] for c in ("Plus", "Moins")],
+              *[(f"{n} {e} {x}", c) for n, v in STATS.items() for e in ("Dom.", "Ext.") for x in v[6]
+                for c in ("Plus", "Moins")]]
 
 
 def chance_evenement(r: dict, marche: str, sel: str) -> float | None:
@@ -173,6 +183,9 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                    f"(total {fr(sum(r['corners']))}) · plus de 8,5 {p['Corners total 8.5']['Plus']:.0%} · plus de 9,5 "
                    f"{p['Corners total 9.5']['Plus']:.0%} · plus de 10,5 {p['Corners total 10.5']['Plus']:.0%}\n"
                    if r["corners"] else "- **Corners** : pas d'historique de corners pour l'un des deux clubs\n")
+                + "".join(f"- **{n} attendus** : {dom} {fr(a)} – {fr(b)} {ext} (total {fr(a + b)}) · plus de {n.lower()} : "
+                          f"{dom} {p[n + ' plus grand nombre']['1']:.0%}, {ext} {p[n + ' plus grand nombre']['2']:.0%}\n"
+                          for n, (a, b) in r["stats"].items())
                 + "- **Scores les plus probables** : "
                 + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 5)))
             st.markdown("**Événements, du plus probable au moins probable**")

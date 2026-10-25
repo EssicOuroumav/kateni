@@ -1,0 +1,55 @@
+===== Tirs : réglage 5102 matchs, test 6200 matchs
+  rappel  10.0 : erreur 41.15
+  rappel  30.0 : erreur 41.19
+  rappel 100.0 : erreur 42.00
+  -> rappel 10.0, taille équipe 19.1, taille total 74.8
+  Test, log loss par équipe : modèle 2.9220 · naïf 3.0299
+  Test, écart moyen total : modèle 4.62 · naïf 4.72
+  Plus grand nombre — log loss : modèle 0.7434 · naïf 0.8282 · bons pronostics 66.0%
+    chance moyenne annoncée dom/égalité/ext : [0.602 0.051 0.347] · réel : [0.59596774 0.04854839 0.35548387]
+    domicile annoncé 0%-40% : 26.5% annoncé, 29.7% réel (1089 matchs)
+    domicile annoncé 40%-55% : 48.3% annoncé, 48.9% réel (1261 matchs)
+    domicile annoncé 55%-70% : 62.6% annoncé, 60.5% réel (1646 matchs)
+    domicile annoncé 70%-100% : 81.7% annoncé, 79.9% réel (2204 matchs)
+  (96 s)
+
+===== Tirs cadrés : réglage 5102 matchs, test 6200 matchs
+  rappel  10.0 : erreur 10.29
+  rappel  30.0 : erreur 10.38
+  rappel 100.0 : erreur 10.76
+  -> rappel 10.0, taille équipe 25.9, taille total 51.3
+  Test, log loss par équipe : modèle 2.1801 · naïf 2.2507
+  Test, écart moyen total : modèle 2.47 · naïf 2.51
+  Plus grand nombre — log loss : modèle 0.8710 · naïf 0.9473 · bons pronostics 60.2%
+    chance moyenne annoncée dom/égalité/ext : [0.534 0.116 0.351] · réel : [0.53758065 0.1116129  0.35080645]
+    domicile annoncé 0%-40% : 28.6% annoncé, 28.1% réel (1213 matchs)
+    domicile annoncé 40%-55% : 48.0% annoncé, 47.8% réel (2070 matchs)
+    domicile annoncé 55%-70% : 61.7% annoncé, 62.1% réel (1971 matchs)
+    domicile annoncé 70%-100% : 79.5% annoncé, 82.2% réel (946 matchs)
+  (176 s)
+
+===== Fautes : réglage 5102 matchs, test 6200 matchs
+  rappel  10.0 : erreur 27.56
+  rappel  30.0 : erreur 27.37
+  rappel 100.0 : erreur 27.40
+  -> rappel 30.0, taille équipe 89.3, taille total 100.5
+  Test, log loss par équipe : modèle 2.6968 · naïf 2.7535
+  Test, écart moyen total : modèle 4.23 · naïf 4.46
+  Plus grand nombre — log loss : modèle 0.8651 · naïf 0.9104 · bons pronostics 57.1%
+    chance moyenne annoncée dom/égalité/ext : [0.437 0.072 0.491] · réel : [0.43032258 0.07741935 0.49225806]
+    domicile annoncé 0%-40% : 31.0% annoncé, 29.4% réel (2548 matchs)
+    domicile annoncé 40%-55% : 47.0% annoncé, 46.1% réel (2391 matchs)
+    domicile annoncé 55%-70% : 60.9% annoncé, 62.9% réel (1064 matchs)
+    domicile annoncé 70%-100% : 76.2% annoncé, 74.6% réel (197 matchs)
+  (258 s)
+
+===== Corners : réglage 5102 matchs, test 6201 matchs
+  Test, log loss par équipe : modèle 2.3343 · naïf 2.3802
+  Plus grand nombre — log loss : modèle 0.8840 · naïf 0.9293 · bons pronostics 57.7%
+    chance moyenne annoncée dom/égalité/ext : [0.544 0.103 0.352] · réel : [0.5386228  0.09562974 0.36574746]
+    domicile annoncé 0%-40% : 31.2% annoncé, 29.4% réel (834 matchs)
+    domicile annoncé 40%-55% : 48.6% annoncé, 49.1% réel (2284 matchs)
+    domicile annoncé 55%-70% : 61.5% annoncé, 60.3% réel (2371 matchs)
+    domicile annoncé 70%-100% : 76.8% annoncé, 76.4% réel (712 matchs)
+  (312 s)
+

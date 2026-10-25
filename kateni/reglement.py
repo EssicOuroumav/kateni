@@ -7,7 +7,8 @@ from kateni.marches import regler
 
 
 def resultat(df_matchs: pd.DataFrame, date_match: str, dom: str, ext: str) -> tuple | None:
-    """(buts dom, buts ext, corners dom, corners ext) ; corners None s'ils ne sont pas publiés."""
+    """(buts dom, buts ext, corners dom, corners ext, statistiques) ; corners None s'ils ne sont pas publiés,
+    statistiques = {« Tirs » : (dom, ext), « Tirs cadrés » : …, « Fautes » : …} pour celles qui sont publiées."""
     d = pd.to_datetime(date_match)
     m = df_matchs[(df_matchs["HomeTeam"] == canon(dom)) & (df_matchs["AwayTeam"] == canon(ext))
                   & (df_matchs["Date"].between(d - pd.Timedelta(days=1), d + pd.Timedelta(days=1)))]
@@ -16,17 +17,31 @@ def resultat(df_matchs: pd.DataFrame, date_match: str, dom: str, ext: str) -> tu
     r = m.iloc[-1]
     hc, ac = pd.to_numeric(pd.Series([r.get("HC"), r.get("AC")]), errors="coerce")
     corners = (None, None) if pd.isna(hc) or pd.isna(ac) else (int(hc), int(ac))
-    return int(r.FTHG), int(r.FTAG), *corners
+    stats = {}
+    for nom, (cd, ce) in {"Tirs": ("HS", "AS"), "Tirs cadrés": ("HST", "AST"), "Fautes": ("HF", "AF")}.items():
+        a, b = pd.to_numeric(pd.Series([r.get(cd), r.get(ce)]), errors="coerce")
+        if not (pd.isna(a) or pd.isna(b)):
+            stats[nom] = (int(a), int(b))
+    return int(r.FTHG), int(r.FTAG), *corners, stats
 
 
 def gagne(pari: dict, buts_d: int, buts_e: int, corners_d: int | None = None,
-          corners_e: int | None = None) -> bool | None:
+          corners_e: int | None = None, stats: dict | None = None) -> bool | None:
     marche, sel = pari["marche"], pari["selection"]
-    if marche.startswith("Corners "):  # « Corners total 9.5 », « Corners Dom. 4.5 »…
-        if corners_d is None or corners_e is None:
-            return None  # corners pas encore publiés : réglé à la mise à jour suivante
-        _, qui, ligne = marche.split()
-        n = {"total": corners_d + corners_e, "Dom.": corners_d, "Ext.": corners_e}[qui]
+    comptes = dict(stats or {})
+    if corners_d is not None and corners_e is not None:
+        comptes["Corners"] = (corners_d, corners_e)
+    for nom in ("Corners", "Tirs cadrés", "Tirs", "Fautes"):  # « Tirs cadrés » avant « Tirs »
+        if not marche.startswith(nom + " "):
+            continue
+        reste = marche[len(nom) + 1:]
+        if nom not in comptes:
+            return None  # statistique pas encore publiée : réglé à la mise à jour suivante
+        d, e = comptes[nom]
+        if reste == "plus grand nombre":   # « Plus de corners : Arsenal / égalité / Chelsea »
+            return {"1": d > e, "N": d == e, "2": d < e}[sel]
+        qui, ligne = reste.split()
+        n = {"total": d + e, "Dom.": d, "Ext.": e}[qui]
         return (n > float(ligne)) == (sel == "Plus")
     if marche in ("Dom. marque encore", "Ext. marque encore"):
         avant = str(pari.get("score_au_pari") or "0-0").split("-")

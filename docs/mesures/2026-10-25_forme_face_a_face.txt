@@ -1,0 +1,11 @@
+Buts attendus calculés pour 27571 matchs (96 s)
+Variables calculées (321 s)
+
+Réglage : 5103 matchs (2024-25) · Test : 6189 matchs (2025-26 et début 2026-27)
+
+Version                                        log loss test  bons pronostics
+Actuelle (25 % modèle + 75 % marché)                  0.9947            51.1%
++ forme des 6 derniers matchs (b = +0.006)            0.9948            51.1%
++ confrontations directes (b = +0.030)                0.9948            51.1%
+
+Durée : 321 s

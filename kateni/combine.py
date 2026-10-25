@@ -25,7 +25,12 @@ CHOIX_PARIS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
                ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non"),
                *[(f"Corners total {x}", c) for x in ("7.5", "8.5", "9.5", "10.5", "11.5") for c in ("Plus", "Moins")],
                *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in ("3.5", "4.5", "5.5")
-                 for c in ("Plus", "Moins")]]
+                 for c in ("Plus", "Moins")],
+               *[(f"{n} plus grand nombre", c) for n in ("Corners", "Tirs", "Tirs cadrés", "Fautes")
+                 for c in ("1", "N", "2")],
+               *[(f"Tirs total {x}", c) for x in ("21.5", "23.5", "25.5") for c in ("Plus", "Moins")],
+               *[(f"Tirs cadrés total {x}", c) for x in ("6.5", "7.5", "8.5", "9.5") for c in ("Plus", "Moins")],
+               *[(f"Fautes total {x}", c) for x in ("19.5", "21.5", "23.5") for c in ("Plus", "Moins")]]
 
 
 def cle_match(s: dict) -> tuple:
@@ -37,8 +42,9 @@ def chance_meme_match(selections: list[dict], r: dict) -> float | None:
     from kateni.affichage import chance_evenement
     if len(selections) == 1:
         return chance_evenement(r, selections[0]["marche"], selections[0]["selection"])
-    buts = [s for s in selections if not s["marche"].startswith("Corners ")]
-    corners = [s for s in selections if s["marche"].startswith("Corners ")]
+    stat = ("Corners ", "Tirs ", "Fautes ")  # statistiques supposées indépendantes des buts
+    buts = [s for s in selections if not s["marche"].startswith(stat)]
+    corners = [s for s in selections if s["marche"].startswith(stat)]
     q = 1.0
     if buts:
         mat = r["mat"] / r["mat"].sum()

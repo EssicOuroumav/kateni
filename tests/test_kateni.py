@@ -332,3 +332,17 @@ def test_minute_estimee_depuis_le_coup_d_envoi():
     assert minute_estimee(50) == (45, "mi-temps")
     assert minute_estimee(80) == (63, "63e minute")
     assert minute_estimee(112)[0] == 90
+
+
+def test_statistiques_marches_et_reglement():
+    from kateni.statistiques import marches_stat, plus_grand_nombre
+    pg = plus_grand_nombre(16.0, 12.0, 19.0)
+    assert abs(sum(pg.values()) - 1) < 1e-9 and pg["1"] > pg["2"] > pg["N"]
+    p = marches_stat("Tirs", 16.0, 12.0)
+    assert p["Tirs total 23.5"]["Plus"] > p["Tirs total 29.5"]["Plus"]
+    stats = {"Tirs": (15, 9), "Tirs cadrés": (5, 2), "Fautes": (10, 13)}
+    assert gagne({"marche": "Tirs plus grand nombre", "selection": "1"}, 0, 0, None, None, stats) is True
+    assert gagne({"marche": "Tirs cadrés total 6.5", "selection": "Plus"}, 0, 0, None, None, stats) is True
+    assert gagne({"marche": "Fautes Ext. 12.5", "selection": "Moins"}, 0, 0, None, None, stats) is False
+    assert gagne({"marche": "Corners plus grand nombre", "selection": "N"}, 0, 0, 5, 5, stats) is True
+    assert gagne({"marche": "Tirs total 23.5", "selection": "Plus"}, 0, 0) is None
