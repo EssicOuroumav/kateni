@@ -346,3 +346,22 @@ def test_statistiques_marches_et_reglement():
     assert gagne({"marche": "Fautes Ext. 12.5", "selection": "Moins"}, 0, 0, None, None, stats) is False
     assert gagne({"marche": "Corners plus grand nombre", "selection": "N"}, 0, 0, 5, 5, stats) is True
     assert gagne({"marche": "Tirs total 23.5", "selection": "Plus"}, 0, 0) is None
+
+
+def test_scores_direct_et_statistiques_live():
+    from kateni.scores_direct import matchs_de, minute_de
+    from kateni.statistiques import marches_stat_live
+    assert minute_de({"type": {"name": "STATUS_HALFTIME"}}) == (45, "mi-temps")
+    assert minute_de({"type": {"name": "STATUS_IN_PROGRESS"}, "displayClock": "45'+2'"}) == (45, "45'+2'")
+    eq = lambda i, n, buts, st: {"homeAway": n, "score": buts, "team": {"id": i, "displayName": n},  # noqa: E731
+                                 "statistics": [{"name": k, "displayValue": v} for k, v in st.items()]}
+    donnees = {"events": [{"status": {"type": {"state": "in", "name": "STATUS_IN_PROGRESS"}, "displayClock": "17'"},
+                           "competitions": [{"competitors": [eq("1", "home", "1", {"wonCorners": "3", "totalShots": "5"}),
+                                                             eq("2", "away", "0", {"wonCorners": "1", "totalShots": "2"})],
+                                             "details": [{"redCard": True, "team": {"id": "2"}}]}]}]}
+    m = matchs_de("PL", donnees)[0]
+    assert (m["buts_d"], m["buts_e"], m["minute"], m["rouges_e"]) == (1, 0, 17, 1)
+    assert m["stats"] == {"Corners": (3, 1), "Tirs": (5, 2)}
+    p = marches_stat_live("Tirs", 12.0, 10.0, 5, 2, 0.8)
+    assert "Tirs Dom. 4.5" not in p and p["Tirs plus grand nombre"]["1"] > p["Tirs plus grand nombre"]["2"]
+    assert marches_stat_live("Tirs", 12.0, 10.0, 5, 2, 0.0) == {}

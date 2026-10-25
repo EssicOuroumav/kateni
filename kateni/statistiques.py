@@ -73,3 +73,34 @@ def marches_stat(nom: str, m_d: float, m_e: float) -> dict:
             q = _sup(moy, s, t_eq)
             out[f"{nom} {cote} {s}"] = {"Plus": q, "Moins": 1 - q}
     return out
+
+
+def marches_stat_live(nom: str, m_d: float, m_e: float, deja_d: int, deja_e: int, reste: float,
+                      t_eq: float | None = None, t_tot: float | None = None, seuils: tuple | None = None) -> dict:
+    """Marchés d'une statistique EN DIRECT : m_d/m_e attendus sur tout le match, deja_d/deja_e déjà
+    obtenus, reste = part du match encore à jouer. Les lignes déjà dépassées disparaissent ; « plus grand
+    nombre » tient compte de l'écart actuel. Corners : tailles et seuils passés en paramètres."""
+    if nom in STATS:
+        _, _, _, t_eq_, t_tot_, s_tot, s_eq = STATS[nom]
+        t_eq, t_tot, seuils = t_eq or t_eq_, t_tot or t_tot_, seuils or (s_tot, s_eq)
+    s_tot, s_eq = seuils
+    out = {}
+    if reste <= 0:
+        return out
+    a, b = _loi(m_d * reste, t_eq * reste), _loi(m_e * reste, t_eq * reste)
+    grille = np.outer(a, b)
+    i, j = np.indices(grille.shape)
+    p = np.array([grille[i + deja_d > j + deja_e].sum(), grille[i + deja_d == j + deja_e].sum(),
+                  grille[i + deja_d < j + deja_e].sum()])
+    p = p / p.sum()
+    out[f"{nom} plus grand nombre"] = {"1": float(p[0]), "N": float(p[1]), "2": float(p[2])}
+    for s in s_tot:
+        if deja_d + deja_e < s:
+            q = _sup((m_d + m_e) * reste, s - deja_d - deja_e, t_tot * reste)
+            out[f"{nom} total {s}"] = {"Plus": q, "Moins": 1 - q}
+    for cote, moy, deja in (("Dom.", m_d, deja_d), ("Ext.", m_e, deja_e)):
+        for s in s_eq:
+            if deja < s:
+                q = _sup(moy * reste, s - deja, t_eq * reste)
+                out[f"{nom} {cote} {s}"] = {"Plus": q, "Moins": 1 - q}
+    return out

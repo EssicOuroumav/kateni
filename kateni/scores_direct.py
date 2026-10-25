@@ -20,6 +20,21 @@ LIGUES = {"PL": "eng.1", "LIGA": "esp.1", "L1": "fra.1", "SA": "ita.1", "BL": "g
           "IRL": "irl.1", "CL": "uefa.champions", "EL": "uefa.europa", "ECL": "uefa.europa.conf"}
 
 
+# Statistiques du moment fournies par la source -> noms de Kateni
+STATS_SOURCE = {"Corners": "wonCorners", "Tirs": "totalShots", "Tirs cadrés": "shotsOnTarget",
+                "Fautes": "foulsCommitted"}
+
+
+def _stat(equipe: dict, nom: str) -> int | None:
+    for s in equipe.get("statistics", []):
+        if s.get("name") == nom:
+            try:
+                return int(float(s.get("displayValue")))
+            except (TypeError, ValueError):
+                return None
+    return None
+
+
 def _lire(ligue: str) -> dict:
     req = urllib.request.Request(API.format(ligue), headers={"User-Agent": "Kateni/2 (usage personnel)"})
     with urllib.request.urlopen(req, timeout=8) as r:
@@ -36,7 +51,7 @@ def minute_de(statut: dict) -> tuple[int, str]:
     if not m:
         return 0, horloge
     minute = int(m.group(1))
-    return min(minute, 120), (f"{minute}'+{m.group(2)}" if m.group(2) else f"{minute}'")
+    return min(minute, 120), (f"{minute}'+{m.group(2)}'" if m.group(2) else f"{minute}'")
 
 
 def matchs_de(code: str, donnees: dict) -> list[dict]:
@@ -55,6 +70,11 @@ def matchs_de(code: str, donnees: dict) -> list[dict]:
         for detail in c.get("details", []):
             if detail.get("redCard") and detail.get("team", {}).get("id") in ids:
                 rouges[ids[detail["team"]["id"]]] += 1
+        stats = {}
+        for nom, cle in STATS_SOURCE.items():
+            v = [_stat(equipes[c], cle) for c in ("home", "away")]
+            if None not in v:
+                stats[nom] = tuple(v)
         minute, texte = minute_de(statut)
         try:
             buts_d, buts_e = int(equipes["home"].get("score") or 0), int(equipes["away"].get("score") or 0)
@@ -63,7 +83,7 @@ def matchs_de(code: str, donnees: dict) -> list[dict]:
         out.append({"competition": code, "dom_source": equipes["home"]["team"].get("displayName", ""),
                     "ext_source": equipes["away"]["team"].get("displayName", ""),
                     "buts_d": buts_d, "buts_e": buts_e, "minute": minute, "minute_texte": texte,
-                    "rouges_d": rouges["d"], "rouges_e": rouges["e"]})
+                    "rouges_d": rouges["d"], "rouges_e": rouges["e"], "stats": stats})
     return out
 
 

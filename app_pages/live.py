@@ -5,7 +5,8 @@ import streamlit as st
 
 from kateni.affichage import COLONNES_EVENEMENTS, pronostic
 from kateni.config import COMPETITIONS, MIN_EDGE_PCT
-from kateni.corners import marches_corners
+from kateni.corners import SEUILS_EQUIPE, SEUILS_TOTAL, TAILLE_EQUIPE, TAILLE_TOTAL
+from kateni.statistiques import marches_stat_live
 from kateni.cotes import cote_minimale, lambdas_depuis_cotes
 from kateni.calendrier import ressemblance
 from kateni.donnees import equipes_de
@@ -13,6 +14,7 @@ from kateni.live import FIN_PROBABLE, EtatLive, fraction_restante, minute_estime
 from kateni.scores_direct import en_direct, rattacher
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, NOMS_COURTS, a_venir, avertir_si_peu_connu, bankroll,
                        choisir_match, choisir_mode, contexte, corners_attendus, enregistrer, fr, libelle,
+                       stats_attendues,
                        ligne_analyse, pct, predire, table_analyse)
 
 df, m = contexte()
@@ -95,6 +97,8 @@ def choisir_direct(d: dict) -> None:
     for k, v in (("bd", d["buts_d"]), ("be", d["buts_e"]), ("min", d["minute"]),
                  ("rd", d["rouges_d"]), ("re", d["rouges_e"])):
         st.session_state[f"lv_{k}_{cle_}"] = v
+    for nom, (a, b) in d.get("stats", {}).items():
+        st.session_state[f"lv_s_{nom}_d_{cle_}"], st.session_state[f"lv_s_{nom}_e_{cle_}"] = a, b
 
 
 def choisir(r) -> None:
@@ -121,7 +125,8 @@ def cartes_direct(direct: list[dict]) -> None:
                     f"{d['dom']} gagne **{p_['1N2']['1']:.0%}** · nul **{p_['1N2']['N']:.0%}** · "
                     f"{d['ext']} gagne **{p_['1N2']['2']:.0%}**  \n"
                     f"{d['dom']} marque encore {p_['Dom. marque encore']['Oui']:.0%} · "
-                    f"{d['ext']} marque encore {p_['Ext. marque encore']['Oui']:.0%}")
+                    f"{d['ext']} marque encore {p_['Ext. marque encore']['Oui']:.0%}"
+                    + ("  \n" + " · ".join(f"{n} {a}-{b}" for n, (a, b) in d["stats"].items()) if d.get("stats") else ""))
                 if st.button("Détail", key=f"lv_dir_{d['competition']}_{d['dom']}_{d['ext']}",
                              icon=":material/timer:", type="primary"):
                     choisir_direct(d)
@@ -236,26 +241,39 @@ with st.container(border=True):
         st.session_state[f"lv_min_{cle}"] = match.get("minute", 45)
     minute = c[2].number_input("Minute de jeu", min_value=0, max_value=120, step=1, key=f"lv_min_{cle}",
                                help="Estimée depuis l'heure du coup d'envoi ; corrige-la si besoin.")
-    with st.expander("Cartons rouges, temps additionnel, corners"):
+    with st.expander("Cartons rouges et temps additionnel"):
         c = st.columns(2)
         rd = c[0].number_input(f"Cartons rouges {dom}", min_value=0, max_value=4, value=0, key=f"lv_rd_{cle}")
         re_ = c[1].number_input(f"Cartons rouges {ext}", min_value=0, max_value=4, value=0, key=f"lv_re_{cle}")
         add = st.slider("Temps additionnel prévu en 2e mi-temps (minutes)", 0, 15, 5, key=f"lv_add_{cle}")
-        corners = corners_attendus(match)
-        if corners:
+
+# Statistiques : attendues avant le match (modèles corners, tirs, tirs cadrés, fautes) et chiffres du moment
+attendues = {}
+corners = corners_attendus(match)
+if corners:
+    attendues["Corners"] = corners
+attendues.update(stats_attendues(match))
+actuelles = {}
+if attendues:
+    with st.expander("Statistiques du match (corners, tirs, fautes)", expanded=bool(match.get("direct"))):
+        st.caption("Remplies toutes seules pour un match en direct ; corrige-les si besoin.")
+        for nom in attendues:
             c = st.columns(2)
-            kd = c[0].number_input(f"Corners {dom} déjà", min_value=0, max_value=30, value=0, key=f"lv_kd_{cle}")
-            ke = c[1].number_input(f"Corners {ext} déjà", min_value=0, max_value=30, value=0, key=f"lv_ke_{cle}")
-            st.caption(f"Avant le match, Kateni attendait {fr(corners[0])} corners pour {dom} et "
-                       f"{fr(corners[1])} pour {ext}.")
-        else:
-            st.caption("Corners : pas d'historique de corners pour l'un des deux clubs.")
+            actuelles[nom] = (
+                c[0].number_input(f"{nom} {dom}", min_value=0, max_value=60, value=0, key=f"lv_s_{nom}_d_{cle}"),
+                c[1].number_input(f"{nom} {ext}", min_value=0, max_value=60, value=0, key=f"lv_s_{nom}_e_{cle}"))
 
 etat = EtatLive(minute=minute, buts_d=bd, buts_e=be, rouges_d=rd, rouges_e=re_, additionnel_mt2=add)
 r = predire_live(lam[0], lam[1], etat)
 p = r["marches"]
-if corners:
-    p = {**p, **marches_corners(*corners, kd, ke, fraction_restante(minute, add))}
+reste = fraction_restante(minute, add)
+for nom, (m_d, m_e) in attendues.items():
+    deja_d, deja_e = actuelles[nom]
+    if nom == "Corners":
+        p = {**p, **marches_stat_live(nom, m_d, m_e, deja_d, deja_e, reste, TAILLE_EQUIPE, TAILLE_TOTAL,
+                                      (SEUILS_TOTAL, SEUILS_EQUIPE))}
+    else:
+        p = {**p, **marches_stat_live(nom, m_d, m_e, deja_d, deja_e, reste)}
 
 # ---------------------------------------------------------------- prévision
 st.subheader(f"Ce que prévoit Kateni : {dom} {bd}-{be} {ext}, {minute}e minute", anchor=False)
@@ -268,6 +286,12 @@ with st.container(border=True):
         st.metric(f"{dom} gagne", f"{p['1N2']['1']:.0%}")
         st.metric("Match nul", f"{p['1N2']['N']:.0%}")
         st.metric(f"{ext} gagne", f"{p['1N2']['2']:.0%}")
+    for nom, (m_d, m_e) in attendues.items():
+        deja_d, deja_e = actuelles[nom]
+        pg = p.get(f"{nom} plus grand nombre")
+        st.markdown(f"**{nom}** : {deja_d}-{deja_e} maintenant · attendus à la fin {fr(deja_d + m_d * reste)} – "
+                    f"{fr(deja_e + m_e * reste)}" + (f" · le plus de {nom.lower()} : {dom} {pg['1']:.0%}, "
+                                                    f"{ext} {pg['2']:.0%}" if pg else ""))
     st.caption("Scores finaux les plus probables : " + " · ".join(f"{s} ({q:.0%})" for s, q in r["scores"][:3])
                + f" · prochain but : {dom} {p['Prochain but']['Dom.']:.0%}, {ext} {p['Prochain but']['Ext.']:.0%}")
 

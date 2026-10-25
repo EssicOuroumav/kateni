@@ -140,6 +140,8 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Page Live : cartes « En direct » avec score et prédiction live, rafraîchies chaque minute (`st.fragment(run_every=60)`), « Détail » pré-remplit score, minute, rouges ; matchs commencés sans score : saisie à la main ; source muette : message et saisie à la main.
 - Piège : un bouton dans un fragment ne relance que le fragment ; `st.rerun()` explicite pour ouvrir l'analyse.
 
+- Live, suite (25/10) : statistiques du moment lues à la source (corners, tirs, tirs cadrés, fautes) ; `statistiques.marches_stat_live` (lignes restantes et « plus grand nombre » avec l'écart actuel, part du match restante = profil des buts) ; résumé et liste « Ce qui peut encore arriver » complets en direct.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
