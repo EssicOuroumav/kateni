@@ -137,8 +137,11 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
     jours = (pd.to_datetime(match["date"]) - pd.Timestamp.today().normalize()).days
     with st.container(border=True):
         quand = match.get("quand", "")
-        st.markdown(f"**{dom} – {ext}**" + (f"  ·  {quand}" if quand else ""))
-        st.markdown(f"Pronostic : **{favori}** ({chance:.0%})" + ("  ·  match serré" if chance < 0.45 else "")
+        st.markdown(f"**{dom} – {ext}**" + (f"  :gray-badge[:material/schedule: {quand}]" if quand else ""))
+        couleur, icone = (("green", "trending_up") if chance >= 0.55 else ("blue", "north_east") if chance >= 0.45
+                          else ("orange", "balance"))
+        st.markdown(f":{couleur}-badge[:material/{icone}: {favori} {chance:.0%}]"
+                    + ("  :orange-badge[match serré]" if chance < 0.45 else "")
                     + f"  ·  score le plus probable **{score}**")
         if not compact:
             st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"

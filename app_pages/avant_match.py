@@ -14,7 +14,7 @@ st.caption("Compare les pronostics de Kateni aux cotes Betclic d'un match, pour 
            "Première fois ? Ouvre le **Guide** (menu du haut).")
 
 # ---------------------------------------------------------------- 1. Match
-st.subheader("1. Choisis le match", anchor=False)
+st.subheader("1. Choisis le match", anchor=False, icon=":material/sports_soccer:")
 match = choisir_match(df, "am")
 dom, ext, comp = match["dom"], match["ext"], match["competition"]
 avertir_si_peu_connu(m, dom, ext)
@@ -30,7 +30,7 @@ for nom_stat, (a_, b_) in stats.items():
     p = {**p, **marches_stat(nom_stat, a_, b_)}
 
 # ---------------------------------------------------------------- 2. Chances
-st.subheader("2. Les chances selon le modèle", anchor=False)
+st.subheader("2. Les chances selon le modèle", anchor=False, icon=":material/insights:")
 with st.container(border=True):
     with st.container(horizontal=True):
         st.metric(f"Victoire {dom}", f"{p['1N2']['1']:.0%}")
@@ -41,7 +41,7 @@ with st.container(border=True):
                + (f" · corners attendus {fr(corners[0])} – {fr(corners[1])}" if corners else ""))
 
 # ---------------------------------------------------------------- 3. Cotes
-st.subheader("3. Compare avec Betclic", anchor=False)
+st.subheader("3. Compare avec Betclic", anchor=False, icon=":material/compare_arrows:")
 st.caption("Chaque ligne est **un choix sur Betclic**, et la case attend **sa cote** (un nombre comme 1,85). "
            "Kateni indique la **cote minimale** : si la cote Betclic du même choix est **égale ou supérieure**, "
            "saisis-la. Sinon, laisse la case vide : ce choix ne vaut pas le coup.")
@@ -80,7 +80,7 @@ for onglet, (groupe, items) in zip(st.tabs(list(GROUPES)), GROUPES.items()):
                     placeholder="vide = je ne joue pas", key=f"am_{cle_match}_{marche}_{sel}")
 
 # ---------------------------------------------------------------- 4. Verdict
-st.subheader("4. Le verdict", anchor=False)
+st.subheader("4. Le verdict", anchor=False, icon=":material/gavel:")
 saisis = {k: v for k, v in saisies.items() if v}
 if not saisis:
     st.info("Saisis au moins une cote Betclic à l'étape 3 pour obtenir un verdict.",

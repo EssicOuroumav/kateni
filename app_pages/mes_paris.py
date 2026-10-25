@@ -207,7 +207,7 @@ with st.container(horizontal=True):
 
 # ---------------------------------------------------------------- paris en attente
 attente = vue[vue["statut"] == "en attente"]
-st.subheader(f"En attente ({len(attente)})", anchor=False)
+st.subheader(f"En attente ({len(attente)})", anchor=False, icon=":material/hourglass_top:")
 if not len(attente):
     st.caption("Aucun pari en attente.")
 for p in attente.itertuples():
@@ -244,7 +244,7 @@ for p in attente.itertuples():
                 rafraichir(); st.rerun()
 
 # ---------------------------------------------------------------- historique
-st.subheader("Historique", anchor=False)
+st.subheader("Historique", anchor=False, icon=":material/history:")
 hist = vue[vue["statut"] != "en attente"].iloc[::-1]
 if not len(hist):
     st.caption("Aucun pari réglé pour l'instant.")

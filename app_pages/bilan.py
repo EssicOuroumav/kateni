@@ -11,7 +11,7 @@ regles = paris[paris["statut"].isin(["gagné", "perdu"])].copy()
 for mode in ("fictif", "réel"):
     d = regles[regles["mode"] == mode]
     with st.container(border=True):
-        st.subheader(f"Paris {mode}s", anchor=False)
+        st.subheader(f"Paris {mode}s", anchor=False, icon=":material/account_balance_wallet:")
         if not len(d):
             st.caption("Aucun pari réglé pour l'instant.")
             continue
@@ -37,7 +37,7 @@ for mode in ("fictif", "réel"):
         st.line_chart(d.reset_index(drop=True), y="Bankroll")
 
 with st.container(border=True):
-    st.subheader("Ce que dit le backtest", anchor=False)
+    st.subheader("Ce que dit le backtest", anchor=False, icon=":material/science:")
     st.markdown(
         f"""
 Mesuré le 21/10/2026 sur **5 252 matchs** de championnat (août 2025 → octobre 2026), chaque match

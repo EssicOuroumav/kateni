@@ -22,7 +22,12 @@ redColor = "#B80000"
 grayColor = "#5C5C5C"
 headingFont = "'Exo 2':https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,800;1,800&display=swap"
 headingFontWeights = [800, 700, 700, 600, 600, 600]
-baseRadius = "medium"
+font = "'Nunito Sans':https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
+metricValueFontWeight = 700
+baseRadius = "large"
+greenColor = "#1E7B45"
+orangeColor = "#C26A00"
+blueColor = "#1F5FA8"
 chartCategoricalColors = ["#B80000", "#1A1A1A", "#E53935", "#8C8C8C", "#7A0000", "#C9C9C9"]
 chartSequentialColors = ["#FFF1F1", "#FFD6D6", "#FFB3B3", "#FF8A8A", "#F25C5C", "#E03131", "#C81E1E", "#B80000", "#8F0000", "#600000"]
 

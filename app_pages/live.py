@@ -121,9 +121,10 @@ def cartes_direct(direct: list[dict]) -> None:
             rouges = "".join(f" · 🟥 {eq} {n}" for eq, n in ((d["dom"], d["rouges_d"]), (d["ext"], d["rouges_e"])) if n)
             with st.container(border=True, horizontal=True, vertical_alignment="center"):
                 st.markdown(
-                    f"**{d['dom']} {d['buts_d']}-{d['buts_e']} {d['ext']}** · {d['minute_texte']}{rouges}  \n"
-                    f"{d['dom']} gagne **{p_['1N2']['1']:.0%}** · nul **{p_['1N2']['N']:.0%}** · "
-                    f"{d['ext']} gagne **{p_['1N2']['2']:.0%}**  \n"
+                    f":red-badge[:material/radio_button_checked: {d['minute_texte']}]  "
+                    f"**{d['dom']} {d['buts_d']}-{d['buts_e']} {d['ext']}**{rouges}  \n"
+                    f":blue-badge[{d['dom']} {p_['1N2']['1']:.0%}] :gray-badge[nul {p_['1N2']['N']:.0%}] "
+                    f":blue-badge[{d['ext']} {p_['1N2']['2']:.0%}]  \n"
                     f"{d['dom']} marque encore {p_['Dom. marque encore']['Oui']:.0%} · "
                     f"{d['ext']} marque encore {p_['Ext. marque encore']['Oui']:.0%}"
                     + ("  \n" + " · ".join(f"{n} {a}-{b}" for n, (a, b) in d["stats"].items()) if d.get("stats") else ""))
@@ -157,7 +158,7 @@ def liste_des_matchs() -> None:
                    icon=":material/wifi_off:")
         direct = []
     if direct:
-        st.subheader(f"En direct ({len(direct)})", anchor=False)
+        st.subheader(f"En direct ({len(direct)})", anchor=False, icon=":material/sensors:")
         st.caption(f"Scores et prédictions mis à jour toutes les minutes · dernière mise à jour "
                    f"{datetime.now(timezone.utc):%H:%M}")
         cartes_direct(direct)
@@ -165,7 +166,7 @@ def liste_des_matchs() -> None:
     autres = en_cours[[(c, a, b) not in vus for c, a, b in zip(en_cours["competition"], en_cours["dom"],
                                                                 en_cours["ext"])]] if len(en_cours) else en_cours
     if len(autres):
-        st.subheader(f"Autres matchs commencés ({len(autres)})", anchor=False)
+        st.subheader(f"Autres matchs commencés ({len(autres)})", anchor=False, icon=":material/edit_note:")
         st.caption("Sans score en direct (ou peut-être déjà terminés) : touche « Analyser » et saisis le score.")
         cartes(autres, True)
     if not direct and not len(autres):
@@ -234,7 +235,7 @@ st.caption(f"Buts attendus sur tout le match : {dom} {fr(lam[0])} – {fr(lam[1]
 # ---------------------------------------------------------------- situation du match
 for k in ("bd", "be", "rd", "re"):
     st.session_state.setdefault(f"lv_{k}_{cle}", 0)
-st.subheader("Le score maintenant", anchor=False)
+st.subheader("Le score maintenant", anchor=False, icon=":material/scoreboard:")
 with st.container(border=True):
     c = st.columns(3)
     bd = c[0].number_input(f"Buts {dom}", min_value=0, max_value=15, key=f"lv_bd_{cle}")
@@ -280,7 +281,7 @@ for nom, (m_d, m_e) in attendues.items():
         p = {**p, **marches_stat_live(nom, m_d, m_e, deja_d, deja_e, reste)}
 
 # ---------------------------------------------------------------- prévision
-st.subheader(f"Ce que prévoit Kateni : {dom} {bd}-{be} {ext}, {minute}e minute", anchor=False)
+st.subheader(f"Ce que prévoit Kateni : {dom} {bd}-{be} {ext}, {minute}e minute", anchor=False, icon=":material/insights:")
 with st.container(border=True):
     with st.container(horizontal=True):
         st.metric(f"{dom} marque encore", f"{p['Dom. marque encore']['Oui']:.0%}")
@@ -343,7 +344,6 @@ with st.expander("Vérifier une cote live Betclic", icon=":material/compare_arro
         with st.expander("Détail du calcul"):
             st.dataframe(table_analyse([l]), column_config=COLONNES_TABLE, hide_index=True, placeholder="–")
 
-st.divider()
 with st.expander("Les autres matchs", icon=":material/list:"):
     liste_des_matchs()
     autre_match()

@@ -44,7 +44,7 @@ choix = st.pills("Mes championnats", presentes, selection_mode="multi", default=
                  format_func=lambda c: NOMS_COURTS.get(c, c))
 
 du_jour = cal[(cal["Date"] == jour.isoformat()) & cal["competition"].isin(choix or [])]
-st.subheader(date_longue(jour).capitalize() + (" — aujourd'hui" if jour == aujourd_hui else ""), anchor=False)
+st.subheader(date_longue(jour).capitalize() + (" — aujourd'hui" if jour == aujourd_hui else ""), anchor=False, icon=":material/event:")
 
 if not len(du_jour):
     suivant = next((x for x in jours_avec if x > jour), None)

@@ -27,6 +27,6 @@ page = st.navigation(
     ],
     position="top",
 )
-st.title(page.title, anchor=False)
+st.title(page.title, anchor=False, icon=page.icon)
 page.run()
 st.caption("Kateni calcule des probabilités, pas des certitudes. Ne mise que ce que tu acceptes de perdre.")

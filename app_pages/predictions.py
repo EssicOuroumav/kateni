@@ -19,7 +19,7 @@ comp = st.selectbox(
     format_func=lambda c: NOMS_COURTS.get(c, c) + ("" if c in avec_matchs else "  (pas de match publié)"),
     index=codes.index(next((c for c in codes if c in avec_matchs), codes[0])))
 
-st.subheader("Prochains matchs", anchor=False)
+st.subheader("Prochains matchs", anchor=False, icon=":material/upcoming:")
 prochains = cal[cal["competition"] == comp] if len(cal) else cal
 if not len(prochains):
     st.info("Aucun match publié pour ce championnat pour l'instant. Rien à faire de ton côté : Kateni récupère "
@@ -34,7 +34,7 @@ for i, r in prochains.head(20).iterrows():
     carte(match, f"pr_{i}", r.to_dict())
 
 # ---------------------------------------------------------------- simulation libre
-st.subheader("Simuler un match", anchor=False)
+st.subheader("Simuler un match", anchor=False, icon=":material/science:")
 st.caption("N'importe quelle affiche de ce championnat, même si elle n'est pas au calendrier.")
 equipes = equipes_de(df, comp)
 c1, c2 = st.columns(2)
