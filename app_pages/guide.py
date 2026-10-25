@@ -56,6 +56,16 @@ with st.container(border=True):
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
 
 with st.container(border=True):
+    st.subheader("Kamikaze", anchor=False, icon=":material/local_fire_department:")
+    st.markdown(
+        "Deux pronostics seulement par match : **la victoire du favori** et **le favori gagne ou fait match nul**, "
+        "du plus sûr au moins sûr. Chaque chance est suivie de sa **fiabilité mesurée sur 2025-26** (6 189 "
+        "matchs) : « annoncé 70-80 % → arrivé 80 % » veut dire que, dans ce cas, le favori a vraiment gagné 8 "
+        "fois sur 10. « Les plus sûrs » ne garde que les victoires à 60 % ou plus, ou « gagne ou nul » à 80 % "
+        "ou plus. Sûr ne veut pas dire rentable : Betclic paie peu ces pronostics.")
+    st.page_link("app_pages/kamikaze.py", label="Aller à Kamikaze", icon=":material/local_fire_department:")
+
+with st.container(border=True):
     st.subheader("Comparer avec Betclic (facultatif)", anchor=False, icon=":material/compare_arrows:")
     st.markdown(
         "1. Ouvre **Cotes Betclic** (ou, dans Prédictions, « Comparer avec mes cotes Betclic »).\n"

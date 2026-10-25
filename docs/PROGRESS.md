@@ -142,6 +142,10 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 
 - Live, suite (25/10) : statistiques du moment lues à la source (corners, tirs, tirs cadrés, fautes) ; `statistiques.marches_stat_live` (lignes restantes et « plus grand nombre » avec l'écart actuel, part du match restante = profil des buts) ; résumé et liste « Ce qui peut encore arriver » complets en direct.
 
+## Page Kamikaze (25/10/2026)
+- Demande du propriétaire : seulement « victoire du favori » et « favori gagne ou nul », classés du plus sûr au moins sûr. `app_pages/kamikaze.py` ; fiabilité mesurée par `scripts/mesure_kamikaze.py` (6 189 matchs de championnat, pronostic 25 % modèle + 75 % marché) : `docs/mesures/kamikaze_fiabilite.json`. Bien calibré, légèrement prudent pour les gros favoris (annoncé 74 % → arrivé 80 % ; gagne ou nul annoncé 92 % → arrivé 96 %).
+- Mesure faite avec les cotes d'ouverture et le modèle global : un match sans cotes porte la pastille « modèle seul, moins sûr ».
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

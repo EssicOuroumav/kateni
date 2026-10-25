@@ -1,0 +1,78 @@
+{
+ "matchs": 6189,
+ "periode": "01/08/2025 – 20/10/2026",
+ "victoire": [
+  {
+   "de": 0.0,
+   "a": 0.4,
+   "matchs": 1190,
+   "annonce": 0.378,
+   "arrive": 0.378
+  },
+  {
+   "de": 0.4,
+   "a": 0.5,
+   "matchs": 2433,
+   "annonce": 0.446,
+   "arrive": 0.449
+  },
+  {
+   "de": 0.5,
+   "a": 0.6,
+   "matchs": 1420,
+   "annonce": 0.544,
+   "arrive": 0.545
+  },
+  {
+   "de": 0.6,
+   "a": 0.7,
+   "matchs": 695,
+   "annonce": 0.644,
+   "arrive": 0.686
+  },
+  {
+   "de": 0.7,
+   "a": 0.8,
+   "matchs": 360,
+   "annonce": 0.743,
+   "arrive": 0.797
+  },
+  {
+   "de": 0.8,
+   "a": 0.9,
+   "matchs": 90,
+   "annonce": 0.828,
+   "arrive": 0.856
+  }
+ ],
+ "gagne_ou_nul": [
+  {
+   "de": 0.6,
+   "a": 0.7,
+   "matchs": 1814,
+   "annonce": 0.67,
+   "arrive": 0.68
+  },
+  {
+   "de": 0.7,
+   "a": 0.8,
+   "matchs": 2699,
+   "annonce": 0.747,
+   "arrive": 0.755
+  },
+  {
+   "de": 0.8,
+   "a": 0.9,
+   "matchs": 1371,
+   "annonce": 0.843,
+   "arrive": 0.875
+  },
+  {
+   "de": 0.9,
+   "a": 1.0,
+   "matchs": 305,
+   "annonce": 0.923,
+   "arrive": 0.964
+  }
+ ]
+}
