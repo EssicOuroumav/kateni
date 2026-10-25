@@ -1,65 +1,6 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
 LIGA,2026-10-10 12:00:00Z,Rayo Vallecano,Athletic Club
-TUR,2026-10-24 10:30:00Z,Eyüpspor,Kasimpasa
-CHAMP,2026-10-24 11:30:00Z,Charlton Athletic,Norwich City
-CHAMP,2026-10-24 11:30:00Z,Portsmouth,Millwall
-CHAMP,2026-10-24 11:30:00Z,Sheffield United,Derby County
-PL,2026-10-24 11:30:00Z,Aston Villa,Man City
-L2,2026-10-24 12:00:00Z,Dijon FCO,Rodez Aveyron Football
-LIGA,2026-10-24 12:00:00Z,Rayo Vallecano,Elche CF
-SA,2026-10-24 13:00:00Z,Cagliari,Bologna
-SA,2026-10-24 13:00:00Z,Como,Sassuolo
-TUR,2026-10-24 13:00:00Z,Gaziantep,Erzurumspor
-BL,2026-10-24 13:30:00Z,1. FC Köln,FC Schalke 04
-BL,2026-10-24 13:30:00Z,1. FSV Mainz 05,SV Werder Bremen
-BL,2026-10-24 13:30:00Z,FC Augsburg,1. FC Union Berlin
-BL,2026-10-24 13:30:00Z,RB Leipzig,SV Elversberg
-BL,2026-10-24 13:30:00Z,SC Paderborn 07,Hamburger SV
-CHAMP,2026-10-24 14:00:00Z,Blackburn Rovers,Wrexham
-CHAMP,2026-10-24 14:00:00Z,Cardiff City,Birmingham City
-CHAMP,2026-10-24 14:00:00Z,Lincoln City,Burnley
-CHAMP,2026-10-24 14:00:00Z,Preston North End,West Bromwich Albion
-CHAMP,2026-10-24 14:00:00Z,Queens Park Rangers,Swansea City
-CHAMP,2026-10-24 14:00:00Z,Stoke City,Bristol City
-CHAMP,2026-10-24 14:00:00Z,West Ham United,Southampton
-CHAMP,2026-10-24 14:00:00Z,Wolverhampton Wanderers,Watford
-PL,2026-10-24 14:00:00Z,Arsenal,Everton
-PL,2026-10-24 14:00:00Z,Coventry,Fulham
-SCO,2026-10-24 14:00:00Z,Dundee United,Aberdeen
-SCO,2026-10-24 14:00:00Z,Falkirk,Kilmarnock
-SCO,2026-10-24 14:00:00Z,Rangers,St. Johnstone
-SCO,2026-10-24 14:00:00Z,St. Mirren,Dundee
-LIGA,2026-10-24 14:15:00Z,R. Racing Club,RCD Espanyol de Barcelona
-NED,2026-10-24 14:30:00Z,FC Utrecht,PEC Zwolle
-POR,2026-10-24 14:30:00Z,Estrela Amadora,Casa Pia AC
-SA,2026-10-24 16:00:00Z,Napoli,Roma
-TUR,2026-10-24 16:00:00Z,Samsunspor,Amedspor
-BL,2026-10-24 16:30:00Z,Borussia Dortmund,Eintracht Frankfurt
-LIGA,2026-10-24 16:30:00Z,Valencia CF,Villarreal CF
-PL,2026-10-24 16:30:00Z,Chelsea,Spurs
-NED,2026-10-24 16:45:00Z,Willem II,SC Cambuur
-POR,2026-10-24 17:00:00Z,FC Alverca,FC Arouca
-MLS,2026-10-24 17:30:00Z,CF Montréal,Nashville SC
-L1,2026-10-24 18:45:00Z,RC Lens,Paris FC
-L2,2026-10-24 18:45:00Z,AS Saint-Étienne,FC Nantes
-SA,2026-10-24 18:45:00Z,Lazio,Parma
-LIGA,2026-10-24 19:00:00Z,Atlético de Madrid,RC Deportivo
-NED,2026-10-24 19:00:00Z,ADO Den Haag,sc Heerenveen
-MLS,2026-10-24 19:30:00Z,Columbus Crew,Toronto FC
-POR,2026-10-24 19:30:00Z,Gil Vicente FC,FC Porto
-MLS,2026-10-24 21:30:00Z,Red Bull New York,Inter Miami CF
-MLS,2026-10-24 23:30:00Z,Atlanta United,Chicago Fire FC
-MLS,2026-10-24 23:30:00Z,D.C. United,FC Cincinnati
-MLS,2026-10-24 23:30:00Z,Orlando City,New York City Football Club
-MLS,2026-10-24 23:30:00Z,Philadelphia Union,New England Revolution
-MLS,2026-10-25 00:30:00Z,FC Dallas,San Jose Earthquakes
-MLS,2026-10-25 00:30:00Z,Houston Dynamo FC,Minnesota United FC
-MLS,2026-10-25 00:30:00Z,Sporting Kansas City,Austin FC
-MLS,2026-10-25 01:30:00Z,Colorado Rapids,Vancouver Whitecaps FC
-MLS,2026-10-25 01:30:00Z,Real Salt Lake,St. Louis CITY SC
-MLS,2026-10-25 02:30:00Z,Portland Timbers,Charlotte FC
-MLS,2026-10-25 02:30:00Z,San Diego FC,Seattle Sounders FC
 NED,2026-10-25 11:15:00Z,Fortuna Sittard,Excelsior Rotterdam
 SA,2026-10-25 11:30:00Z,Internazionale,Fiorentina
 SCO,2026-10-25 12:00:00Z,Hibernian,Celtic
