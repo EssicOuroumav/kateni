@@ -232,19 +232,21 @@ with st.expander("Force des équipes avant le match : " + ("cotes du marché" if
 st.caption(f"Buts attendus sur tout le match : {dom} {fr(lam[0])} – {fr(lam[1])} {ext} · source : {source}")
 
 # ---------------------------------------------------------------- situation du match
+for k in ("bd", "be", "rd", "re"):
+    st.session_state.setdefault(f"lv_{k}_{cle}", 0)
 st.subheader("Le score maintenant", anchor=False)
 with st.container(border=True):
     c = st.columns(3)
-    bd = c[0].number_input(f"Buts {dom}", min_value=0, max_value=15, value=0, key=f"lv_bd_{cle}")
-    be = c[1].number_input(f"Buts {ext}", min_value=0, max_value=15, value=0, key=f"lv_be_{cle}")
+    bd = c[0].number_input(f"Buts {dom}", min_value=0, max_value=15, key=f"lv_bd_{cle}")
+    be = c[1].number_input(f"Buts {ext}", min_value=0, max_value=15, key=f"lv_be_{cle}")
     if f"lv_min_{cle}" not in st.session_state:
         st.session_state[f"lv_min_{cle}"] = match.get("minute", 45)
     minute = c[2].number_input("Minute de jeu", min_value=0, max_value=120, step=1, key=f"lv_min_{cle}",
                                help="Estimée depuis l'heure du coup d'envoi ; corrige-la si besoin.")
     with st.expander("Cartons rouges et temps additionnel"):
         c = st.columns(2)
-        rd = c[0].number_input(f"Cartons rouges {dom}", min_value=0, max_value=4, value=0, key=f"lv_rd_{cle}")
-        re_ = c[1].number_input(f"Cartons rouges {ext}", min_value=0, max_value=4, value=0, key=f"lv_re_{cle}")
+        rd = c[0].number_input(f"Cartons rouges {dom}", min_value=0, max_value=4, key=f"lv_rd_{cle}")
+        re_ = c[1].number_input(f"Cartons rouges {ext}", min_value=0, max_value=4, key=f"lv_re_{cle}")
         add = st.slider("Temps additionnel prévu en 2e mi-temps (minutes)", 0, 15, 5, key=f"lv_add_{cle}")
 
 # Statistiques : attendues avant le match (modèles corners, tirs, tirs cadrés, fautes) et chiffres du moment
@@ -258,10 +260,12 @@ if attendues:
     with st.expander("Statistiques du match (corners, tirs, fautes)", expanded=bool(match.get("direct"))):
         st.caption("Remplies toutes seules pour un match en direct ; corrige-les si besoin.")
         for nom in attendues:
+            for cote in ("d", "e"):
+                st.session_state.setdefault(f"lv_s_{nom}_{cote}_{cle}", 0)
             c = st.columns(2)
             actuelles[nom] = (
-                c[0].number_input(f"{nom} {dom}", min_value=0, max_value=60, value=0, key=f"lv_s_{nom}_d_{cle}"),
-                c[1].number_input(f"{nom} {ext}", min_value=0, max_value=60, value=0, key=f"lv_s_{nom}_e_{cle}"))
+                c[0].number_input(f"{nom} {dom}", min_value=0, max_value=60, key=f"lv_s_{nom}_d_{cle}"),
+                c[1].number_input(f"{nom} {ext}", min_value=0, max_value=60, key=f"lv_s_{nom}_e_{cle}"))
 
 etat = EtatLive(minute=minute, buts_d=bd, buts_e=be, rouges_d=rd, rouges_e=re_, additionnel_mt2=add)
 r = predire_live(lam[0], lam[1], etat)
