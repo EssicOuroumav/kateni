@@ -5,7 +5,7 @@ import streamlit as st
 
 from kateni.affichage import COLONNES_EVENEMENTS, carte, date_longue, evenements, pronostic
 from kateni.config import COMPETITIONS
-from kateni.ui import NOMS_COURTS, a_venir, contexte
+from kateni.ui import DRAPEAUX, NOMS_COURTS, a_venir, contexte
 
 df, m = contexte()
 cal = a_venir()
@@ -39,9 +39,20 @@ with st.container(horizontal=True, vertical_alignment="bottom"):
               on_click=lambda: st.session_state.update(cal_jour=aujourd_hui))
 
 jour = st.session_state["cal_jour"]
-presentes = [c for c in ORDRE if c in set(cal["competition"])]
-choix = st.pills("Mes championnats", presentes, selection_mode="multi", default=presentes, key="cal_filtre",
-                 format_func=lambda c: NOMS_COURTS.get(c, c))
+# Compétitions du jour : une liste nette (drapeau, nom, nombre de matchs), façon Betclic
+comptes = cal[cal["Date"] == jour.isoformat()]["competition"].value_counts()
+presentes = [c for c in ORDRE if c in comptes.index]
+TOUTES = "toutes"
+actuelle = st.session_state.get("cal_competition", TOUTES)
+etiquette = ("toutes" if actuelle not in presentes else f"{DRAPEAUX.get(actuelle, '')} {NOMS_COURTS.get(actuelle, actuelle)}")
+with st.expander(f"Compétitions du jour ({len(presentes)}) · {etiquette}", icon=":material/emoji_events:"):
+    competition = st.radio(
+        "Compétition", [TOUTES] + presentes, key="cal_competition", label_visibility="collapsed",
+        format_func=lambda c: (f"⚽  Toutes les compétitions · {int(comptes.sum())} matchs" if c == TOUTES
+                               else f"{DRAPEAUX.get(c, '⚽')}  {NOMS_COURTS.get(c, c)} · {int(comptes[c])}"))
+if competition not in (TOUTES, *presentes):  # jour changé : la compétition choisie ne joue pas
+    competition = TOUTES
+choix = presentes if competition == TOUTES else [competition]
 
 du_jour = cal[(cal["Date"] == jour.isoformat()) & cal["competition"].isin(choix or [])]
 st.subheader(date_longue(jour).capitalize() + (" — aujourd'hui" if jour == aujourd_hui else ""), anchor=False, icon=":material/event:")
@@ -69,11 +80,8 @@ else:
         st.caption(f"{len(retenus)} événement(s) à {seuil} % ou plus.")
         st.dataframe(retenus, hide_index=True, column_config=COLONNES_EVENEMENTS, placeholder="–",
                      height=min(35 * (len(retenus) + 1) + 3, 520))
-    st.caption(f"{len(du_jour)} match(s) · " + " · ".join(
-        f"{NOMS_COURTS.get(c, c)} {n}" for c, n in du_jour["competition"].value_counts().reindex(ORDRE).dropna()
-        .astype(int).items()))
     for comp in [c for c in ORDRE if c in set(du_jour["competition"])]:
-        st.markdown(f"#### {NOMS_COURTS.get(comp, comp)}")
+        st.markdown(f"#### {DRAPEAUX.get(comp, '⚽')} {NOMS_COURTS.get(comp, comp)}")
         for i, r in du_jour[du_jour["competition"] == comp].iterrows():
             match = {"competition": comp, "dom": r["dom"], "ext": r["ext"], "date": r["Date"],
                      "quand": r["Heure"] or "heure à confirmer"}

@@ -15,6 +15,24 @@ st.set_page_config(page_title="Kateni", page_icon=str(LOGO) if LOGO.exists() els
 if LOGO.exists():
     st.logo(str(LOGO), size="large")
 
+# Barre du haut rouge, façon Betclic (demande du propriétaire, 25/10/2026). Le thème de Streamlit ne règle pas la
+# couleur de cette barre : petite feuille de style ciblant les repères « data-testid » publics de l'en-tête.
+# Si une mise à jour de Streamlit les change, la barre redevient simplement blanche (rien ne casse).
+st.html("""<style>
+[data-testid="stHeader"] { background: #C8102E; }
+[data-testid="stHeader"] [data-testid="stTopNavLink"] span,
+[data-testid="stHeader"] [data-testid="stTopNavSection"] span,
+[data-testid="stHeader"] [data-testid="stToolbarActions"] *,
+[data-testid="stHeader"] [data-testid="stMainMenuButton"] *,
+[data-testid="stHeader"] button[data-testid="stBaseButton-header"] * { color: #FFFFFF !important; }
+[data-testid="stHeader"] [data-testid="stTopNavLink"] { border-radius: 999px; }
+[data-testid="stHeader"] [data-testid="stMainMenuButton"], [data-testid="stHeader"] button[data-testid="stBaseButton-header"] { background: transparent !important; border-color: rgba(255, 255, 255, 0.5) !important; }
+[data-testid="stHeaderLogo"] { border-radius: 8px; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85); }
+[data-testid="stHeader"] [data-testid="stTopNavLink"]:hover { background: rgba(255, 255, 255, 0.15); }
+[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] { background: rgba(0, 0, 0, 0.22); }
+[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] span { font-weight: 700; }
+</style>""")
+
 page = st.navigation(
     [
         st.Page("app_pages/calendrier.py", title="Calendrier", icon=":material/calendar_month:", default=True),

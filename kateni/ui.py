@@ -216,6 +216,12 @@ def a_venir() -> pd.DataFrame:
     return cal
 
 
+# Drapeau de chaque compétition (liste des compétitions façon Betclic)
+DRAPEAUX = {"CL": "🇪🇺", "EL": "🇪🇺", "ECL": "🇪🇺", "PL": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "CHAMP": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "SCO": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+            "LIGA": "🇪🇸", "LIGA2": "🇪🇸", "L1": "🇫🇷", "L2": "🇫🇷", "SA": "🇮🇹", "BL": "🇩🇪", "BL2": "🇩🇪",
+            "NED": "🇳🇱", "POR": "🇵🇹", "TUR": "🇹🇷", "BEL": "🇧🇪", "MLS": "🇺🇸", "GRE": "🇬🇷", "AUT": "🇦🇹",
+            "SUI": "🇨🇭", "NOR": "🇳🇴", "DAN": "🇩🇰", "SUE": "🇸🇪", "POL": "🇵🇱", "ROU": "🇷🇴", "CHN": "🇨🇳",
+            "JPN": "🇯🇵", "IRL": "🇮🇪"}
 NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa",
                                                                   "ECL": "Ligue Conférence"}
 
