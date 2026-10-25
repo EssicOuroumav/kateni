@@ -71,10 +71,11 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Pendant un match", anchor=False)
     st.markdown(
-        "1. Ouvre **Live** : les **matchs en cours** s'affichent, avec la minute estimée. Touche **Analyser en "
-        "direct** sur le tien (s'il n'y a pas de match en cours, les prochains s'affichent).\n"
-        "2. Kateni prend **tout seul** la minute et la force des équipes (cotes d'avant-match, sinon son modèle).\n"
-        "3. Saisis le **score** (et, si besoin, les cartons rouges, les corners ou une minute corrigée).\n"
+        "1. Ouvre **Live** : les **matchs en direct** s'affichent avec leur **vrai score**, la minute, les cartons "
+        "rouges et la prédiction de Kateni (qui gagne, qui marque encore), mis à jour **toutes les minutes**.\n"
+        "2. Touche **Détail** sur ton match : score, minute et cartons rouges sont déjà remplis ; « Reprendre le "
+        "score en direct » les remet à jour.\n"
+        "3. Un match sans score en direct (« Autres matchs commencés ») : touche **Analyser** et saisis le score.\n"
         "4. Kateni donne la chance que chaque équipe marque encore, le résultat final, et la liste **« Ce qui peut "
         "encore arriver »**, du plus probable au moins probable, avec la cote juste.\n"
         "5. Pour jouer, ouvre « Vérifier une cote live Betclic » : même verdict qu'avant-match.\n"

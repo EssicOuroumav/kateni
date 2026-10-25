@@ -7,17 +7,20 @@ from kateni.affichage import COLONNES_EVENEMENTS, pronostic
 from kateni.config import COMPETITIONS, MIN_EDGE_PCT
 from kateni.corners import marches_corners
 from kateni.cotes import cote_minimale, lambdas_depuis_cotes
+from kateni.calendrier import ressemblance
+from kateni.donnees import equipes_de
 from kateni.live import FIN_PROBABLE, EtatLive, fraction_restante, minute_estimee, predire_live
+from kateni.scores_direct import en_direct, rattacher
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, NOMS_COURTS, a_venir, avertir_si_peu_connu, bankroll,
                        choisir_match, choisir_mode, contexte, corners_attendus, enregistrer, fr, libelle,
                        ligne_analyse, pct, predire, table_analyse)
 
 df, m = contexte()
 ORDRE = ["CL", "EL", "ECL"] + [c for c in COMPETITIONS if c not in ("CL", "EL", "ECL")]
-st.caption("Pendant un match : touche « Analyser en direct », saisis le score, Kateni calcule la suite. "
-           "Heures d'Abidjan.")
+st.caption("Les matchs en cours avec leur score et la prédiction de Kateni, mis à jour toutes les minutes. "
+           "Touche « Détail » pour tout voir. Heures d'Abidjan.")
 
-# ---------------------------------------------------------------- matchs en cours (calendrier)
+# ---------------------------------------------------------------- calendrier et scores en direct
 cal = a_venir()
 maintenant = datetime.now(timezone.utc)
 if len(cal):
@@ -31,36 +34,136 @@ else:
     en_cours = prochains = cal
 
 
+def _cote(v):
+    try:
+        v = float(v)
+    except (TypeError, ValueError):
+        return None
+    return v if v > 1 else None
+
+
+def force_avant_match(match: dict) -> tuple[tuple[float, float], tuple | None]:
+    """Buts attendus sur tout le match : cotes d'avant-match connues (Pinnacle, Bet365), sinon le modèle."""
+    ligne = cal[(cal["competition"] == match["competition"]) & (cal["dom"] == match["dom"])
+                & (cal["ext"] == match["ext"]) & (cal["Date"] == match["date"])] if len(cal) else cal
+    if len(ligne):
+        r0 = ligne.iloc[0]
+        q = [_cote(r0.get(k)) for k in ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5")]
+        if all(q[:3]):
+            bk = r0.get("bookmaker") if isinstance(r0.get("bookmaker"), str) else "marché"
+            rel = r0.get("releve")
+            if isinstance(rel, str) and rel:
+                bk += f", relevées le {pd.Timestamp(rel):%d/%m} à {pd.Timestamp(rel):%H:%M}"
+            return lambdas_depuis_cotes(q[0], q[1], q[2], q[3], q[4], m.rho), (q, bk)
+    return predire(match)[:2], None
+
+
+@st.cache_data(ttl=45, show_spinner=False)
+def _direct() -> list[dict] | None:
+    return en_direct()
+
+
+def scores_en_direct() -> list[dict] | None:
+    """Matchs en cours de la source, rattachés aux noms de Kateni (calendrier, sinon équipes connues)."""
+    brut = _direct()
+    if brut is None:
+        return None
+    aujourd_hui = maintenant.strftime("%Y-%m-%d")
+    hier = (maintenant - timedelta(days=1)).strftime("%Y-%m-%d")
+    out = []
+    for d in brut:
+        c = cal[(cal["competition"] == d["competition"]) & cal["Date"].isin([aujourd_hui, hier])] if len(cal) else cal
+        trouve = rattacher(d, list(zip(c["dom"], c["ext"])), ressemblance) if len(c) else None
+        date_m = aujourd_hui
+        if trouve:
+            date_m = c[(c["dom"] == trouve[0]) & (c["ext"] == trouve[1])].iloc[0]["Date"]
+        else:  # pas au calendrier : équipes connues de la compétition
+            equipes = equipes_de(df, d["competition"])
+            choix = [max(equipes, key=lambda e: ressemblance(d[k], e), default=None) for k in ("dom_source", "ext_source")]
+            if None in choix or min(ressemblance(d["dom_source"], choix[0]), ressemblance(d["ext_source"], choix[1])) < 0.75:
+                continue
+            trouve = tuple(choix)
+        out.append({**d, "dom": trouve[0], "ext": trouve[1], "date": date_m})
+    return out
+
+
+def choisir_direct(d: dict) -> None:
+    """Ouvre l'analyse d'un match en direct, score, minute et cartons rouges déjà remplis."""
+    st.session_state["lv_match"] = {"competition": d["competition"], "dom": d["dom"], "ext": d["ext"],
+                                    "date": d["date"], "minute": d["minute"], "direct": True}
+    cle_ = f"{d['date']}|{d['dom']}|{d['ext']}"
+    for k, v in (("bd", d["buts_d"]), ("be", d["buts_e"]), ("min", d["minute"]),
+                 ("rd", d["rouges_d"]), ("re", d["rouges_e"])):
+        st.session_state[f"lv_{k}_{cle_}"] = v
+
+
 def choisir(r) -> None:
-    """Retient le match à analyser ; la minute de départ est estimée depuis le coup d'envoi."""
+    """Match commencé selon le calendrier mais sans score en direct : score à saisir."""
     minute = minute_estimee(r["ecoule"])[0] if r["ecoule"] >= 0 else 0
     st.session_state["lv_match"] = {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"],
                                     "date": r["Date"], "minute": minute}
-    cle = f"{r['Date']}|{r['dom']}|{r['ext']}"
-    st.session_state[f"lv_min_{cle}"] = minute
+    st.session_state[f"lv_min_{r['Date']}|{r['dom']}|{r['ext']}"] = minute
 
 
-def cartes(matchs: pd.DataFrame, en_direct: bool) -> None:
+def cartes_direct(direct: list[dict]) -> None:
+    ordre = {c: i for i, c in enumerate(ORDRE)}
+    for comp in sorted({d["competition"] for d in direct}, key=lambda c: ordre.get(c, 99)):
+        st.markdown(f"**{NOMS_COURTS.get(comp, comp)}**")
+        for d in sorted((x for x in direct if x["competition"] == comp), key=lambda x: x["dom"]):
+            lam_, _ = force_avant_match(d)
+            r_ = predire_live(lam_[0], lam_[1], EtatLive(minute=d["minute"], buts_d=d["buts_d"], buts_e=d["buts_e"],
+                                                         rouges_d=d["rouges_d"], rouges_e=d["rouges_e"]))
+            p_ = r_["marches"]
+            rouges = "".join(f" · 🟥 {eq} {n}" for eq, n in ((d["dom"], d["rouges_d"]), (d["ext"], d["rouges_e"])) if n)
+            with st.container(border=True, horizontal=True, vertical_alignment="center"):
+                st.markdown(
+                    f"**{d['dom']} {d['buts_d']}-{d['buts_e']} {d['ext']}** · {d['minute_texte']}{rouges}  \n"
+                    f"{d['dom']} gagne **{p_['1N2']['1']:.0%}** · nul **{p_['1N2']['N']:.0%}** · "
+                    f"{d['ext']} gagne **{p_['1N2']['2']:.0%}**  \n"
+                    f"{d['dom']} marque encore {p_['Dom. marque encore']['Oui']:.0%} · "
+                    f"{d['ext']} marque encore {p_['Ext. marque encore']['Oui']:.0%}")
+                if st.button("Détail", key=f"lv_dir_{d['competition']}_{d['dom']}_{d['ext']}",
+                             icon=":material/timer:", type="primary"):
+                    choisir_direct(d)
+                    st.rerun()  # la liste se rafraîchit seule : on relance toute la page pour ouvrir l'analyse
+
+
+def cartes(matchs: pd.DataFrame, en_direct_: bool) -> None:
     for comp, groupe in matchs.groupby("ordre", sort=True):
         st.markdown(f"**{NOMS_COURTS.get(groupe.iloc[0]['competition'], groupe.iloc[0]['competition'])}**")
         for i, r in groupe.iterrows():
-            match = {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
-            p = pronostic(match, r.to_dict())["p1n2"]
+            match_ = {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
+            p = pronostic(match_, r.to_dict())["p1n2"]
             with st.container(border=True, horizontal=True, vertical_alignment="center"):
-                quand = (f"commencé à {r['Heure']} · environ **{minute_estimee(r['ecoule'])[1]}**" if en_direct
-                         else f"coup d'envoi à **{r['Heure']}**")
+                quand = (f"commencé à {r['Heure']} · environ **{minute_estimee(r['ecoule'])[1]}** · score à saisir"
+                         if en_direct_ else f"coup d'envoi à **{r['Heure']}**")
                 st.markdown(f"**{r['dom']} – {r['ext']}** · {quand}  \n"
                             f"Avant le match : {r['dom']} {p[0]:.0%} · nul {p[1]:.0%} · {r['ext']} {p[2]:.0%}")
-                st.button("Analyser en direct" if en_direct else "Préparer", key=f"lv_go_{i}",
-                          icon=":material/timer:", type="primary" if en_direct else "secondary",
-                          on_click=choisir, args=(r,))
+                if st.button("Analyser" if en_direct_ else "Préparer", key=f"lv_go_{i}", icon=":material/timer:"):
+                    choisir(r)
+                    st.rerun()
 
 
+@st.fragment(run_every=60)
 def liste_des_matchs() -> None:
-    if len(en_cours):
-        st.subheader(f"Matchs en cours ({len(en_cours)})", anchor=False)
-        cartes(en_cours, True)
-    else:
+    direct = scores_en_direct()
+    if direct is None:
+        st.warning("Scores en direct indisponibles pour l'instant : choisis le match et saisis le score à la main.",
+                   icon=":material/wifi_off:")
+        direct = []
+    if direct:
+        st.subheader(f"En direct ({len(direct)})", anchor=False)
+        st.caption(f"Scores et prédictions mis à jour toutes les minutes · dernière mise à jour "
+                   f"{datetime.now(timezone.utc):%H:%M}")
+        cartes_direct(direct)
+    vus = {(d["competition"], d["dom"], d["ext"]) for d in direct}
+    autres = en_cours[[(c, a, b) not in vus for c, a, b in zip(en_cours["competition"], en_cours["dom"],
+                                                                en_cours["ext"])]] if len(en_cours) else en_cours
+    if len(autres):
+        st.subheader(f"Autres matchs commencés ({len(autres)})", anchor=False)
+        st.caption("Sans score en direct (ou peut-être déjà terminés) : touche « Analyser » et saisis le score.")
+        cartes(autres, True)
+    if not direct and not len(autres):
         st.subheader("Aucun match en cours", anchor=False)
         if len(prochains):
             st.caption("Prochains matchs (12 heures à venir) : reviens au coup d'envoi, ou prépare l'analyse dès "
@@ -68,9 +171,12 @@ def liste_des_matchs() -> None:
             cartes(prochains.head(12), False)
         else:
             st.caption("Pas de match dans les 12 prochaines heures. Le **Calendrier** montre les prochains jours.")
+
+
+def autre_match() -> None:
     with st.expander("Un autre match (absent de la liste)", icon=":material/search:"):
-        autre = choisir_match(df, "lv")
-        if st.button("Analyser ce match", icon=":material/timer:"):
+        autre = choisir_match(df, "lv", vide=True)
+        if st.button("Analyser ce match", icon=":material/timer:", disabled=autre is None):
             st.session_state["lv_match"] = {**{k: autre[k] for k in ("competition", "dom", "ext", "date")},
                                             "minute": 45}
             st.rerun()
@@ -79,6 +185,7 @@ def liste_des_matchs() -> None:
 match = st.session_state.get("lv_match")
 if not match:
     liste_des_matchs()
+    autre_match()
     st.stop()
 
 # Un match est choisi : son analyse en premier (sur téléphone, pas besoin de défiler sous la liste)
@@ -88,37 +195,22 @@ with st.container(horizontal=True, vertical_alignment="center"):
     st.header(f"{dom} – {ext}", anchor=False)
     st.button("Changer de match", icon=":material/swap_horiz:",
               on_click=lambda: st.session_state.pop("lv_match", None))
-
+if match.get("direct"):
+    actuel = next((d for d in (scores_en_direct() or []) if (d["dom"], d["ext"]) == (dom, ext)), None)
+    if actuel:
+        with st.container(horizontal=True, vertical_alignment="center"):
+            st.caption(f"Score en direct : **{actuel['buts_d']}-{actuel['buts_e']}**, {actuel['minute_texte']} "
+                       f"(mis à jour à {datetime.now(timezone.utc):%H:%M})")
+            st.button("Reprendre le score en direct", icon=":material/sync:", on_click=choisir_direct, args=(actuel,))
+    else:
+        st.caption("Ce match n'est plus en direct (terminé ?) : le score affiché est le dernier connu.")
 
 # ---------------------------------------------------------------- force des équipes avant le match
-def _cote(v):
-    try:
-        v = float(v)
-    except (TypeError, ValueError):
-        return None
-    return v if v > 1 else None
-
-
-ligne = cal[(cal["competition"] == match["competition"]) & (cal["dom"] == dom) & (cal["ext"] == ext)
-            & (cal["Date"] == match["date"])] if len(cal) else cal
-auto = None
-if len(ligne):
-    r0 = ligne.iloc[0]
-    q = [_cote(r0.get(k)) for k in ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5")]
-    if all(q[:3]):
-        bk = r0.get("bookmaker") if isinstance(r0.get("bookmaker"), str) else "marché"
-        rel = r0.get("releve")
-        if isinstance(rel, str) and rel:
-            bk += f", relevées le {pd.Timestamp(rel):%d/%m} à {pd.Timestamp(rel):%H:%M}"
-        auto = (q, bk)
-
-lam_mod = predire(match)[:2]
+lam, auto = force_avant_match(match)
 if auto:
     q, bk = auto
-    lam = lambdas_depuis_cotes(q[0], q[1], q[2], q[3], q[4], m.rho)
     source = f"cotes d'avant-match ({bk}) : {fr(q[0])} / {fr(q[1])} / {fr(q[2])}"
 else:
-    lam = lam_mod
     source = "modèle Kateni (pas de cotes d'avant-match connues)"
 with st.expander("Force des équipes avant le match : " + ("cotes du marché" if auto else "modèle Kateni")):
     st.caption(f"Source : {source}. Les cotes d'avant-match sont le meilleur point de départ ; sans elles, "
@@ -226,3 +318,4 @@ with st.expander("Vérifier une cote live Betclic", icon=":material/compare_arro
 st.divider()
 with st.expander("Les autres matchs", icon=":material/list:"):
     liste_des_matchs()
+    autre_match()

@@ -135,6 +135,11 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Affichés dans le détail, les listes d'événements, Cotes Betclic (onglet « Tirs et fautes », « plus grand nombre de corners »), Mes paris ; réglés automatiquement.
 - Corners de la 1re mi-temps : pas de source gratuite, non fait.
 
+## Live automatique (25/10/2026)
+- `kateni/scores_direct.py` : scores, minute et cartons rouges des matchs en cours (tableau public ESPN, gratuit, non officiel ; 28 compétitions de Kateni, pas la Pologne). Rattachement aux noms de Kateni par le calendrier puis par les équipes connues (essai réel : 22/22 matchs rattachés après l'alias « Ajax Amsterdam »).
+- Page Live : cartes « En direct » avec score et prédiction live, rafraîchies chaque minute (`st.fragment(run_every=60)`), « Détail » pré-remplit score, minute, rouges ; matchs commencés sans score : saisie à la main ; source muette : message et saisie à la main.
+- Piège : un bouton dans un fragment ne relance que le fragment ; `st.rerun()` explicite pour ouvrir l'analyse.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
