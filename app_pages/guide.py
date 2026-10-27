@@ -62,6 +62,9 @@ with st.container(border=True):
         "- **Solides** : seulement les matchs où trois scénarios sont probables en même temps (victoire du "
         "favori à 60 % ou plus, favori gagne ou nul à 80 % ou plus, un scénario de corners à 70 % ou plus), avec "
         "la fiabilité mesurée sur 2025-26.\n"
+        "- **Spéciaux** (juste sous les solides) : trois scénarios inhabituels par match, pris dans tous les "
+        "marchés de Kateni (résultat, buts, corners, tirs, tirs cadrés, fautes, qui en aura le plus), à 33-50 % "
+        "de chance (cote juste 2 à 3) et au moins 25 % plus probables que d'habitude. Risque élevé.\n"
         "- **Kamikaze** : trois scénarios risqués, à 50-60 % chacun (une chance sur deux) : un sur le résultat, "
         "un sur les buts, un sur les corners ou les tirs. Mieux payés, mais ils perdent souvent.\n\n"
         "Sous chaque match : la chance que les trois passent ensemble. Joue-les plutôt séparément.")
