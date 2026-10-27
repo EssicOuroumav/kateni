@@ -58,11 +58,13 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Kamikaze", anchor=False, icon=":material/local_fire_department:")
     st.markdown(
-        "Deux pronostics seulement par match : **la victoire du favori** et **le favori gagne ou fait match nul**, "
-        "du plus sûr au moins sûr. Chaque chance est suivie de sa **fiabilité mesurée sur 2025-26** (6 189 "
-        "matchs) : « annoncé 70-80 % → arrivé 80 % » veut dire que, dans ce cas, le favori a vraiment gagné 8 "
-        "fois sur 10. « Les plus sûrs » ne garde que les victoires à 60 % ou plus, ou « gagne ou nul » à 80 % "
-        "ou plus. Sûr ne veut pas dire rentable : Betclic paie peu ces pronostics.")
+        "Des **scénarios de match** présentés en cartes, pour les matchs qui n'ont pas encore commencé :\n"
+        "- **Solides** : seulement les matchs où trois scénarios sont probables en même temps (victoire du "
+        "favori à 60 % ou plus, favori gagne ou nul à 80 % ou plus, un scénario de corners à 70 % ou plus), avec "
+        "la fiabilité mesurée sur 2025-26.\n"
+        "- **Kamikaze** : trois scénarios risqués, à 50-60 % chacun (une chance sur deux) : un sur le résultat, "
+        "un sur les buts, un sur les corners ou les tirs. Mieux payés, mais ils perdent souvent.\n\n"
+        "Sous chaque match : la chance que les trois passent ensemble. Joue-les plutôt séparément.")
     st.page_link("app_pages/kamikaze.py", label="Aller à Kamikaze", icon=":material/local_fire_department:")
 
 with st.container(border=True):

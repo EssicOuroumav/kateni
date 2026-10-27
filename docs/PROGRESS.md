@@ -146,6 +146,8 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Demande du propriétaire : seulement « victoire du favori » et « favori gagne ou nul », classés du plus sûr au moins sûr. `app_pages/kamikaze.py` ; fiabilité mesurée par `scripts/mesure_kamikaze.py` (6 189 matchs de championnat, pronostic 25 % modèle + 75 % marché) : `docs/mesures/kamikaze_fiabilite.json`. Bien calibré, légèrement prudent pour les gros favoris (annoncé 74 % → arrivé 80 % ; gagne ou nul annoncé 92 % → arrivé 96 %).
 - Mesure faite avec les cotes d'ouverture et le modèle global : un match sans cotes porte la pastille « modèle seul, moins sûr ».
 
+- Kamikaze refaite (27/10) à la demande du propriétaire (cartes « Scénario 1/2/3 ») : « Solides » = matchs où victoire du favori ≥ 60 %, gagne ou nul ≥ 80 % et un scénario de corners ≥ 70 % (ligne la plus probable sans dépasser 85 %) ; « Kamikaze » = trois scénarios à 50-60 % (choix du propriétaire : « une chance sur 50 ou 60 » = 50-60 %), un par famille : résultat, buts, corners (sinon tirs/fautes). Chance des trois ensemble affichée (même match calculé ensemble).
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
