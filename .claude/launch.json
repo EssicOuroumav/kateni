@@ -3,8 +3,10 @@
   "configurations": [
     {
       "name": "kateni",
-      "runtimeExecutable": "python3",
+      "runtimeExecutable": "env",
       "runtimeArgs": [
+        "KATENI_LOCAL=1",
+        "python3",
         "-m",
         "streamlit",
         "run",
@@ -18,6 +20,7 @@
       "runtimeExecutable": "env",
       "runtimeArgs": [
         "KATENI_CIBLE=test",
+        "KATENI_LOCAL=1",
         "python3",
         "-m",
         "streamlit",
@@ -27,6 +30,21 @@
         "--server.port=8502"
       ],
       "port": 8502
+    },
+    {
+      "name": "kateni-test-code",
+      "runtimeExecutable": "env",
+      "runtimeArgs": [
+        "KATENI_CIBLE=test",
+        "python3",
+        "-m",
+        "streamlit",
+        "run",
+        "kateni_app.py",
+        "--server.address=localhost",
+        "--server.port=8503"
+      ],
+      "port": 8503
     }
   ]
 }

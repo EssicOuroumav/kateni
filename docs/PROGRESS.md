@@ -149,6 +149,12 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Kamikaze refaite (27/10) à la demande du propriétaire (cartes « Scénario 1/2/3 ») : « Solides » = matchs où victoire du favori ≥ 60 %, gagne ou nul ≥ 80 % et un scénario de corners ≥ 70 % (ligne la plus probable sans dépasser 85 %) ; « Kamikaze » = trois scénarios à 50-60 % (choix du propriétaire : « une chance sur 50 ou 60 » = 50-60 %), un par famille : résultat, buts, corners (sinon tirs/fautes). Chance des trois ensemble affichée (même match calculé ensemble).
 - Scénarios spéciaux (27/10), affichés sous les solides : par match, le scénario le plus inhabituel de chaque famille (toute la bibliothèque d'événements) avec chance 33-50 % (cote juste 2 à 3) et au moins 1,25 fois la chance moyenne du même scénario sur tous les matchs des 7 prochains jours ; trois familles différentes ; matchs solides en premier, 10 matchs au plus. Aucun changement du modèle (sélection seulement), donc pas de nouvelle mesure ; les chances restent celles du modèle calibré.
 
+## Accès par code (29/10/2026)
+- Demande du propriétaire : donner Kateni à 1-2 camarades, chacun avec son code, impossible à partager. Plan validé point par point. `kateni/acces.py` (codes, empreintes scrypt, sessions, anti-essais), `kateni/connexion.py` (page de code, revérification toutes les 60 s), `app_pages/acces.py` (propriétaire : créer, couper, rétablir, éjections), migration `db/003_acces.sql` (tables `acces`, `acces_echecs`, colonne `paris.utilisateur`, défaut « proprietaire »). Appliquée sur test puis prod (sauvegarde avant et après : 1 pari conservé).
+- `PostgresStore.pour(utilisateur)` : chaque personne ne lit, ne règle et ne supprime que ses paris ; bankroll par personne. Sur le Mac, `KATENI_LOCAL=1` (lanceur) : propriétaire sans code.
+- Piège revu : la sauvegarde d'avant migration lisait la nouvelle colonne ; `lire()` vérifie maintenant si la colonne existe.
+- Reste à faire par le propriétaire : Reboot, `Code_proprietaire.command`, passer l'app en publique dans Streamlit Cloud, puis créer les codes des camarades dans Accès.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

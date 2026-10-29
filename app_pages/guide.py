@@ -71,6 +71,14 @@ with st.container(border=True):
     st.page_link("app_pages/kamikaze.py", label="Aller à Kamikaze", icon=":material/local_fire_department:")
 
 with st.container(border=True):
+    st.subheader("Ton code d'accès", anchor=False, icon=":material/key:")
+    st.markdown(
+        "- Kateni en ligne s'ouvre avec un **code personnel**. Ne le donne à personne : s'il est utilisé sur un "
+        "autre appareil, ta session se ferme.\n"
+        "- **Mes paris** et **Bilan** sont à toi seul : les autres utilisateurs ne les voient pas.\n"
+        "- **Se déconnecter** : en haut de chaque page.")
+
+with st.container(border=True):
     st.subheader("Comparer avec Betclic (facultatif)", anchor=False, icon=":material/compare_arrows:")
     st.markdown(
         "1. Ouvre **Cotes Betclic** (ou, dans Prédictions, « Comparer avec mes cotes Betclic »).\n"

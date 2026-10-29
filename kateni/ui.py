@@ -112,22 +112,38 @@ def predire(match: dict) -> tuple[float, float, float, str]:
     return ld, le, m2.rho, "modèle global"
 
 
-@st.cache_resource
-def _store():
-    # Sur Streamlit Cloud, la configuration vient de st.secrets (pas de fichier local)
-    # (en local, lire_config lit le même fichier .streamlit/secrets.toml ; l'environnement l'emporte)
+def _conf_base() -> dict:
     from kateni.db import lire_config
     try:
         depuis_streamlit = dict(st.secrets["neon"]) if "neon" in st.secrets else {}
     except Exception:  # aucun fichier de secrets : stockage local
         depuis_streamlit = {}
-    return obtenir_store({**depuis_streamlit, **lire_config()})
+    return {**depuis_streamlit, **lire_config()}
+
+
+def utilisateur() -> str:
+    """Personne connectée (kateni/connexion.py) ; le propriétaire par défaut (Kateni sur le Mac)."""
+    from kateni.acces import PROPRIETAIRE
+    return st.session_state.get("kt_nom", PROPRIETAIRE)
+
+
+def est_proprietaire() -> bool:
+    from kateni.acces import PROPRIETAIRE
+    return st.session_state.get("kt_role", PROPRIETAIRE) == PROPRIETAIRE
+
+
+@st.cache_resource
+def _store():
+    # Sur Streamlit Cloud, la configuration vient de st.secrets (pas de fichier local)
+    # (en local, lire_config lit le même fichier .streamlit/secrets.toml ; l'environnement l'emporte)
+    return obtenir_store(_conf_base())
 
 
 def store():
+    """Les paris de la personne connectée seulement."""
     from kateni.db import ConfigurationBase
     try:
-        return _store()
+        return _store().pour(utilisateur())
     except ConfigurationBase as e:
         st.error(f"Kateni n'est pas relié à Neon. {e}", icon=":material/database_off:")
         st.markdown(
@@ -286,8 +302,8 @@ def prob_kateni(p_modele: float, p_marche: float | None) -> float:
 
 
 @st.cache_data(ttl=60, show_spinner=False)
-def _gains(mode: str) -> float:
-    paris = _store().lire()
+def _gains(mode: str, qui: str) -> float:
+    paris = _store().pour(qui).lire()
     paris = paris[(paris["mode"] == mode) & paris["statut"].isin(["gagné", "perdu"])]
     return float(pd.to_numeric(paris["gain_fcfa"], errors="coerce").fillna(0).sum())
 
@@ -301,7 +317,7 @@ def bankroll(mode: str) -> float:
     # Sans Neon, on affiche quand même les analyses (bankroll de départ) ; seul l'enregistrement bloque.
     from kateni.db import ConfigurationBase
     try:
-        return BANKROLL_INITIALE + _gains(mode)
+        return BANKROLL_INITIALE + _gains(mode, utilisateur())
     except ConfigurationBase:
         return float(BANKROLL_INITIALE)
 

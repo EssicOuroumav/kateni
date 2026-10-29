@@ -33,6 +33,12 @@ st.html("""<style>
 [data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] span { font-weight: 700; }
 </style>""")
 
+# Accès par code personnel (kateni/connexion.py) : rien d'autre ne s'affiche avant
+from kateni.connexion import bouton_deconnexion, exiger_connexion  # noqa: E402
+from kateni.ui import est_proprietaire  # noqa: E402
+
+exiger_connexion()
+
 page = st.navigation(
     [
         st.Page("app_pages/calendrier.py", title="Calendrier", icon=":material/calendar_month:", default=True),
@@ -43,9 +49,11 @@ page = st.navigation(
         st.Page("app_pages/mes_paris.py", title="Mes paris", icon=":material/receipt_long:"),
         st.Page("app_pages/bilan.py", title="Bilan", icon=":material/monitoring:"),
         st.Page("app_pages/guide.py", title="Guide", icon=":material/help:"),
+        *([st.Page("app_pages/acces.py", title="Accès", icon=":material/key:")] if est_proprietaire() else []),
     ],
     position="top",
 )
+bouton_deconnexion()  # avant la page : certaines pages s'arrêtent tôt (st.stop)
 st.title(page.title, anchor=False, icon=page.icon)
 page.run()
 st.caption("Kateni calcule des probabilités, pas des certitudes. Ne mise que ce que tu acceptes de perdre.")

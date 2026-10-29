@@ -9,12 +9,12 @@ from kateni.cotes import esperance
 from kateni.combine import CHOIX_PARIS, chance_combine, cle_match, ecrire_selections, lire_selections
 from kateni.reglement import regler_tout
 from kateni.stockage import identifiant
-from kateni.ui import choisir_match, contexte, fr, libelle, rafraichir, store
+from kateni.ui import choisir_match, contexte, est_proprietaire, fr, libelle, rafraichir, store
 
 s = store()
 
 with st.container(horizontal=True, vertical_alignment="center"):
-    st.caption(f"Paris enregistrés dans : {s.cible}")
+    st.caption(f"Paris enregistrés dans : {s.cible}" if est_proprietaire() else "Tes paris : toi seul les vois.")
     maj = st.button("Mettre à jour les résultats", icon=":material/sync:",
                     help="Les données se mettent à jour toutes seules deux fois par jour (5 h 15 et 14 h 15, heure "
                          "d'Abidjan). Ce bouton force une mise à jour immédiate.")

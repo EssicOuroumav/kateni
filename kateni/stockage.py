@@ -13,6 +13,7 @@ from datetime import datetime
 
 import pandas as pd
 
+from kateni.acces import PROPRIETAIRE
 from kateni.config import PARIS_PATH
 
 COLONNES = [
@@ -81,12 +82,22 @@ class CsvStore:
 
 class PostgresStore:
     """Même interface que CsvStore, sur une base Neon (Postgres). Une connexion par opération :
-    Neon met la base en veille et coupe les connexions inactives, on ne garde donc rien ouvert."""
+    Neon met la base en veille et coupe les connexions inactives, on ne garde donc rien ouvert.
+    `utilisateur` (migration 003) : chaque personne ne lit et ne modifie que SES paris ; None = tous
+    (robots, sauvegardes : la colonne utilisateur est alors lue aussi)."""
 
-    def __init__(self, url: str, cible: str):
+    def __init__(self, url: str, cible: str, utilisateur: str | None = None):
         from kateni.db import hote
         self.url = url
+        self._cible = cible
+        self.utilisateur = utilisateur
         self.cible = f"base Neon « {cible} » ({hote(url)})"
+
+    def pour(self, utilisateur: str) -> "PostgresStore":
+        return PostgresStore(self.url, self._cible, utilisateur)
+
+    def _filtre(self) -> tuple[str, tuple]:
+        return (" AND utilisateur = %s", (self.utilisateur,)) if self.utilisateur else ("", ())
 
     def _connexion(self):
         import psycopg
@@ -99,11 +110,16 @@ class PostgresStore:
         return "" if v is None or (isinstance(v, float) and pd.isna(v)) else str(v)
 
     def lire(self) -> pd.DataFrame:
+        filtre, valeurs = self._filtre()
         with self._connexion() as c, c.cursor() as cur:
-            cur.execute(f"SELECT {', '.join(COLONNES)} FROM paris ORDER BY cree_le, id")
+            cur.execute("SELECT 1 FROM information_schema.columns WHERE table_name = 'paris' "
+                        "AND column_name = 'utilisateur'")
+            # Tous les paris (robots, sauvegardes) : avec la personne, si la migration 003 est passée
+            cols = [*COLONNES, "utilisateur"] if not self.utilisateur and cur.fetchone() else COLONNES
+            cur.execute(f"SELECT {', '.join(cols)} FROM paris WHERE true{filtre} ORDER BY cree_le, id", valeurs)
             lignes = cur.fetchall()
-        df = pd.DataFrame(lignes, columns=COLONNES)
-        for col in COLONNES:
+        df = pd.DataFrame(lignes, columns=cols)
+        for col in cols:
             if col in NUMERIQUES:
                 df[col] = pd.to_numeric(df[col], errors="coerce")
             else:
@@ -114,8 +130,12 @@ class PostgresStore:
         ligne = {c: self._valeur(c, pari.get(c)) for c in COLONNES}
         ligne["cree_le"] = ligne["cree_le"] or datetime.now().strftime("%Y-%m-%d %H:%M")
         ligne["statut"] = ligne["statut"] or "en attente"
-        cols = ", ".join(COLONNES)
-        marques = ", ".join(f"%({c})s" for c in COLONNES)
+        ligne["utilisateur"] = self.utilisateur or pari.get("utilisateur") or PROPRIETAIRE
+        if ligne["utilisateur"] != PROPRIETAIRE:  # deux personnes peuvent noter le même pari
+            ligne["id"] = hashlib.sha256(f"{ligne['id']}|{ligne['utilisateur']}".encode()).hexdigest()[:16]
+        noms = [*COLONNES, "utilisateur"]
+        cols = ", ".join(noms)
+        marques = ", ".join(f"%({c})s" for c in noms)
         with self._connexion() as c, c.cursor() as cur:
             cur.execute(f"INSERT INTO paris ({cols}) VALUES ({marques}) "
                         "ON CONFLICT (id) DO NOTHING RETURNING id", ligne)
@@ -127,13 +147,15 @@ class PostgresStore:
         if inconnus or "id" in champs:
             raise ValueError(f"Colonnes non modifiables : {sorted(inconnus | ({'id'} & set(champs)))}")
         affect = sql.SQL(", ").join(sql.SQL("{} = %s").format(sql.Identifier(k)) for k in champs)
-        valeurs = [self._valeur(k, v) for k, v in champs.items()] + [id_]
+        filtre, f_val = self._filtre()
+        valeurs = [self._valeur(k, v) for k, v in champs.items()] + [id_, *f_val]
         with self._connexion() as c, c.cursor() as cur:
-            cur.execute(sql.SQL("UPDATE paris SET {} WHERE id = %s").format(affect), valeurs)
+            cur.execute(sql.SQL("UPDATE paris SET {} WHERE id = %s" + filtre).format(affect), valeurs)
 
     def supprimer(self, id_: str) -> None:
+        filtre, f_val = self._filtre()
         with self._connexion() as c, c.cursor() as cur:
-            cur.execute("DELETE FROM paris WHERE id = %s", (id_,))
+            cur.execute("DELETE FROM paris WHERE id = %s" + filtre, (id_, *f_val))
 
 
 def obtenir_store(conf: dict | None = None):

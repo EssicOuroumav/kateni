@@ -102,3 +102,52 @@ def test_bloc_cloud_production_seulement():
     assert '[odds_api]\nkey = "abc"' in sc.bloc_cloud({"url": PROD}, "abc")
     with pytest.raises(ConfigurationBase):
         sc.bloc_cloud({"url": "postgresql://u:p@HOTE-pooler.REGION.aws.neon.tech/neondb"})
+
+
+def test_code_acces_format_et_empreinte():
+    from kateni.acces import ALPHABET, LONGUEUR, empreinte, generer_code, normaliser
+    code = generer_code()
+    brut = normaliser(code)
+    assert code.startswith("KTN-") and len(brut) == LONGUEUR and set(brut) <= set(ALPHABET)
+    assert normaliser(code.lower().replace("-", " ")) == brut  # tapé en minuscules, avec espaces
+    sel = "00" * 16
+    assert empreinte(code, sel) == empreinte(code.lower(), sel) != empreinte(generer_code(), sel)
+    assert brut not in empreinte(code, sel)
+
+
+@pytest.mark.skipif(not _TEST_REEL, reason="branche Neon test non configurée (ou adresse d'exemple)")
+def test_neon_acces_une_personne_a_la_fois_et_paris_separes():
+    import psycopg
+    from kateni.acces import Acces
+    url = url_base(_conf, "test")
+    a = Acces(url)
+    nom = "ZZTEST-" + uuid.uuid4().hex[:6]
+    try:
+        code = a.creer(nom)
+        n1 = a.connecter(code, "telephone A")
+        assert n1 and n1[:2] == (nom, "ami") and a.session(n1[2], "telephone A") == (nom, "ami")
+        assert a.session(n1[2], "telephone B") is None            # lien copié sur un autre appareil
+        n2 = a.connecter(code, "telephone B")                       # le code est utilisé ailleurs
+        assert a.session(n1[2], "telephone A") is None              # le premier est déconnecté
+        assert a.session(n2[2], "telephone B") == (nom, "ami")
+        assert [x for x in a.lister() if x["nom"] == nom][0]["ejections"] == 1
+        a.activer(nom, False)
+        assert a.session(n2[2], "telephone B") is None and a.connecter(code, "telephone B") is None
+        a.activer(nom, True)
+        # Paris séparés : l'ami ne voit pas les paris du propriétaire et inversement
+        base = PostgresStore(url, "test")
+        ami, proprio = base.pour(nom), base.pour("proprietaire")
+        pari = {"id": "ZZTEST-" + uuid.uuid4().hex[:8], "date_match": "2026-10-21", "competition": "CL",
+                "dom": "A", "ext": "B", "type": "avant-match", "marche": "1N2", "selection": "1", "cote": 1.5,
+                "mise_fcfa": 1000, "mode": "fictif"}
+        assert ami.ajouter(pari) is True and proprio.ajouter(pari) is True   # même pari, deux personnes
+        assert len(ami.lire()) == 1 and pari["id"] not in set(ami.lire()["id"])
+        assert pari["id"] in set(proprio.lire()["id"])
+        ami.supprimer(pari["id"])                                   # ne peut pas toucher au pari du propriétaire
+        assert pari["id"] in set(proprio.lire()["id"])
+        proprio.supprimer(pari["id"])
+    finally:
+        with psycopg.connect(url) as c:
+            c.execute("DELETE FROM paris WHERE utilisateur = %s", (nom,))
+            c.execute("DELETE FROM acces WHERE nom = %s", (nom,))
+            c.execute("DELETE FROM acces_echecs")

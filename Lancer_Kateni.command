@@ -8,4 +8,5 @@ cd "$(dirname "$0")"
 
 echo "Démarrage de Kateni..."
 # --server.address=localhost : Kateni n'est joignable que depuis ce Mac (cf. docs/SECURITE.md)
-python3 -m streamlit run kateni_app.py --server.address=localhost
+# KATENI_LOCAL=1 : sur ce Mac, pas de code d'accès (le propriétaire entre directement)
+KATENI_LOCAL=1 python3 -m streamlit run kateni_app.py --server.address=localhost
