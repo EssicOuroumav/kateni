@@ -76,6 +76,15 @@ class Acces:
             c.execute("UPDATE acces SET actif = %s, jeton = CASE WHEN %s THEN jeton ELSE '' END "
                       "WHERE nom = %s AND role <> 'proprietaire'", (actif, actif, nom))
 
+    def supprimer(self, nom: str) -> int:
+        """Supprime l'accès de ce camarade ET ses paris (jamais le propriétaire). Renvoie le nombre de paris."""
+        if nom == PROPRIETAIRE:
+            raise ValueError("Le propriétaire ne peut pas être supprimé.")
+        with self._connexion() as c:
+            n = c.execute("DELETE FROM paris WHERE utilisateur = %s", (nom,)).rowcount
+            c.execute("DELETE FROM acces WHERE nom = %s AND role <> 'proprietaire'", (nom,))
+        return n
+
     def lister(self) -> list[dict]:
         with self._connexion() as c, c.cursor() as cur:
             cur.execute("SELECT nom, role, actif, vu_le, ejections, cree_le, jeton <> '' FROM acces "

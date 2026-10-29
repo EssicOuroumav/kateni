@@ -49,6 +49,16 @@ for a in acces:
         elif st.button("Rétablir", key=f"kt_on_{a['nom']}", icon=":material/restart_alt:"):
             _acces().activer(a["nom"], True)
             st.rerun()
+        with st.popover("Supprimer", icon=":material/delete:"):
+            st.markdown(f"Supprimer **{a['nom']}** pour de bon ? Son code ne marchera plus et **tous ses paris** "
+                        "seront effacés. Impossible à annuler.")
+            if st.button(f"Oui, supprimer {a['nom']}", key=f"kt_del_{a['nom']}", type="primary",
+                         icon=":material/delete_forever:"):
+                n = _acces().supprimer(a["nom"])
+                st.session_state["kt_supprime"] = f"{a['nom']} supprimé ({n} pari(s) effacé(s))."
+                st.rerun()
+if "kt_supprime" in st.session_state:
+    st.success(st.session_state.pop("kt_supprime"), icon=":material/check_circle:")
 
 with st.expander("Comment ça marche ?", icon=":material/help:"):
     st.markdown(
@@ -58,4 +68,6 @@ with st.expander("Comment ça marche ?", icon=":material/help:"):
         "- **Un code = une personne à la fois** : s'il est utilisé sur un autre téléphone, le premier est "
         "déconnecté. Le compteur « éjections » augmente quand cela arrive pendant qu'il s'en servait encore : "
         "souvent = code partagé. Coupe l'accès ou recrée-lui un code.\n"
+        "- **Couper l'accès** bloque le code mais garde ses paris (tu peux rétablir). **Supprimer** efface le "
+        "camarade et tous ses paris, pour de bon.\n"
         "- 5 codes faux en 15 minutes bloquent la connexion pendant 15 minutes (contre les essais au hasard).")

@@ -153,6 +153,7 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Demande du propriétaire : donner Kateni à 1-2 camarades, chacun avec son code, impossible à partager. Plan validé point par point. `kateni/acces.py` (codes, empreintes scrypt, sessions, anti-essais), `kateni/connexion.py` (page de code, revérification toutes les 60 s), `app_pages/acces.py` (propriétaire : créer, couper, rétablir, éjections), migration `db/003_acces.sql` (tables `acces`, `acces_echecs`, colonne `paris.utilisateur`, défaut « proprietaire »). Appliquée sur test puis prod (sauvegarde avant et après : 1 pari conservé).
 - `PostgresStore.pour(utilisateur)` : chaque personne ne lit, ne règle et ne supprime que ses paris ; bankroll par personne. Sur le Mac, `KATENI_LOCAL=1` (lanceur) : propriétaire sans code.
 - Piège revu : la sauvegarde d'avant migration lisait la nouvelle colonne ; `lire()` vérifie maintenant si la colonne existe.
+- Supprimer un camarade (29/10) : page Accès, bouton « Supprimer » avec confirmation ; efface son accès et tous ses paris (jamais le propriétaire). `Acces.supprimer`, testé sur la branche test.
 - Reste à faire par le propriétaire : Reboot, `Code_proprietaire.command`, passer l'app en publique dans Streamlit Cloud, puis créer les codes des camarades dans Accès.
 
 ## Erreurs et décisions (pour le bilan)

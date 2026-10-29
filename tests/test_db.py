@@ -145,6 +145,11 @@ def test_neon_acces_une_personne_a_la_fois_et_paris_separes():
         assert pari["id"] in set(proprio.lire()["id"])
         ami.supprimer(pari["id"])                                   # ne peut pas toucher au pari du propriétaire
         assert pari["id"] in set(proprio.lire()["id"])
+        ami.ajouter(pari)
+        assert a.supprimer(nom) == 1                                # le camarade et ses paris, pas les autres
+        assert nom not in {x["nom"] for x in a.lister()} and pari["id"] in set(proprio.lire()["id"])
+        with pytest.raises(ValueError):
+            a.supprimer("proprietaire")
         proprio.supprimer(pari["id"])
     finally:
         with psycopg.connect(url) as c:
