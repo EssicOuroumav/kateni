@@ -1,33 +1,6 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
 LIGA,2026-10-10 12:00:00Z,Rayo Vallecano,Athletic Club
-SA,2026-10-28 17:30:00Z,Milan,Bologna
-SA,2026-10-28 17:30:00Z,Parma,Udinese
-SA,2026-10-28 17:30:00Z,Venezia,Internazionale
-SA,2026-10-28 19:45:00Z,Genoa,Juventus
-SA,2026-10-28 19:45:00Z,Monza,Napoli
-SCO,2026-10-28 19:45:00Z,Aberdeen,Falkirk
-SCO,2026-10-28 19:45:00Z,Celtic,Dundee United
-SCO,2026-10-28 19:45:00Z,Dundee,Kilmarnock
-SCO,2026-10-28 19:45:00Z,St. Johnstone,Motherwell
-SCO,2026-10-28 19:45:00Z,St. Mirren,Hibernian
-SCO,2026-10-28 20:00:00Z,Heart of Midlothian,Rangers
-MLS,2026-10-28 23:30:00Z,Charlotte FC,CF Montréal
-MLS,2026-10-28 23:30:00Z,Inter Miami CF,FC Cincinnati
-MLS,2026-10-28 23:30:00Z,New England Revolution,Red Bull New York
-MLS,2026-10-28 23:30:00Z,New York City Football Club,Atlanta United
-MLS,2026-10-28 23:30:00Z,Toronto FC,D.C. United
-MLS,2026-10-29 00:30:00Z,Austin FC,Real Salt Lake
-MLS,2026-10-29 00:30:00Z,Chicago Fire FC,Orlando City
-MLS,2026-10-29 00:30:00Z,FC Dallas,Columbus Crew
-MLS,2026-10-29 00:30:00Z,Minnesota United FC,Sporting Kansas City
-MLS,2026-10-29 00:30:00Z,Nashville SC,Philadelphia Union
-MLS,2026-10-29 00:30:00Z,St. Louis CITY SC,Portland Timbers
-MLS,2026-10-29 02:30:00Z,San Jose Earthquakes,Colorado Rapids
-MLS,2026-10-29 02:30:00Z,Seattle Sounders FC,Houston Dynamo FC
-MLS,2026-10-29 02:30:00Z,Vancouver Whitecaps FC,San Diego FC
-SA,2026-10-29 17:30:00Z,Frosinone,Lecce
-SA,2026-10-29 19:45:00Z,Fiorentina,Atalanta
 TUR,2026-10-30 17:00:00Z,Konyaspor,Galatasaray
 L1,2026-10-30 18:00:00Z,Havre Athletic Club,Paris Saint-Germain
 L2,2026-10-30 19:00:00Z,FC Metz,Pau FC
