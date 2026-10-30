@@ -19,7 +19,8 @@ from datetime import datetime, timedelta, timezone
 PROPRIETAIRE = "proprietaire"
 ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ"   # sans 0/O, 1/I/L : pas de confusion en recopiant
 LONGUEUR = 12
-MAX_ECHECS, FENETRE_ECHECS = 5, timedelta(minutes=15)
+MAX_ECHECS, FENETRE_ECHECS = 50, timedelta(minutes=15)   # tous visiteurs confondus (anti-robot)
+MAX_ECHECS_SESSION = 5                                      # un même visiteur (session du navigateur)
 ACTIVE = timedelta(minutes=30)   # une session vue il y a moins de 30 min « servait encore »
 
 

@@ -94,6 +94,8 @@ class PostgresStore:
         self.cible = f"base Neon « {cible} » ({hote(url)})"
 
     def pour(self, utilisateur: str) -> "PostgresStore":
+        if not utilisateur:
+            raise ValueError("Utilisateur vide : refusé (on ne lit jamais tous les paris depuis l'app).")
         return PostgresStore(self.url, self._cible, utilisateur)
 
     def _filtre(self) -> tuple[str, tuple]:

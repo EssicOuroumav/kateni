@@ -4,6 +4,11 @@
 # Pas de port ici non plus : Streamlit Cloud impose le sien (8501 reste le défaut sur le Mac).
 headless = true
 
+[client]
+# En cas de plantage d'une page : le type d'erreur seulement, sans fichiers ni détails techniques
+# (le détail complet reste dans les journaux de Streamlit Cloud, visibles par le propriétaire seul)
+showErrorDetails = "type"
+
 [browser]
 gatherUsageStats = false
 

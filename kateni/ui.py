@@ -122,14 +122,17 @@ def _conf_base() -> dict:
 
 
 def utilisateur() -> str:
-    """Personne connectée (kateni/connexion.py) ; le propriétaire par défaut (Kateni sur le Mac)."""
-    from kateni.acces import PROPRIETAIRE
-    return st.session_state.get("kt_nom", PROPRIETAIRE)
+    """Personne connectée (kateni/connexion.py). Personne = arrêt : jamais de rôle par défaut, pour qu'un
+    oubli de la serrure ne donne jamais les droits du propriétaire (ni tous les paris)."""
+    nom = st.session_state.get("kt_nom")
+    if not nom:
+        st.stop()
+    return nom
 
 
 def est_proprietaire() -> bool:
     from kateni.acces import PROPRIETAIRE
-    return st.session_state.get("kt_role", PROPRIETAIRE) == PROPRIETAIRE
+    return st.session_state.get("kt_role") == PROPRIETAIRE
 
 
 @st.cache_resource

@@ -12,7 +12,7 @@ import time
 
 import streamlit as st
 
-from kateni.acces import MAX_ECHECS, PROPRIETAIRE, Acces
+from kateni.acces import FENETRE_ECHECS, MAX_ECHECS_SESSION, PROPRIETAIRE, Acces
 
 REVERIFIER = 60  # secondes
 
@@ -81,17 +81,24 @@ def _formulaire(ejecte: bool) -> None:
     st.caption("Chaque code est personnel. S'il est utilisé sur un autre appareil, la session précédente se ferme.")
     if not ok:
         return
+    # Ce visiteur seulement : 5 codes faux en 15 min (sans toucher la base). Le blocage global (50 en 15 min,
+    # tous visiteurs) ne sert que contre un robot : un inconnu ne peut plus bloquer les autres.
+    recents = [t for t in st.session_state.get("kt_echecs", []) if time.time() - t < FENETRE_ECHECS.total_seconds()]
+    if len(recents) >= MAX_ECHECS_SESSION:
+        st.error(f"Trop de codes faux ({MAX_ECHECS_SESSION} en 15 minutes). Réessaie dans 15 minutes.",
+                 icon=":material/block:")
+        return
     try:
         a = _acces()
         if a.bloque():
-            st.error(f"Trop de codes faux ({MAX_ECHECS} en 15 minutes). Réessaie dans 15 minutes.",
-                     icon=":material/block:")
+            st.error("Trop d'essais en ce moment sur Kateni. Réessaie dans 15 minutes.", icon=":material/block:")
             return
         r = a.connecter(code, _navigateur())
     except Exception:
         st.error("La base de Kateni ne répond pas. Réessaie dans un instant.", icon=":material/cloud_off:")
         return
     if r is None:
+        st.session_state["kt_echecs"] = [*recents, time.time()]
         st.error("Code inconnu ou désactivé.", icon=":material/key_off:")
         return
     _ouvrir(*r)

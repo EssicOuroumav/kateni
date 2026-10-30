@@ -119,7 +119,7 @@ with st.container(border=True):
         "**Un ticket déjà terminé, ou avec des matchs absents de Kateni** (coupes, petites divisions) ? « Noter un "
         "ticket déjà terminé » : cote totale, mise et résultat suffisent.\n\n"
         "Les résultats arrivent **tout seuls** (deux fois par jour). Ouvre **Mes paris** : les paris terminés y sont "
-        "réglés automatiquement. Le bouton **Mettre à jour les résultats** sert seulement à forcer une mise à jour "
+        "réglés automatiquement. Le bouton **Mettre à jour les résultats** (propriétaire seulement) sert seulement à forcer une mise à jour "
         "immédiate. **Bilan** montre si Kateni gagne vraiment sur la durée.")
     st.page_link("app_pages/mes_paris.py", label="Aller à Mes paris", icon=":material/receipt_long:")
 

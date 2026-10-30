@@ -15,9 +15,12 @@ s = store()
 
 with st.container(horizontal=True, vertical_alignment="center"):
     st.caption(f"Paris enregistrés dans : {s.cible}" if est_proprietaire() else "Tes paris : toi seul les vois.")
-    maj = st.button("Mettre à jour les résultats", icon=":material/sync:",
-                    help="Les données se mettent à jour toutes seules deux fois par jour (5 h 15 et 14 h 15, heure "
-                         "d'Abidjan). Ce bouton force une mise à jour immédiate.")
+    # Propriétaire seulement : ce bouton lance des téléchargements lourds sur le serveur (cliqué en boucle par
+    # un autre utilisateur, il ralentirait Kateni pour tous). Les robots mettent à jour deux fois par jour.
+    maj = est_proprietaire() and st.button(
+        "Mettre à jour les résultats", icon=":material/sync:",
+        help="Les données se mettent à jour toutes seules deux fois par jour (5 h 15 et 14 h 15, heure "
+             "d'Abidjan). Ce bouton force une mise à jour immédiate.")
 if maj:
     with st.status("Mise à jour des résultats…", expanded=True) as statut:
         for script in ("scripts/maj_europe.py", "scripts/maj_donnees.py"):
