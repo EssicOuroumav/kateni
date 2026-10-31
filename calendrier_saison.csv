@@ -1,25 +1,11 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
-LIGA,2026-10-10 12:00:00Z,Rayo Vallecano,Athletic Club
-TUR,2026-10-30 17:00:00Z,Konyaspor,Galatasaray
-L1,2026-10-30 18:00:00Z,Havre Athletic Club,Paris Saint-Germain
-L2,2026-10-30 19:00:00Z,FC Metz,Pau FC
-L2,2026-10-30 19:00:00Z,FC Nantes,Clermont Foot 63
-L2,2026-10-30 19:00:00Z,Grenoble Foot 38,Dijon FCO
-L2,2026-10-30 19:00:00Z,Rodez Aveyron Football,USL Dunkerque
-L2,2026-10-30 19:00:00Z,Stade Lavallois MFC,US Boulogne CO
-BL,2026-10-30 19:30:00Z,SV Elversberg,1. FSV Mainz 05
-CHAMP,2026-10-30 20:00:00Z,Sheffield United,Wrexham
-LIGA,2026-10-30 20:00:00Z,Villarreal CF,RCD Espanyol de Barcelona
-L1,2026-10-30 20:05:00Z,LOSC Lille,RC Lens
-POR,2026-10-30 20:15:00Z,Casa Pia AC,Sporting CP
 TUR,2026-10-31 10:30:00Z,Erzurumspor,Çorum
 CHAMP,2026-10-31 12:30:00Z,Lincoln City,Birmingham City
 CHAMP,2026-10-31 12:30:00Z,Norwich City,Watford
 CHAMP,2026-10-31 12:30:00Z,Stoke City,Preston North End
 PL,2026-10-31 12:30:00Z,Chelsea,Man Utd
 L2,2026-10-31 13:00:00Z,FC Annecy,Montpellier Hérault SC
-L2,2026-10-31 13:00:00Z,Stade DE Reims,FC Sochaux-Montbéliard
 LIGA,2026-10-31 13:00:00Z,Levante UD,Atlético de Madrid
 TUR,2026-10-31 13:00:00Z,Kocaelispor,Çaykur Rizespor
 SA,2026-10-31 14:00:00Z,Bologna,Monza
@@ -48,7 +34,6 @@ LIGA,2026-10-31 15:15:00Z,Rayo Vallecano,Celta
 NED,2026-10-31 15:30:00Z,Feyenoord,Fortuna Sittard
 POR,2026-10-31 15:30:00Z,Moreirense FC,Estrela Amadora
 TUR,2026-10-31 16:00:00Z,Fenerbahçe,Göztepe
-L1,2026-10-31 16:15:00Z,OGC Nice,Stade Rennais FC
 MLS,2026-10-31 17:00:00Z,Charlotte FC,Orlando City
 SA,2026-10-31 17:00:00Z,Udinese,Roma
 BL,2026-10-31 17:30:00Z,FC Bayern München,Borussia Dortmund
@@ -63,8 +48,6 @@ L2,2026-10-31 19:00:00Z,EN Avant Guingamp,AS Saint-Étienne
 MLS,2026-10-31 19:00:00Z,Sporting Kansas City,FC Dallas
 MLS,2026-10-31 19:00:00Z,St. Louis CITY SC,San Diego FC
 L1,2026-10-31 19:45:00Z,Estac Troyes,Le Mans FC
-L1,2026-10-31 19:45:00Z,FC Lorient,Stade Brestois 29
-L1,2026-10-31 19:45:00Z,Olympique Lyonnais,Angers SCO
 SA,2026-10-31 19:45:00Z,Milan,Internazionale
 LIGA,2026-10-31 20:00:00Z,FC Barcelona,Deportivo Alavés
 NED,2026-10-31 20:00:00Z,Ajax,AZ
@@ -91,6 +74,7 @@ LIGA,2026-11-01 15:15:00Z,R. Racing Club,Real Madrid
 POR,2026-11-01 15:30:00Z,FC Arouca,CD Nacional
 NED,2026-11-01 15:45:00Z,FC Groningen,Sparta Rotterdam
 TUR,2026-11-01 16:00:00Z,Kasimpasa,Besiktas
+L1,2026-11-01 16:15:00Z,Olympique Lyonnais,Angers SCO
 L1,2026-11-01 16:15:00Z,Paris FC,AS Monaco
 BL,2026-11-01 16:30:00Z,Eintracht Frankfurt,Hamburger SV
 PL,2026-11-01 16:30:00Z,Liverpool,Arsenal
@@ -101,16 +85,18 @@ POR,2026-11-01 18:00:00Z,Marítimo M.,Santa Clara
 L1,2026-11-01 19:45:00Z,Olympique de Marseille,Toulouse FC
 SA,2026-11-01 19:45:00Z,Juventus,Napoli
 LIGA,2026-11-01 20:00:00Z,Athletic Club,Real Sociedad
+MLS,2026-11-01 20:30:00Z,Vancouver Whitecaps FC,Seattle Sounders FC
 POR,2026-11-01 20:30:00Z,SC Braga,FC Famalicão
 MLS,2026-11-01 21:30:00Z,Atlanta United,Toronto FC
 MLS,2026-11-01 21:30:00Z,Nashville SC,Red Bull New York
-MLS,2026-11-01 21:30:00Z,Vancouver Whitecaps FC,Seattle Sounders FC
 MLS,2026-11-02 00:00:00Z,New England Revolution,Inter Miami CF
 MLS,2026-11-02 01:30:00Z,Los Angeles Football Club,Minnesota United FC
 MLS,2026-11-02 02:45:00Z,Portland Timbers,Houston Dynamo FC
 TUR,2026-11-02 17:00:00Z,Gençlerbirligi,Alanyaspor
 SA,2026-11-02 17:30:00Z,Sassuolo,Fiorentina
+L1,2026-11-02 19:45:00Z,FC Lorient,Stade Brestois 29
 L2,2026-11-02 19:45:00Z,Red Star FC,AS Nancy Lorraine
+L2,2026-11-02 19:45:00Z,Stade DE Reims,FC Sochaux-Montbéliard
 SA,2026-11-02 19:45:00Z,Atalanta,Parma
 LIGA,2026-11-02 20:00:00Z,RC Deportivo,CA Osasuna
 PL,2026-11-02 20:00:00Z,Newcastle,Everton
@@ -132,6 +118,7 @@ TUR,2026-11-06 17:00:00Z,Gaziantep,Kasimpasa
 L2,2026-11-06 19:00:00Z,AS Nancy Lorraine,FC Sochaux-Montbéliard
 L2,2026-11-06 19:00:00Z,Dijon FCO,Red Star FC
 L2,2026-11-06 19:00:00Z,Grenoble Foot 38,Stade DE Reims
+L2,2026-11-06 19:00:00Z,Montpellier Hérault SC,FC Metz
 L2,2026-11-06 19:00:00Z,US Boulogne CO,FC Annecy
 L2,2026-11-06 19:00:00Z,USL Dunkerque,EN Avant Guingamp
 NED,2026-11-06 19:00:00Z,Willem II,PEC Zwolle
@@ -148,7 +135,6 @@ CHAMP,2026-11-07 12:30:00Z,Portsmouth,Stoke City
 CHAMP,2026-11-07 12:30:00Z,Wrexham,Wolverhampton Wanderers
 PL,2026-11-07 12:30:00Z,Leeds,Spurs
 L2,2026-11-07 13:00:00Z,Clermont Foot 63,Rodez Aveyron Football
-L2,2026-11-07 13:00:00Z,Montpellier Hérault SC,FC Metz
 LIGA,2026-11-07 13:00:00Z,Málaga CF,R. Racing Club
 TUR,2026-11-07 13:00:00Z,Samsunspor,Konyaspor
 SA,2026-11-07 14:00:00Z,Cagliari,Frosinone
@@ -571,6 +557,7 @@ CHAMP,2026-12-08 19:45:00Z,West Bromwich Albion,Cardiff City
 CHAMP,2026-12-08 19:45:00Z,Wrexham,Charlton Athletic
 CHAMP,2026-12-08 20:00:00Z,Birmingham City,Watford
 CHAMP,2026-12-08 20:00:00Z,West Ham United,Middlesbrough
+LIGA,2026-12-09 19:00:00Z,Rayo Vallecano,Athletic Club
 CHAMP,2026-12-09 19:45:00Z,Derby County,Bristol City
 CHAMP,2026-12-09 19:45:00Z,Lincoln City,Stoke City
 CHAMP,2026-12-09 19:45:00Z,Preston North End,Portsmouth
