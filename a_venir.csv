@@ -1,6 +1,4 @@
 competition,Date,Heure_CET,HomeTeam,AwayTeam
-CL,2026-11-04,18:45,AEK Athens,Real Madrid
-CL,2026-11-04,18:45,Fenerbahçe,Liverpool
 CL,2026-11-04,21:00,Borussia Dortmund,Real Betis
 CL,2026-11-04,21:00,Porto,Napoli
 CL,2026-11-04,21:00,PSV Eindhoven,Club Brugge
@@ -80,7 +78,6 @@ CL,2027-01-27,21:00,Slavia Prague,Aston Villa
 CL,2027-01-27,21:00,Napoli,Viking
 CL,2027-01-27,21:00,Villarreal,Manchester United
 CL,2027-01-27,21:00,Slovan Bratislava,Inter Milan
-EL,2026-11-04,16:30,Rennes,Olympiacos
 EL,2026-11-05,18:45,Milan,Ferencváros
 EL,2026-11-05,18:45,Sparta Prague,Bournemouth
 EL,2026-11-05,18:45,Crystal Palace,TSG Hoffenheim
