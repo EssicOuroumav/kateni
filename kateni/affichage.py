@@ -182,7 +182,7 @@ def barre_chances(dom: str, ext: str, p1n2) -> str:
     from html import escape
     q1, qn, q2 = (round(100 * x) for x in p1n2)
     return (f'<div role="img" aria-label="{escape(dom)} {q1} pour cent, nul {qn} pour cent, {escape(ext)} {q2} pour cent" '
-            'style="display:flex;height:10px;border-radius:999px;overflow:hidden;background:#1B241F;margin:2px 0">'
+            'style="display:flex;height:10px;border-radius:999px;overflow:hidden;background:rgba(127,140,132,0.25);margin:2px 0">'
             f'<div style="width:{q1}%;background:#39E58A"></div><div style="width:{qn}%;background:#5E6E64"></div>'
             f'<div style="width:{q2}%;background:#FF4D4D"></div></div>')
 

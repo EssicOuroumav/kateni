@@ -13,9 +13,17 @@ showErrorDetails = "type"
 gatherUsageStats = false
 
 [theme]
-# Charte « Nuit de match » (choix du propriétaire, 08/11/2026) : stade la nuit sous les projecteurs.
-# Fond très sombre, cartes ardoise, vert gazon électrique pour l'action, rouge Kateni pour la marque.
-base = "dark"
+# Charte « Nuit de match » (choix du propriétaire, 08/11/2026), en deux versions : nuit (sombre) et jour
+# (clair). Par défaut, l'app suit le réglage du téléphone ou de l'ordinateur (mode sombre automatique le
+# soir) ; menu ⋮ > Settings > Theme pour choisir à la main. Mêmes polices et accents dans les deux.
+headingFont = "'Oxanium':https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700;800&display=swap"
+headingFontWeights = [800, 700, 700, 700, 600, 600]
+font = "'Nunito Sans':https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
+metricValueFontWeight = 800
+baseRadius = "large"
+
+[theme.dark]
+# Nuit : stade sous les projecteurs, vert gazon électrique pour l'action, rouge Kateni pour la marque
 primaryColor = "#39E58A"
 backgroundColor = "#0B0F0D"
 secondaryBackgroundColor = "#1B241F"
@@ -29,10 +37,23 @@ greenColor = "#39E58A"
 orangeColor = "#FFB547"
 blueColor = "#5BC0FF"
 grayColor = "#9FB0A5"
-headingFont = "'Oxanium':https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700;800&display=swap"
-headingFontWeights = [800, 700, 700, 700, 600, 600]
-font = "'Nunito Sans':https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
-metricValueFontWeight = 800
-baseRadius = "large"
 chartCategoricalColors = ["#39E58A", "#FF4D4D", "#5BC0FF", "#FFB547", "#9FB0A5", "#E9F0EB"]
 chartSequentialColors = ["#0F2A1C", "#123A25", "#164B2F", "#1A5D39", "#1F7044", "#24844F", "#2A985B", "#30AD67", "#35C374", "#39E58A"]
+
+[theme.light]
+# Jour : pelouse en plein soleil, même vert (plus foncé pour rester lisible sur blanc) et même rouge
+primaryColor = "#14894E"
+backgroundColor = "#F6F8F6"
+secondaryBackgroundColor = "#E7EEE9"
+textColor = "#0E1A13"
+linkColor = "#14894E"
+borderColor = "#D3DED6"
+dataframeBorderColor = "#D3DED6"
+dataframeHeaderBackgroundColor = "#E7EEE9"
+redColor = "#D32F2F"
+greenColor = "#14894E"
+orangeColor = "#B86200"
+blueColor = "#1F5FA8"
+grayColor = "#56655B"
+chartCategoricalColors = ["#14894E", "#D32F2F", "#1F5FA8", "#B86200", "#56655B", "#0E1A13"]
+chartSequentialColors = ["#E8F5EE", "#CDEBDB", "#AEDFC4", "#8BD1AB", "#66C190", "#43AF76", "#2A9C62", "#1C8A53", "#147746", "#0E5F37"]

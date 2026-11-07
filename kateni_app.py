@@ -15,22 +15,20 @@ st.set_page_config(page_title="Kateni", page_icon=str(LOGO) if LOGO.exists() els
 if LOGO.exists():
     st.logo(str(LOGO), size="large")
 
-# Design « Nuit de match » (choix du propriétaire, 08/11/2026) : barre du haut sombre comme un stade la nuit,
-# marque en rouge, page active en vert gazon ; cartes ardoise légèrement éclairées. Le thème de Streamlit
-# (.streamlit/config.toml) règle couleurs et polices ; cette petite feuille de style cible les repères
-# « data-testid » publics. Si une mise à jour de Streamlit les change, l'app garde le thème sombre (rien ne casse).
+# Design « Nuit de match » (choix du propriétaire, 08/11/2026), version nuit et version jour : les couleurs
+# viennent du thème (.streamlit/config.toml, [theme.dark] et [theme.light]) ; cette petite feuille de style
+# n'ajoute que des touches valables dans les deux (page active, halo du logo, projecteurs, chiffres).
+# Si une mise à jour de Streamlit change ses repères « data-testid », seules ces touches disparaissent.
 st.html("""<style>
-[data-testid="stHeader"] { background: rgba(11, 15, 13, 0.92); border-bottom: 1px solid #24302A; backdrop-filter: blur(8px); }
-[data-testid="stHeader"] [data-testid="stTopNavLink"] span,
-[data-testid="stHeader"] [data-testid="stTopNavSection"] span { color: #C9D4CC !important; }
+[data-testid="stHeader"] { border-bottom: 1px solid rgba(127, 140, 132, 0.25); backdrop-filter: blur(8px); }
 [data-testid="stHeader"] [data-testid="stTopNavLink"] { border-radius: 999px; }
-[data-testid="stHeader"] [data-testid="stTopNavLink"]:hover { background: #1B241F; }
-[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] { background: rgba(57, 229, 138, 0.12); }
-[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] span { color: #39E58A !important; font-weight: 700; }
+[data-testid="stHeader"] [data-testid="stTopNavLink"]:hover { background: rgba(127, 140, 132, 0.15); }
+[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] { background: rgba(57, 229, 138, 0.16); }
+[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] span { font-weight: 700; }
 [data-testid="stHeaderLogo"] { border-radius: 8px; box-shadow: 0 0 0 1px rgba(255, 77, 77, 0.6), 0 0 18px rgba(255, 77, 77, 0.25); }
-.stApp { background:
+.stApp { background-image:
   radial-gradient(600px 300px at 10% -80px, rgba(255, 255, 255, 0.06), transparent 70%),
-  radial-gradient(600px 300px at 90% -80px, rgba(255, 255, 255, 0.06), transparent 70%), #0B0F0D; }
+  radial-gradient(600px 300px at 90% -80px, rgba(255, 255, 255, 0.06), transparent 70%); }
 [data-testid="stMetricValue"] { font-family: 'Oxanium', sans-serif; letter-spacing: 1px; }
 </style>""")
 
