@@ -297,8 +297,7 @@ with st.container(border=True):
         st.markdown(f"**{nom}** : {deja_d}-{deja_e} maintenant · attendus à la fin {fr(deja_d + m_d * reste)} – "
                     f"{fr(deja_e + m_e * reste)}" + (f" · le plus de {nom.lower()} : {dom} {pg['1']:.0%}, "
                                                     f"{ext} {pg['2']:.0%}" if pg else ""))
-    st.caption("Scores finaux les plus probables : " + " · ".join(f"{s} ({q:.0%})" for s, q in r["scores"][:3])
-               + f" · prochain but : {dom} {p['Prochain but']['Dom.']:.0%}, {ext} {p['Prochain but']['Ext.']:.0%}")
+    st.caption(f"Prochain but : {dom} {p['Prochain but']['Dom.']:.0%}, {ext} {p['Prochain but']['Ext.']:.0%}")
 
 st.markdown("**Ce qui peut encore arriver, du plus probable au moins probable**")
 evts = []

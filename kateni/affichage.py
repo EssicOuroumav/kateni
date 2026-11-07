@@ -5,7 +5,7 @@ import streamlit as st
 
 from kateni.config import POIDS_MODELE
 from kateni.cotes import sans_marge
-from kateni.marches import calibrer, marches, scores_probables
+from kateni.marches import calibrer, marches
 from kateni.modele import terrain_neutre
 from kateni.corners import marches_corners
 from kateni.statistiques import PROPOSEES, SANS_EGALITE, STATS, marches_stat, plus_grand_nombre
@@ -193,7 +193,6 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
     p, mat, p1n2 = r["p"], r["mat"], r["p1n2"]
     issues = {f"{dom} gagne": p1n2[0], "Match nul": p1n2[1], f"{ext} gagne": p1n2[2]}
     favori, chance = max(issues.items(), key=lambda x: x[1])
-    score, p_score = scores_probables(mat, 1)[0]
     jours = (pd.to_datetime(match["date"]) - pd.Timestamp.today().normalize()).days
     with st.container(border=True):
         quand = match.get("quand", "")
@@ -202,11 +201,10 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                           else ("orange", "balance"))
         st.markdown(f":{couleur}-badge[:material/{icone}: {favori} {chance:.0%}]"
                     + ("  :orange-badge[match serré]" if chance < 0.45 else "")
-                    + f"  ·  score le plus probable **{score}**")
+                    + f"  ·  {fr(r['ld'] + r['le'])} buts attendus")
         st.html(barre_chances(dom, ext, p1n2))
         if not compact:
             st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"
-                       f"  —  score le plus probable {score} ({p_score:.0%})"
                        f"  —  plus de 2,5 buts {r['plus25']:.0%}"
                        f"  —  les 2 équipes marquent {p['Les deux équipes marquent']['Oui']:.0%}")
         with st.container(horizontal=True):
@@ -251,9 +249,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                    if r["corners"] else "")
                 + "".join(f"- **{n} attendus** : {dom} {fr(a)} – {fr(b)} {ext} (total {fr(a + b)}) · plus de {n.lower()} : "
                           f"{dom} {p[n + ' plus grand nombre']['1']:.0%}, {ext} {p[n + ' plus grand nombre']['2']:.0%}\n"
-                          for n, (a, b) in r["stats"].items())
-                + "- **Scores les plus probables** : "
-                + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 5)))
+                          for n, (a, b) in r["stats"].items()))
             st.markdown("**Événements, du plus probable au moins probable**")
             st.dataframe(evenements(match, r), hide_index=True, column_config=COLONNES_EVENEMENTS,
                          placeholder="–", height=300)

@@ -25,7 +25,7 @@ with st.container(border=True):
     st.markdown(
         "1. Ouvre **Prédictions** et choisis ton championnat.\n"
         "2. Kateni affiche **tous les matchs à venir**, chacun avec son pronostic : qui gagne et avec quelle "
-        "chance, le score le plus probable, plus ou moins de 2,5 buts, les 2 équipes marquent.\n"
+        "chance, les buts attendus, plus ou moins de 2,5 buts, les 2 équipes marquent.\n"
         "3. Ouvre **Détail du pronostic** pour tout voir (double chance, nombre de buts, 5 scores probables).\n"
         "4. **Simuler un match** : n'importe quelle affiche du championnat, même hors calendrier.\n\n"
         "Pour chaque championnat, Kateni utilise le modèle qui a le mieux prédit depuis août 2025 "

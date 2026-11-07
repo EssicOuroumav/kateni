@@ -4,7 +4,7 @@ from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, esperance, sans_marge
 from kateni.corners import TAILLE_EQUIPE, marches_corners
 from kateni.statistiques import marches_stat, plus_grand_nombre
-from kateni.marches import calibrer, marches, scores_probables
+from kateni.marches import calibrer, marches
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
                        choisir_mode, contexte, corners_attendus, stats_attendues, enregistrer, fr, libelle, pct, ligne_analyse, predire,
                        matrice_match,
@@ -37,8 +37,7 @@ with st.container(border=True):
         st.metric(f"Victoire {dom}", f"{p['1N2']['1']:.0%}")
         st.metric("Match nul", f"{p['1N2']['N']:.0%}")
         st.metric(f"Victoire {ext}", f"{p['1N2']['2']:.0%}")
-    st.caption(f"Buts attendus : {dom} {lam_d:.1f} – {lam_e:.1f} {ext} · scores les plus probables : "
-               + " · ".join(f"{s} ({q:.0%})" for s, q in scores_probables(mat, 3)) + f" · calcul : {nom_modele}"
+    st.caption(f"Buts attendus : {dom} {lam_d:.1f} – {lam_e:.1f} {ext} · calcul : {nom_modele}"
                + (f" · corners attendus {fr(corners[0])} – {fr(corners[1])}" if corners else ""))
 
 # ---------------------------------------------------------------- 3. Cotes

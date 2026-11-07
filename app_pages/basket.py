@@ -39,7 +39,7 @@ def carte(r: dict) -> None:
         v = p["Vainqueur"]
         fav, q = (dom, v["1"]) if v["1"] >= v["2"] else (ext, v["2"])
         couleur = "green" if q >= 0.7 else "blue" if q >= 0.55 else "orange"
-        st.markdown(f":{couleur}-badge[{fav} gagne {q:.0%}] · score attendu **{round(a)} – {round(b)}** · "
+        st.markdown(f":{couleur}-badge[{fav} gagne {q:.0%}] · points attendus **{round(a)} – {round(b)}** · "
                     f"total {fr(a + b)} points · écart {fr(abs(a - b))}")
         st.html(barre_chances(dom, ext, (v["1"], 0.0, v["2"])))
         with st.expander("Toutes les prédictions"):
