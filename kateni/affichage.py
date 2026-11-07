@@ -125,6 +125,57 @@ COLONNES_EVENEMENTS = {
 }
 
 
+@st.cache_data(ttl=3600, max_entries=4000, show_spinner=False)
+def _forme(equipe: str, avant: str, _sig: tuple) -> tuple[int, int, int, int, int] | None:
+    """(victoires, nuls, défaites, buts marqués, buts encaissés) sur les 5 derniers matchs avant la date."""
+    from kateni.ui import donnees
+    d = donnees(_sig)
+    d = d[((d["HomeTeam"] == equipe) | (d["AwayTeam"] == equipe)) & (d["Date"] < pd.Timestamp(avant))].tail(5)
+    if len(d) < 3:
+        return None
+    dom = d["HomeTeam"] == equipe
+    pour = d["FTHG"].where(dom, d["FTAG"]).astype(int)
+    contre = d["FTAG"].where(dom, d["FTHG"]).astype(int)
+    return int((pour > contre).sum()), int((pour == contre).sum()), int((pour < contre).sum()), int(pour.sum()), int(contre.sum())
+
+
+def explication(match: dict, r: dict) -> str:
+    """Le « pourquoi » du pronostic en quelques phrases, tirées uniquement des chiffres de Kateni et des derniers
+    résultats connus (rien d'inventé : pas d'actualité, pas de blessés)."""
+    from kateni.donnees import signature_donnees
+    dom, ext = match["dom"], match["ext"]
+    q1, qn, q2 = r["p1n2"]
+    phrases = []
+    if max(q1, q2) >= 0.45:
+        fav, q, autre = (dom, q1, ext) if q1 >= q2 else (ext, q2, dom)
+        force = "nettement favori" if q >= 0.6 else "favori"
+        phrases.append(f"{fav} part {force} ({q:.0%}) face à {autre} ; le nul est à {qn:.0%}.")
+    else:
+        phrases.append(f"Match très équilibré : aucune équipe ne dépasse 45 % ({dom} {q1:.0%}, nul {qn:.0%}, {ext} {q2:.0%}).")
+    sig = signature_donnees()
+    for eq in (dom, ext):
+        f = _forme(eq, str(match.get("date") or pd.Timestamp.today().date()), sig)
+        if f:
+            v, n, d_, bp, bc = f
+            phrases.append(f"{eq} : {v} victoire{'s' * (v > 1)}, {n} nul{'s' * (n > 1)}, {d_} défaite{'s' * (d_ > 1)} "
+                           f"sur ses {v + n + d_} derniers matchs ({bp} buts marqués, {bc} encaissés).")
+    buts = r["ld"] + r["le"]
+    btts = r["p"]["Les deux équipes marquent"]["Oui"]
+    genre = "plutôt ouvert" if buts >= 3.0 else "plutôt fermé" if buts <= 2.3 else "classique"
+    phrases.append(f"Match {genre} : {fr(buts)} buts attendus ({dom} {fr(r['ld'])}, {ext} {fr(r['le'])}), "
+                   f"les deux équipes marquent dans {btts:.0%} des cas.")
+    if r["marche_1n2"]:
+        i = 0 if q1 >= q2 else 2
+        mod, mar = r["modele_1n2"][i], r["marche_1n2"][i]
+        eq = dom if i == 0 else ext
+        if abs(mod - mar) >= 0.08:
+            phrases.append(f"Le modèle Kateni est {'plus' if mod > mar else 'moins'} confiant que le marché pour {eq} "
+                           f"({mod:.0%} contre {mar:.0%}) : le pronostic mélange les deux.")
+        else:
+            phrases.append(f"Le modèle Kateni et le marché sont d'accord sur {eq} ({mod:.0%} et {mar:.0%}).")
+    return " ".join(phrases)
+
+
 def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = False) -> None:
     dom, ext = match["dom"], match["ext"]
     r = pronostic(match, cotes)
@@ -163,6 +214,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                               "championnat, puis avec les cotes 2 à 3 jours avant. Le pronostic qui compte est "
                               "celui de la veille.")
         with st.expander("Détail du pronostic"):
+            st.markdown(f"**Pourquoi ce pronostic ?** {explication(match, r)}")
             if compact:
                 st.markdown(f"**{dom}** {p1n2[0]:.0%} · **nul** {p1n2[1]:.0%} · **{ext}** {p1n2[2]:.0%}")
             if r["marche_1n2"]:
