@@ -52,6 +52,7 @@ Pas de comptes d'utilisateurs, pas de paiement, pas de fichiers déposés, pas d
   3. `client.showErrorDetails = "type"` : plus de fichiers ni détails techniques à l'écran en cas d'erreur ;
   4. plus de rôle par défaut : sans personne connectée, `ui.utilisateur()` arrête la page et `PostgresStore.pour("")` est refusé (jamais « tous les paris » depuis l'app).
   Reste accepté : jeton de session dans l'adresse (lié au navigateur) ; app « searchable » (seule la page du code est visible).
+- **F11 (faible, 07/11/2026)** : nouvelles sources publiques en lecture seule (ESPN basket et A-League, API publique de l'EuroLeague), sans clé ni donnée envoyée. Risque : changement de format ou coupure ; garde-fou : une source muette garde ses lignes précédentes (`maj_basket.py`, `maj_espn`).
 - **F3 (à décider)** : intégration GitHub de Streamlit Cloud limitée au seul dépôt `kateni` (« Only select repositories »). Réglage à faire par le propriétaire au lot 2.
 
 ## 6. Ce que cette revue ne couvre pas

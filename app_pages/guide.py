@@ -52,6 +52,16 @@ with st.container(border=True):
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
 
 with st.container(border=True):
+    st.subheader("Basket", anchor=False, icon=":material/sports_basketball:")
+    st.markdown(
+        "**NBA, EuroLeague et EuroCup**, mis à jour tout seuls chaque jour. Choisis la ligue et le jour : chaque "
+        "match montre le favori, le score attendu, le total et l'écart. « Toutes les prédictions » donne : "
+        "vainqueur (prolongations comprises), résultat du temps réglementaire, handicaps, total de points, points de "
+        "chaque équipe, 1re mi-temps, 1er quart-temps et écart final, avec la cote juste de chacun. "
+        "« Simuler n'importe quel match » : deux équipes au choix.")
+    st.page_link("app_pages/basket.py", label="Aller à Basket", icon=":material/sports_basketball:")
+
+with st.container(border=True):
     st.subheader("Ton code d'accès", anchor=False, icon=":material/key:")
     st.markdown(
         "- Kateni en ligne s'ouvre avec un **code personnel**. Ne le donne à personne : s'il est utilisé sur un "

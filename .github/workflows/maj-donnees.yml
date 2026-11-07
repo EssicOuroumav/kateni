@@ -1,4 +1,4 @@
-# Kateni — mise à jour automatique des données (résultats, calendrier, coupes d'Europe)
+# Kateni — mise à jour automatique des données (résultats, calendrier, coupes d'Europe, basket)
 # Tourne deux fois par jour ; enregistre les CSV modifiés, ce qui met à jour l'app en ligne.
 # Un seul secret : ODDS_API_KEY (cotes Pinnacle), transmis uniquement à l'étape qui en a besoin.
 name: Mise à jour des données
@@ -31,6 +31,8 @@ jobs:
         run: python scripts/maj_donnees.py
       - name: Coupes d'Europe (Wikipédia)
         run: python scripts/maj_europe.py
+      - name: Basket (NBA via ESPN, EuroLeague et EuroCup via l'API officielle)
+        run: python scripts/maj_basket.py
       - name: Cotes Pinnacle du matin (C1/C3 du jour et du lendemain)
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -41,7 +43,7 @@ jobs:
         run: |
           git config user.name "kateni-bot"
           git config user.email "kateni-bot@users.noreply.github.com"
-          git add -- *_full.csv a_venir.csv a_venir_championnats.csv calendrier_saison.csv buts_minutes.csv cotes_pinnacle.csv oddspapi_equipes.json
+          git add -- *_full.csv basket_resultats.csv basket_a_venir.csv a_venir.csv a_venir_championnats.csv calendrier_saison.csv buts_minutes.csv cotes_pinnacle.csv oddspapi_equipes.json
           if git diff --cached --quiet; then
             echo "Aucune nouvelle donnée."
           else

@@ -1,0 +1,31 @@
+Réglage sur janvier-juin 2025 :
+  demi-vie  60 j, rappel  2.0 : log loss 0.6110 (naïf 0.6831), 1084 matchs
+  demi-vie  60 j, rappel  6.0 : log loss 0.6123 (naïf 0.6831), 1084 matchs
+  demi-vie  60 j, rappel 15.0 : log loss 0.6191 (naïf 0.6831), 1084 matchs
+  demi-vie 120 j, rappel  2.0 : log loss 0.6114 (naïf 0.6831), 1084 matchs
+  demi-vie 120 j, rappel  6.0 : log loss 0.6119 (naïf 0.6831), 1084 matchs
+  demi-vie 120 j, rappel 15.0 : log loss 0.6164 (naïf 0.6831), 1084 matchs
+  demi-vie 240 j, rappel  2.0 : log loss 0.6121 (naïf 0.6831), 1084 matchs
+  demi-vie 240 j, rappel  6.0 : log loss 0.6122 (naïf 0.6831), 1084 matchs
+  demi-vie 240 j, rappel 15.0 : log loss 0.6155 (naïf 0.6831), 1084 matchs
+
+Retenu : demi-vie 60 jours, rappel 2.0
+
+Mesure finale sur 2025-26 :
+  Toutes       1849 matchs · log loss 0.6134 (naïf 0.6811) · bons vainqueurs 66.7% · total au-dessus de la ligne 48.5% · erreur écart 11.1 pts, total 14.9 pts
+  EuroCup       125 matchs · log loss 0.6230 (naïf 0.6761) · bons vainqueurs 64.0% · total au-dessus de la ligne 55.2% · erreur écart 12.0 pts, total 13.6 pts
+  EuroLeague    345 matchs · log loss 0.6254 (naïf 0.6568) · bons vainqueurs 63.8% · total au-dessus de la ligne 48.1% · erreur écart 9.2 pts, total 14.2 pts
+  NBA          1379 matchs · log loss 0.6095 (naïf 0.6876) · bons vainqueurs 67.7% · total au-dessus de la ligne 47.9% · erreur écart 11.5 pts, total 15.2 pts
+
+Calibration du vainqueur (annoncé -> arrivé) :
+  0%-20% :   49 matchs, annoncé 16% -> arrivé 20%
+  20%-35% :  208 matchs, annoncé 29% -> arrivé 27%
+  35%-50% :  434 matchs, annoncé 43% -> arrivé 44%
+  50%-65% :  522 matchs, annoncé 58% -> arrivé 59%
+  65%-80% :  456 matchs, annoncé 72% -> arrivé 74%
+  80%-100% :  180 matchs, annoncé 85% -> arrivé 86%
+
+Totaux : écart-type des erreurs / écart-type annoncé = 1.06 (1,00 = bien réglé)
+Écarts : écart-type des erreurs / écart-type annoncé = 1.08 (1,00 = bien réglé)
+
+[exited with code 0]

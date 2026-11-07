@@ -461,3 +461,41 @@ def enregistrer(match: dict, ligne: dict, mode: str, type_: str, minute: str = "
     ajoute = store().ajouter(pari)
     rafraichir()
     return ajoute
+
+
+# ---------------------------------------------------------------- basket (ajouté le 07/11/2026)
+def _basket_sig() -> tuple:
+    from kateni.config import RACINE
+    f = RACINE / "basket_resultats.csv"
+    return (f.stat().st_mtime,) if f.exists() else (0,)
+
+
+@st.cache_resource(max_entries=6, show_spinner="Calcul des forces des équipes de basket…")
+def _modele_basket(periode: str, _sig: tuple):
+    from kateni.basket import PERIODES, ajuster
+    from kateni.config import RACINE
+    f = RACINE / "basket_resultats.csv"
+    if not f.exists():
+        return None
+    return ajuster(pd.read_csv(f), quarts=PERIODES[periode])
+
+
+def modele_basket(periode: str = "Match"):
+    return _modele_basket(periode, _basket_sig())
+
+
+@st.cache_data(ttl=600, show_spinner=False)
+def _basket_a_venir(_sig: tuple) -> pd.DataFrame:
+    from kateni.config import RACINE
+    f = RACINE / "basket_a_venir.csv"
+    if not f.exists():
+        return pd.DataFrame(columns=["ligue", "DateUtc", "HomeTeam", "AwayTeam"])
+    d = pd.read_csv(f)
+    t = pd.to_datetime(d["DateUtc"], utc=True, format="ISO8601")
+    return d[t >= pd.Timestamp.now(tz="UTC") - pd.Timedelta(minutes=15)].reset_index(drop=True)
+
+
+def basket_a_venir() -> pd.DataFrame:
+    from kateni.config import RACINE
+    f = RACINE / "basket_a_venir.csv"
+    return _basket_a_venir((f.stat().st_mtime,) if f.exists() else (0,))

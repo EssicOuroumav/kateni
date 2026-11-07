@@ -378,3 +378,26 @@ def test_marches_retires_et_une_des_deux_gagne():
     assert "N" not in marches_stat("Tirs", 12.0, 10.0)["Tirs plus grand nombre"]
     assert "N" in marches_stat("Tirs cadrés", 4.0, 3.0)["Tirs cadrés plus grand nombre"]
     assert libelle("Double chance", "12", "Roma", "Cagliari") == "Une des deux équipes gagne (Roma ou Cagliari)"
+
+
+def test_basket_modele_et_marches():
+    import pandas as pd
+    from kateni.basket import ajuster, libelle, marches
+    # Ligue fictive : A bat toujours B de 10 points, chez lui comme ailleurs
+    lignes = []
+    for k in range(40):
+        dom, ext = ("A", "B") if k % 2 == 0 else ("B", "A")
+        pa, pb = 110, 100
+        lignes.append({"ligue": "NBA", "DateUtc": f"2025-01-{1 + k % 28:02d} 01:00:00Z", "HomeTeam": dom,
+                       "AwayTeam": ext, "HPTS": pa if dom == "A" else pb, "APTS": pb if dom == "A" else pa,
+                       **{f"H{q}": 25 for q in range(1, 5)}, **{f"A{q}": 25 for q in range(1, 5)}})
+    m = ajuster(pd.DataFrame(lignes), date_ref="2025-02-01", rappel=0.1)
+    a, b = m.points("A", "B", "NBA", neutre=True)
+    assert abs((a - b) - 10) < 1 and abs((a + b) - 210) < 1
+    p = marches(a, b, 12.0, 18.0)
+    assert abs(sum(p["Vainqueur"].values()) - 1) < 1e-9 and p["Vainqueur"]["1"] > 0.7
+    assert abs(sum(p["Temps réglementaire"].values()) - 1) < 1e-9
+    assert abs(sum(p["Écart final"].values()) - 1) < 0.01
+    assert libelle("Match : handicap -5.5", "1", "A", "B") == "Handicap A -5,5"
+    assert libelle("Match : handicap -5.5", "2", "A", "B") == "Handicap B +5,5"
+    assert libelle("1re mi-temps : total 110.5", "Plus", "A", "B") == "1re mi-temps · Total de points : plus de 110,5"
