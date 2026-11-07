@@ -4,7 +4,7 @@ import streamlit as st
 from kateni.affichage import JOURS, carte
 from kateni.config import COMPETITIONS
 from kateni.donnees import equipes_de
-from kateni.ui import NOMS_COURTS, a_venir, contexte
+from kateni.ui import NOMS_COURTS, a_venir, choisir_jour, contexte, jour_choisi
 
 df, m = contexte()
 st.caption(f"Données à jour jusqu'au {df['Date'].max():%d/%m/%Y} · mises à jour automatiques deux fois par jour · "
@@ -12,6 +12,9 @@ st.caption(f"Données à jour jusqu'au {df['Date'].max():%d/%m/%Y} · mises à j
 
 # ---------------------------------------------------------------- choix du championnat
 cal = a_venir()
+depuis = jour_choisi()
+if len(cal):
+    cal = cal[pd.to_datetime(cal["Date"]).dt.date >= depuis]
 codes = ["CL", "EL", "ECL"] + [c for c in COMPETITIONS if c not in ("CL", "EL", "ECL")]
 avec_matchs = set(cal["competition"]) if len(cal) else set()
 comp = st.selectbox(
@@ -20,6 +23,13 @@ comp = st.selectbox(
     index=codes.index(next((c for c in codes if c in avec_matchs), codes[0])))
 
 st.subheader("Prochains matchs", anchor=False, icon=":material/upcoming:")
+if depuis > pd.Timestamp.today().date():
+    with st.container(horizontal=True, vertical_alignment="center"):
+        st.caption(f"À partir du **{depuis:%d/%m/%Y}**, le jour choisi dans le Calendrier.")
+        if st.button("Revenir à aujourd'hui", icon=":material/today:", type="tertiary"):
+            choisir_jour(pd.Timestamp.today().date())
+            st.session_state.pop("cal_jour", None)
+            st.rerun()
 prochains = cal[cal["competition"] == comp] if len(cal) else cal
 if not len(prochains):
     st.info("Aucun match publié pour ce championnat pour l'instant. Rien à faire de ton côté : Kateni récupère "

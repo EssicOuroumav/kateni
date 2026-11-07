@@ -5,7 +5,7 @@ import streamlit as st
 
 from kateni.affichage import COLONNES_EVENEMENTS, carte, date_longue, evenements, pronostic
 from kateni.config import COMPETITIONS
-from kateni.ui import DRAPEAUX, NOMS_COURTS, a_venir, contexte
+from kateni.ui import DRAPEAUX, NOMS_COURTS, a_venir, choisir_jour, contexte
 
 df, m = contexte()
 cal = a_venir()
@@ -16,8 +16,8 @@ st.caption(f"Tous les matchs, jour par jour, avec le pronostic de Kateni · heur
 
 # ---------------------------------------------------------------- jour affiché
 aujourd_hui = date.today()
-if "cal_jour" not in st.session_state:
-    st.session_state["cal_jour"] = aujourd_hui
+if "cal_jour" not in st.session_state:  # retour sur la page : on reprend le jour choisi avant
+    st.session_state["cal_jour"] = st.session_state.get("jour_choisi") or aujourd_hui
 jours_avec = sorted(pd.to_datetime(cal["Date"]).dt.date.unique()) if len(cal) else []
 
 
@@ -39,6 +39,7 @@ with st.container(horizontal=True, vertical_alignment="bottom"):
               on_click=lambda: st.session_state.update(cal_jour=aujourd_hui))
 
 jour = st.session_state["cal_jour"]
+choisir_jour(jour)  # Prédictions et Basket partent de ce jour
 # Compétitions du jour : une liste nette (drapeau, nom, nombre de matchs), façon Betclic
 comptes = cal[cal["Date"] == jour.isoformat()]["competition"].value_counts()
 presentes = [c for c in ORDRE if c in comptes.index]

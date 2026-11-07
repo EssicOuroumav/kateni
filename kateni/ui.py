@@ -500,3 +500,16 @@ def basket_a_venir() -> pd.DataFrame:
     from kateni.config import RACINE
     f = RACINE / "basket_a_venir.csv"
     return _basket_a_venir((f.stat().st_mtime,) if f.exists() else (0,))
+
+
+# ---------------------------------------------------------------- jour choisi, commun aux pages
+def jour_choisi():
+    """Jour choisi dans le Calendrier, gardé quand on change de page (Prédictions et Basket partent de lui).
+    Clé à part des widgets : Streamlit efface l'état d'un widget dès qu'on quitte sa page."""
+    from datetime import date
+    j = st.session_state.get("jour_choisi")
+    return j if j and j >= date.today() else date.today()
+
+
+def choisir_jour(j) -> None:
+    st.session_state["jour_choisi"] = j

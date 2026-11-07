@@ -3,7 +3,7 @@ import streamlit as st
 
 from kateni.affichage import barre_chances
 from kateni.basket import PERIODES, fr, libelle, marches
-from kateni.ui import basket_a_venir, modele_basket
+from kateni.ui import basket_a_venir, choisir_jour, jour_choisi, modele_basket
 
 DRAPEAUX_BASKET = {"NBA": "🇺🇸", "EuroLeague": "🇪🇺", "EuroCup": "🇪🇺"}
 st.caption("Pronostics de basket : NBA, EuroLeague et EuroCup. Heures d'Abidjan. Le modèle est vérifié sur la "
@@ -63,7 +63,10 @@ else:
                                  format_func=lambda l: f"{DRAPEAUX_BASKET[l]} {l}")
     d = cal[cal["ligue"] == ligue].copy()
     d["jour"] = pd.to_datetime(d["DateUtc"], utc=True).dt.date
-    jours = sorted(d["jour"].unique())[:7]
+    tous = sorted(d["jour"].unique())
+    # On part du jour choisi dans le Calendrier (ou du premier jour de match qui suit)
+    debut = next((i for i, j in enumerate(tous) if j >= jour_choisi()), max(len(tous) - 7, 0))
+    jours = tous[debut:debut + 7]
     jour = st.segmented_control("Jour", jours, default=jours[0], required=True, key=f"bk_jour_{ligue}",
                                 format_func=lambda j: f"{j:%d/%m}")
     for _, r in d[d["jour"] == jour].iterrows():
