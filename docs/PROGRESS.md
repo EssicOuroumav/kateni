@@ -156,6 +156,13 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Supprimer un camarade (29/10) : page Accès, bouton « Supprimer » avec confirmation ; efface son accès et tous ses paris (jamais le propriétaire). `Acces.supprimer`, testé sur la branche test.
 - Reste à faire par le propriétaire : Reboot, `Code_proprietaire.command`, passer l'app en publique dans Streamlit Cloud, puis créer les codes des camarades dans Accès.
 
+## Lot du 07/11/2026 : foot (demandes du propriétaire)
+- Page Kamikaze supprimée (fichier, menu, guide). Mesure `scripts/mesure_kamikaze.py` et son JSON gardés.
+- Marchés retirés de l'app : tous les corners (`config.CORNERS_PROPOSES = False`, modèle gardé), les fautes, l'option « égalité » de « plus de tirs » (`statistiques.PROPOSEES`, `SANS_EGALITE`). Restent : tirs et tirs cadrés. Les anciens paris sur ces marchés se règlent toujours.
+- « Une des deux équipes gagne (A ou B) » : libellé de la double chance 12, mise en avant dans le détail et en tête de l'onglet Double chance.
+- A-League (Australie) ajoutée : scores ESPN jour par jour (`maj_donnees.maj_espn`, `ESPN_FOOT`), calendrier 4 semaines (`a_venir_espn`), direct ESPN. 514 matchs depuis 2023-24, sans cotes. Mesure 2025-26 (168 matchs) : modèle seul moins bon que les fréquences du championnat (log loss 1,0976 contre 1,0922) ; mélange 50/50 meilleur (1,0860) → `config.PART_MODELE = {"AUS": 0.5}` appliqué à la grille des scores (`ui.matrice_match`). Réglage et mesure sur le même petit échantillon : à revérifier en fin de saison. Le Live n'applique pas ce mélange.
+- Ukraine et Vietnam : aucune source gratuite fiable avec dates ; abandonnés (choix du propriétaire).
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

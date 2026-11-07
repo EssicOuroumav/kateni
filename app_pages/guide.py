@@ -45,30 +45,11 @@ with st.container(border=True):
         "8 592 matchs : il n'améliore pas les pronostics, donc il n'est pas utilisé. Sur **terrain neutre** "
         "(finales de C1, C3 et Ligue Conférence, reconnues toutes seules, ou interrupteur « Terrain neutre » en simulation), "
         "Kateni retire l'avantage du terrain.\n\n"
-        "**Corners** : Kateni prévoit les corners de chaque équipe et du match (« Corners : plus de 9,5 », "
-        "« Corners Arsenal : plus de 4,5 »…), dans le détail du pronostic, les listes d'événements, Cotes Betclic, "
-        "Live (saisis les corners déjà obtenus) et Mes paris. Vérifié sur 5 822 matchs de 2025-26 : les chances "
-        "annoncées correspondent à ce qui arrive. Pas de corners pour les clubs des championnats sans données "
-        "(Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS).\n\n"
-        "**Tirs, tirs cadrés, fautes et « plus grand nombre »** (qui aura le plus de corners, de tirs…) : même "
-        "méthode que les corners, vérifiée sur 2025-26, pour les 15 championnats qui publient ces statistiques. "
-        "Les corners de la 1re mi-temps ne sont pas disponibles (aucune source gratuite).")
+        "**Tirs et tirs cadrés** (total, chaque équipe, et « plus de tirs » : qui en aura le plus) : vérifiés "
+        "sur 2025-26, pour les 15 championnats qui publient ces statistiques.\n\n"
+        "**Une des deux équipes gagne** (pas de match nul, « 1 ou 2 » sur Betclic) : dans le détail du pronostic, "
+        "les listes d'événements et Cotes Betclic.")
     st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
-
-with st.container(border=True):
-    st.subheader("Kamikaze", anchor=False, icon=":material/local_fire_department:")
-    st.markdown(
-        "Des **scénarios de match** présentés en cartes, pour les matchs qui n'ont pas encore commencé :\n"
-        "- **Solides** : seulement les matchs où trois scénarios sont probables en même temps (victoire du "
-        "favori à 60 % ou plus, favori gagne ou nul à 80 % ou plus, un scénario de corners à 70 % ou plus), avec "
-        "la fiabilité mesurée sur 2025-26.\n"
-        "- **Spéciaux** (juste sous les solides) : trois scénarios inhabituels par match, pris dans tous les "
-        "marchés de Kateni (résultat, buts, corners, tirs, tirs cadrés, fautes, qui en aura le plus), à 33-50 % "
-        "de chance (cote juste 2 à 3) et au moins 25 % plus probables que d'habitude. Risque élevé.\n"
-        "- **Kamikaze** : trois scénarios risqués, à 50-60 % chacun (une chance sur deux) : un sur le résultat, "
-        "un sur les buts, un sur les corners ou les tirs. Mieux payés, mais ils perdent souvent.\n\n"
-        "Sous chaque match : la chance que les trois passent ensemble. Joue-les plutôt séparément.")
-    st.page_link("app_pages/kamikaze.py", label="Aller à Kamikaze", icon=":material/local_fire_department:")
 
 with st.container(border=True):
     st.subheader("Ton code d'accès", anchor=False, icon=":material/key:")
@@ -98,8 +79,8 @@ with st.container(border=True):
         "rouges et la prédiction de Kateni (qui gagne, qui marque encore), mis à jour **toutes les minutes**.\n"
         "2. Touche **Détail** sur ton match : score, minute et cartons rouges sont déjà remplis ; « Reprendre le "
         "score en direct » les remet à jour.\n"
-        "3. Le détail donne aussi les **corners, tirs, tirs cadrés et fautes** du moment, ce qui est attendu à la "
-        "fin et qui en aura le plus ; la liste « Ce qui peut encore arriver » les inclut (« Corners : plus de 9,5 »…).\n"
+        "3. Le détail donne aussi les **tirs et tirs cadrés** du moment, ce qui est attendu à la fin et qui en "
+        "aura le plus ; la liste « Ce qui peut encore arriver » les inclut (« Tirs : plus de 23,5 »…).\n"
         "4. Un match sans score en direct (« Autres matchs commencés ») : touche **Analyser** et saisis le score.\n"
         "4. Kateni donne la chance que chaque équipe marque encore, le résultat final, et la liste **« Ce qui peut "
         "encore arriver »**, du plus probable au moins probable, avec la cote juste.\n"

@@ -8,6 +8,9 @@ from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent
 
+# Championnats lus sur le tableau des scores public d'ESPN (absents de football-data) : code -> ligue ESPN
+ESPN_FOOT = {"AUS": "aus.1"}
+
 # Championnats publiés au format « new/XXX.csv » de football-data (un fichier, toutes saisons)
 FORMAT_NEW = {"USA", "AUT", "SWZ", "NOR", "DNK", "SWE", "POL", "ROU", "CHN", "JPN", "IRL"}
 
@@ -51,6 +54,8 @@ COMPETITIONS: dict[str, Competition] = {c.code: c for c in [
     Competition("CHN", "Super League (Chine)", "CHN_full.csv", "CHN", 2012, True),
     Competition("JPN", "J1 League (Japon)", "JPN_full.csv", "JPN", 2012, True),
     Competition("IRL", "Premier Division (Irlande)", "IRL_full.csv", "IRL", 2012, True),
+    # Ajouté le 07/11/2026 : source ESPN (scores jour par jour, voir scripts/maj_donnees.py, ESPN_FOOT)
+    Competition("AUS", "A-League (Australie)", "AUS_full.csv", None, 2023, False),
     Competition("CL", "Champions League", "CL_full.csv", None, 2011, False),
     Competition("EL", "Europa League", "EL_full.csv", None, 2020, False),
     Competition("ECL", "Conference League", "ECL_full.csv", None, 2024, False),  # ajoutée le 22/10/2026
@@ -72,6 +77,11 @@ COLONNES_OPTION = [
 # ---------------------------------------------------------------------------
 # Garde-fous de mise (inchangés depuis la V1, cf. kateni_engine.py)
 # ---------------------------------------------------------------------------
+# Championnats où le modèle seul ne bat pas la moyenne du championnat : chances = part du modèle + reste
+# fréquence moyenne des scores du championnat (A-League : 50 %, mesuré sur 168 matchs de 2025-26,
+# scripts/mesure_australie.py : log loss 1N2 1,0860 contre 1,0976 modèle seul et 1,0922 naïf)
+PART_MODELE = {"AUS": 0.5}
+CORNERS_PROPOSES = False     # corners retirés de l'app (décision du propriétaire, 07/11/2026) ; modèle gardé
 BANKROLL_INITIALE = 50_000   # FCFA
 MISE_MAX_PCT = 0.02          # plafond dur : 2 % de la bankroll par pari
 MIN_EDGE_PCT = 0.03          # espérance de gain minimale (3 %) avant de proposer un pari

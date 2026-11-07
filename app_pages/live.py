@@ -250,7 +250,7 @@ with st.container(border=True):
         re_ = c[1].number_input(f"Cartons rouges {ext}", min_value=0, max_value=4, key=f"lv_re_{cle}")
         add = st.slider("Temps additionnel prévu en 2e mi-temps (minutes)", 0, 15, 5, key=f"lv_add_{cle}")
 
-# Statistiques : attendues avant le match (modèles corners, tirs, tirs cadrés, fautes) et chiffres du moment
+# Statistiques : attendues avant le match (tirs, tirs cadrés) et chiffres du moment
 attendues = {}
 corners = corners_attendus(match)
 if corners:
@@ -258,7 +258,7 @@ if corners:
 attendues.update(stats_attendues(match))
 actuelles = {}
 if attendues:
-    with st.expander("Statistiques du match (corners, tirs, fautes)", expanded=bool(match.get("direct"))):
+    with st.expander("Statistiques du match (tirs, tirs cadrés)", expanded=bool(match.get("direct"))):
         st.caption("Remplies toutes seules pour un match en direct ; corrige-les si besoin.")
         for nom in attendues:
             for cote in ("d", "e"):

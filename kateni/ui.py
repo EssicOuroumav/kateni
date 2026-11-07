@@ -47,15 +47,15 @@ def modele_stat(_sig: tuple, nom: str):
 
 
 def stats_attendues(match: dict) -> dict:
-    """{« Tirs » : (dom, ext), « Tirs cadrés » : …, « Fautes » : …} pour les clubs dont la statistique
+    """{« Tirs » : (dom, ext), « Tirs cadrés » : …} pour les clubs dont la statistique
     est connue (mêmes championnats que les corners) ; terrain neutre : moyenne des deux sens."""
-    from kateni.statistiques import RAPPEL_MIN, STATS
+    from kateni.statistiques import PROPOSEES, RAPPEL_MIN
     dom, ext, comp = match["dom"], match["ext"], match["competition"]
     neutre = match.get("neutre")
     if neutre is None:
         neutre = terrain_neutre(comp, match.get("date") or pd.Timestamp.today())
     out = {}
-    for nom in STATS:
+    for nom in PROPOSEES:
         m = modele_stat(signature_donnees(), nom)
         if min(m.n_matchs.get(dom, 0.0), m.n_matchs.get(ext, 0.0)) < RAPPEL_MIN:
             continue
@@ -70,7 +70,10 @@ def stats_attendues(match: dict) -> dict:
 def corners_attendus(match: dict) -> tuple[float, float] | None:
     """Corners attendus (dom, ext) ; None si l'un des clubs n'a pas d'historique de corners
     (championnats sans corners : Autriche, Suisse, Scandinavie, Pologne, Roumanie, MLS)."""
+    from kateni.config import CORNERS_PROPOSES
     from kateni.corners import RAPPEL_MIN
+    if not CORNERS_PROPOSES:
+        return None
     m = modele_corners(signature_donnees())
     dom, ext, comp = match["dom"], match["ext"], match["competition"]
     if min(m.n_matchs.get(dom, 0.0), m.n_matchs.get(ext, 0.0)) < RAPPEL_MIN:
@@ -88,6 +91,31 @@ def corners_attendus(match: dict) -> tuple[float, float] | None:
 def contexte():
     sig = signature_donnees()
     return donnees(sig), modele(sig)
+
+
+@st.cache_data(ttl=3600, max_entries=8, show_spinner=False)
+def _matrice_ligue(competition: str, _sig: tuple):
+    """Fréquence de chaque score dans le championnat (2 dernières saisons), même taille que matrice_scores."""
+    from kateni.marches import matrice_scores
+    d = donnees(_sig)
+    d = d[(d["competition"] == competition) & (d["Date"] >= d["Date"].max() - pd.Timedelta(days=730))]
+    mat = np.zeros_like(matrice_scores(1.0, 1.0, 0.0))
+    for a, b in zip(d["FTHG"].astype(int).clip(upper=mat.shape[0] - 1), d["FTAG"].astype(int).clip(upper=mat.shape[1] - 1)):
+        mat[a, b] += 1
+    return mat / mat.sum() if mat.sum() else None
+
+
+def matrice_match(match: dict, ld: float, le: float, rho: float):
+    """Grille des scores du match ; mélangée avec celle du championnat quand c'est mesuré meilleur (PART_MODELE)."""
+    from kateni.config import PART_MODELE
+    from kateni.marches import matrice_scores
+    mat = matrice_scores(ld, le, rho)
+    w = PART_MODELE.get(match["competition"])
+    if w is not None:
+        ligue = _matrice_ligue(match["competition"], signature_donnees())
+        if ligue is not None:
+            mat = w * mat + (1 - w) * ligue
+    return mat
 
 
 def predire(match: dict) -> tuple[float, float, float, str]:
@@ -240,7 +268,7 @@ DRAPEAUX = {"CL": "🇪🇺", "EL": "🇪🇺", "ECL": "🇪🇺", "PL": "🏴�
             "LIGA": "🇪🇸", "LIGA2": "🇪🇸", "L1": "🇫🇷", "L2": "🇫🇷", "SA": "🇮🇹", "BL": "🇩🇪", "BL2": "🇩🇪",
             "NED": "🇳🇱", "POR": "🇵🇹", "TUR": "🇹🇷", "BEL": "🇧🇪", "MLS": "🇺🇸", "GRE": "🇬🇷", "AUT": "🇦🇹",
             "SUI": "🇨🇭", "NOR": "🇳🇴", "DAN": "🇩🇰", "SUE": "🇸🇪", "POL": "🇵🇱", "ROU": "🇷🇴", "CHN": "🇨🇳",
-            "JPN": "🇯🇵", "IRL": "🇮🇪"}
+            "JPN": "🇯🇵", "IRL": "🇮🇪", "AUS": "🇦🇺"}
 NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa",
                                                                   "ECL": "Ligue Conférence"}
 
@@ -353,7 +381,7 @@ def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
     if marche == "1N2":
         return {"1": f"Résultat : {dom} gagne", "N": "Résultat : match nul", "2": f"Résultat : {ext} gagne"}[sel]
     if marche == "Double chance":
-        return {"1N": f"Double chance : {dom} ou nul", "12": f"Double chance : {dom} ou {ext}",
+        return {"1N": f"Double chance : {dom} ou nul", "12": f"Une des deux équipes gagne ({dom} ou {ext})",
                 "N2": f"Double chance : nul ou {ext}"}[sel]
     if marche.startswith("Total buts "):
         ligne = marche.split()[-1].replace(".", ",")

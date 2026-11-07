@@ -1,0 +1,515 @@
+Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR
+2023-10-20,Adelaide United FC,Central Coast Mariners FC,3,0,H
+2023-10-21,Macarthur FC,Brisbane Roar FC,1,1,D
+2023-10-21,Melbourne City FC,Western United,1,2,A
+2023-10-21,Sydney FC,Melbourne Victory,0,2,A
+2023-10-22,Perth Glory FC,Newcastle Jets,2,2,D
+2023-10-22,Western Sydney Wanderers FC,Wellington Phoenix,0,0,D
+2023-10-27,Brisbane Roar FC,Sydney FC,3,0,H
+2023-10-28,Wellington Phoenix,Perth Glory FC,2,1,H
+2023-10-28,Western Sydney Wanderers FC,Western United,5,0,H
+2023-10-29,Adelaide United FC,Melbourne City FC,6,0,H
+2023-10-29,Central Coast Mariners FC,Macarthur FC,1,2,A
+2023-10-29,Melbourne Victory,Newcastle Jets,5,3,H
+2023-11-03,Melbourne City FC,Sydney FC,2,0,H
+2023-11-04,Macarthur FC,Western United,1,0,H
+2023-11-04,Melbourne Victory,Adelaide United FC,1,1,D
+2023-11-04,Perth Glory FC,Central Coast Mariners FC,2,0,H
+2023-11-04,Wellington Phoenix,Brisbane Roar FC,5,2,H
+2023-11-05,Newcastle Jets,Western Sydney Wanderers FC,2,2,D
+2023-11-10,Melbourne Victory,Wellington Phoenix,1,1,D
+2023-11-11,Adelaide United FC,Sydney FC,1,5,A
+2023-11-11,Western Sydney Wanderers FC,Perth Glory FC,2,0,H
+2023-11-11,Western United,Newcastle Jets,0,1,A
+2023-11-12,Central Coast Mariners FC,Brisbane Roar FC,1,2,A
+2023-11-12,Melbourne City FC,Macarthur FC,3,3,D
+2023-11-24,Macarthur FC,Melbourne Victory,1,1,D
+2023-11-25,Central Coast Mariners FC,Newcastle Jets,3,1,H
+2023-11-25,Sydney FC,Western Sydney Wanderers FC,0,1,A
+2023-11-25,Wellington Phoenix,Melbourne City FC,1,0,H
+2023-11-26,Brisbane Roar FC,Perth Glory FC,2,1,H
+2023-11-26,Western United,Adelaide United FC,1,3,A
+2023-12-01,Brisbane Roar FC,Western Sydney Wanderers FC,2,2,D
+2023-12-02,Sydney FC,Perth Glory FC,3,2,H
+2023-12-02,Western United,Wellington Phoenix,0,1,A
+2023-12-03,Central Coast Mariners FC,Melbourne Victory,2,2,D
+2023-12-03,Newcastle Jets,Melbourne City FC,0,2,A
+2023-12-04,Macarthur FC,Adelaide United FC,4,3,H
+2023-12-08,Central Coast Mariners FC,Western United,4,0,H
+2023-12-08,Perth Glory FC,Melbourne City FC,1,2,A
+2023-12-09,Sydney FC,Macarthur FC,0,2,A
+2023-12-09,Wellington Phoenix,Newcastle Jets,0,3,A
+2023-12-10,Adelaide United FC,Brisbane Roar FC,0,2,A
+2023-12-10,Western Sydney Wanderers FC,Melbourne Victory,3,4,A
+2023-12-15,Western Sydney Wanderers FC,Adelaide United FC,1,0,H
+2023-12-15,Western United,Brisbane Roar FC,2,1,H
+2023-12-16,Melbourne Victory,Sydney FC,3,0,H
+2023-12-16,Newcastle Jets,Perth Glory FC,2,2,D
+2023-12-17,Melbourne City FC,Central Coast Mariners FC,3,3,D
+2023-12-18,Macarthur FC,Wellington Phoenix,0,3,A
+2023-12-21,Brisbane Roar FC,Central Coast Mariners FC,0,3,A
+2023-12-22,Adelaide United FC,Newcastle Jets,3,1,H
+2023-12-23,Melbourne City FC,Melbourne Victory,0,0,D
+2023-12-23,Perth Glory FC,Macarthur FC,3,2,H
+2023-12-23,Sydney FC,Western United,4,2,H
+2023-12-23,Wellington Phoenix,Western Sydney Wanderers FC,2,0,H
+2023-12-28,Melbourne City FC,Brisbane Roar FC,8,1,H
+2023-12-29,Sydney FC,Wellington Phoenix,3,1,H
+2023-12-30,Melbourne Victory,Adelaide United FC,2,0,H
+2023-12-30,Newcastle Jets,Western United,2,0,H
+2023-12-31,Central Coast Mariners FC,Perth Glory FC,4,2,H
+2024-01-01,Western Sydney Wanderers FC,Macarthur FC,3,1,H
+2024-01-04,Adelaide United FC,Wellington Phoenix,2,2,D
+2024-01-05,Macarthur FC,Newcastle Jets,1,1,D
+2024-01-06,Brisbane Roar FC,Sydney FC,1,2,A
+2024-01-06,Perth Glory FC,Melbourne Victory,2,3,A
+2024-01-06,Western Sydney Wanderers FC,Central Coast Mariners FC,0,1,A
+2024-01-07,Western United,Melbourne City FC,1,2,A
+2024-01-08,Adelaide United FC,Macarthur FC,1,1,D
+2024-01-12,Macarthur FC,Western United,3,3,D
+2024-01-12,Melbourne City FC,Western Sydney Wanderers FC,0,1,A
+2024-01-13,Adelaide United FC,Sydney FC,4,3,H
+2024-01-13,Central Coast Mariners FC,Melbourne Victory,1,1,D
+2024-01-14,Brisbane Roar FC,Newcastle Jets,3,2,H
+2024-01-14,Perth Glory FC,Wellington Phoenix,3,4,A
+2024-01-18,Brisbane Roar FC,Macarthur FC,1,3,A
+2024-01-19,Sydney FC,Newcastle Jets,4,0,H
+2024-01-19,Wellington Phoenix,Melbourne Victory,1,1,D
+2024-01-20,Western Sydney Wanderers FC,Perth Glory FC,1,2,A
+2024-01-21,Central Coast Mariners FC,Melbourne City FC,2,1,H
+2024-01-23,Newcastle Jets,Brisbane Roar FC,3,1,H
+2024-01-25,Melbourne City FC,Adelaide United FC,1,0,H
+2024-01-26,Melbourne Victory,Sydney FC,1,1,D
+2024-01-27,Central Coast Mariners FC,Brisbane Roar FC,2,0,H
+2024-01-27,Newcastle Jets,Wellington Phoenix,1,2,A
+2024-01-27,Western United,Western Sydney Wanderers FC,0,1,A
+2024-01-28,Macarthur FC,Perth Glory FC,2,2,D
+2024-02-02,Brisbane Roar FC,Wellington Phoenix,1,1,D
+2024-02-02,Perth Glory FC,Melbourne City FC,4,2,H
+2024-02-03,Adelaide United FC,Central Coast Mariners FC,0,4,A
+2024-02-03,Newcastle Jets,Melbourne Victory,1,1,D
+2024-02-03,Western United,Sydney FC,2,2,D
+2024-02-04,Macarthur FC,Western Sydney Wanderers FC,4,3,H
+2024-02-06,Wellington Phoenix,Central Coast Mariners FC,0,0,D
+2024-02-09,Adelaide United FC,Perth Glory FC,3,3,D
+2024-02-10,Brisbane Roar FC,Melbourne City FC,5,1,H
+2024-02-10,Central Coast Mariners FC,Sydney FC,1,3,A
+2024-02-10,Melbourne Victory,Macarthur FC,0,1,A
+2024-02-10,Wellington Phoenix,Western United,2,0,H
+2024-02-11,Western Sydney Wanderers FC,Newcastle Jets,3,3,D
+2024-02-16,Western United,Newcastle Jets,2,0,H
+2024-02-17,Melbourne City FC,Melbourne Victory,0,0,D
+2024-02-17,Perth Glory FC,Brisbane Roar FC,3,2,H
+2024-02-17,Sydney FC,Adelaide United FC,2,1,H
+2024-02-18,Central Coast Mariners FC,Western Sydney Wanderers FC,1,0,H
+2024-02-18,Macarthur FC,Wellington Phoenix,1,2,A
+2024-02-20,Melbourne Victory,Western United,2,1,H
+2024-02-23,Brisbane Roar FC,Western United,2,2,D
+2024-02-24,Adelaide United FC,Western Sydney Wanderers FC,1,2,A
+2024-02-24,Perth Glory FC,Wellington Phoenix,0,0,D
+2024-02-24,Sydney FC,Melbourne City FC,1,1,D
+2024-02-25,Melbourne Victory,Central Coast Mariners FC,0,1,A
+2024-02-25,Newcastle Jets,Macarthur FC,2,2,D
+2024-03-01,Macarthur FC,Melbourne City FC,2,0,H
+2024-03-02,Newcastle Jets,Central Coast Mariners FC,0,1,A
+2024-03-02,Western Sydney Wanderers FC,Sydney FC,1,4,A
+2024-03-02,Western United,Perth Glory FC,1,0,H
+2024-03-03,Brisbane Roar FC,Melbourne Victory,3,2,H
+2024-03-03,Wellington Phoenix,Adelaide United FC,3,2,H
+2024-03-08,Western Sydney Wanderers FC,Western United,1,3,A
+2024-03-09,Adelaide United FC,Melbourne Victory,1,2,A
+2024-03-09,Melbourne City FC,Wellington Phoenix,1,0,H
+2024-03-09,Perth Glory FC,Newcastle Jets,2,2,D
+2024-03-10,Macarthur FC,Central Coast Mariners FC,0,3,A
+2024-03-10,Sydney FC,Brisbane Roar FC,1,1,D
+2024-03-12,Melbourne City FC,Western Sydney Wanderers FC,7,0,H
+2024-03-14,Western United,Melbourne Victory,2,2,D
+2024-03-15,Newcastle Jets,Adelaide United FC,0,1,A
+2024-03-16,Brisbane Roar FC,Macarthur FC,1,2,A
+2024-03-16,Perth Glory FC,Western Sydney Wanderers FC,1,2,A
+2024-03-16,Wellington Phoenix,Sydney FC,2,1,H
+2024-03-29,Adelaide United FC,Western United,4,1,H
+2024-03-30,Melbourne City FC,Newcastle Jets,0,0,D
+2024-03-30,Sydney FC,Central Coast Mariners FC,2,0,H
+2024-03-31,Melbourne Victory,Perth Glory FC,2,1,H
+2024-03-31,Wellington Phoenix,Brisbane Roar FC,1,0,H
+2024-04-01,Macarthur FC,Western Sydney Wanderers FC,1,3,A
+2024-04-02,Central Coast Mariners FC,Melbourne City FC,2,1,H
+2024-04-03,Perth Glory FC,Sydney FC,1,1,D
+2024-04-05,Western Sydney Wanderers FC,Brisbane Roar FC,1,2,A
+2024-04-06,Central Coast Mariners FC,Wellington Phoenix,2,1,H
+2024-04-06,Melbourne Victory,Melbourne City FC,2,1,H
+2024-04-06,Western United,Macarthur FC,4,2,H
+2024-04-07,Newcastle Jets,Sydney FC,3,1,H
+2024-04-07,Perth Glory FC,Adelaide United FC,2,4,A
+2024-04-12,Adelaide United FC,Macarthur FC,1,2,A
+2024-04-12,Wellington Phoenix,Melbourne Victory,1,0,H
+2024-04-13,Brisbane Roar FC,Newcastle Jets,0,2,A
+2024-04-13,Sydney FC,Western Sydney Wanderers FC,2,1,H
+2024-04-13,Western United,Central Coast Mariners FC,0,2,A
+2024-04-14,Melbourne City FC,Perth Glory FC,8,0,H
+2024-04-16,Western United,Adelaide United FC,3,3,D
+2024-05-12,Melbourne Victory,Wellington Phoenix,0,0,D
+2024-05-18,Central Coast Mariners FC,Sydney FC,0,0,D
+2024-05-18,Wellington Phoenix,Melbourne Victory,1,2,A
+2024-05-25,Central Coast Mariners FC,Melbourne Victory,3,1,H
+2024-10-18,Central Coast Mariners FC,Melbourne Victory,0,0,D
+2024-10-19,Auckland FC,Brisbane Roar FC,2,0,H
+2024-10-19,Newcastle Jets,Melbourne City FC,0,1,A
+2024-10-19,Western Sydney Wanderers FC,Sydney FC,1,2,A
+2024-10-20,Macarthur FC,Perth Glory FC,6,1,H
+2024-10-20,Wellington Phoenix,Western United,1,1,D
+2024-10-25,Macarthur FC,Newcastle Jets,1,2,A
+2024-10-26,Adelaide United FC,Central Coast Mariners FC,1,1,D
+2024-10-26,Melbourne City FC,Melbourne Victory,1,3,A
+2024-10-26,Perth Glory FC,Wellington Phoenix,0,2,A
+2024-10-27,Auckland FC,Sydney FC,1,0,H
+2024-10-27,Western United,Western Sydney Wanderers FC,1,1,D
+2024-11-01,Brisbane Roar FC,Sydney FC,2,3,A
+2024-11-02,Central Coast Mariners FC,Perth Glory FC,0,0,D
+2024-11-02,Wellington Phoenix,Auckland FC,0,2,A
+2024-11-02,Western Sydney Wanderers FC,Adelaide United FC,3,4,A
+2024-11-03,Melbourne Victory,Macarthur FC,2,1,H
+2024-11-04,Western United,Melbourne City FC,0,1,A
+2024-11-08,Western Sydney Wanderers FC,Newcastle Jets,4,1,H
+2024-11-09,Adelaide United FC,Western United,2,1,H
+2024-11-09,Melbourne Victory,Brisbane Roar FC,2,0,H
+2024-11-10,Central Coast Mariners FC,Wellington Phoenix,0,3,A
+2024-11-10,Perth Glory FC,Melbourne City FC,0,5,A
+2024-11-10,Sydney FC,Macarthur FC,1,2,A
+2024-11-22,Newcastle Jets,Central Coast Mariners FC,1,2,A
+2024-11-22,Perth Glory FC,Western United,1,3,A
+2024-11-23,Brisbane Roar FC,Adelaide United FC,2,3,A
+2024-11-23,Sydney FC,Western Sydney Wanderers FC,4,2,H
+2024-11-24,Macarthur FC,Auckland FC,0,1,A
+2024-11-24,Wellington Phoenix,Melbourne Victory,1,0,H
+2024-11-29,Adelaide United FC,Perth Glory FC,2,2,D
+2024-11-30,Auckland FC,Newcastle Jets,2,0,H
+2024-11-30,Macarthur FC,Brisbane Roar FC,4,4,D
+2024-11-30,Melbourne City FC,Western Sydney Wanderers FC,0,2,A
+2024-12-01,Western United,Melbourne Victory,1,3,A
+2024-12-06,Brisbane Roar FC,Melbourne City FC,1,4,A
+2024-12-07,Auckland FC,Wellington Phoenix,2,1,H
+2024-12-07,Newcastle Jets,Adelaide United FC,0,1,A
+2024-12-07,Western United,Macarthur FC,0,0,D
+2024-12-08,Central Coast Mariners FC,Sydney FC,2,1,H
+2024-12-08,Melbourne Victory,Perth Glory FC,2,0,H
+2024-12-13,Central Coast Mariners FC,Adelaide United FC,0,4,A
+2024-12-14,Perth Glory FC,Newcastle Jets,0,4,A
+2024-12-14,Sydney FC,Western United,3,4,A
+2024-12-14,Wellington Phoenix,Macarthur FC,1,2,A
+2024-12-14,Western Sydney Wanderers FC,Brisbane Roar FC,2,2,D
+2024-12-15,Melbourne City FC,Auckland FC,2,2,D
+2024-12-20,Adelaide United FC,Sydney FC,3,3,D
+2024-12-21,Auckland FC,Western United,0,4,A
+2024-12-21,Brisbane Roar FC,Perth Glory FC,0,1,A
+2024-12-21,Melbourne Victory,Melbourne City FC,1,1,D
+2024-12-22,Western Sydney Wanderers FC,Wellington Phoenix,4,1,H
+2024-12-23,Macarthur FC,Central Coast Mariners FC,1,1,D
+2024-12-27,Adelaide United FC,Western Sydney Wanderers FC,2,3,A
+2024-12-27,Perth Glory FC,Macarthur FC,0,3,A
+2024-12-28,Central Coast Mariners FC,Auckland FC,1,4,A
+2024-12-28,Sydney FC,Melbourne Victory,3,0,H
+2024-12-28,Wellington Phoenix,Newcastle Jets,2,1,H
+2024-12-29,Western United,Brisbane Roar FC,1,0,H
+2024-12-31,Central Coast Mariners FC,Melbourne City FC,1,1,D
+2025-01-01,Auckland FC,Melbourne Victory,0,0,D
+2025-01-01,Western Sydney Wanderers FC,Macarthur FC,2,3,A
+2025-01-03,Brisbane Roar FC,Central Coast Mariners FC,1,3,A
+2025-01-03,Melbourne City FC,Wellington Phoenix,2,0,H
+2025-01-03,Perth Glory FC,Western United,2,3,A
+2025-01-04,Melbourne Victory,Western Sydney Wanderers FC,2,2,D
+2025-01-04,Newcastle Jets,Sydney FC,2,2,D
+2025-01-06,Macarthur FC,Adelaide United FC,1,2,A
+2025-01-07,Brisbane Roar FC,Newcastle Jets,0,1,A
+2025-01-07,Melbourne City FC,Western United,2,0,H
+2025-01-08,Sydney FC,Perth Glory FC,3,0,H
+2025-01-10,Melbourne Victory,Western United,3,4,A
+2025-01-11,Melbourne City FC,Brisbane Roar FC,1,0,H
+2025-01-11,Perth Glory FC,Auckland FC,1,0,H
+2025-01-11,Sydney FC,Central Coast Mariners FC,4,1,H
+2025-01-11,Wellington Phoenix,Adelaide United FC,1,2,A
+2025-01-12,Newcastle Jets,Macarthur FC,1,3,A
+2025-01-14,Perth Glory FC,Western Sydney Wanderers FC,1,2,A
+2025-01-15,Wellington Phoenix,Sydney FC,0,0,D
+2025-01-17,Western Sydney Wanderers FC,Central Coast Mariners FC,1,3,A
+2025-01-17,Western United,Newcastle Jets,3,1,H
+2025-01-18,Adelaide United FC,Melbourne Victory,3,2,H
+2025-01-18,Auckland FC,Melbourne City FC,3,0,H
+2025-01-18,Sydney FC,Brisbane Roar FC,3,4,A
+2025-01-20,Macarthur FC,Wellington Phoenix,1,2,A
+2025-01-22,Adelaide United FC,Auckland FC,2,2,D
+2025-01-24,Melbourne Victory,Sydney FC,2,0,H
+2025-01-25,Macarthur FC,Melbourne City FC,1,0,H
+2025-01-25,Newcastle Jets,Perth Glory FC,2,2,D
+2025-01-25,Wellington Phoenix,Central Coast Mariners FC,0,0,D
+2025-01-26,Western Sydney Wanderers FC,Auckland FC,0,1,A
+2025-01-29,Western United,Central Coast Mariners FC,2,2,D
+2025-01-31,Brisbane Roar FC,Western Sydney Wanderers FC,0,1,A
+2025-02-01,Auckland FC,Macarthur FC,2,1,H
+2025-02-01,Central Coast Mariners FC,Newcastle Jets,2,2,D
+2025-02-01,Perth Glory FC,Melbourne Victory,0,2,A
+2025-02-01,Sydney FC,Adelaide United FC,4,1,H
+2025-02-06,Wellington Phoenix,Brisbane Roar FC,1,1,D
+2025-02-07,Adelaide United FC,Melbourne City FC,1,0,H
+2025-02-07,Perth Glory FC,Central Coast Mariners FC,1,1,D
+2025-02-08,Newcastle Jets,Melbourne Victory,3,0,H
+2025-02-08,Sydney FC,Western Sydney Wanderers FC,3,3,D
+2025-02-09,Macarthur FC,Western United,2,2,D
+2025-02-14,Melbourne Victory,Wellington Phoenix,1,0,H
+2025-02-15,Adelaide United FC,Newcastle Jets,1,2,A
+2025-02-15,Melbourne City FC,Perth Glory FC,1,0,H
+2025-02-15,Western United,Auckland FC,0,2,A
+2025-02-16,Western Sydney Wanderers FC,Macarthur FC,2,1,H
+2025-02-21,Newcastle Jets,Brisbane Roar FC,3,1,H
+2025-02-22,Auckland FC,Wellington Phoenix,6,1,H
+2025-02-22,Central Coast Mariners FC,Western Sydney Wanderers FC,0,4,A
+2025-02-22,Melbourne Victory,Melbourne City FC,2,2,D
+2025-02-22,Perth Glory FC,Sydney FC,0,0,D
+2025-02-23,Western United,Adelaide United FC,3,0,H
+2025-02-28,Central Coast Mariners FC,Western United,1,3,A
+2025-02-28,Wellington Phoenix,Melbourne City FC,0,1,A
+2025-03-01,Auckland FC,Adelaide United FC,4,4,D
+2025-03-01,Brisbane Roar FC,Melbourne Victory,1,1,D
+2025-03-01,Macarthur FC,Sydney FC,0,2,A
+2025-03-02,Western Sydney Wanderers FC,Perth Glory FC,4,1,H
+2025-03-07,Melbourne City FC,Macarthur FC,2,0,H
+2025-03-08,Adelaide United FC,Brisbane Roar FC,1,1,D
+2025-03-08,Melbourne Victory,Central Coast Mariners FC,3,0,H
+2025-03-08,Western United,Wellington Phoenix,4,1,H
+2025-03-09,Newcastle Jets,Auckland FC,1,1,D
+2025-03-12,Melbourne City FC,Newcastle Jets,0,1,A
+2025-03-14,Adelaide United FC,Macarthur FC,4,5,A
+2025-03-15,Perth Glory FC,Brisbane Roar FC,1,3,A
+2025-03-15,Western Sydney Wanderers FC,Melbourne Victory,4,2,H
+2025-03-16,Auckland FC,Central Coast Mariners FC,2,2,D
+2025-03-16,Newcastle Jets,Western United,2,6,A
+2025-03-16,Sydney FC,Wellington Phoenix,1,1,D
+2025-03-28,Macarthur FC,Newcastle Jets,3,3,D
+2025-03-29,Melbourne Victory,Adelaide United FC,5,3,H
+2025-03-29,Sydney FC,Melbourne City FC,2,3,A
+2025-03-29,Wellington Phoenix,Western Sydney Wanderers FC,2,2,D
+2025-03-30,Brisbane Roar FC,Auckland FC,0,2,A
+2025-03-30,Central Coast Mariners FC,Perth Glory FC,3,1,H
+2025-04-04,Brisbane Roar FC,Macarthur FC,1,5,A
+2025-04-05,Adelaide United FC,Sydney FC,2,3,A
+2025-04-05,Auckland FC,Western Sydney Wanderers FC,1,1,D
+2025-04-05,Melbourne City FC,Central Coast Mariners FC,1,0,H
+2025-04-05,Western United,Perth Glory FC,3,1,H
+2025-04-06,Newcastle Jets,Wellington Phoenix,1,2,A
+2025-04-11,Melbourne City FC,Brisbane Roar FC,3,2,H
+2025-04-12,Newcastle Jets,Central Coast Mariners FC,6,0,H
+2025-04-12,Perth Glory FC,Adelaide United FC,4,1,H
+2025-04-12,Sydney FC,Auckland FC,2,2,D
+2025-04-12,Wellington Phoenix,Melbourne Victory,2,3,A
+2025-04-13,Western Sydney Wanderers FC,Western United,2,0,H
+2025-04-17,Brisbane Roar FC,Western United,2,1,H
+2025-04-18,Adelaide United FC,Wellington Phoenix,3,2,H
+2025-04-19,Melbourne Victory,Auckland FC,0,2,A
+2025-04-19,Western Sydney Wanderers FC,Melbourne City FC,2,2,D
+2025-04-20,Central Coast Mariners FC,Macarthur FC,2,2,D
+2025-04-20,Sydney FC,Newcastle Jets,3,2,H
+2025-04-22,Brisbane Roar FC,Adelaide United FC,1,1,D
+2025-04-25,Macarthur FC,Melbourne Victory,1,2,A
+2025-04-26,Brisbane Roar FC,Wellington Phoenix,1,0,H
+2025-04-26,Melbourne City FC,Adelaide United FC,0,0,D
+2025-04-26,Newcastle Jets,Western Sydney Wanderers FC,0,1,A
+2025-04-27,Auckland FC,Perth Glory FC,1,0,H
+2025-04-27,Western United,Sydney FC,1,0,H
+2025-05-02,Central Coast Mariners FC,Brisbane Roar FC,1,2,A
+2025-05-03,Macarthur FC,Western Sydney Wanderers FC,1,3,A
+2025-05-03,Melbourne City FC,Sydney FC,5,1,H
+2025-05-03,Western United,Auckland FC,4,2,H
+2025-05-04,Melbourne Victory,Newcastle Jets,1,1,D
+2025-05-04,Wellington Phoenix,Perth Glory FC,0,2,A
+2025-05-09,Western United,Adelaide United FC,3,2,H
+2025-05-10,Western Sydney Wanderers FC,Melbourne Victory,1,2,A
+2025-05-16,Western United,Melbourne City FC,0,3,A
+2025-05-17,Melbourne Victory,Auckland FC,0,1,A
+2025-05-24,Auckland FC,Melbourne Victory,0,2,A
+2025-05-24,Melbourne City FC,Western United,1,1,D
+2025-05-31,Melbourne City FC,Melbourne Victory,1,0,H
+2025-10-17,Adelaide United FC,Sydney FC,2,1,H
+2025-10-17,Brisbane Roar FC,Macarthur FC,1,0,H
+2025-10-18,Melbourne Victory,Auckland FC,0,0,D
+2025-10-18,Perth Glory FC,Wellington Phoenix,2,2,D
+2025-10-18,Western Sydney Wanderers FC,Melbourne City FC,1,1,D
+2025-10-19,Central Coast Mariners FC,Newcastle Jets,3,2,H
+2025-10-24,Newcastle Jets,Melbourne Victory,5,2,H
+2025-10-25,Auckland FC,Western Sydney Wanderers FC,1,0,H
+2025-10-25,Melbourne City FC,Perth Glory FC,4,0,H
+2025-10-25,Sydney FC,Central Coast Mariners FC,2,0,H
+2025-10-26,Wellington Phoenix,Brisbane Roar FC,2,1,H
+2025-10-27,Macarthur FC,Adelaide United FC,2,1,H
+2025-10-31,Brisbane Roar FC,Melbourne City FC,0,0,D
+2025-10-31,Perth Glory FC,Melbourne Victory,0,2,A
+2025-11-01,Auckland FC,Adelaide United FC,2,1,H
+2025-11-01,Macarthur FC,Western Sydney Wanderers FC,1,1,D
+2025-11-01,Newcastle Jets,Sydney FC,1,4,A
+2025-11-02,Central Coast Mariners FC,Wellington Phoenix,1,1,D
+2025-11-07,Adelaide United FC,Western Sydney Wanderers FC,2,0,H
+2025-11-07,Perth Glory FC,Central Coast Mariners FC,0,1,A
+2025-11-08,Melbourne Victory,Melbourne City FC,0,2,A
+2025-11-08,Wellington Phoenix,Auckland FC,1,2,A
+2025-11-09,Brisbane Roar FC,Newcastle Jets,3,0,H
+2025-11-09,Sydney FC,Macarthur FC,2,0,H
+2025-11-21,Adelaide United FC,Melbourne City FC,4,1,H
+2025-11-22,Sydney FC,Melbourne Victory,3,0,H
+2025-11-22,Wellington Phoenix,Macarthur FC,0,1,A
+2025-11-22,Western Sydney Wanderers FC,Central Coast Mariners FC,3,2,H
+2025-11-23,Auckland FC,Brisbane Roar FC,1,1,D
+2025-11-23,Newcastle Jets,Perth Glory FC,1,2,A
+2025-11-28,Brisbane Roar FC,Melbourne Victory,1,0,H
+2025-11-29,Central Coast Mariners FC,Melbourne City FC,0,0,D
+2025-11-29,Wellington Phoenix,Adelaide United FC,2,1,H
+2025-11-29,Western Sydney Wanderers FC,Sydney FC,1,0,H
+2025-11-30,Auckland FC,Newcastle Jets,1,2,A
+2025-11-30,Macarthur FC,Perth Glory FC,0,2,A
+2025-12-05,Macarthur FC,Melbourne Victory,0,0,D
+2025-12-05,Perth Glory FC,Western Sydney Wanderers FC,1,0,H
+2025-12-06,Auckland FC,Wellington Phoenix,3,1,H
+2025-12-06,Central Coast Mariners FC,Sydney FC,1,2,A
+2025-12-06,Newcastle Jets,Melbourne City FC,0,1,A
+2025-12-07,Adelaide United FC,Brisbane Roar FC,0,1,A
+2025-12-12,Central Coast Mariners FC,Auckland FC,1,2,A
+2025-12-13,Melbourne Victory,Adelaide United FC,2,1,H
+2025-12-13,Perth Glory FC,Sydney FC,0,1,A
+2025-12-13,Western Sydney Wanderers FC,Brisbane Roar FC,0,0,D
+2025-12-14,Wellington Phoenix,Newcastle Jets,1,3,A
+2025-12-19,Macarthur FC,Brisbane Roar FC,2,1,H
+2025-12-19,Western Sydney Wanderers FC,Auckland FC,0,2,A
+2025-12-20,Melbourne City FC,Melbourne Victory,0,1,A
+2025-12-20,Newcastle Jets,Sydney FC,2,0,H
+2025-12-20,Perth Glory FC,Adelaide United FC,0,1,A
+2025-12-21,Wellington Phoenix,Central Coast Mariners FC,3,1,H
+2025-12-23,Melbourne City FC,Macarthur FC,1,1,D
+2025-12-26,Newcastle Jets,Macarthur FC,4,5,A
+2025-12-27,Adelaide United FC,Western Sydney Wanderers FC,3,2,H
+2025-12-28,Melbourne City FC,Perth Glory FC,1,3,A
+2025-12-29,Melbourne Victory,Wellington Phoenix,5,1,H
+2025-12-31,Central Coast Mariners FC,Brisbane Roar FC,1,2,A
+2026-01-01,Auckland FC,Newcastle Jets,1,3,A
+2026-01-01,Western Sydney Wanderers FC,Macarthur FC,0,1,A
+2026-01-02,Melbourne Victory,Perth Glory FC,3,2,H
+2026-01-03,Brisbane Roar FC,Wellington Phoenix,0,3,A
+2026-01-03,Melbourne City FC,Sydney FC,0,0,D
+2026-01-04,Adelaide United FC,Central Coast Mariners FC,0,4,A
+2026-01-05,Macarthur FC,Auckland FC,1,1,D
+2026-01-06,Melbourne City FC,Brisbane Roar FC,1,0,H
+2026-01-09,Brisbane Roar FC,Auckland FC,0,2,A
+2026-01-10,Macarthur FC,Sydney FC,0,3,A
+2026-01-10,Melbourne Victory,Western Sydney Wanderers FC,0,1,A
+2026-01-10,Perth Glory FC,Central Coast Mariners FC,3,0,H
+2026-01-11,Melbourne City FC,Newcastle Jets,0,1,A
+2026-01-11,Wellington Phoenix,Adelaide United FC,2,2,D
+2026-01-16,Melbourne City FC,Auckland FC,2,1,H
+2026-01-16,Perth Glory FC,Brisbane Roar FC,1,2,A
+2026-01-17,Adelaide United FC,Melbourne Victory,2,1,H
+2026-01-17,Western Sydney Wanderers FC,Newcastle Jets,1,2,A
+2026-01-18,Central Coast Mariners FC,Macarthur FC,1,1,D
+2026-01-18,Sydney FC,Wellington Phoenix,0,2,A
+2026-01-23,Newcastle Jets,Wellington Phoenix,4,1,H
+2026-01-24,Auckland FC,Central Coast Mariners FC,2,2,D
+2026-01-24,Brisbane Roar FC,Adelaide United FC,2,3,A
+2026-01-24,Macarthur FC,Melbourne City FC,6,2,H
+2026-01-25,Western Sydney Wanderers FC,Perth Glory FC,1,0,H
+2026-01-26,Melbourne Victory,Sydney FC,4,0,H
+2026-01-30,Adelaide United FC,Macarthur FC,1,1,D
+2026-01-30,Wellington Phoenix,Melbourne City FC,2,2,D
+2026-01-31,Newcastle Jets,Brisbane Roar FC,4,1,H
+2026-01-31,Perth Glory FC,Auckland FC,2,1,H
+2026-01-31,Sydney FC,Western Sydney Wanderers FC,4,1,H
+2026-02-01,Central Coast Mariners FC,Melbourne Victory,1,0,H
+2026-02-06,Macarthur FC,Perth Glory FC,2,2,D
+2026-02-06,Wellington Phoenix,Melbourne Victory,2,3,A
+2026-02-07,Auckland FC,Sydney FC,1,0,H
+2026-02-07,Brisbane Roar FC,Central Coast Mariners FC,1,2,A
+2026-02-07,Western Sydney Wanderers FC,Melbourne City FC,1,1,D
+2026-02-08,Adelaide United FC,Newcastle Jets,2,3,A
+2026-02-13,Perth Glory FC,Newcastle Jets,1,3,A
+2026-02-13,Western Sydney Wanderers FC,Wellington Phoenix,2,2,D
+2026-02-14,Melbourne Victory,Brisbane Roar FC,1,1,D
+2026-02-14,Sydney FC,Adelaide United FC,1,2,A
+2026-02-17,Sydney FC,Auckland FC,1,1,D
+2026-02-20,Adelaide United FC,Perth Glory FC,4,0,H
+2026-02-21,Melbourne City FC,Melbourne Victory,1,3,A
+2026-02-21,Sydney FC,Brisbane Roar FC,1,0,H
+2026-02-21,Wellington Phoenix,Auckland FC,0,5,A
+2026-02-22,Central Coast Mariners FC,Western Sydney Wanderers FC,3,2,H
+2026-02-22,Newcastle Jets,Macarthur FC,1,0,H
+2026-02-27,Melbourne Victory,Adelaide United FC,1,1,D
+2026-02-28,Auckland FC,Melbourne City FC,3,0,H
+2026-02-28,Brisbane Roar FC,Perth Glory FC,1,1,D
+2026-02-28,Central Coast Mariners FC,Newcastle Jets,0,0,D
+2026-02-28,Macarthur FC,Western Sydney Wanderers FC,0,4,A
+2026-03-01,Wellington Phoenix,Sydney FC,0,1,A
+2026-03-04,Macarthur FC,Central Coast Mariners FC,1,3,A
+2026-03-06,Adelaide United FC,Wellington Phoenix,1,1,D
+2026-03-07,Newcastle Jets,Western Sydney Wanderers FC,2,1,H
+2026-03-07,Sydney FC,Melbourne Victory,2,2,D
+2026-03-08,Auckland FC,Perth Glory FC,2,2,D
+2026-03-13,Brisbane Roar FC,Western Sydney Wanderers FC,2,2,D
+2026-03-14,Central Coast Mariners FC,Adelaide United FC,1,1,D
+2026-03-14,Newcastle Jets,Auckland FC,1,2,A
+2026-03-14,Wellington Phoenix,Perth Glory FC,2,0,H
+2026-03-15,Melbourne Victory,Macarthur FC,4,1,H
+2026-03-17,Sydney FC,Melbourne City FC,0,1,A
+2026-03-20,Western Sydney Wanderers FC,Adelaide United FC,2,4,A
+2026-03-21,Auckland FC,Macarthur FC,1,2,A
+2026-03-21,Brisbane Roar FC,Wellington Phoenix,1,2,A
+2026-03-21,Melbourne Victory,Central Coast Mariners FC,4,1,H
+2026-03-22,Perth Glory FC,Melbourne City FC,1,1,D
+2026-03-22,Sydney FC,Newcastle Jets,1,2,A
+2026-04-02,Brisbane Roar FC,Sydney FC,0,0,D
+2026-04-02,Macarthur FC,Newcastle Jets,3,2,H
+2026-04-03,Adelaide United FC,Auckland FC,1,1,D
+2026-04-04,Central Coast Mariners FC,Perth Glory FC,2,2,D
+2026-04-04,Melbourne City FC,Western Sydney Wanderers FC,3,0,H
+2026-04-05,Melbourne Victory,Wellington Phoenix,0,1,A
+2026-04-07,Melbourne City FC,Central Coast Mariners FC,2,1,H
+2026-04-10,Central Coast Mariners FC,Brisbane Roar FC,2,2,D
+2026-04-11,Auckland FC,Melbourne Victory,2,2,D
+2026-04-11,Newcastle Jets,Adelaide United FC,1,1,D
+2026-04-11,Western Sydney Wanderers FC,Sydney FC,0,2,A
+2026-04-12,Melbourne City FC,Wellington Phoenix,2,0,H
+2026-04-12,Perth Glory FC,Macarthur FC,3,1,H
+2026-04-17,Melbourne Victory,Newcastle Jets,2,2,D
+2026-04-18,Brisbane Roar FC,Melbourne City FC,2,3,A
+2026-04-18,Sydney FC,Perth Glory FC,0,0,D
+2026-04-18,Wellington Phoenix,Western Sydney Wanderers FC,2,1,H
+2026-04-19,Adelaide United FC,Macarthur FC,3,1,H
+2026-04-19,Auckland FC,Central Coast Mariners FC,0,1,A
+2026-04-24,Macarthur FC,Wellington Phoenix,4,0,H
+2026-04-25,Newcastle Jets,Central Coast Mariners FC,4,0,H
+2026-04-25,Perth Glory FC,Brisbane Roar FC,2,1,H
+2026-04-25,Western Sydney Wanderers FC,Melbourne Victory,0,2,A
+2026-04-26,Melbourne City FC,Adelaide United FC,1,2,A
+2026-04-26,Sydney FC,Auckland FC,2,2,D
+2026-05-02,Auckland FC,Melbourne City FC,1,1,D
+2026-05-02,Melbourne Victory,Sydney FC,0,1,A
+2026-05-09,Auckland FC,Adelaide United FC,1,1,D
+2026-05-09,Sydney FC,Newcastle Jets,1,1,D
+2026-05-15,Adelaide United FC,Auckland FC,0,3,A
+2026-05-16,Newcastle Jets,Sydney FC,1,1,D
+2026-05-23,Auckland FC,Sydney FC,1,0,H
+2026-10-16,Sydney FC,Western Sydney Wanderers FC,0,0,D
+2026-10-17,Auckland FC,Melbourne City FC,3,1,H
+2026-10-17,Central Coast Mariners FC,Newcastle Jets,2,2,D
+2026-10-17,Macarthur FC,Perth Glory FC,2,1,H
+2026-10-18,Wellington Phoenix,Melbourne Victory,2,1,H
+2026-10-23,Brisbane Roar FC,Perth Glory FC,2,1,H
+2026-10-24,Melbourne Victory,Melbourne City FC,1,1,D
+2026-10-24,Newcastle Jets,Macarthur FC,1,1,D
+2026-10-24,Western Sydney Wanderers FC,Auckland FC,5,2,H
+2026-10-25,Sydney FC,Adelaide United FC,2,1,H
+2026-10-25,Wellington Phoenix,Central Coast Mariners FC,2,0,H
+2026-10-30,Brisbane Roar FC,Auckland FC,1,1,D
+2026-10-31,Macarthur FC,Western Sydney Wanderers FC,0,0,D
+2026-10-31,Melbourne City FC,Sydney FC,2,1,H
+2026-10-31,Newcastle Jets,Wellington Phoenix,0,3,A
+2026-11-01,Melbourne Victory,Central Coast Mariners FC,1,1,D
+2026-11-01,Perth Glory FC,Adelaide United FC,4,0,H
+2026-11-06,Sydney FC,Central Coast Mariners FC,4,1,H
+2026-11-07,Auckland FC,Wellington Phoenix,0,0,D
+2026-11-07,Melbourne City FC,Western Sydney Wanderers FC,2,1,H
+2026-11-07,Perth Glory FC,Newcastle Jets,2,1,H

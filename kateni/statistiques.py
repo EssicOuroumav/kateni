@@ -23,6 +23,10 @@ STATS = {
     "Tirs cadrés": ("HST", "AST", 10.0, 25.9, 51.3, (5.5, 6.5, 7.5, 8.5, 9.5, 10.5), (2.5, 3.5, 4.5, 5.5, 6.5)),
     "Fautes": ("HF", "AF", 30.0, 89.3, 100.5, (17.5, 19.5, 21.5, 23.5, 25.5, 27.5), (8.5, 9.5, 10.5, 11.5, 12.5)),
 }
+# Proposées dans l'app (décision du propriétaire, 07/11/2026) : plus de fautes, et « plus de tirs » sans
+# l'option égalité. Fautes reste dans STATS pour les scripts de mesure.
+PROPOSEES = ("Tirs", "Tirs cadrés")
+SANS_EGALITE = {"Tirs"}
 RAPPEL_MIN = 8.0         # matchs (pondérés) connus au minimum pour chaque club
 K = np.arange(0, 81)
 
@@ -61,10 +65,15 @@ def plus_grand_nombre(m_d: float, m_e: float, taille: float) -> dict:
     return {"1": float(p[0]), "N": float(p[1]), "2": float(p[2])}
 
 
+def _choix(nom: str, d: dict) -> dict:
+    """« Plus de tirs » sans l'option égalité (les chances de 1 et 2 restent les vraies chances)."""
+    return {k: v for k, v in d.items() if k != "N"} if nom in SANS_EGALITE else d
+
+
 def marches_stat(nom: str, m_d: float, m_e: float) -> dict:
     """Marchés d'une statistique : total du match, chaque équipe, et qui en aura le plus."""
     _, _, _, t_eq, t_tot, s_tot, s_eq = STATS[nom]
-    out = {f"{nom} plus grand nombre": plus_grand_nombre(m_d, m_e, t_eq)}
+    out = {f"{nom} plus grand nombre": _choix(nom, plus_grand_nombre(m_d, m_e, t_eq))}
     for s in s_tot:
         q = _sup(m_d + m_e, s, t_tot)
         out[f"{nom} total {s}"] = {"Plus": q, "Moins": 1 - q}
@@ -93,7 +102,7 @@ def marches_stat_live(nom: str, m_d: float, m_e: float, deja_d: int, deja_e: int
     p = np.array([grille[i + deja_d > j + deja_e].sum(), grille[i + deja_d == j + deja_e].sum(),
                   grille[i + deja_d < j + deja_e].sum()])
     p = p / p.sum()
-    out[f"{nom} plus grand nombre"] = {"1": float(p[0]), "N": float(p[1]), "2": float(p[2])}
+    out[f"{nom} plus grand nombre"] = _choix(nom, {"1": float(p[0]), "N": float(p[1]), "2": float(p[2])})
     for s in s_tot:
         if deja_d + deja_e < s:
             q = _sup((m_d + m_e) * reste, s - deja_d - deja_e, t_tot * reste)

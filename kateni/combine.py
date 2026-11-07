@@ -23,14 +23,11 @@ CHOIX_PARIS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
                *[(f"Total buts {x}", c) for x in ("0.5", "1.5", "2.5", "3.5", "4.5") for c in ("Plus", "Moins")],
                ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
                ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non"),
-               *[(f"Corners total {x}", c) for x in ("7.5", "8.5", "9.5", "10.5", "11.5") for c in ("Plus", "Moins")],
-               *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in ("3.5", "4.5", "5.5")
-                 for c in ("Plus", "Moins")],
-               *[(f"{n} plus grand nombre", c) for n in ("Corners", "Tirs", "Tirs cadrés", "Fautes")
-                 for c in ("1", "N", "2")],
+               ("Tirs plus grand nombre", "1"), ("Tirs plus grand nombre", "2"),
+               *[("Tirs cadrés plus grand nombre", c) for c in ("1", "N", "2")],
                *[(f"Tirs total {x}", c) for x in ("21.5", "23.5", "25.5") for c in ("Plus", "Moins")],
                *[(f"Tirs cadrés total {x}", c) for x in ("6.5", "7.5", "8.5", "9.5") for c in ("Plus", "Moins")],
-               *[(f"Fautes total {x}", c) for x in ("19.5", "21.5", "23.5") for c in ("Plus", "Moins")]]
+               ]
 
 
 def cle_match(s: dict) -> tuple:

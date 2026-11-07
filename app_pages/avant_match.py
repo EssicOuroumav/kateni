@@ -4,9 +4,10 @@ from kateni.config import MIN_EDGE_PCT
 from kateni.cotes import cote_minimale, esperance, sans_marge
 from kateni.corners import TAILLE_EQUIPE, marches_corners
 from kateni.statistiques import marches_stat, plus_grand_nombre
-from kateni.marches import calibrer, marches, matrice_scores, scores_probables
+from kateni.marches import calibrer, marches, scores_probables
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
                        choisir_mode, contexte, corners_attendus, stats_attendues, enregistrer, fr, libelle, pct, ligne_analyse, predire,
+                       matrice_match,
                        table_analyse)
 
 df, m = contexte()
@@ -20,7 +21,7 @@ dom, ext, comp = match["dom"], match["ext"], match["competition"]
 avertir_si_peu_connu(m, dom, ext)
 
 lam_d, lam_e, rho, nom_modele = predire(match)
-mat = matrice_scores(lam_d, lam_e, rho)
+mat = matrice_match(match, lam_d, lam_e, rho)
 p = calibrer(marches(mat))
 corners = corners_attendus(match)
 if corners:
@@ -48,7 +49,7 @@ st.caption("Chaque ligne est **un choix sur Betclic**, et la case attend **sa co
 
 GROUPES = {
     "Résultat": [("1N2", "1"), ("1N2", "N"), ("1N2", "2")],
-    "Double chance": [("Double chance", "1N"), ("Double chance", "12"), ("Double chance", "N2")],
+    "Double chance": [("Double chance", "12"), ("Double chance", "1N"), ("Double chance", "N2")],
     "Nombre de buts": [(f"Total buts {x}", s) for x in ("1.5", "2.5", "3.5") for s in ("Plus", "Moins")],
     "Les deux marquent": [("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non")],
 }
@@ -57,11 +58,11 @@ if corners:
                           + [(f"Corners {e} {x}", s) for e in ("Dom.", "Ext.") for x in ("4.5",) for s in ("Plus", "Moins")]
                           + [("Corners plus grand nombre", s) for s in ("1", "N", "2")])
 if stats:
-    GROUPES["Tirs et fautes"] = [(m_, s) for m_, s in
-                                 [(f"{n} plus grand nombre", s) for n in stats for s in ("1", "N", "2")]
-                                 + [(f"{n} total {x}", s) for n, x in (("Tirs", "23.5"), ("Tirs cadrés", "8.5"),
-                                                                       ("Fautes", "21.5")) for s in ("Plus", "Moins")]
-                                 if m_ in p]
+    GROUPES["Tirs"] = [(m_, s) for m_, s in
+                       [(f"{n} plus grand nombre", s) for n in stats for s in ("1", "N", "2")]
+                       + [(f"{n} total {x}", s) for n, x in (("Tirs", "23.5"), ("Tirs cadrés", "8.5"))
+                          for s in ("Plus", "Moins")]
+                       if m_ in p and s in p[m_]]
 cle_match = f"{match['date']}|{dom}|{ext}"
 saisies = {}
 for onglet, (groupe, items) in zip(st.tabs(list(GROUPES)), GROUPES.items()):

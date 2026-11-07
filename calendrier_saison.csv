@@ -63,6 +63,8 @@ MLS,2026-11-08 00:00:00Z,Minnesota United FC,San Jose Earthquakes
 MLS,2026-11-08 00:00:00Z,Real Salt Lake,LA Galaxy
 MLS,2026-11-08 00:00:00Z,San Diego FC,Sporting Kansas City
 MLS,2026-11-08 00:00:00Z,Seattle Sounders FC,Los Angeles Football Club
+AUS,2026-11-08 04:00:00Z,Macarthur FC,Brisbane Roar FC
+AUS,2026-11-08 06:00:00Z,Adelaide United FC,Melbourne Victory
 TUR,2026-11-08 10:30:00Z,Çaykur Rizespor,Erzurumspor
 NED,2026-11-08 11:15:00Z,sc Heerenveen,Feyenoord
 SA,2026-11-08 11:30:00Z,Napoli,Lazio
@@ -103,6 +105,7 @@ SA,2026-11-08 19:45:00Z,Fiorentina,Juventus
 LIGA,2026-11-08 20:00:00Z,Atlético de Madrid,FC Barcelona
 POR,2026-11-08 20:30:00Z,Estrela Amadora,SL Benfica
 POR,2026-11-08 20:30:00Z,Rio Ave FC,SC Braga
+AUS,2026-11-20 08:40:00Z,Western Sydney Wanderers FC,Adelaide United FC
 L2,2026-11-20 19:00:00Z,AS Nancy Lorraine,Dijon FCO
 L2,2026-11-20 19:00:00Z,EN Avant Guingamp,Rodez Aveyron Football
 L2,2026-11-20 19:00:00Z,FC Annecy,Clermont Foot 63
@@ -111,6 +114,9 @@ L2,2026-11-20 19:00:00Z,Red Star FC,Pau FC
 BL,2026-11-20 19:30:00Z,FC Bayern München,1. FC Köln
 L1,2026-11-20 19:45:00Z,Estac Troyes,Havre Athletic Club
 LIGA,2026-11-20 20:00:00Z,Athletic Club,RCD Espanyol de Barcelona
+AUS,2026-11-21 04:00:00Z,Auckland FC,Melbourne Victory
+AUS,2026-11-21 06:00:00Z,Central Coast Mariners FC,Perth Glory FC
+AUS,2026-11-21 08:40:00Z,Brisbane Roar FC,Sydney FC
 TUR,2026-11-21 10:30:00Z,Gençlerbirligi,Gaziantep
 CHAMP,2026-11-21 12:30:00Z,Millwall,Queens Park Rangers
 CHAMP,2026-11-21 12:30:00Z,Norwich City,Cardiff City
@@ -166,6 +172,7 @@ LIGA,2026-11-21 20:00:00Z,Real Madrid,Celta
 NED,2026-11-21 20:00:00Z,FC Groningen,sc Heerenveen
 NED,2026-11-21 20:00:00Z,Telstar,PEC Zwolle
 SCO,2026-11-21 20:00:00Z,Motherwell,Rangers
+AUS,2026-11-22 02:00:00Z,Wellington Phoenix,Macarthur FC
 TUR,2026-11-22 10:30:00Z,Erzurumspor,Göztepe
 NED,2026-11-22 11:15:00Z,FC Twente,Willem II
 SA,2026-11-22 11:30:00Z,Juventus,Venezia
@@ -210,6 +217,7 @@ CHAMP,2026-11-25 19:45:00Z,Bolton Wanderers,West Bromwich Albion
 CHAMP,2026-11-25 19:45:00Z,Burnley,Birmingham City
 CHAMP,2026-11-25 19:45:00Z,Watford,Blackburn Rovers
 CHAMP,2026-11-25 20:00:00Z,Stoke City,Millwall
+AUS,2026-11-27 08:40:00Z,Macarthur FC,Melbourne City FC
 TUR,2026-11-27 17:00:00Z,Alanyaspor,Konyaspor
 TUR,2026-11-27 17:00:00Z,Çaykur Rizespor,Kasimpasa
 NED,2026-11-27 19:00:00Z,FC Groningen,Willem II
@@ -219,6 +227,7 @@ SA,2026-11-27 19:45:00Z,Venezia,Bologna
 CHAMP,2026-11-27 20:00:00Z,Southampton,Middlesbrough
 PL,2026-11-27 20:00:00Z,Nott'm Forest,Chelsea
 POR,2026-11-27 20:15:00Z,Marítimo M.,CD Nacional
+AUS,2026-11-28 08:40:00Z,Central Coast Mariners FC,Auckland FC
 CHAMP,2026-11-28 12:30:00Z,Blackburn Rovers,Charlton Athletic
 CHAMP,2026-11-28 12:30:00Z,Lincoln City,Wolverhampton Wanderers
 CHAMP,2026-11-28 12:30:00Z,Preston North End,Norwich City

@@ -361,7 +361,20 @@ def test_scores_direct_et_statistiques_live():
                                              "details": [{"redCard": True, "team": {"id": "2"}}]}]}]}
     m = matchs_de("PL", donnees)[0]
     assert (m["buts_d"], m["buts_e"], m["minute"], m["rouges_e"]) == (1, 0, 17, 1)
-    assert m["stats"] == {"Corners": (3, 1), "Tirs": (5, 2)}
+    assert m["stats"] == {"Tirs": (5, 2)}  # corners retirés de l'app (07/11/2026)
     p = marches_stat_live("Tirs", 12.0, 10.0, 5, 2, 0.8)
     assert "Tirs Dom. 4.5" not in p and p["Tirs plus grand nombre"]["1"] > p["Tirs plus grand nombre"]["2"]
     assert marches_stat_live("Tirs", 12.0, 10.0, 5, 2, 0.0) == {}
+
+
+def test_marches_retires_et_une_des_deux_gagne():
+    from kateni.affichage import EVENEMENTS
+    from kateni.combine import CHOIX_PARIS
+    from kateni.statistiques import marches_stat
+    from kateni.ui import libelle
+    for liste in (EVENEMENTS, CHOIX_PARIS):
+        assert not any(m.startswith(("Corners", "Fautes")) for m, _ in liste)
+        assert ("Tirs plus grand nombre", "N") not in liste
+    assert "N" not in marches_stat("Tirs", 12.0, 10.0)["Tirs plus grand nombre"]
+    assert "N" in marches_stat("Tirs cadrés", 4.0, 3.0)["Tirs cadrés plus grand nombre"]
+    assert libelle("Double chance", "12", "Roma", "Cagliari") == "Une des deux équipes gagne (Roma ou Cagliari)"

@@ -5,11 +5,11 @@ import streamlit as st
 
 from kateni.config import POIDS_MODELE
 from kateni.cotes import sans_marge
-from kateni.marches import calibrer, marches, matrice_scores, scores_probables
+from kateni.marches import calibrer, marches, scores_probables
 from kateni.modele import terrain_neutre
-from kateni.corners import SEUILS_EQUIPE, SEUILS_TOTAL, marches_corners
-from kateni.statistiques import STATS, marches_stat, plus_grand_nombre
-from kateni.ui import corners_attendus, fr, predire, stats_attendues
+from kateni.corners import marches_corners
+from kateni.statistiques import PROPOSEES, SANS_EGALITE, STATS, marches_stat, plus_grand_nombre
+from kateni.ui import corners_attendus, fr, matrice_match, predire, stats_attendues
 
 JOURS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
 JOURS_LONGS = ["lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche"]
@@ -50,7 +50,7 @@ def _pronostic(competition: str, dom: str, ext: str, neutre: bool, c: tuple, _si
     match = {"competition": competition, "dom": dom, "ext": ext, "neutre": neutre}
     cotes = dict(zip(COLS_COTES, c))
     ld, le, rho, nom_modele = predire(match)
-    mat = matrice_scores(ld, le, rho)
+    mat = matrice_match(match, ld, le, rho)
     p = calibrer(marches(mat))
     modele_1n2 = [p["1N2"]["1"], p["1N2"]["N"], p["1N2"]["2"]]
     c1, cn, c2 = _cote(cotes, "B365H"), _cote(cotes, "B365D"), _cote(cotes, "B365A")
@@ -83,12 +83,10 @@ EVENEMENTS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
               *[(f"Total buts {x}", c) for x in ("0.5", "1.5", "2.5", "3.5", "4.5") for c in ("Plus", "Moins")],
               ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
               ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non"),
-              *[(f"Corners total {x}", c) for x in SEUILS_TOTAL for c in ("Plus", "Moins")],
-              *[(f"Corners {e} {x}", c) for e in ("Dom.", "Ext.") for x in SEUILS_EQUIPE for c in ("Plus", "Moins")],
-              *[("Corners plus grand nombre", c) for c in ("1", "N", "2")],
-              *[(f"{n} plus grand nombre", c) for n in STATS for c in ("1", "N", "2")],
-              *[(f"{n} total {x}", c) for n, v in STATS.items() for x in v[5] for c in ("Plus", "Moins")],
-              *[(f"{n} {e} {x}", c) for n, v in STATS.items() for e in ("Dom.", "Ext.") for x in v[6]
+              *[(f"{n} plus grand nombre", c) for n in PROPOSEES for c in ("1", "N", "2")
+                if not (n in SANS_EGALITE and c == "N")],
+              *[(f"{n} total {x}", c) for n in PROPOSEES for x in STATS[n][5] for c in ("Plus", "Moins")],
+              *[(f"{n} {e} {x}", c) for n in PROPOSEES for e in ("Dom.", "Ext.") for x in STATS[n][6]
                 for c in ("Plus", "Moins")]]
 
 
@@ -175,8 +173,9 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                     f"- **Marché** ({r['bookmaker']} {fr(c1)} / {fr(cn)} / {fr(c2)}, marge retirée) : {dom} "
                     f"{mm[0]:.0%} · nul {mm[1]:.0%} · {ext} {mm[2]:.0%}")
             st.markdown(
-                f"- **Double chance** (modèle) : {dom} ou nul {p['Double chance']['1N']:.0%} · {dom} ou {ext} "
-                f"{p['Double chance']['12']:.0%} · nul ou {ext} {p['Double chance']['N2']:.0%}\n"
+                f"- **Une des deux équipes gagne** (pas de nul) : {p['Double chance']['12']:.0%}\n"
+                f"- **Double chance** (modèle) : {dom} ou nul {p['Double chance']['1N']:.0%} · nul ou {ext} "
+                f"{p['Double chance']['N2']:.0%}\n"
                 f"- **Nombre de buts** : plus de 1,5 {p['Total buts 1.5']['Plus']:.0%} · plus de 2,5 "
                 f"{r['plus25']:.0%} · plus de 3,5 {p['Total buts 3.5']['Plus']:.0%}\n"
                 f"- **Les 2 équipes marquent** : oui {p['Les deux équipes marquent']['Oui']:.0%} · non "
@@ -185,7 +184,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                 + (f"- **Corners attendus** : {dom} {fr(r['corners'][0])} – {fr(r['corners'][1])} {ext} "
                    f"(total {fr(sum(r['corners']))}) · plus de 8,5 {p['Corners total 8.5']['Plus']:.0%} · plus de 9,5 "
                    f"{p['Corners total 9.5']['Plus']:.0%} · plus de 10,5 {p['Corners total 10.5']['Plus']:.0%}\n"
-                   if r["corners"] else "- **Corners** : pas d'historique de corners pour l'un des deux clubs\n")
+                   if r["corners"] else "")
                 + "".join(f"- **{n} attendus** : {dom} {fr(a)} – {fr(b)} {ext} (total {fr(a + b)}) · plus de {n.lower()} : "
                           f"{dom} {p[n + ' plus grand nombre']['1']:.0%}, {ext} {p[n + ' plus grand nombre']['2']:.0%}\n"
                           for n, (a, b) in r["stats"].items())

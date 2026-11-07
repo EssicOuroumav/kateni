@@ -1,0 +1,18 @@
+Log loss 1N2 (plus bas = mieux)         1.0976    1.0922
+Bons pronostics 1N2                   38.7%     38.1%
+Log loss +2,5 buts                   0.6999    0.6897
+
+Mélange prudent (part du modèle, le reste = fréquences de la A-League) :
+  modèle 100% : log loss 1N2 1.0976 · +2,5 buts 0.6999
+  modèle 75% : log loss 1N2 1.0892 · +2,5 buts 0.6928
+  modèle 50% : log loss 1N2 1.0860 · +2,5 buts 0.6888
+  modèle 25% : log loss 1N2 1.0871 · +2,5 buts 0.6878
+  modèle 0% : log loss 1N2 1.0922 · +2,5 buts 0.6897
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% :  54 matchs, annoncé 29% -> arrivé 30%
+  35%-50% :  78 matchs, annoncé 43% -> arrivé 45%
+  50%-65% :  33 matchs, annoncé 56% -> arrivé 36%
+  65%-100% :   3 matchs, annoncé 68% -> arrivé 33%
+
+[exited with code 0]
