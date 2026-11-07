@@ -15,22 +15,23 @@ st.set_page_config(page_title="Kateni", page_icon=str(LOGO) if LOGO.exists() els
 if LOGO.exists():
     st.logo(str(LOGO), size="large")
 
-# Barre du haut rouge, façon Betclic (demande du propriétaire, 25/10/2026). Le thème de Streamlit ne règle pas la
-# couleur de cette barre : petite feuille de style ciblant les repères « data-testid » publics de l'en-tête.
-# Si une mise à jour de Streamlit les change, la barre redevient simplement blanche (rien ne casse).
+# Design « Nuit de match » (choix du propriétaire, 08/11/2026) : barre du haut sombre comme un stade la nuit,
+# marque en rouge, page active en vert gazon ; cartes ardoise légèrement éclairées. Le thème de Streamlit
+# (.streamlit/config.toml) règle couleurs et polices ; cette petite feuille de style cible les repères
+# « data-testid » publics. Si une mise à jour de Streamlit les change, l'app garde le thème sombre (rien ne casse).
 st.html("""<style>
-[data-testid="stHeader"] { background: #C8102E; }
+[data-testid="stHeader"] { background: rgba(11, 15, 13, 0.92); border-bottom: 1px solid #24302A; backdrop-filter: blur(8px); }
 [data-testid="stHeader"] [data-testid="stTopNavLink"] span,
-[data-testid="stHeader"] [data-testid="stTopNavSection"] span,
-[data-testid="stHeader"] [data-testid="stToolbarActions"] *,
-[data-testid="stHeader"] [data-testid="stMainMenuButton"] *,
-[data-testid="stHeader"] button[data-testid="stBaseButton-header"] * { color: #FFFFFF !important; }
+[data-testid="stHeader"] [data-testid="stTopNavSection"] span { color: #C9D4CC !important; }
 [data-testid="stHeader"] [data-testid="stTopNavLink"] { border-radius: 999px; }
-[data-testid="stHeader"] [data-testid="stMainMenuButton"], [data-testid="stHeader"] button[data-testid="stBaseButton-header"] { background: transparent !important; border-color: rgba(255, 255, 255, 0.5) !important; }
-[data-testid="stHeaderLogo"] { border-radius: 8px; box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.85); }
-[data-testid="stHeader"] [data-testid="stTopNavLink"]:hover { background: rgba(255, 255, 255, 0.15); }
-[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] { background: rgba(0, 0, 0, 0.22); }
-[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] span { font-weight: 700; }
+[data-testid="stHeader"] [data-testid="stTopNavLink"]:hover { background: #1B241F; }
+[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] { background: rgba(57, 229, 138, 0.12); }
+[data-testid="stHeader"] [data-testid="stTopNavLink"][aria-current="page"] span { color: #39E58A !important; font-weight: 700; }
+[data-testid="stHeaderLogo"] { border-radius: 8px; box-shadow: 0 0 0 1px rgba(255, 77, 77, 0.6), 0 0 18px rgba(255, 77, 77, 0.25); }
+.stApp { background:
+  radial-gradient(600px 300px at 10% -80px, rgba(255, 255, 255, 0.06), transparent 70%),
+  radial-gradient(600px 300px at 90% -80px, rgba(255, 255, 255, 0.06), transparent 70%), #0B0F0D; }
+[data-testid="stMetricValue"] { font-family: 'Oxanium', sans-serif; letter-spacing: 1px; }
 </style>""")
 
 # Accès par code personnel (kateni/connexion.py) : rien d'autre ne s'affiche avant

@@ -176,6 +176,17 @@ def explication(match: dict, r: dict) -> str:
     return " ".join(phrases)
 
 
+def barre_chances(dom: str, ext: str, p1n2) -> str:
+    """Barre tricolore « Nuit de match » : domicile vert gazon, nul gris, extérieur rouge. Valeurs calculées
+    par Kateni uniquement (aucun texte saisi), noms d'équipes échappés."""
+    from html import escape
+    q1, qn, q2 = (round(100 * x) for x in p1n2)
+    return (f'<div role="img" aria-label="{escape(dom)} {q1} pour cent, nul {qn} pour cent, {escape(ext)} {q2} pour cent" '
+            'style="display:flex;height:10px;border-radius:999px;overflow:hidden;background:#1B241F;margin:2px 0">'
+            f'<div style="width:{q1}%;background:#39E58A"></div><div style="width:{qn}%;background:#5E6E64"></div>'
+            f'<div style="width:{q2}%;background:#FF4D4D"></div></div>')
+
+
 def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = False) -> None:
     dom, ext = match["dom"], match["ext"]
     r = pronostic(match, cotes)
@@ -192,6 +203,7 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
         st.markdown(f":{couleur}-badge[:material/{icone}: {favori} {chance:.0%}]"
                     + ("  :orange-badge[match serré]" if chance < 0.45 else "")
                     + f"  ·  score le plus probable **{score}**")
+        st.html(barre_chances(dom, ext, p1n2))
         if not compact:
             st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"
                        f"  —  score le plus probable {score} ({p_score:.0%})"

@@ -13,37 +13,26 @@ showErrorDetails = "type"
 gatherUsageStats = false
 
 [theme]
-# Charte Kateni, tirée du logo : rouge profond, rouge vif, blanc, noir du ballon.
-base = "light"
-primaryColor = "#B80000"
-backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#F7F1F1"
-textColor = "#1A1A1A"
-linkColor = "#B80000"
-borderColor = "#E6D5D5"
-dataframeBorderColor = "#E6D5D5"
-dataframeHeaderBackgroundColor = "#F7F1F1"
-redColor = "#B80000"
-grayColor = "#5C5C5C"
-headingFont = "'Exo 2':https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,600;0,800;1,800&display=swap"
-headingFontWeights = [800, 700, 700, 600, 600, 600]
+# Charte « Nuit de match » (choix du propriétaire, 08/11/2026) : stade la nuit sous les projecteurs.
+# Fond très sombre, cartes ardoise, vert gazon électrique pour l'action, rouge Kateni pour la marque.
+base = "dark"
+primaryColor = "#39E58A"
+backgroundColor = "#0B0F0D"
+secondaryBackgroundColor = "#1B241F"
+textColor = "#E9F0EB"
+linkColor = "#39E58A"
+borderColor = "#24302A"
+dataframeBorderColor = "#24302A"
+dataframeHeaderBackgroundColor = "#121915"
+redColor = "#FF4D4D"
+greenColor = "#39E58A"
+orangeColor = "#FFB547"
+blueColor = "#5BC0FF"
+grayColor = "#9FB0A5"
+headingFont = "'Oxanium':https://fonts.googleapis.com/css2?family=Oxanium:wght@500;700;800&display=swap"
+headingFontWeights = [800, 700, 700, 700, 600, 600]
 font = "'Nunito Sans':https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap"
-metricValueFontWeight = 700
+metricValueFontWeight = 800
 baseRadius = "large"
-greenColor = "#1E7B45"
-orangeColor = "#C26A00"
-blueColor = "#1F5FA8"
-chartCategoricalColors = ["#B80000", "#1A1A1A", "#E53935", "#8C8C8C", "#7A0000", "#C9C9C9"]
-chartSequentialColors = ["#FFF1F1", "#FFD6D6", "#FFB3B3", "#FF8A8A", "#F25C5C", "#E03131", "#C81E1E", "#B80000", "#8F0000", "#600000"]
-
-[theme.dark]
-primaryColor = "#E53935"
-backgroundColor = "#140808"
-secondaryBackgroundColor = "#2A1212"
-textColor = "#F5F5F5"
-linkColor = "#FF6B6B"
-borderColor = "#4A2525"
-dataframeBorderColor = "#4A2525"
-dataframeHeaderBackgroundColor = "#2A1212"
-redColor = "#E53935"
-chartCategoricalColors = ["#E53935", "#F5F5F5", "#FF8A80", "#9E9E9E", "#B80000", "#616161"]
+chartCategoricalColors = ["#39E58A", "#FF4D4D", "#5BC0FF", "#FFB547", "#9FB0A5", "#E9F0EB"]
+chartSequentialColors = ["#0F2A1C", "#123A25", "#164B2F", "#1A5D39", "#1F7044", "#24844F", "#2A985B", "#30AD67", "#35C374", "#39E58A"]

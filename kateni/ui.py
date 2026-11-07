@@ -268,7 +268,8 @@ DRAPEAUX = {"CL": "🇪🇺", "EL": "🇪🇺", "ECL": "🇪🇺", "PL": "🏴�
             "LIGA": "🇪🇸", "LIGA2": "🇪🇸", "L1": "🇫🇷", "L2": "🇫🇷", "SA": "🇮🇹", "BL": "🇩🇪", "BL2": "🇩🇪",
             "NED": "🇳🇱", "POR": "🇵🇹", "TUR": "🇹🇷", "BEL": "🇧🇪", "MLS": "🇺🇸", "GRE": "🇬🇷", "AUT": "🇦🇹",
             "SUI": "🇨🇭", "NOR": "🇳🇴", "DAN": "🇩🇰", "SUE": "🇸🇪", "POL": "🇵🇱", "ROU": "🇷🇴", "CHN": "🇨🇳",
-            "JPN": "🇯🇵", "IRL": "🇮🇪", "AUS": "🇦🇺"}
+            "JPN": "🇯🇵", "IRL": "🇮🇪", "AUS": "🇦🇺",
+            "ARG": "🇦🇷", "BRA": "🇧🇷", "MEX": "🇲🇽", "FIN": "🇫🇮", "RUS": "🇷🇺"}
 NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa",
                                                                   "ECL": "Ligue Conférence"}
 

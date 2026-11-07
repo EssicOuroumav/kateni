@@ -169,6 +169,10 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - « Pourquoi ce pronostic ? » (07/11) : `affichage.explication`, en tête du détail de chaque match : favori, forme des 5 derniers matchs (résultats réels), buts attendus, accord ou désaccord modèle/marché. Rien d'inventé (pas d'actualité ni de blessés) ; demandé après la synthèse des sites concurrents.
 - Page `app_pages/basket.py` : ligue, jour, carte par match (favori, score attendu, total, écart), « Toutes les prédictions » (vainqueur, temps réglementaire, handicaps, totaux, points par équipe, 1re mi-temps, 1er quart-temps, écart final, pair/impair = 50 %), simulation libre. Pas encore : paris basket dans Mes paris, live basket, cotes du marché.
 
+## Lot du 08/11/2026 : design « Nuit de match » et 5 championnats
+- Design choisi par le propriétaire parmi trois maquettes (`docs/maquettes_design.html`) : thème sombre (`.streamlit/config.toml`), barre du haut sombre avec page active vert gazon, halos de projecteurs, titres Oxanium, barre de chances tricolore (`affichage.barre_chances`, aussi sur le basket).
+- Argentine, Brésil, Mexique, Finlande (football-data `new/`, avec cotes) et Russie (ESPN, football-data arrêté en août 2026) ajoutés. Mesure par championnat en cours (`scripts/mesure_ligue.py`, `docs/mesures/2026-11-08_nouveaux_championnats.txt`) ; un mélange avec la moyenne du championnat (`PART_MODELE`) sera appliqué là où le modèle seul ne fait pas mieux.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|

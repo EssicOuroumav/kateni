@@ -66,10 +66,12 @@ MLS,2026-11-08 00:00:00Z,Seattle Sounders FC,Los Angeles Football Club
 AUS,2026-11-08 04:00:00Z,Macarthur FC,Brisbane Roar FC
 AUS,2026-11-08 06:00:00Z,Adelaide United FC,Melbourne Victory
 TUR,2026-11-08 10:30:00Z,Çaykur Rizespor,Erzurumspor
+RUS,2026-11-08 11:00:00Z,Krylia Sovetov,Gazovik Orenburg
 NED,2026-11-08 11:15:00Z,sc Heerenveen,Feyenoord
 SA,2026-11-08 11:30:00Z,Napoli,Lazio
 LIGA,2026-11-08 13:00:00Z,Elche CF,Real Betis
 TUR,2026-11-08 13:00:00Z,Çorum,Fenerbahçe
+RUS,2026-11-08 13:15:00Z,Spartak Moscow,Akron Tolyatti
 NED,2026-11-08 13:30:00Z,FC Twente,Ajax
 L1,2026-11-08 14:00:00Z,Stade Rennais FC,LOSC Lille
 PL,2026-11-08 14:00:00Z,Brighton,Brentford
@@ -83,6 +85,7 @@ SCO,2026-11-08 15:00:00Z,Heart of Midlothian,Falkirk
 LIGA,2026-11-08 15:15:00Z,Real Sociedad,Rayo Vallecano
 POR,2026-11-08 15:30:00Z,Estoril Praia,Marítimo M.
 POR,2026-11-08 15:30:00Z,Santa Clara,Gil Vicente FC
+RUS,2026-11-08 15:30:00Z,Zenit St Petersburg,Rostov
 TUR,2026-11-08 15:30:00Z,Alanyaspor,Trabzonspor
 NED,2026-11-08 15:45:00Z,AZ,FC Groningen
 NED,2026-11-08 15:45:00Z,SC Cambuur,PSV
@@ -96,6 +99,7 @@ PL,2026-11-08 16:30:00Z,Man Utd,Aston Villa
 SA,2026-11-08 17:00:00Z,Internazionale,Como
 LIGA,2026-11-08 17:30:00Z,Celta,Levante UD
 LIGA,2026-11-08 17:30:00Z,Villarreal CF,Getafe CF
+RUS,2026-11-08 17:45:00Z,FC Baltika Kaliningrad,Dynamo Makhachkala
 POR,2026-11-08 18:00:00Z,Vitória SC,FC Porto
 TUR,2026-11-08 18:00:00Z,Besiktas,Gençlerbirligi
 BL,2026-11-08 18:30:00Z,TSG Hoffenheim,FC Schalke 04
@@ -106,6 +110,7 @@ LIGA,2026-11-08 20:00:00Z,Atlético de Madrid,FC Barcelona
 POR,2026-11-08 20:30:00Z,Estrela Amadora,SL Benfica
 POR,2026-11-08 20:30:00Z,Rio Ave FC,SC Braga
 AUS,2026-11-20 08:40:00Z,Western Sydney Wanderers FC,Adelaide United FC
+RUS,2026-11-20 16:30:00Z,Rostov,Krylia Sovetov
 L2,2026-11-20 19:00:00Z,AS Nancy Lorraine,Dijon FCO
 L2,2026-11-20 19:00:00Z,EN Avant Guingamp,Rodez Aveyron Football
 L2,2026-11-20 19:00:00Z,FC Annecy,Clermont Foot 63
@@ -117,7 +122,9 @@ LIGA,2026-11-20 20:00:00Z,Athletic Club,RCD Espanyol de Barcelona
 AUS,2026-11-21 04:00:00Z,Auckland FC,Melbourne Victory
 AUS,2026-11-21 06:00:00Z,Central Coast Mariners FC,Perth Glory FC
 AUS,2026-11-21 08:40:00Z,Brisbane Roar FC,Sydney FC
+RUS,2026-11-21 10:00:00Z,Gazovik Orenburg,FC Baltika Kaliningrad
 TUR,2026-11-21 10:30:00Z,Gençlerbirligi,Gaziantep
+RUS,2026-11-21 12:15:00Z,Akron Tolyatti,Fakel Voronezh
 CHAMP,2026-11-21 12:30:00Z,Millwall,Queens Park Rangers
 CHAMP,2026-11-21 12:30:00Z,Norwich City,Cardiff City
 CHAMP,2026-11-21 12:30:00Z,Southampton,Derby County
@@ -134,6 +141,7 @@ BL,2026-11-21 14:30:00Z,Bayer 04 Leverkusen,SC Paderborn 07
 BL,2026-11-21 14:30:00Z,Borussia Mönchengladbach,Borussia Dortmund
 BL,2026-11-21 14:30:00Z,Eintracht Frankfurt,TSG Hoffenheim
 BL,2026-11-21 14:30:00Z,SV Elversberg,Sport-Club Freiburg
+RUS,2026-11-21 14:30:00Z,Rubin Kazan,Zenit St Petersburg
 CHAMP,2026-11-21 15:00:00Z,Bolton Wanderers,Portsmouth
 CHAMP,2026-11-21 15:00:00Z,Lincoln City,Wrexham
 CHAMP,2026-11-21 15:00:00Z,Middlesbrough,Bristol City
@@ -155,6 +163,7 @@ LIGA,2026-11-21 15:15:00Z,Rayo Vallecano,Valencia CF
 NED,2026-11-21 15:30:00Z,N.E.C. Nijmegen,PSV
 TUR,2026-11-21 16:00:00Z,Kocaelispor,Fenerbahçe
 L1,2026-11-21 16:15:00Z,OGC Nice,Paris Saint-Germain
+RUS,2026-11-21 16:45:00Z,CSKA Moscow,Akhmat Grozny
 SA,2026-11-21 17:00:00Z,Parma,Roma
 BL,2026-11-21 17:30:00Z,FC Schalke 04,VfB Stuttgart
 LIGA,2026-11-21 17:30:00Z,Sevilla FC,Real Betis
@@ -174,6 +183,7 @@ NED,2026-11-21 20:00:00Z,Telstar,PEC Zwolle
 SCO,2026-11-21 20:00:00Z,Motherwell,Rangers
 AUS,2026-11-22 02:00:00Z,Wellington Phoenix,Macarthur FC
 TUR,2026-11-22 10:30:00Z,Erzurumspor,Göztepe
+RUS,2026-11-22 11:00:00Z,Dinamo Moscow,Krasnodar
 NED,2026-11-22 11:15:00Z,FC Twente,Willem II
 SA,2026-11-22 11:30:00Z,Juventus,Venezia
 CHAMP,2026-11-22 12:00:00Z,Burnley,Blackburn Rovers
@@ -182,6 +192,7 @@ TUR,2026-11-22 13:00:00Z,Kasimpasa,Alanyaspor
 TUR,2026-11-22 13:00:00Z,Konyaspor,Besiktas
 NED,2026-11-22 13:30:00Z,Ajax,ADO Den Haag
 NED,2026-11-22 13:30:00Z,Sparta Rotterdam,AZ
+RUS,2026-11-22 13:30:00Z,Dynamo Makhachkala,Spartak Moscow
 L1,2026-11-22 14:00:00Z,Paris FC,Angers SCO
 PL,2026-11-22 14:00:00Z,Hull,Brighton
 SA,2026-11-22 14:00:00Z,Bologna,Udinese
@@ -189,6 +200,7 @@ SA,2026-11-22 14:00:00Z,Sassuolo,Genoa
 BL,2026-11-22 14:30:00Z,FC Augsburg,1. FSV Mainz 05
 LIGA,2026-11-22 15:15:00Z,R. Racing Club,Real Sociedad
 NED,2026-11-22 15:45:00Z,Go Ahead Eagles,Fortuna Sittard
+RUS,2026-11-22 16:00:00Z,Rodina Moscow,Lokomotiv Moscow
 TUR,2026-11-22 16:00:00Z,Trabzonspor,Eyüpspor
 L1,2026-11-22 16:15:00Z,FC Lorient,Stade Rennais FC
 BL,2026-11-22 16:30:00Z,SV Werder Bremen,Hamburger SV
@@ -228,10 +240,12 @@ CHAMP,2026-11-27 20:00:00Z,Southampton,Middlesbrough
 PL,2026-11-27 20:00:00Z,Nott'm Forest,Chelsea
 POR,2026-11-27 20:15:00Z,Marítimo M.,CD Nacional
 AUS,2026-11-28 08:40:00Z,Central Coast Mariners FC,Auckland FC
+RUS,2026-11-28 11:00:00Z,Rubin Kazan,Akron Tolyatti
 CHAMP,2026-11-28 12:30:00Z,Blackburn Rovers,Charlton Athletic
 CHAMP,2026-11-28 12:30:00Z,Lincoln City,Wolverhampton Wanderers
 CHAMP,2026-11-28 12:30:00Z,Preston North End,Norwich City
 TUR,2026-11-28 13:00:00Z,Samsunspor,Gençlerbirligi
+RUS,2026-11-28 13:30:00Z,CSKA Moscow,Zenit St Petersburg
 SA,2026-11-28 14:00:00Z,Frosinone,Parma
 BL,2026-11-28 14:30:00Z,1. FC Köln,SV Elversberg
 BL,2026-11-28 14:30:00Z,1. FSV Mainz 05,1. FC Union Berlin
@@ -253,6 +267,7 @@ SCO,2026-11-28 15:00:00Z,St. Mirren,Kilmarnock
 NED,2026-11-28 15:30:00Z,Excelsior Rotterdam,Telstar
 POR,2026-11-28 15:30:00Z,FC Arouca,Rio Ave FC
 POR,2026-11-28 15:30:00Z,Moreirense FC,Santa Clara
+RUS,2026-11-28 16:00:00Z,FC Baltika Kaliningrad,Akhmat Grozny
 TUR,2026-11-28 16:00:00Z,Gaziantep,Amedspor
 L1,2026-11-28 16:15:00Z,Angers SCO,RC Lens
 SA,2026-11-28 17:00:00Z,Torino,Lazio
@@ -278,11 +293,13 @@ LIGA,2026-11-29 00:00:00Z,Real Betis,Rayo Vallecano
 LIGA,2026-11-29 00:00:00Z,Real Madrid,Deportivo Alavés
 LIGA,2026-11-29 00:00:00Z,Real Sociedad,Sevilla FC
 LIGA,2026-11-29 00:00:00Z,Valencia CF,CA Osasuna
+RUS,2026-11-29 10:00:00Z,Gazovik Orenburg,Rodina Moscow
 TUR,2026-11-29 10:30:00Z,Çorum,Kocaelispor
 NED,2026-11-29 11:15:00Z,ADO Den Haag,FC Utrecht
 SA,2026-11-29 11:30:00Z,Udinese,Fiorentina
 CHAMP,2026-11-29 12:00:00Z,Swansea City,Cardiff City
 PL,2026-11-29 12:00:00Z,Everton,Liverpool
+RUS,2026-11-29 12:15:00Z,Rostov,Krasnodar
 TUR,2026-11-29 13:00:00Z,Eyüpspor,Istanbul Basaksehir
 NED,2026-11-29 13:30:00Z,Feyenoord,Ajax
 NED,2026-11-29 13:30:00Z,Fortuna Sittard,sc Heerenveen
@@ -293,12 +310,14 @@ PL,2026-11-29 14:05:00Z,Crystal Palace,Hull
 PL,2026-11-29 14:05:00Z,Fulham,Bournemouth
 PL,2026-11-29 14:05:00Z,Sunderland,Spurs
 BL,2026-11-29 14:30:00Z,Sport-Club Freiburg,RB Leipzig
+RUS,2026-11-29 14:30:00Z,Krylia Sovetov,Dinamo Moscow
 SCO,2026-11-29 15:00:00Z,Heart of Midlothian,Celtic
 NED,2026-11-29 15:45:00Z,PEC Zwolle,AZ
 TUR,2026-11-29 16:00:00Z,Fenerbahçe,Erzurumspor
 L1,2026-11-29 16:15:00Z,Toulouse FC,Stade Rennais FC
 BL,2026-11-29 16:30:00Z,TSG Hoffenheim,FC Augsburg
 PL,2026-11-29 16:30:00Z,Arsenal,Man City
+RUS,2026-11-29 16:45:00Z,Lokomotiv Moscow,Dynamo Makhachkala
 SA,2026-11-29 17:00:00Z,Roma,Monza
 POR,2026-11-29 18:00:00Z,Gil Vicente FC,Estoril Praia
 BL,2026-11-29 18:30:00Z,Borussia Dortmund,Bayer 04 Leverkusen
@@ -307,6 +326,7 @@ L1,2026-11-29 19:45:00Z,Olympique Lyonnais,AS Monaco
 SA,2026-11-29 19:45:00Z,Como,Juventus
 POR,2026-11-29 20:30:00Z,FC Porto,Sporting CP
 TUR,2026-11-30 16:00:00Z,Göztepe,Trabzonspor
+RUS,2026-11-30 16:30:00Z,Fakel Voronezh,Spartak Moscow
 SA,2026-11-30 17:30:00Z,Lecce,Atalanta
 TUR,2026-11-30 18:00:00Z,Besiktas,Galatasaray
 SA,2026-11-30 19:45:00Z,Cagliari,Milan
@@ -337,6 +357,7 @@ BL,2026-12-04 00:00:00Z,FC Schalke 04,Borussia Dortmund
 BL,2026-12-04 00:00:00Z,RB Leipzig,1. FSV Mainz 05
 BL,2026-12-04 00:00:00Z,SV Elversberg,VfB Stuttgart
 BL,2026-12-04 00:00:00Z,Sport-Club Freiburg,TSG Hoffenheim
+RUS,2026-12-04 16:30:00Z,Dynamo Makhachkala,Krylia Sovetov
 TUR,2026-12-04 17:00:00Z,Galatasaray,Çaykur Rizespor
 L2,2026-12-04 19:00:00Z,Clermont Foot 63,FC Metz
 L2,2026-12-04 19:00:00Z,Dijon FCO,FC Sochaux-Montbéliard

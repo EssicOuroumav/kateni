@@ -1,11 +1,12 @@
 """
-Kateni — le modèle global prédit-il correctement la A-League (Australie, ajoutée le 07/11/2026) ?
-==================================================================================================
-Données ESPN (scores seulement, pas de cotes). Même méthode que les autres mesures : le modèle est réajusté
-chaque semaine avec les seuls matchs passés (aucune fuite), puis comparé, sur les matchs australiens de
-2025-26, à une prédiction naïve (fréquences 1/N/2 et +2,5 buts de la A-League avant la période de test).
+Kateni — le modèle global prédit-il correctement un championnat ajouté ?
+=========================================================================
+Utilisé pour la A-League (07/11/2026) puis l'Argentine, le Brésil, le Mexique, la Finlande et la Russie
+(08/11/2026). Le modèle est réajusté chaque semaine avec les seuls matchs passés (aucune fuite), puis comparé,
+sur les matchs du championnat de la période de test (août 2025 à octobre 2026), à une prédiction naïve
+(fréquences 1/N/2 et +2,5 buts du championnat avant la période de test), seul et mélangé avec elle.
 
-Usage : python3 scripts/mesure_australie.py
+Usage : python3 scripts/mesure_ligue.py AUS ARG BRA
 """
 
 import sys
@@ -19,12 +20,11 @@ from ameliorer import TEST, bin_ll, lambdas_v2, log_loss, proba_1n2  # noqa: E40
 from kateni.donnees import charger_tout  # noqa: E402
 
 
-def main():
-    df = charger_tout()
-    aus = df[df["competition"] == "AUS"]
+def mesurer(df, code):
+    aus = df[df["competition"] == code]
     avant = aus[aus["Date"] < TEST[0]]
     tst = aus[(aus["Date"] >= TEST[0]) & (aus["Date"] < TEST[1])].reset_index(drop=True)
-    print(f"A-League : {len(avant)} matchs pour apprendre, {len(tst)} matchs de test (2025-26)\n")
+    print(f"\n=== {code} : {len(avant)} matchs pour apprendre, {len(tst)} matchs de test ===")
     y = tst["FTR"].map({"H": 0, "D": 1, "A": 2}).to_numpy()
     plus = (tst["FTHG"] + tst["FTAG"] > 2.5).to_numpy(float)
 
@@ -41,7 +41,7 @@ def main():
     print(f"{'Log loss 1N2 (plus bas = mieux)':28}{log_loss(p, y):15.4f}{log_loss(naif, y):10.4f}")
     print(f"{'Bons pronostics 1N2':28}{np.mean(p.argmax(1) == y):15.1%}{np.mean(naif.argmax(1) == y):10.1%}")
     print(f"{'Log loss +2,5 buts':28}{bin_ll(q, plus):15.4f}{bin_ll(np.full(len(tst), f_plus), plus):10.4f}")
-    print("\nMélange prudent (part du modèle, le reste = fréquences de la A-League) :")
+    print("\nMélange prudent (part du modèle, le reste = fréquences du championnat) :")
     for w in (1.0, 0.75, 0.5, 0.25, 0.0):
         m = w * p + (1 - w) * naif
         mq = w * q + (1 - w) * f_plus
@@ -51,6 +51,12 @@ def main():
         s = (p[:, 0] >= a) & (p[:, 0] < b)
         if s.sum():
             print(f"  {a:.0%}-{min(b, 1):.0%} : {s.sum():3d} matchs, annoncé {p[s, 0].mean():.0%} -> arrivé {(y[s] == 0).mean():.0%}")
+
+
+def main():
+    df = charger_tout()
+    for code in sys.argv[1:] or ["AUS"]:
+        mesurer(df, code)
 
 
 if __name__ == "__main__":

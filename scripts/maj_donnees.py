@@ -60,7 +60,8 @@ def normaliser(df: pd.DataFrame) -> pd.DataFrame:
 
 
 ESPN_API = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/scoreboard?dates={}"
-MOIS_HORS_SAISON = {"AUS": {6, 7, 8, 9}}  # A-League : d'octobre à fin mai (finales comprises)
+MOIS_HORS_SAISON = {"AUS": {6, 7, 8, 9}, "RUS": {6}}  # A-League : octobre à mai ; Russie : juillet à mai
+DEBUT_SAISON = {"AUS": 10, "RUS": 7}  # mois de reprise (premier téléchargement de l'historique)
 
 
 def _espn_jour(ligue: str, jour: date) -> list[dict] | None:
@@ -90,7 +91,7 @@ def maj_espn(code: str) -> None:
     chemin = RACINE / comp.fichier
     ancien = pd.read_csv(chemin, parse_dates=["Date"]) if chemin.exists() else None
     debut = (ancien["Date"].max().date() - timedelta(days=14)) if ancien is not None and len(ancien) \
-        else date(comp.premiere_saison, 10, 1)
+        else date(comp.premiere_saison, DEBUT_SAISON.get(code, 8), 1)
     lignes, rates, jour = [], 0, debut
     while jour <= date.today():
         if jour.month not in MOIS_HORS_SAISON.get(code, set()):
@@ -215,10 +216,13 @@ def maj_calendrier() -> None:
     if texte:
         f = pd.read_csv(StringIO(texte)).rename(columns={"Home": "HomeTeam", "Away": "AwayTeam"})
         pays = {"USA": "MLS", "Austria": "AUT", "Switzerland": "SUI", "Norway": "NOR", "Denmark": "DAN",
-                "Sweden": "SUE", "Poland": "POL", "Romania": "ROU", "China": "CHN", "Japan": "JPN", "Ireland": "IRL"}
+                "Sweden": "SUE", "Poland": "POL", "Romania": "ROU", "China": "CHN", "Japan": "JPN", "Ireland": "IRL",
+                "Argentina": "ARG", "Brazil": "BRA", "Mexico": "MEX", "Finland": "FIN"}
         f["competition"] = f["Country"].map(pays)
-        principale = {"USA": "MLS", "Japan": "J1 League", "Ireland": "Premier Division", "China": "Super League"}
-        f = f[f["competition"].notna() & (f["League"] == f["Country"].map(principale).fillna(f["League"]))]
+        principale = {"USA": "MLS", "Japan": "J1 League", "Ireland": "Premier Division", "China": "Super League",
+                      "Argentina": "Liga Profesional", "Brazil": "Serie A", "Mexico": "Liga MX", "Finland": "Veikkausliiga"}
+        ligue = f["League"].astype(str).str.strip()  # la source laisse parfois une espace en fin de nom
+        f = f[f["competition"].notna() & (ligue == f["Country"].map(principale).fillna(ligue))]
         lignes.append(f)
     if not lignes:
         print("Calendrier des championnats : rien téléchargé")

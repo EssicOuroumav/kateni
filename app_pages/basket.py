@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 
+from kateni.affichage import barre_chances
 from kateni.basket import PERIODES, fr, libelle, marches
 from kateni.ui import basket_a_venir, modele_basket
 
@@ -40,6 +41,7 @@ def carte(r: dict) -> None:
         couleur = "green" if q >= 0.7 else "blue" if q >= 0.55 else "orange"
         st.markdown(f":{couleur}-badge[{fav} gagne {q:.0%}] · score attendu **{round(a)} – {round(b)}** · "
                     f"total {fr(a + b)} points · écart {fr(abs(a - b))}")
+        st.html(barre_chances(dom, ext, (v["1"], 0.0, v["2"])))
         with st.expander("Toutes les prédictions"):
             lignes = [{"Prédiction": libelle(mk, s, dom, ext), "Chance": c, "Cote juste": 1 / c if c > 0.005 else None}
                       for mk, d in p.items() for s, c in d.items() if mk != "Total pair ou impair"]

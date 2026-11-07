@@ -17,7 +17,8 @@ LIGUES = {"PL": "eng.1", "LIGA": "esp.1", "L1": "fra.1", "SA": "ita.1", "BL": "g
           "POR": "por.1", "TUR": "tur.1", "BEL": "bel.1", "CHAMP": "eng.2", "LIGA2": "esp.2", "L2": "fra.2",
           "MLS": "usa.1", "SCO": "sco.1", "GRE": "gre.1", "AUT": "aut.1", "SUI": "sui.1", "NOR": "nor.1",
           "DAN": "den.1", "SUE": "swe.1", "ROU": "rou.1", "BL2": "ger.2", "CHN": "chn.1", "JPN": "jpn.1",
-          "IRL": "irl.1", "AUS": "aus.1", "CL": "uefa.champions", "EL": "uefa.europa", "ECL": "uefa.europa.conf"}
+          "IRL": "irl.1", "AUS": "aus.1", "ARG": "arg.1", "BRA": "bra.1", "MEX": "mex.1",
+          "RUS": "rus.1", "CL": "uefa.champions", "EL": "uefa.europa", "ECL": "uefa.europa.conf"}
 
 
 # Statistiques du moment fournies par la source -> noms de Kateni
