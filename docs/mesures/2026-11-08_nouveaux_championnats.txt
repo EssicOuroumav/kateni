@@ -1,0 +1,95 @@
+
+=== ARG : 5771 matchs pour apprendre, 659 matchs de test ===
+                              Modèle Kateni      Naïf
+Log loss 1N2 (plus bas = mieux)         1.0610    1.0854
+Bons pronostics 1N2                   42.8%     41.3%
+Log loss +2,5 buts                   0.6565    0.6562
+
+Mélange prudent (part du modèle, le reste = fréquences du championnat) :
+  modèle 100% : log loss 1N2 1.0610 · +2,5 buts 0.6565
+  modèle 75% : log loss 1N2 1.0617 · +2,5 buts 0.6538
+  modèle 50% : log loss 1N2 1.0660 · +2,5 buts 0.6529
+  modèle 25% : log loss 1N2 1.0739 · +2,5 buts 0.6538
+  modèle 0% : log loss 1N2 1.0854 · +2,5 buts 0.6562
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% : 194 matchs, annoncé 29% -> arrivé 28%
+  35%-50% : 356 matchs, annoncé 42% -> arrivé 43%
+  50%-65% :  98 matchs, annoncé 55% -> arrivé 59%
+  65%-100% :  11 matchs, annoncé 70% -> arrivé 64%
+
+=== BRA : 5097 matchs pour apprendre, 531 matchs de test ===
+                              Modèle Kateni      Naïf
+Log loss 1N2 (plus bas = mieux)         1.0049    1.0463
+Bons pronostics 1N2                   51.0%     49.0%
+Log loss +2,5 buts                   0.7029    0.7043
+
+Mélange prudent (part du modèle, le reste = fréquences du championnat) :
+  modèle 100% : log loss 1N2 1.0049 · +2,5 buts 0.7029
+  modèle 75% : log loss 1N2 1.0080 · +2,5 buts 0.7006
+  modèle 50% : log loss 1N2 1.0158 · +2,5 buts 0.7001
+  modèle 25% : log loss 1N2 1.0284 · +2,5 buts 0.7014
+  modèle 0% : log loss 1N2 1.0463 · +2,5 buts 0.7043
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% : 108 matchs, annoncé 29% -> arrivé 31%
+  35%-50% : 240 matchs, annoncé 43% -> arrivé 48%
+  50%-65% : 138 matchs, annoncé 56% -> arrivé 59%
+  65%-100% :  45 matchs, annoncé 70% -> arrivé 64%
+
+=== MEX : 4345 matchs pour apprendre, 416 matchs de test ===
+                              Modèle Kateni      Naïf
+Log loss 1N2 (plus bas = mieux)         1.0270    1.0715
+Bons pronostics 1N2                   48.3%     44.5%
+Log loss +2,5 buts                   0.6973    0.6930
+
+Mélange prudent (part du modèle, le reste = fréquences du championnat) :
+  modèle 100% : log loss 1N2 1.0270 · +2,5 buts 0.6973
+  modèle 75% : log loss 1N2 1.0278 · +2,5 buts 0.6940
+  modèle 50% : log loss 1N2 1.0356 · +2,5 buts 0.6922
+  modèle 25% : log loss 1N2 1.0500 · +2,5 buts 0.6919
+  modèle 0% : log loss 1N2 1.0715 · +2,5 buts 0.6930
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% : 108 matchs, annoncé 28% -> arrivé 27%
+  35%-50% : 147 matchs, annoncé 42% -> arrivé 44%
+  50%-65% : 112 matchs, annoncé 57% -> arrivé 47%
+  65%-100% :  49 matchs, annoncé 71% -> arrivé 78%
+
+=== FIN : 2469 matchs pour apprendre, 240 matchs de test ===
+                              Modèle Kateni      Naïf
+Log loss 1N2 (plus bas = mieux)         1.0228    1.0696
+Bons pronostics 1N2                   50.8%     44.2%
+Log loss +2,5 buts                   0.6795    0.6949
+
+Mélange prudent (part du modèle, le reste = fréquences du championnat) :
+  modèle 100% : log loss 1N2 1.0228 · +2,5 buts 0.6795
+  modèle 75% : log loss 1N2 1.0249 · +2,5 buts 0.6792
+  modèle 50% : log loss 1N2 1.0337 · +2,5 buts 0.6817
+  modèle 25% : log loss 1N2 1.0485 · +2,5 buts 0.6870
+  modèle 0% : log loss 1N2 1.0696 · +2,5 buts 0.6949
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% :  81 matchs, annoncé 27% -> arrivé 27%
+  35%-50% :  89 matchs, annoncé 42% -> arrivé 47%
+  50%-65% :  58 matchs, annoncé 57% -> arrivé 55%
+  65%-100% :  12 matchs, annoncé 69% -> arrivé 83%
+
+=== RUS : 496 matchs pour apprendre, 312 matchs de test ===
+                              Modèle Kateni      Naïf
+Log loss 1N2 (plus bas = mieux)         0.9755    1.0779
+Bons pronostics 1N2                   54.2%     43.3%
+Log loss +2,5 buts                   0.6871    0.6928
+
+Mélange prudent (part du modèle, le reste = fréquences du championnat) :
+  modèle 100% : log loss 1N2 0.9755 · +2,5 buts 0.6871
+  modèle 75% : log loss 1N2 0.9868 · +2,5 buts 0.6837
+  modèle 50% : log loss 1N2 1.0079 · +2,5 buts 0.6837
+  modèle 25% : log loss 1N2 1.0379 · +2,5 buts 0.6868
+  modèle 0% : log loss 1N2 1.0779 · +2,5 buts 0.6928
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% : 111 matchs, annoncé 25% -> arrivé 16%
+  35%-50% :  85 matchs, annoncé 43% -> arrivé 53%
+  50%-65% :  64 matchs, annoncé 56% -> arrivé 50%
+  65%-100% :  52 matchs, annoncé 72% -> arrivé 77%

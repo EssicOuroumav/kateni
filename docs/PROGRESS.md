@@ -171,7 +171,7 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 
 ## Lot du 08/11/2026 : design « Nuit de match » et 5 championnats
 - Design choisi par le propriétaire parmi trois maquettes (`docs/maquettes_design.html`) : thème sombre (`.streamlit/config.toml`), barre du haut sombre avec page active vert gazon, halos de projecteurs, titres Oxanium, barre de chances tricolore (`affichage.barre_chances`, aussi sur le basket).
-- Argentine, Brésil, Mexique, Finlande (football-data `new/`, avec cotes) et Russie (ESPN, football-data arrêté en août 2026) ajoutés. Mesure par championnat en cours (`scripts/mesure_ligue.py`, `docs/mesures/2026-11-08_nouveaux_championnats.txt`) ; un mélange avec la moyenne du championnat (`PART_MODELE`) sera appliqué là où le modèle seul ne fait pas mieux.
+- Argentine, Brésil, Mexique, Finlande (football-data `new/`, avec cotes) et Russie (ESPN, football-data arrêté en août 2026) ajoutés. Mesure (`scripts/mesure_ligue.py`, `docs/mesures/2026-11-08_nouveaux_championnats.txt`, août 2025-octobre 2026) : le modèle seul bat la prédiction naïve partout sur le 1N2 (log loss ARG 1,061 / 1,085 ; BRA 1,005 / 1,046 ; MEX 1,027 / 1,072 ; FIN 1,023 / 1,070 ; RUS 0,976 / 1,078) ; le mélange avec la moyenne dégrade le 1N2 → aucune correction (`PART_MODELE` inchangé). Russie : calibration moins bonne aux extrêmes (seulement 496 matchs pour apprendre).
 
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
