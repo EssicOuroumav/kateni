@@ -63,8 +63,6 @@ MLS,2026-11-08 00:00:00Z,Minnesota United FC,San Jose Earthquakes
 MLS,2026-11-08 00:00:00Z,Real Salt Lake,LA Galaxy
 MLS,2026-11-08 00:00:00Z,San Diego FC,Sporting Kansas City
 MLS,2026-11-08 00:00:00Z,Seattle Sounders FC,Los Angeles Football Club
-AUS,2026-11-08 04:00:00Z,Macarthur FC,Brisbane Roar FC
-AUS,2026-11-08 06:00:00Z,Adelaide United FC,Melbourne Victory
 TUR,2026-11-08 10:30:00Z,Çaykur Rizespor,Erzurumspor
 RUS,2026-11-08 11:00:00Z,Krylia Sovetov,Gazovik Orenburg
 NED,2026-11-08 11:15:00Z,sc Heerenveen,Feyenoord
@@ -369,7 +367,10 @@ L1,2026-12-04 19:45:00Z,Toulouse FC,Paris Saint-Germain
 SA,2026-12-04 19:45:00Z,Bologna,Roma
 CHAMP,2026-12-04 20:00:00Z,Sheffield United,West Ham United
 POR,2026-12-04 20:15:00Z,Sporting CP,Marítimo M.
+AUS,2026-12-05 08:40:00Z,Western Sydney Wanderers FC,Perth Glory FC
+RUS,2026-12-05 10:00:00Z,Akron Tolyatti,Gazovik Orenburg
 TUR,2026-12-05 10:30:00Z,Konyaspor,Gaziantep
+RUS,2026-12-05 12:15:00Z,Rodina Moscow,CSKA Moscow
 CHAMP,2026-12-05 12:30:00Z,Bolton Wanderers,Blackburn Rovers
 CHAMP,2026-12-05 12:30:00Z,Bristol City,Swansea City
 CHAMP,2026-12-05 12:30:00Z,Middlesbrough,Derby County
@@ -379,6 +380,7 @@ L2,2026-12-05 13:00:00Z,Montpellier Hérault SC,FC Nantes
 L2,2026-12-05 13:00:00Z,USL Dunkerque,Red Star FC
 TUR,2026-12-05 13:00:00Z,Amedspor,Alanyaspor
 SA,2026-12-05 14:00:00Z,Monza,Como
+RUS,2026-12-05 14:30:00Z,Zenit St Petersburg,FC Baltika Kaliningrad
 CHAMP,2026-12-05 15:00:00Z,Cardiff City,Lincoln City
 CHAMP,2026-12-05 15:00:00Z,Charlton Athletic,Birmingham City
 CHAMP,2026-12-05 15:00:00Z,Norwich City,Wrexham
@@ -397,6 +399,7 @@ NED,2026-12-05 15:30:00Z,Willem II,Feyenoord
 POR,2026-12-05 15:30:00Z,CD Nacional,SL Benfica
 TUR,2026-12-05 16:00:00Z,Istanbul Basaksehir,Fenerbahçe
 L1,2026-12-05 16:15:00Z,LOSC Lille,AJ Auxerre
+RUS,2026-12-05 16:45:00Z,Akhmat Grozny,Lokomotiv Moscow
 SA,2026-12-05 17:00:00Z,Frosinone,Internazionale
 PL,2026-12-05 17:30:00Z,Nott'm Forest,Brighton
 SCO,2026-12-05 17:30:00Z,St. Mirren,Heart of Midlothian
@@ -422,6 +425,7 @@ LIGA,2026-12-06 00:00:00Z,R. Racing Club,RC Deportivo
 LIGA,2026-12-06 00:00:00Z,Rayo Vallecano,Levante UD
 LIGA,2026-12-06 00:00:00Z,Sevilla FC,Málaga CF
 LIGA,2026-12-06 00:00:00Z,Villarreal CF,Real Sociedad
+AUS,2026-12-06 02:00:00Z,Wellington Phoenix,Adelaide United FC
 TUR,2026-12-06 10:30:00Z,Erzurumspor,Kocaelispor
 NED,2026-12-06 11:15:00Z,sc Heerenveen,SC Cambuur
 SA,2026-12-06 11:30:00Z,Genoa,Torino
