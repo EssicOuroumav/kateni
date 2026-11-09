@@ -1,11 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-NBA,2026-11-08 20:30:00Z,Chicago Bulls,Philadelphia 76ers,,,,,0,,,,,0,0,0
-NBA,2026-11-08 23:00:00Z,Detroit Pistons,Los Angeles Lakers,,,,,0,,,,,0,0,0
-NBA,2026-11-09 00:00:00Z,Minnesota Timberwolves,Utah Jazz,,,,,0,,,,,0,0,0
-NBA,2026-11-09 00:30:00Z,Dallas Mavericks,Brooklyn Nets,,,,,0,,,,,0,0,0
-NBA,2026-11-09 01:00:00Z,Milwaukee Bucks,Boston Celtics,,,,,0,,,,,0,0,0
-NBA,2026-11-09 02:00:00Z,LA Clippers,New Orleans Pelicans,,,,,0,,,,,0,0,0
-NBA,2026-11-09 02:00:00Z,Sacramento Kings,Miami Heat,,,,,0,,,,,0,0,0
 NBA,2026-11-10 00:00:00Z,Atlanta Hawks,Los Angeles Lakers,,,,,0,,,,,0,0,0
 NBA,2026-11-10 00:00:00Z,Charlotte Hornets,Cleveland Cavaliers,,,,,0,,,,,0,0,0
 NBA,2026-11-10 00:00:00Z,Detroit Pistons,Washington Wizards,,,,,0,,,,,0,0,0
@@ -134,7 +127,7 @@ NBA,2026-11-19 02:00:00Z,Denver Nuggets,Boston Celtics,,,,,0,,,,,0,0,0
 NBA,2026-11-19 02:30:00Z,Dallas Mavericks,Golden State Warriors,,,,,0,,,,,0,0,0
 NBA,2026-11-19 03:00:00Z,Los Angeles Lakers,Utah Jazz,,,,,0,,,,,0,0,0
 NBA,2026-11-19 03:00:00Z,Sacramento Kings,Phoenix Suns,,,,,0,,,,,0,0,0
-EuroLeague,2026-11-19 17:30:00Z,Maccabi Rapyd Tel Aviv,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-19 17:15:00Z,Maccabi Rapyd Tel Aviv,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-19 18:00:00Z,Zalgiris Kaunas,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-19 19:00:00Z,FC Bayern Munich,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-19 19:30:00Z,Armani Olimpia Milan,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
@@ -170,6 +163,16 @@ NBA,2026-11-23 00:00:00Z,Chicago Bulls,Denver Nuggets,,,,,0,,,,,0,0,0
 NBA,2026-11-23 00:00:00Z,Utah Jazz,Dallas Mavericks,,,,,0,,,,,0,0,0
 NBA,2026-11-23 01:00:00Z,New York Knicks,Indiana Pacers,,,,,0,,,,,0,0,0
 NBA,2026-11-23 01:30:00Z,Golden State Warriors,Boston Celtics,,,,,0,,,,,0,0,0
+NBA,2026-11-24 00:00:00Z,Charlotte Hornets,Memphis Grizzlies,,,,,0,,,,,0,0,0
+NBA,2026-11-24 00:00:00Z,Philadelphia 76ers,Portland Trail Blazers,,,,,0,,,,,0,0,0
+NBA,2026-11-24 00:30:00Z,Indiana Pacers,Oklahoma City Thunder,,,,,0,,,,,0,0,0
+NBA,2026-11-24 00:30:00Z,Toronto Raptors,Milwaukee Bucks,,,,,0,,,,,0,0,0
+NBA,2026-11-24 00:30:00Z,Minnesota Timberwolves,Brooklyn Nets,,,,,0,,,,,0,0,0
+NBA,2026-11-24 01:00:00Z,Chicago Bulls,Cleveland Cavaliers,,,,,0,,,,,0,0,0
+NBA,2026-11-24 01:00:00Z,New Orleans Pelicans,Phoenix Suns,,,,,0,,,,,0,0,0
+NBA,2026-11-24 01:30:00Z,Houston Rockets,LA Clippers,,,,,0,,,,,0,0,0
+NBA,2026-11-24 03:00:00Z,Los Angeles Lakers,Utah Jazz,,,,,0,,,,,0,0,0
+NBA,2026-11-24 03:00:00Z,Sacramento Kings,San Antonio Spurs,,,,,0,,,,,0,0,0
 EuroLeague,2026-11-24 17:00:00Z,Besiktas Istanbul,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-24 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-24 19:00:00Z,FC Bayern Munich,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0

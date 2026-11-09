@@ -1,50 +1,7 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
 SCO,2026-10-31 15:00:00Z,Dundee United,Heart of Midlothian
-POR,2026-11-07 15:30:00Z,CD Nacional,Académico
-POR,2026-11-07 18:00:00Z,FC Alverca,Casa Pia AC
-POR,2026-11-07 20:30:00Z,Sporting CP,Moreirense FC
-TUR,2026-11-08 10:30:00Z,Çaykur Rizespor,Erzurumspor
-NED,2026-11-08 11:15:00Z,sc Heerenveen,Feyenoord
-SA,2026-11-08 11:30:00Z,Napoli,Lazio
-LIGA,2026-11-08 13:00:00Z,Elche CF,Real Betis
-TUR,2026-11-08 13:00:00Z,Çorum,Fenerbahçe
-NED,2026-11-08 13:30:00Z,FC Twente,Ajax
-L1,2026-11-08 14:00:00Z,Stade Rennais FC,LOSC Lille
-PL,2026-11-08 14:00:00Z,Brighton,Brentford
-PL,2026-11-08 14:00:00Z,Crystal Palace,Liverpool
-PL,2026-11-08 14:00:00Z,Ipswich,Bournemouth
-PL,2026-11-08 14:00:00Z,Sunderland,Chelsea
-SA,2026-11-08 14:00:00Z,Genoa,Milan
-SA,2026-11-08 14:00:00Z,Monza,Atalanta
-BL,2026-11-08 14:30:00Z,1. FC Köln,Bayer 04 Leverkusen
-SCO,2026-11-08 15:00:00Z,Heart of Midlothian,Falkirk
-LIGA,2026-11-08 15:15:00Z,Real Sociedad,Rayo Vallecano
 POR,2026-11-08 15:30:00Z,Estoril Praia,Marítimo M.
-POR,2026-11-08 15:30:00Z,Santa Clara,Gil Vicente FC
-TUR,2026-11-08 15:30:00Z,Alanyaspor,Trabzonspor
-NED,2026-11-08 15:45:00Z,AZ,FC Groningen
-NED,2026-11-08 15:45:00Z,SC Cambuur,PSV
-SCO,2026-11-08 16:00:00Z,Celtic,Kilmarnock
-L1,2026-11-08 16:15:00Z,Angers SCO,OGC Nice
-L1,2026-11-08 16:15:00Z,Havre Athletic Club,FC Lorient
-L1,2026-11-08 16:15:00Z,Le Mans FC,AS Monaco
-L1,2026-11-08 16:15:00Z,Stade Brestois 29,Olympique Lyonnais
-BL,2026-11-08 16:30:00Z,Sport-Club Freiburg,1. FC Union Berlin
-PL,2026-11-08 16:30:00Z,Man Utd,Aston Villa
-SA,2026-11-08 17:00:00Z,Internazionale,Como
-LIGA,2026-11-08 17:30:00Z,Celta,Levante UD
-LIGA,2026-11-08 17:30:00Z,Villarreal CF,Getafe CF
-RUS,2026-11-08 17:45:00Z,FC Baltika Kaliningrad,Dynamo Makhachkala
-POR,2026-11-08 18:00:00Z,Vitória SC,FC Porto
-TUR,2026-11-08 18:00:00Z,Besiktas,Gençlerbirligi
-BL,2026-11-08 18:30:00Z,TSG Hoffenheim,FC Schalke 04
-NED,2026-11-08 19:00:00Z,FC Utrecht,N.E.C. Nijmegen
-L1,2026-11-08 19:45:00Z,RC Lens,Olympique de Marseille
-SA,2026-11-08 19:45:00Z,Fiorentina,Juventus
-LIGA,2026-11-08 20:00:00Z,Atlético de Madrid,FC Barcelona
-POR,2026-11-08 20:30:00Z,Estrela Amadora,SL Benfica
-POR,2026-11-08 20:30:00Z,Rio Ave FC,SC Braga
 AUS,2026-11-20 08:40:00Z,Western Sydney Wanderers FC,Adelaide United FC
 RUS,2026-11-20 16:30:00Z,Rostov,Krylia Sovetov
 L2,2026-11-20 19:00:00Z,AS Nancy Lorraine,Dijon FCO
@@ -366,8 +323,10 @@ LIGA,2026-12-06 00:00:00Z,Rayo Vallecano,Levante UD
 LIGA,2026-12-06 00:00:00Z,Sevilla FC,Málaga CF
 LIGA,2026-12-06 00:00:00Z,Villarreal CF,Real Sociedad
 AUS,2026-12-06 02:00:00Z,Wellington Phoenix,Adelaide United FC
+AUS,2026-12-06 06:00:00Z,Sydney FC,Melbourne Victory
 TUR,2026-12-06 10:30:00Z,Erzurumspor,Kocaelispor
 NED,2026-12-06 11:15:00Z,sc Heerenveen,SC Cambuur
+RUS,2026-12-06 11:30:00Z,Fakel Voronezh,Rostov
 SA,2026-12-06 11:30:00Z,Genoa,Torino
 CHAMP,2026-12-06 12:00:00Z,Burnley,Preston North End
 TUR,2026-12-06 13:00:00Z,Besiktas,Samsunspor
@@ -377,6 +336,7 @@ NED,2026-12-06 13:30:00Z,Go Ahead Eagles,FC Twente
 L1,2026-12-06 14:00:00Z,Estac Troyes,Olympique Lyonnais
 PL,2026-12-06 14:00:00Z,Everton,Fulham
 PL,2026-12-06 14:00:00Z,Newcastle,Sunderland
+RUS,2026-12-06 14:00:00Z,Spartak Moscow,Dinamo Moscow
 SA,2026-12-06 14:00:00Z,Lazio,Atalanta
 POR,2026-12-06 15:30:00Z,Estrela Amadora,Gil Vicente FC
 POR,2026-12-06 15:30:00Z,Rio Ave FC,Casa Pia AC
@@ -384,6 +344,7 @@ NED,2026-12-06 15:45:00Z,ADO Den Haag,Excelsior Rotterdam
 TUR,2026-12-06 16:00:00Z,Trabzonspor,Çorum
 L1,2026-12-06 16:15:00Z,Stade Rennais FC,Stade Brestois 29
 PL,2026-12-06 16:30:00Z,Spurs,Arsenal
+RUS,2026-12-06 16:30:00Z,Krasnodar,Rubin Kazan
 SA,2026-12-06 17:00:00Z,Juventus,Udinese
 POR,2026-12-06 18:00:00Z,Estoril Praia,Vitória SC
 L1,2026-12-06 19:45:00Z,Olympique de Marseille,OGC Nice
