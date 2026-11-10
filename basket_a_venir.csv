@@ -1,12 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-NBA,2026-11-10 00:00:00Z,Atlanta Hawks,Los Angeles Lakers,,,,,0,,,,,0,0,0
-NBA,2026-11-10 00:00:00Z,Charlotte Hornets,Cleveland Cavaliers,,,,,0,,,,,0,0,0
-NBA,2026-11-10 00:00:00Z,Detroit Pistons,Washington Wizards,,,,,0,,,,,0,0,0
-NBA,2026-11-10 00:30:00Z,Toronto Raptors,Memphis Grizzlies,,,,,0,,,,,0,0,0
-NBA,2026-11-10 01:00:00Z,Dallas Mavericks,Indiana Pacers,,,,,0,,,,,0,0,0
-NBA,2026-11-10 01:30:00Z,Houston Rockets,Denver Nuggets,,,,,0,,,,,0,0,0
-NBA,2026-11-10 02:00:00Z,Phoenix Suns,San Antonio Spurs,,,,,0,,,,,0,0,0
-NBA,2026-11-10 03:00:00Z,Golden State Warriors,New Orleans Pelicans,,,,,0,,,,,0,0,0
 EuroCup,2026-11-10 17:00:00Z,Balkan Botevgrad,PAOK Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
 EuroCup,2026-11-10 17:00:00Z,Neptunas Klaipeda,Slask Wroclaw,0,0,0,0,0,0,0,0,0,0,0,0
 EuroCup,2026-11-10 17:00:00Z,U-BT Cluj-Napoca,Turk Telekom Ankara,0,0,0,0,0,0,0,0,0,0,0,0
@@ -179,6 +171,9 @@ EuroLeague,2026-11-24 19:00:00Z,FC Bayern Munich,Maccabi Rapyd Tel Aviv,0,0,0,0,
 EuroLeague,2026-11-24 19:30:00Z,Valencia Basket,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-24 19:45:00Z,LDLC ASVEL Villeurbanne,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-24 20:00:00Z,FC Barcelona,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+NBA,2026-11-25 00:00:00Z,Orlando Magic,Detroit Pistons,,,,,0,,,,,0,0,0
+NBA,2026-11-25 01:00:00Z,Washington Wizards,Boston Celtics,,,,,0,,,,,0,0,0
+NBA,2026-11-25 03:00:00Z,Denver Nuggets,Dallas Mavericks,,,,,0,,,,,0,0,0
 EuroLeague,2026-11-25 16:00:00Z,Dubai Basketball,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-25 19:15:00Z,Olympiacos Piraeus,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-25 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
