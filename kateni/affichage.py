@@ -6,7 +6,6 @@ import streamlit as st
 from kateni.config import POIDS_MODELE
 from kateni.cotes import sans_marge
 from kateni.marches import calibrer, marches
-from kateni.modele import terrain_neutre
 from kateni.corners import marches_corners
 from kateni.statistiques import PROPOSEES, SANS_EGALITE, STATS, marches_stat, plus_grand_nombre
 from kateni.ui import corners_attendus, fr, matrice_match, predire, stats_attendues
@@ -41,7 +40,8 @@ def pronostic(match: dict, cotes: dict | None = None) -> dict:
     c = tuple(None if pd.isna(v) else v for v in ((cotes or {}).get(k) for k in COLS_COTES))
     neutre = match.get("neutre")
     if neutre is None:
-        neutre = terrain_neutre(match["competition"], match.get("date") or pd.Timestamp.today())
+        from kateni.ui import neutre_du_match
+        neutre = neutre_du_match(match)
     return _pronostic(match["competition"], match["dom"], match["ext"], bool(neutre), c, signature_donnees())
 
 

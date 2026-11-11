@@ -11,6 +11,19 @@ RACINE = Path(__file__).resolve().parent.parent
 # Championnats lus sur le tableau des scores public d'ESPN (absents de football-data) : code -> ligue ESPN
 ESPN_FOOT = {"AUS": "aus.1", "RUS": "rus.1"}  # Russie : football-data n'est plus à jour depuis août 2026
 
+# Matchs de sélections nationales : compétitions ESPN suivies pour le calendrier, le direct et les résultats
+# récents (la base publique martj42 a quelques semaines de retard)
+ESPN_INTER = ("fifa.friendly", "uefa.nations", "uefa.euroq", "fifa.worldq.uefa", "fifa.worldq.caf",
+              "fifa.worldq.conmebol", "fifa.worldq.concacaf", "fifa.worldq.afc", "fifa.wcq.ply", "fifa.world",
+              "caf.nations_qual", "caf.nations", "concacaf.nations.league", "concacaf.gold", "afc.cupq",
+              "afc.asian.cup", "conmebol.america")
+# Noms ESPN -> noms de la base martj42
+NOMS_INTER = {"Bosnia-Herzegovina": "Bosnia and Herzegovina", "Chinese Taipei": "Taiwan", "Congo DR": "DR Congo",
+              "Czechia": "Czech Republic", "Kyrgyz Republic": "Kyrgyzstan", "St. Kitts and Nevis": "Saint Kitts and Nevis",
+              "St. Lucia": "Saint Lucia", "St. Martin": "Saint Martin", "Türkiye": "Turkey",
+              "St. Vincent and the Grenadines": "Saint Vincent and the Grenadines", "Korea Republic": "South Korea",
+              "Côte d'Ivoire": "Ivory Coast", "IR Iran": "Iran", "USA": "United States", "Cape Verde Islands": "Cape Verde"}
+
 # Championnats publiés au format « new/XXX.csv » de football-data (un fichier, toutes saisons)
 FORMAT_NEW = {"USA", "AUT", "SWZ", "NOR", "DNK", "SWE", "POL", "ROU", "CHN", "JPN", "IRL", "ARG", "BRA", "MEX", "FIN"}
 
@@ -62,6 +75,8 @@ COMPETITIONS: dict[str, Competition] = {c.code: c for c in [
     Competition("MEX", "Liga MX (Mexique)", "MEX_full.csv", "MEX", 2012, True),
     Competition("FIN", "Veikkausliiga (Finlande)", "FIN_full.csv", "FIN", 2012, True),
     Competition("RUS", "Premier League (Russie)", "RUS_full.csv", None, 2023, False),
+    # Ajouté le 11/11/2026 : matchs de sélections (base publique martj42 + ESPN), voir maj_internationaux
+    Competition("INT", "Sélections nationales", "INT_full.csv", None, 2016, False),
     Competition("CL", "Champions League", "CL_full.csv", None, 2011, False),
     Competition("EL", "Europa League", "EL_full.csv", None, 2020, False),
     Competition("ECL", "Conference League", "ECL_full.csv", None, 2024, False),  # ajoutée le 22/10/2026

@@ -23,6 +23,34 @@ def donnees(_sig: tuple) -> pd.DataFrame:
     return charger_tout()
 
 
+@st.cache_data(ttl=600, show_spinner=False)
+def _neutres_inter(_mtime: float) -> frozenset:
+    """Matchs de sélections à venir joués sur terrain neutre (colonne Neutre de calendrier_saison.csv)."""
+    from kateni.config import RACINE
+    f = RACINE / "calendrier_saison.csv"
+    if not f.exists():
+        return frozenset()
+    d = pd.read_csv(f)
+    if "Neutre" not in d.columns:
+        return frozenset()
+    d = d[(d["competition"] == "INT") & d["Neutre"].astype(str).str.lower().eq("true")]
+    jours = pd.to_datetime(d["DateUtc"], utc=True, errors="coerce").dt.strftime("%Y-%m-%d")
+    return frozenset(zip(jours, d["HomeTeam"], d["AwayTeam"]))
+
+
+def neutre_du_match(match: dict) -> bool:
+    """Terrain neutre : précisé par la page, sinon match de sélections annoncé neutre par la source, sinon
+    finale européenne (modele.terrain_neutre)."""
+    if match.get("neutre") is not None:
+        return bool(match["neutre"])
+    if match["competition"] == "INT":
+        from kateni.config import RACINE
+        f = RACINE / "calendrier_saison.csv"
+        cle = (str(match.get("date") or "")[:10], match["dom"], match["ext"])
+        return cle in _neutres_inter(f.stat().st_mtime if f.exists() else 0.0)
+    return terrain_neutre(match["competition"], match.get("date") or pd.Timestamp.today())
+
+
 @st.cache_resource(max_entries=2, show_spinner="Ajustement du modèle sur tous les matchs…")
 def modele(_sig: tuple):
     return ajuster(donnees(_sig))
@@ -53,7 +81,7 @@ def stats_attendues(match: dict) -> dict:
     dom, ext, comp = match["dom"], match["ext"], match["competition"]
     neutre = match.get("neutre")
     if neutre is None:
-        neutre = terrain_neutre(comp, match.get("date") or pd.Timestamp.today())
+        neutre = neutre_du_match(match)
     out = {}
     for nom in PROPOSEES:
         m = modele_stat(signature_donnees(), nom)
@@ -80,7 +108,7 @@ def corners_attendus(match: dict) -> tuple[float, float] | None:
         return None
     neutre = match.get("neutre")
     if neutre is None:
-        neutre = terrain_neutre(comp, match.get("date") or pd.Timestamp.today())
+        neutre = neutre_du_match(match)
     cd, ce = m.lambdas(dom, ext, comp)
     if neutre:
         ce2, cd2 = m.lambdas(ext, dom, comp)
@@ -124,7 +152,7 @@ def predire(match: dict) -> tuple[float, float, float, str]:
     retire l'avantage du terrain aux deux équipes."""
     neutre = match.get("neutre")
     if neutre is None:
-        neutre = terrain_neutre(match["competition"], match.get("date") or pd.Timestamp.today())
+        neutre = neutre_du_match(match)
     if neutre:
         a, b = {**match, "neutre": False}, {**match, "dom": match["ext"], "ext": match["dom"], "neutre": False}
         (ld1, le1, rho, nom), (ld2, le2, _, _) = predire(a), predire(b)
@@ -269,7 +297,7 @@ DRAPEAUX = {"CL": "🇪🇺", "EL": "🇪🇺", "ECL": "🇪🇺", "PL": "🏴�
             "NED": "🇳🇱", "POR": "🇵🇹", "TUR": "🇹🇷", "BEL": "🇧🇪", "MLS": "🇺🇸", "GRE": "🇬🇷", "AUT": "🇦🇹",
             "SUI": "🇨🇭", "NOR": "🇳🇴", "DAN": "🇩🇰", "SUE": "🇸🇪", "POL": "🇵🇱", "ROU": "🇷🇴", "CHN": "🇨🇳",
             "JPN": "🇯🇵", "IRL": "🇮🇪", "AUS": "🇦🇺",
-            "ARG": "🇦🇷", "BRA": "🇧🇷", "MEX": "🇲🇽", "FIN": "🇫🇮", "RUS": "🇷🇺"}
+            "ARG": "🇦🇷", "BRA": "🇧🇷", "MEX": "🇲🇽", "FIN": "🇫🇮", "RUS": "🇷🇺", "INT": "🌍"}
 NOMS_COURTS = {c.code: c.nom for c in COMPETITIONS.values()} | {"CL": "Ligue des champions", "EL": "Ligue Europa",
                                                                   "ECL": "Ligue Conférence"}
 
@@ -471,18 +499,31 @@ def _basket_sig() -> tuple:
     return (f.stat().st_mtime,) if f.exists() else (0,)
 
 
-@st.cache_resource(max_entries=6, show_spinner="Calcul des forces des équipes de basket…")
-def _modele_basket(periode: str, _sig: tuple):
+@st.cache_resource(max_entries=30, show_spinner="Calcul des forces des équipes de basket…")
+def _modele_basket(periode: str, _sig: tuple, avant: str | None = None):
     from kateni.basket import PERIODES, ajuster
     from kateni.config import RACINE
     f = RACINE / "basket_resultats.csv"
     if not f.exists():
         return None
-    return ajuster(pd.read_csv(f), quarts=PERIODES[periode])
+    return ajuster(pd.read_csv(f), quarts=PERIODES[periode], date_ref=avant)
 
 
-def modele_basket(periode: str = "Match"):
-    return _modele_basket(periode, _basket_sig())
+def modele_basket(periode: str = "Match", avant=None):
+    """avant = un jour passé : le modèle tel qu'il était ce jour-là (seuls les matchs d'avant comptent),
+    pour revoir le pronostic d'un match déjà joué sans tricher avec son résultat."""
+    return _modele_basket(periode, _basket_sig(), None if avant is None else str(avant))
+
+
+@st.cache_data(ttl=600, show_spinner=False)
+def _basket_joues(_sig: tuple) -> pd.DataFrame:
+    from kateni.config import RACINE
+    f = RACINE / "basket_resultats.csv"
+    return pd.read_csv(f) if f.exists() else pd.DataFrame()
+
+
+def basket_joues() -> pd.DataFrame:
+    return _basket_joues(_basket_sig())
 
 
 @st.cache_data(ttl=600, show_spinner=False)

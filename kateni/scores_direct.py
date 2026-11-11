@@ -11,6 +11,8 @@ import re
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
+from kateni.config import ESPN_INTER, NOMS_INTER
+
 API = "https://site.api.espn.com/apis/site/v2/sports/soccer/{}/scoreboard"
 # Code Kateni -> ligue ESPN (la Pologne n'est pas proposée par la source)
 LIGUES = {"PL": "eng.1", "LIGA": "esp.1", "L1": "fra.1", "SA": "ita.1", "BL": "ger.1", "NED": "ned.1",
@@ -18,7 +20,7 @@ LIGUES = {"PL": "eng.1", "LIGA": "esp.1", "L1": "fra.1", "SA": "ita.1", "BL": "g
           "MLS": "usa.1", "SCO": "sco.1", "GRE": "gre.1", "AUT": "aut.1", "SUI": "sui.1", "NOR": "nor.1",
           "DAN": "den.1", "SUE": "swe.1", "ROU": "rou.1", "BL2": "ger.2", "CHN": "chn.1", "JPN": "jpn.1",
           "IRL": "irl.1", "AUS": "aus.1", "ARG": "arg.1", "BRA": "bra.1", "MEX": "mex.1",
-          "RUS": "rus.1", "CL": "uefa.champions", "EL": "uefa.europa", "ECL": "uefa.europa.conf"}
+          "RUS": "rus.1", "INT": ESPN_INTER, "CL": "uefa.champions", "EL": "uefa.europa", "ECL": "uefa.europa.conf"}
 
 
 # Statistiques du moment fournies par la source -> noms de Kateni
@@ -94,10 +96,18 @@ def en_direct(codes: list[str] | None = None) -> list[dict] | None:
     resultats, echecs = [], 0
 
     def un(code):
-        try:
-            return matchs_de(code, _lire(LIGUES[code]))
-        except Exception:  # réseau, format inattendu : cette ligue est ignorée
-            return None
+        ligues = LIGUES[code] if isinstance(LIGUES[code], tuple) else (LIGUES[code],)
+        out, ok = [], False
+        for ligue in ligues:  # sélections nationales : plusieurs compétitions ESPN
+            try:
+                out += matchs_de(code, _lire(ligue))
+                ok = True
+            except Exception:  # réseau, format inattendu : cette compétition est ignorée
+                continue
+        for m in out:
+            m["dom_source"] = NOMS_INTER.get(m["dom_source"], m["dom_source"])
+            m["ext_source"] = NOMS_INTER.get(m["ext_source"], m["ext_source"])
+        return out if ok else None
 
     with ThreadPoolExecutor(max_workers=8) as pool:
         for r in pool.map(un, codes):

@@ -17,6 +17,10 @@ def charger_competition(code: str) -> pd.DataFrame:
     df["FTHG"] = df["FTHG"].astype(int)
     df["FTAG"] = df["FTAG"].astype(int)
     df["competition"] = code
+    if code == "INT" and "Neutre" in df.columns:
+        # Sélections sur terrain neutre : compétition à part, pour que le modèle n'y apprenne aucun avantage
+        # du terrain (l'avantage de « INT » reste celui des matchs joués à domicile)
+        df.loc[df["Neutre"].astype(str).str.lower().eq("true"), "competition"] = "INTN"
     return canoniser(df)
 
 

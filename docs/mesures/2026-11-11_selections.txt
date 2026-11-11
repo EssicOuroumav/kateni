@@ -1,0 +1,20 @@
+=== INT : 6302 matchs pour apprendre, 913 matchs de test ===
+                              Modèle Kateni      Naïf
+Log loss 1N2 (plus bas = mieux)         0.8731    1.0442
+Bons pronostics 1N2                   61.0%     48.7%
+Log loss +2,5 buts                   0.6702    0.6942
+
+Mélange prudent (part du modèle, le reste = fréquences du championnat) :
+  modèle 100% : log loss 1N2 0.8731 · +2,5 buts 0.6702
+  modèle 75% : log loss 1N2 0.9017 · +2,5 buts 0.6690
+  modèle 50% : log loss 1N2 0.9388 · +2,5 buts 0.6729
+  modèle 25% : log loss 1N2 0.9855 · +2,5 buts 0.6813
+  modèle 0% : log loss 1N2 1.0442 · +2,5 buts 0.6942
+
+Calibration victoire domicile (annoncé -> arrivé) :
+  0%-35% : 228 matchs, annoncé 24% -> arrivé 17%
+  35%-50% : 259 matchs, annoncé 42% -> arrivé 40%
+  50%-65% : 231 matchs, annoncé 57% -> arrivé 61%
+  65%-100% : 195 matchs, annoncé 76% -> arrivé 83%
+
+[exited with code 0]

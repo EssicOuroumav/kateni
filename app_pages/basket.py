@@ -1,22 +1,30 @@
+from datetime import date, timedelta
+
 import pandas as pd
 import streamlit as st
 
 from kateni.affichage import barre_chances
 from kateni.basket import PERIODES, fr, libelle, marches
-from kateni.ui import basket_a_venir, choisir_jour, jour_choisi, modele_basket
+from kateni.ui import basket_a_venir, basket_joues, jour_choisi, modele_basket
 
 DRAPEAUX_BASKET = {"NBA": "🇺🇸", "EuroLeague": "🇪🇺", "EuroCup": "🇪🇺"}
 st.caption("Pronostics de basket : NBA, EuroLeague et EuroCup. Heures d'Abidjan. Le modèle est vérifié sur la "
            "saison 2025-26 (voir « Comment lire ces chances ? » en bas).")
 
-modeles = {p: modele_basket(p) for p in PERIODES}
-m = modeles["Match"]
+aujourd_hui = date.today()
+m = modele_basket("Match")
 if m is None:
     st.info("Données de basket indisponibles pour l'instant.", icon=":material/sports_basketball:")
     st.stop()
 
 
-def tous_les_marches(dom: str, ext: str, ligue: str) -> dict:
+def modeles_du(jour):
+    """Modèles tels qu'ils étaient le matin du jour (jour passé), sinon les modèles du moment."""
+    avant = jour if jour <= aujourd_hui else None
+    return {p: modele_basket(p, avant) for p in PERIODES}
+
+
+def tous_les_marches(modeles: dict, dom: str, ext: str, ligue: str) -> dict:
     out = {}
     for periode, mod in modeles.items():
         if mod is None:
@@ -26,22 +34,34 @@ def tous_les_marches(dom: str, ext: str, ligue: str) -> dict:
     return out
 
 
-def carte(r: dict) -> None:
+def carte(r: dict, modeles: dict) -> None:
     dom, ext, ligue = r["HomeTeam"], r["AwayTeam"], r["ligue"]
+    mm = modeles["Match"]
+    joue = pd.notna(r.get("HPTS")) and pd.notna(r.get("APTS"))
     with st.container(border=True):
         heure = pd.Timestamp(r["DateUtc"]).strftime("%H:%M")
-        st.markdown(f"**{dom} – {ext}** :gray-badge[:material/schedule: {heure}]")
-        if not (m.connait(dom) and m.connait(ext)):
+        st.markdown(f"**{dom} – {ext}** :gray-badge[:material/schedule: {heure}]"
+                    + (f"  :gray-badge[Terminé {int(r['HPTS'])} – {int(r['APTS'])}]" if joue else ""))
+        if not (mm.connait(dom) and mm.connait(ext)):
             st.caption("Une des deux équipes est trop peu connue (moins de 5 matchs) : pas de pronostic.")
             return
-        a, b = m.points(dom, ext, ligue)
-        p = tous_les_marches(dom, ext, ligue)
+        a, b = mm.points(dom, ext, ligue)
+        p = tous_les_marches(modeles, dom, ext, ligue)
         v = p["Vainqueur"]
         fav, q = (dom, v["1"]) if v["1"] >= v["2"] else (ext, v["2"])
         couleur = "green" if q >= 0.7 else "blue" if q >= 0.55 else "orange"
         st.markdown(f":{couleur}-badge[{fav} gagne {q:.0%}] · score attendu **{round(a)} – {round(b)}** · "
                     f"total {fr(a + b)} points · écart {fr(abs(a - b))}")
         st.html(barre_chances(dom, ext, (v["1"], 0.0, v["2"])))
+        if joue:
+            gagnant = dom if r["HPTS"] > r["APTS"] else ext
+            total = int(r["HPTS"] + r["APTS"])
+            if gagnant == fav:
+                st.badge(f"Kateni avait vu juste : {gagnant} a gagné", icon=":material/check_circle:", color="green")
+            else:
+                st.badge(f"Raté : {gagnant} a gagné", icon=":material/cancel:", color="red")
+            st.caption(f"Total réel {total} points (attendu {fr(a + b)}) · écart réel {abs(int(r['HPTS'] - r['APTS']))} "
+                       f"(attendu {fr(abs(a - b))}). Pronostic calculé avec les seuls matchs d'avant ce jour.")
         with st.expander("Toutes les prédictions"):
             lignes = [{"Prédiction": libelle(mk, s, dom, ext), "Chance": c, "Cote juste": 1 / c if c > 0.005 else None}
                       for mk, d in p.items() for s, c in d.items() if mk != "Total pair ou impair"]
@@ -53,24 +73,57 @@ def carte(r: dict) -> None:
                                                             help="1 ÷ chance : Betclic doit payer plus pour que le pari vaille le coup.")})
 
 
-# ---------------------------------------------------------------- matchs à venir
-cal = basket_a_venir()
-ligues = [l for l in ("NBA", "EuroLeague", "EuroCup") if l in set(cal["ligue"])] if len(cal) else []
-if not ligues:
-    st.info("Aucun match de basket à venir dans les prochains jours.", icon=":material/event_busy:")
+# ---------------------------------------------------------------- calendrier (comme celui du foot)
+joues = basket_joues()
+a_venir = basket_a_venir()
+tout = pd.concat([joues, a_venir], ignore_index=True) if len(a_venir) else joues.copy()
+tout["jour"] = pd.to_datetime(tout["DateUtc"], utc=True, format="ISO8601").dt.date
+tout = tout.drop_duplicates(subset=["ligue", "jour", "HomeTeam", "AwayTeam"], keep="first")
+jours_avec = sorted(tout["jour"].unique())
+
+if "bk_jour" not in st.session_state:  # retour sur la page : on reprend le jour choisi avant
+    st.session_state["bk_jour"] = st.session_state.get("bk_jour_garde") or jour_choisi()
+
+
+def aller(delta: int) -> None:
+    """Jour précédent / suivant AYANT des matchs (on saute les jours vides)."""
+    j = st.session_state["bk_jour"]
+    candidats = [x for x in jours_avec if (x > j if delta > 0 else x < j)]
+    st.session_state["bk_jour"] = (candidats[0] if delta > 0 else candidats[-1]) if candidats else j + timedelta(days=delta)
+
+
+with st.container(horizontal=True, vertical_alignment="bottom"):
+    st.button("Jour précédent", icon=":material/chevron_left:", on_click=aller, args=(-1,), key="bk_prec")
+    st.date_input("Date", key="bk_jour", format="DD/MM/YYYY", label_visibility="collapsed")
+    st.button("Jour suivant", icon=":material/chevron_right:", icon_position="right", on_click=aller, args=(1,),
+              key="bk_suiv")
+    st.button("Aujourd'hui", icon=":material/today:", key="bk_auj",
+              on_click=lambda: st.session_state.update(bk_jour=aujourd_hui))
+jour = st.session_state["bk_jour"]
+st.session_state["bk_jour_garde"] = jour
+
+du_jour = tout[tout["jour"] == jour]
+titre = (f"{jour:%d/%m/%Y}" + (" — aujourd'hui" if jour == aujourd_hui else " — matchs joués : pronostic d'avant-match "
+                               "et résultat" if jour < aujourd_hui else ""))
+st.subheader(titre, anchor=False, icon=":material/event:")
+if not len(du_jour):
+    suivant = next((x for x in jours_avec if x > jour), None)
+    st.info("Aucun match de basket ce jour-là." + (f" Prochain jour de match : **{suivant:%d/%m/%Y}** (bouton "
+                                                     "« Jour suivant »)." if suivant else ""), icon=":material/event_busy:")
 else:
-    ligue = st.segmented_control("Ligue", ligues, default=ligues[0], required=True, key="bk_ligue",
-                                 format_func=lambda l: f"{DRAPEAUX_BASKET[l]} {l}")
-    d = cal[cal["ligue"] == ligue].copy()
-    d["jour"] = pd.to_datetime(d["DateUtc"], utc=True).dt.date
-    tous = sorted(d["jour"].unique())
-    # On part du jour choisi dans le Calendrier (ou du premier jour de match qui suit)
-    debut = next((i for i, j in enumerate(tous) if j >= jour_choisi()), max(len(tous) - 7, 0))
-    jours = tous[debut:debut + 7]
-    jour = st.segmented_control("Jour", jours, default=jours[0], required=True, key=f"bk_jour_{ligue}",
-                                format_func=lambda j: f"{j:%d/%m}")
-    for _, r in d[d["jour"] == jour].iterrows():
-        carte(r)
+    modeles = modeles_du(jour)
+    if jour < aujourd_hui:
+        res = []
+        for _, r in du_jour.iterrows():
+            if pd.notna(r.get("HPTS")) and modeles["Match"].connait(r["HomeTeam"]) and modeles["Match"].connait(r["AwayTeam"]):
+                pa, pb = modeles["Match"].points(r["HomeTeam"], r["AwayTeam"], r["ligue"])
+                res.append((pa > pb) == (r["HPTS"] > r["APTS"]))
+        if res:
+            st.caption(f"Ce jour-là, Kateni a trouvé le bon vainqueur **{sum(res)} fois sur {len(res)}**.")
+    for ligue in [l for l in ("NBA", "EuroLeague", "EuroCup") if l in set(du_jour["ligue"])]:
+        st.subheader(f"{DRAPEAUX_BASKET[ligue]} {ligue}", anchor=False)
+        for _, r in du_jour[du_jour["ligue"] == ligue].sort_values("DateUtc").iterrows():
+            carte(r, modeles)
 
 # ---------------------------------------------------------------- simulation libre
 with st.expander("Simuler n'importe quel match", icon=":material/tune:"):
@@ -80,7 +133,7 @@ with st.expander("Simuler n'importe quel match", icon=":material/tune:"):
     ext = c[1].selectbox("Équipe à l'extérieur", equipes, index=None, placeholder="Choisis", key="bk_ext")
     if dom and ext and dom != ext:
         carte({"HomeTeam": dom, "AwayTeam": ext, "ligue": m.ligue_equipe.get(dom),
-               "DateUtc": pd.Timestamp.now(tz="UTC")})
+               "DateUtc": pd.Timestamp.now(tz="UTC")}, modeles_du(aujourd_hui + timedelta(days=1)))
 
 with st.expander("Comment lire ces chances ?", icon=":material/help:"):
     st.markdown(

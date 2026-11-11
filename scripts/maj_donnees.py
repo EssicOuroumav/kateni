@@ -25,7 +25,8 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from kateni.config import COLONNES_BASE, COLONNES_OPTION, COMPETITIONS, ESPN_FOOT, FORMAT_NEW, RACINE  # noqa: E402
+from kateni.config import (COLONNES_BASE, COLONNES_OPTION, COMPETITIONS, ESPN_FOOT, ESPN_INTER, FORMAT_NEW,  # noqa: E402
+                           NOMS_INTER, RACINE)
 
 BASE_URL = "https://www.football-data.co.uk"
 DOSSIER_BRUT = RACINE / "data_brut"
@@ -141,8 +142,88 @@ def a_venir_espn(code: str, jours: int = 28) -> pd.DataFrame | None:
     return pd.DataFrame(lignes, columns=["competition", "DateUtc", "HomeTeam", "AwayTeam"]) if ok else None
 
 
+MARTJ42 = "https://raw.githubusercontent.com/martj42/international_results/master/results.csv"
+
+
+def _inter_jour(jour: date) -> tuple[list[dict], int]:
+    """Matchs de sélections d'une journée, toutes compétitions ESPN suivies (noms ramenés à ceux de martj42)."""
+    import json
+    lignes, rates = [], 0
+    for slug in ESPN_INTER:
+        texte = telecharger(ESPN_API.format(slug, f"{jour:%Y%m%d}"))
+        try:
+            evts = json.loads(texte).get("events", []) if texte else None
+        except ValueError:
+            evts = None
+        if evts is None:
+            rates += 1
+            continue
+        for e in evts:
+            l = _espn_ligne(e)
+            if not l:
+                continue
+            c = (e.get("competitions") or [{}])[0]
+            l["HomeTeam"] = NOMS_INTER.get(l["HomeTeam"], l["HomeTeam"])
+            l["AwayTeam"] = NOMS_INTER.get(l["AwayTeam"], l["AwayTeam"])
+            l["Neutre"] = bool(c.get("neutralSite"))
+            l["Tournoi"] = (e.get("season", {}) or {}).get("slug") or slug
+            lignes.append(l)
+        time.sleep(0.1)
+    return lignes, rates
+
+
+def maj_internationaux() -> None:
+    """Résultats des sélections : base publique martj42 (tous les matchs officiels et amicaux) depuis 2016,
+    complétée par les résultats ESPN des 45 derniers jours (martj42 a quelques semaines de retard)."""
+    comp = COMPETITIONS["INT"]
+    chemin = RACINE / comp.fichier
+    morceaux = []
+    texte = telecharger(MARTJ42)
+    if texte:
+        b = pd.read_csv(StringIO(texte))
+        b = b[(b["date"] >= f"{comp.premiere_saison}-01-01") & b["home_score"].notna()]
+        morceaux.append(pd.DataFrame({
+            "Date": pd.to_datetime(b["date"]), "HomeTeam": b["home_team"], "AwayTeam": b["away_team"],
+            "FTHG": b["home_score"].astype(int), "FTAG": b["away_score"].astype(int),
+            "Neutre": b["neutral"].astype(str).str.upper().eq("TRUE"), "Tournoi": b["tournament"]}))
+    elif chemin.exists():
+        morceaux.append(pd.read_csv(chemin, parse_dates=["Date"]))
+    recents = []
+    for k in range(45, 0, -1):
+        recents += [l for l in _inter_jour(date.today() - timedelta(days=k))[0]
+                    if l["fini"] and l["FTHG"] not in (None, "") and l["FTAG"] not in (None, "")]
+    if recents:
+        r = pd.DataFrame(recents)
+        r["Date"] = r["DateUtc"].dt.tz_convert(None).dt.normalize()
+        r["FTHG"], r["FTAG"] = r["FTHG"].astype(int), r["FTAG"].astype(int)
+        morceaux.append(r[["Date", "HomeTeam", "AwayTeam", "FTHG", "FTAG", "Neutre", "Tournoi"]])
+    if not morceaux:
+        print("Sélections nationales : rien téléchargé, fichier inchangé")
+        return
+    d = pd.concat(morceaux, ignore_index=True)
+    d["FTR"] = ["H" if a > b else "A" if a < b else "D" for a, b in zip(d["FTHG"], d["FTAG"])]
+    d = d.drop_duplicates(subset=["Date", "HomeTeam", "AwayTeam"], keep="first").sort_values(
+        ["Date", "HomeTeam", "AwayTeam"], kind="mergesort")
+    d[COLONNES_BASE + ["Neutre", "Tournoi"]].to_csv(chemin, index=False, date_format="%Y-%m-%d")
+    print(f"Sélections nationales : {len(d)} matchs depuis {comp.premiere_saison}, dernier le {d['Date'].max():%d/%m/%Y}"
+          + (f" (dont {len(recents)} récents via ESPN)" if recents else ""))
+
+
+def a_venir_inter(jours: int = 14) -> pd.DataFrame | None:
+    lignes, ok = [], False
+    for k in range(jours):
+        l, rates = _inter_jour(date.today() + timedelta(days=k))
+        ok = ok or rates < len(ESPN_INTER)
+        lignes += [{"competition": "INT", "DateUtc": f"{x['DateUtc']:%Y-%m-%d %H:%M:%S}Z", "HomeTeam": x["HomeTeam"],
+                    "AwayTeam": x["AwayTeam"], "Neutre": x["Neutre"]} for x in l if not x["fini"]]
+    return pd.DataFrame(lignes, columns=["competition", "DateUtc", "HomeTeam", "AwayTeam", "Neutre"]) if ok else None
+
+
 def maj_competition(code: str) -> None:
     comp = COMPETITIONS[code]
+    if code == "INT":
+        maj_internationaux()
+        return
     if code in ESPN_FOOT:
         maj_espn(code)
         return
@@ -265,6 +346,12 @@ def maj_calendrier_saison() -> None:
         a_venir = [{"competition": code, "DateUtc": m["DateUtc"], "HomeTeam": m["HomeTeam"], "AwayTeam": m["AwayTeam"]}
                    for m in matchs if m.get("HomeTeamScore") is None and m.get("HomeTeam") and m.get("AwayTeam")]
         morceaux.append(pd.DataFrame(a_venir))
+    inter = a_venir_inter()
+    if inter is None:
+        rates.append("INT")
+        morceaux.append(ancien[ancien["competition"] == "INT"])
+    else:
+        morceaux.append(inter)
     for code in ESPN_FOOT:
         a_venir = a_venir_espn(code)
         if a_venir is None:

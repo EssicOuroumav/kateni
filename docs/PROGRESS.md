@@ -173,6 +173,11 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Design choisi par le propriétaire parmi trois maquettes (`docs/maquettes_design.html`) : thème sombre (`.streamlit/config.toml`), barre du haut sombre avec page active vert gazon, halos de projecteurs, titres Oxanium, barre de chances tricolore (`affichage.barre_chances`, aussi sur le basket).
 - Argentine, Brésil, Mexique, Finlande (football-data `new/`, avec cotes) et Russie (ESPN, football-data arrêté en août 2026) ajoutés. Mesure (`scripts/mesure_ligue.py`, `docs/mesures/2026-11-08_nouveaux_championnats.txt`, août 2025-octobre 2026) : le modèle seul bat la prédiction naïve partout sur le 1N2 (log loss ARG 1,061 / 1,085 ; BRA 1,005 / 1,046 ; MEX 1,027 / 1,072 ; FIN 1,023 / 1,070 ; RUS 0,976 / 1,078) ; le mélange avec la moyenne dégrade le 1N2 → aucune correction (`PART_MODELE` inchangé). Russie : calibration moins bonne aux extrêmes (seulement 496 matchs pour apprendre).
 
+## Lot du 11/11/2026 : sélections nationales, calendrier du basket, fiabilité par pari
+- Sélections nationales (code INT) : résultats depuis 2016 de la base publique martj42 (GitHub, gratuite) + 45 derniers jours ESPN (17 compétitions : amicaux, Ligue des nations, qualifications CDM/CAN/Euro/Asie, CONCACAF…), calendrier 14 jours ESPN avec terrain neutre (`ui.neutre_du_match`). Matchs sur terrain neutre appris à part (« INTN », sans avantage du terrain). Mesure (913 matchs, août 2025-oct. 2026) : 61 % de bons pronostics contre 48,7 % naïf, log loss 0,873 contre 1,044 ; un peu prudent aux extrêmes (annoncé 76 % → 83 %). `docs/mesures/2026-11-11_selections.txt`.
+- Basket : calendrier comme le foot (jour précédent/suivant, date, aujourd'hui) ; jours passés = pronostic recalculé avec les seuls matchs d'avant ce jour + résultat (vu juste / raté) + bilan du jour.
+- Fiabilité par type de pari (`scripts/mesure_marches.py`, 11 602 matchs) : double chance, nombre de buts, résultat et « une équipe marque » bien calibrés ; « les deux équipes marquent » trop confiant au-dessus de 60 % (annoncé 72 % → 65 %). `docs/mesures/2026-11-11_fiabilite_par_pari.txt`.
+
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |
 |---|---|---|
