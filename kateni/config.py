@@ -102,6 +102,10 @@ COLONNES_OPTION = [
 # fréquence moyenne des scores du championnat (A-League : 50 %, mesuré sur 168 matchs de 2025-26,
 # scripts/mesure_ligue.py AUS : log loss 1N2 1,0860 contre 1,0976 modèle seul et 1,0922 naïf)
 PART_MODELE = {"AUS": 0.5}
+# « Les deux équipes marquent » : le modèle seul était trop tranché (annoncé 72 % -> arrivé 65 % ; annoncé 37 %
+# -> arrivé 45 %). Correction p' = sigmoïde(a·logit(p) + b) réglée sur 2024-25, mesurée sur 11 602 matchs
+# d'août 2025 à octobre 2026 : log loss 0,6854 -> 0,6831 (scripts/mesure_btts.py, docs/mesures/2026-11-11_btts.txt)
+BTTS_A, BTTS_B = 0.635, 0.070
 CORNERS_PROPOSES = False     # corners retirés de l'app (décision du propriétaire, 07/11/2026) ; modèle gardé
 BANKROLL_INITIALE = 50_000   # FCFA
 MISE_MAX_PCT = 0.02          # plafond dur : 2 % de la bankroll par pari

@@ -177,6 +177,7 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Sélections nationales (code INT) : résultats depuis 2016 de la base publique martj42 (GitHub, gratuite) + 45 derniers jours ESPN (17 compétitions : amicaux, Ligue des nations, qualifications CDM/CAN/Euro/Asie, CONCACAF…), calendrier 14 jours ESPN avec terrain neutre (`ui.neutre_du_match`). Matchs sur terrain neutre appris à part (« INTN », sans avantage du terrain). Mesure (913 matchs, août 2025-oct. 2026) : 61 % de bons pronostics contre 48,7 % naïf, log loss 0,873 contre 1,044 ; un peu prudent aux extrêmes (annoncé 76 % → 83 %). `docs/mesures/2026-11-11_selections.txt`.
 - Basket : calendrier comme le foot (jour précédent/suivant, date, aujourd'hui) ; jours passés = pronostic recalculé avec les seuls matchs d'avant ce jour + résultat (vu juste / raté) + bilan du jour.
 - Fiabilité par type de pari (`scripts/mesure_marches.py`, 11 602 matchs) : double chance, nombre de buts, résultat et « une équipe marque » bien calibrés ; « les deux équipes marquent » trop confiant au-dessus de 60 % (annoncé 72 % → 65 %). `docs/mesures/2026-11-11_fiabilite_par_pari.txt`.
+- Correction de « les deux équipes marquent » (demande du propriétaire) : `marches.calibrer`, p' = sigmoïde(0,635·logit(p) + 0,070), réglée sur 2024-25, mesurée sur 11 602 matchs : log loss 0,6854 → 0,6831, chances désormais justes (annoncé 62 % → arrivé 64 %). `scripts/mesure_btts.py`.
 
 ## Erreurs et décisions (pour le bilan)
 | Symptôme | Cause | Correction |

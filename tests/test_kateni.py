@@ -401,3 +401,13 @@ def test_basket_modele_et_marches():
     assert libelle("Match : handicap -5.5", "1", "A", "B") == "Handicap A -5,5"
     assert libelle("Match : handicap -5.5", "2", "A", "B") == "Handicap B +5,5"
     assert libelle("1re mi-temps : total 110.5", "Plus", "A", "B") == "1re mi-temps · Total de points : plus de 110,5"
+
+
+def test_correction_les_deux_marquent():
+    from kateni.marches import calibrer, marches, matrice_scores
+    brut = marches(matrice_scores(2.2, 1.9, -0.06))
+    corr = calibrer(brut)
+    b, c = brut["Les deux équipes marquent"]["Oui"], corr["Les deux équipes marquent"]["Oui"]
+    assert b > 0.6 and c < b  # un « oui » très probable est ramené vers le bas
+    assert abs(sum(corr["Les deux équipes marquent"].values()) - 1) < 1e-9
+    assert corr["Total buts 2.5"] == brut["Total buts 2.5"]  # les buts ne sont pas touchés

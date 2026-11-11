@@ -1,0 +1,14 @@
+Réglage 2024-25 (9542 matchs) : a = 0.635, b = 0.070
+
+Mesure finale (11602 matchs) : log loss sans correction 0.6854, avec correction 0.6831
+  Sans correction :
+    30%-40% :   526 matchs, annoncé 37% -> arrivé 45%
+    40%-50% :  3438 matchs, annoncé 46% -> arrivé 51%
+    50%-60% :  5586 matchs, annoncé 55% -> arrivé 57%
+    60%-70% :  1945 matchs, annoncé 63% -> arrivé 62%
+    70%-100% :    90 matchs, annoncé 72% -> arrivé 68%
+  Avec correction :
+    30%-40% :    43 matchs, annoncé 38% -> arrivé 40%
+    40%-50% :  2564 matchs, annoncé 47% -> arrivé 49%
+    50%-60% :  7956 matchs, annoncé 55% -> arrivé 57%
+    60%-70% :  1036 matchs, annoncé 62% -> arrivé 64%

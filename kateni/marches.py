@@ -57,9 +57,9 @@ def scores_probables(m: np.ndarray, n: int = 5) -> list[tuple[str, float]]:
 
 
 def calibrer(p: dict) -> dict:
-    """Corrige la prudence du modèle sur les favoris (1N2 d'avant-match), puis recalcule la double chance.
-    Les autres marchés (buts, les 2 équipes marquent) ne sont pas touchés."""
-    from kateni.config import CALIB_A, CALIB_B
+    """Corrige la prudence du modèle sur les favoris (1N2 d'avant-match), puis recalcule la double chance ;
+    corrige aussi « les deux équipes marquent », trop tranché sans correction. Les buts ne sont pas touchés."""
+    from kateni.config import BTTS_A, BTTS_B, CALIB_A, CALIB_B
     q = dict(p["1N2"])
     fav = max(q, key=q.get)
     pf = min(max(q[fav], 1e-6), 1 - 1e-6)
@@ -69,6 +69,10 @@ def calibrer(p: dict) -> dict:
     out = dict(p)
     out["1N2"] = {k: float(v) for k, v in q.items()}
     out["Double chance"] = {"1N": q["1"] + q["N"], "12": q["1"] + q["2"], "N2": q["N"] + q["2"]}
+    if "Les deux équipes marquent" in p:
+        b = min(max(p["Les deux équipes marquent"]["Oui"], 1e-6), 1 - 1e-6)
+        oui = float(1 / (1 + np.exp(-(BTTS_A * np.log(b / (1 - b)) + BTTS_B))))
+        out["Les deux équipes marquent"] = {"Oui": oui, "Non": 1 - oui}
     return out
 
 
