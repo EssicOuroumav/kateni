@@ -533,8 +533,12 @@ def _basket_a_venir(_sig: tuple) -> pd.DataFrame:
     if not f.exists():
         return pd.DataFrame(columns=["ligue", "DateUtc", "HomeTeam", "AwayTeam"])
     d = pd.read_csv(f)
+    # Matchs pas encore joués : le fichier met 0 dans les colonnes de points ; on les vide (sinon « Terminé 0 – 0 »).
+    d[[c for c in d.columns if c not in ("ligue", "DateUtc", "HomeTeam", "AwayTeam")]] = float("nan")
     t = pd.to_datetime(d["DateUtc"], utc=True, format="ISO8601")
-    return d[t >= pd.Timestamp.now(tz="UTC") - pd.Timedelta(minutes=15)].reset_index(drop=True)
+    # On garde tous les matchs d'aujourd'hui, même commencés : sinon un match en cours disparaît de la page
+    # jusqu'à ce que le robot ait son résultat (le résultat, quand il arrive, prend sa place).
+    return d[t >= pd.Timestamp.now(tz="UTC").normalize()].reset_index(drop=True)
 
 
 def basket_a_venir() -> pd.DataFrame:

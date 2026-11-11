@@ -36,8 +36,13 @@ class ModeleBasket:
     sd_ecart: float = 12.5
     sd_total: float = 18.0
     extra: dict = field(default_factory=dict)
+    n_reels: dict = field(default_factory=dict)   # vrais matchs joués (sans pondération par l'âge)
 
     def connait(self, equipe: str) -> bool:
+        """Au moins 5 vrais matchs joués. (Avant : 5 matchs « pondérés », ce qui écartait les équipes de début de
+        saison, surtout en EuroCup : 6 matchs récents ne pesaient pas 5.)"""
+        if self.n_reels:
+            return self.n_reels.get(equipe, 0) >= 5
         return self.n_matchs.get(equipe, 0.0) >= 5
 
     def points(self, dom: str, ext: str, ligue: str | None = None, neutre: bool = False) -> tuple[float, float]:
@@ -90,10 +95,12 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
     res = y - X @ beta
     ecart = res[:m] - res[m:]
     total = res[:m] + res[m:]
-    nm = {}
+    nm, nr = {}, {}
     for h, a, wi in zip(d["HomeTeam"], d["AwayTeam"], w):
         nm[h] = nm.get(h, 0.0) + wi
         nm[a] = nm.get(a, 0.0) + wi
+        nr[h] = nr.get(h, 0) + 1
+        nr[a] = nr.get(a, 0) + 1
     ligue_eq = {}
     for lg, h, a in zip(d["ligue"], d["HomeTeam"], d["AwayTeam"]):
         ligue_eq[h], ligue_eq[a] = lg, lg
@@ -102,7 +109,7 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
         moyenne={l: float(beta[il[l]]) for l in ligues}, terrain={l: float(beta[nl + il[l]]) for l in ligues},
         attaque={e: float(beta[2 * nl + ie[e]]) for e in equipes},
         defense={e: float(beta[2 * nl + n + ie[e]]) for e in equipes},
-        ligue_equipe=ligue_eq, n_matchs=nm, sd_ecart=sd(ecart) * (ELARGIR_ECART if elargir else 1.0),
+        ligue_equipe=ligue_eq, n_matchs=nm, n_reels=nr, sd_ecart=sd(ecart) * (ELARGIR_ECART if elargir else 1.0),
         sd_total=sd(total) * (ELARGIR_TOTAL if elargir else 1.0))
 
 

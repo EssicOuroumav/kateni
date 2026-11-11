@@ -204,3 +204,8 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - **Propriétaire** : ce soir, saisir les cotes Betclic des matchs de C1 et enregistrer les paris en **fictif** ; demain, « Mettre à jour les données » dans Mes paris pour les régler.
 - **Assistant, lot 1** : calibrer le live sur les mi-temps et les minutes des buts ; régler ρ, la demi-vie et le xG par backtest ; backtest des marchés plus/moins 2,5 et les deux équipes marquent ; piste « comparer Betclic à une cote de référence (Pinnacle) » via une API de cotes gratuite.
 - **Assistant, lot 2** : base en ligne + Streamlit Cloud privé. Lot 3 : nettoyage des anciens scripts (après accord).
+
+## 11/11/2026 — Basket : EuroLeague et EuroCup réapparaissent
+- Cause 1 : une équipe était « connue » à partir de 5 matchs *pondérés par l'âge* ; en début de saison, les équipes d'EuroCup (6 matchs récents) n'y arrivaient pas → « pas de pronostic ». Désormais : 5 vrais matchs joués.
+  Mesure 2025-26 (docs/mesures/2026-11-11_basket_equipes_connues.txt) : 1 916 matchs pronostiqués au lieu de 1 849, bons vainqueurs 66,8 % (avant 66,7 %), calibration inchangée ; EuroCup 65,4 % (avant 64,0 %).
+- Cause 2 : un match commencé disparaissait de la page jusqu'à l'arrivée de son résultat. Désormais, tous les matchs du jour restent affichés.
