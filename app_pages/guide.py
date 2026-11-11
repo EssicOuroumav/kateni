@@ -54,7 +54,7 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Basket", anchor=False, icon=":material/sports_basketball:")
     st.markdown(
-        "**NBA, EuroLeague et EuroCup**, mis à jour tout seuls chaque jour. Choisis la ligue et le jour : chaque "
+        "**NBA, EuroLeague et EuroCup**, mis à jour tout seuls chaque jour. Choisis la ligue dans le menu **Championnat** (ou « Tous les championnats ») et le jour ; les jours passés montrent le pronostic d'avant-match et le résultat. Chaque "
         "match montre le favori, le score attendu, le total et l'écart. « Toutes les prédictions » donne : "
         "vainqueur (prolongations comprises), résultat du temps réglementaire, handicaps, total de points, points de "
         "chaque équipe, 1re mi-temps, 1er quart-temps et écart final, avec la cote juste de chacun. "

@@ -403,6 +403,20 @@ def test_basket_modele_et_marches():
     assert libelle("1re mi-temps : total 110.5", "Plus", "A", "B") == "1re mi-temps · Total de points : plus de 110,5"
 
 
+def test_basket_equipe_connue_des_5_vrais_matchs():
+    """Une équipe qui a joué 6 matchs il y a quelques semaines est connue (avant : 6 matchs « pondérés par l'âge »
+    pesaient moins de 5, et toute l'EuroCup de début de saison restait sans pronostic)."""
+    import pandas as pd
+    from kateni.basket import ajuster
+    lignes = [{"ligue": "EuroCup", "DateUtc": f"2026-10-{1 + 4 * k:02d} 19:00:00Z", "HomeTeam": "A" if k % 2 else "B",
+               "AwayTeam": "B" if k % 2 else "A", "HPTS": 80, "APTS": 75,
+               **{f"H{q}": 20 for q in range(1, 5)}, **{f"A{q}": 19 for q in range(1, 5)}} for k in range(6)]
+    m = ajuster(pd.DataFrame(lignes), date_ref="2026-11-11")
+    assert m.n_matchs["A"] < 5 and m.connait("A") and m.connait("B")
+    m4 = ajuster(pd.DataFrame(lignes[:4]), date_ref="2026-11-11")
+    assert not m4.connait("A")
+
+
 def test_correction_les_deux_marquent():
     from kateni.marches import calibrer, marches, matrice_scores
     brut = marches(matrice_scores(2.2, 1.9, -0.06))

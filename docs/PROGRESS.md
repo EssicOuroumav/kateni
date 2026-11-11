@@ -209,3 +209,5 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Cause 1 : une équipe était « connue » à partir de 5 matchs *pondérés par l'âge* ; en début de saison, les équipes d'EuroCup (6 matchs récents) n'y arrivaient pas → « pas de pronostic ». Désormais : 5 vrais matchs joués.
   Mesure 2025-26 (docs/mesures/2026-11-11_basket_equipes_connues.txt) : 1 916 matchs pronostiqués au lieu de 1 849, bons vainqueurs 66,8 % (avant 66,7 %), calibration inchangée ; EuroCup 65,4 % (avant 64,0 %).
 - Cause 2 : un match commencé disparaissait de la page jusqu'à l'arrivée de son résultat. Désormais, tous les matchs du jour restent affichés.
+- Basket : menu « Championnat » comme au foot (NBA / EuroLeague / EuroCup / Tous), avec le nombre de matchs du jour ; le choix est gardé en changeant de page ; « Jour suivant/précédent » saute aux jours de la ligue choisie ; bilan « bon vainqueur » aussi pour les matchs déjà terminés aujourd'hui.
+- Vérification complète du 11/11 : 9 pages sans erreur ; foot : 2 961 matchs publiés sur 15 jours, tous pronostiqués ; sélections : pas de trou (fenêtre d'octobre finie le 07/10, reprise le 12/11).

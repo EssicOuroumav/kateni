@@ -79,10 +79,31 @@ a_venir = basket_a_venir()
 tout = pd.concat([joues, a_venir], ignore_index=True) if len(a_venir) else joues.copy()
 tout["jour"] = pd.to_datetime(tout["DateUtc"], utc=True, format="ISO8601").dt.date
 tout = tout.drop_duplicates(subset=["ligue", "jour", "HomeTeam", "AwayTeam"], keep="first")
-jours_avec = sorted(tout["jour"].unique())
 
 if "bk_jour" not in st.session_state:  # retour sur la page : on reprend le jour choisi avant
     st.session_state["bk_jour"] = st.session_state.get("bk_jour_garde") or jour_choisi()
+
+# ---------------------------------------------------------------- choix du championnat (comme au foot)
+LIGUES = ("NBA", "EuroLeague", "EuroCup")
+TOUS = "Tous les championnats"
+n_du_jour = tout[tout["jour"] == st.session_state["bk_jour"]]["ligue"].value_counts()
+if "bk_ligue" not in st.session_state:  # Streamlit efface le choix en quittant la page : on le reprend
+    st.session_state["bk_ligue"] = st.session_state.get("bk_ligue_garde") or next(
+        (l for l in LIGUES if n_du_jour.get(l, 0)), LIGUES[0])
+
+
+def _nom_ligue(l: str) -> str:
+    if l == TOUS:
+        return f"{TOUS}  ({int(n_du_jour.sum())} matchs ce jour)" if n_du_jour.sum() else TOUS
+    n = int(n_du_jour.get(l, 0))
+    return f"{DRAPEAUX_BASKET[l]} {l}  " + (f"({n} match{'s' if n > 1 else ''} ce jour)" if n else "(pas de match ce jour)")
+
+
+ligue_choisie = st.selectbox("Championnat", (*LIGUES, TOUS), key="bk_ligue", format_func=_nom_ligue)
+st.session_state["bk_ligue_garde"] = ligue_choisie
+if ligue_choisie != TOUS:
+    tout = tout[tout["ligue"] == ligue_choisie]
+jours_avec = sorted(tout["jour"].unique())
 
 
 def aller(delta: int) -> None:
@@ -108,20 +129,26 @@ titre = (f"{jour:%d/%m/%Y}" + (" — aujourd'hui" if jour == aujourd_hui else " 
 st.subheader(titre, anchor=False, icon=":material/event:")
 if not len(du_jour):
     suivant = next((x for x in jours_avec if x > jour), None)
-    st.info("Aucun match de basket ce jour-là." + (f" Prochain jour de match : **{suivant:%d/%m/%Y}** (bouton "
-                                                     "« Jour suivant »)." if suivant else ""), icon=":material/event_busy:")
+    quoi = "de basket" if ligue_choisie == TOUS else f"de {ligue_choisie}"
+    ailleurs = [l for l in LIGUES if n_du_jour.get(l, 0)] if ligue_choisie != TOUS else []
+    st.info(f"Aucun match {quoi} ce jour-là." + (f" Prochain jour de match : **{suivant:%d/%m/%Y}** (bouton "
+                                                 "« Jour suivant »)." if suivant else "")
+            + (f" Ce jour-là, il y a des matchs en **{', '.join(ailleurs)}** (menu Championnat)." if ailleurs else ""),
+            icon=":material/event_busy:")
 else:
     modeles = modeles_du(jour)
-    if jour < aujourd_hui:
+    if jour <= aujourd_hui:  # bilan des matchs déjà terminés (aujourd'hui compris)
         res = []
         for _, r in du_jour.iterrows():
             if pd.notna(r.get("HPTS")) and modeles["Match"].connait(r["HomeTeam"]) and modeles["Match"].connait(r["AwayTeam"]):
                 pa, pb = modeles["Match"].points(r["HomeTeam"], r["AwayTeam"], r["ligue"])
                 res.append((pa > pb) == (r["HPTS"] > r["APTS"]))
         if res:
-            st.caption(f"Ce jour-là, Kateni a trouvé le bon vainqueur **{sum(res)} fois sur {len(res)}**.")
+            st.caption(f"{'Ce jour-là' if jour < aujourd_hui else 'Aujourd’hui, sur les matchs terminés'}, Kateni a "
+                       f"trouvé le bon vainqueur **{sum(res)} fois sur {len(res)}**.")
     for ligue in [l for l in ("NBA", "EuroLeague", "EuroCup") if l in set(du_jour["ligue"])]:
-        st.subheader(f"{DRAPEAUX_BASKET[ligue]} {ligue}", anchor=False)
+        if ligue_choisie == TOUS:
+            st.subheader(f"{DRAPEAUX_BASKET[ligue]} {ligue}", anchor=False)
         for _, r in du_jour[du_jour["ligue"] == ligue].sort_values("DateUtc").iterrows():
             carte(r, modeles)
 
