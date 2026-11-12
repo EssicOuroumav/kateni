@@ -2,7 +2,6 @@ competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
 SCO,2026-10-31 15:00:00Z,Dundee United,Heart of Midlothian,
 POR,2026-11-08 15:30:00Z,Estoril Praia,Marítimo M.,
-INT,2026-11-12 06:10:00Z,New Zealand,India,False
 INT,2026-11-12 15:00:00Z,Ghana,Somalia,False
 INT,2026-11-12 15:00:00Z,Uzbekistan,Russia,False
 INT,2026-11-12 16:00:00Z,DR Congo,Sierra Leone,False
@@ -33,7 +32,6 @@ INT,2026-11-13 12:00:00Z,Singapore,Paraguay,False
 INT,2026-11-13 13:00:00Z,Comoros,Congo,False
 INT,2026-11-13 13:00:00Z,Mozambique,Ethiopia,False
 INT,2026-11-13 13:00:00Z,Zambia,Burundi,False
-INT,2026-11-13 14:00:00Z,Kuwait,Syria,False
 INT,2026-11-13 14:15:00Z,United Arab Emirates,Honduras,False
 INT,2026-11-13 14:30:00Z,Saudi Arabia,South Korea,False
 INT,2026-11-13 14:45:00Z,Qatar,Australia,False
@@ -44,6 +42,7 @@ INT,2026-11-13 16:00:00Z,Gabon,Lesotho,False
 INT,2026-11-13 16:00:00Z,Nigeria,Tanzania,False
 INT,2026-11-13 16:00:00Z,South Africa,Kenya,False
 INT,2026-11-13 16:00:00Z,Tunisia,Libya,False
+INT,2026-11-13 16:30:00Z,Kuwait,Syria,False
 INT,2026-11-13 17:00:00Z,Moldova,Kazakhstan,False
 INT,2026-11-13 19:00:00Z,Bermuda,Saint Lucia,False
 INT,2026-11-13 19:00:00Z,Egypt,Malawi,False
@@ -89,7 +88,7 @@ INT,2026-11-14 19:45:00Z,Sweden,Bosnia and Herzegovina,False
 INT,2026-11-14 21:30:00Z,Haiti,United States,False
 INT,2026-11-15 00:00:00Z,Saint Vincent and the Grenadines,Belize,False
 INT,2026-11-15 01:00:00Z,Jamaica,Mexico,False
-INT,2026-11-15 03:10:00Z,New Zealand,India,False
+INT,2026-11-15 03:00:00Z,New Zealand,India,False
 INT,2026-11-15 14:00:00Z,Cyprus,Montenegro,False
 INT,2026-11-15 14:00:00Z,Latvia,Armenia,False
 INT,2026-11-15 17:00:00Z,Belarus,Albania,False
