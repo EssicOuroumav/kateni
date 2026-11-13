@@ -2,20 +2,11 @@ competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
 SCO,2026-10-31 15:00:00Z,Dundee United,Heart of Midlothian,
 POR,2026-11-08 15:30:00Z,Estoril Praia,Marítimo M.,
-INT,2026-11-12 19:45:00Z,Albania,Finland,False
-INT,2026-11-12 19:45:00Z,Czech Republic,Spain,False
-INT,2026-11-12 19:45:00Z,England,Croatia,False
-INT,2026-11-12 19:45:00Z,Italy,France,False
-INT,2026-11-12 19:45:00Z,Montenegro,Latvia,False
-INT,2026-11-12 19:45:00Z,San Marino,Belarus,False
-INT,2026-11-12 22:00:00Z,Aruba,Martinique,False
-INT,2026-11-12 23:00:00Z,Antigua and Barbuda,Trinidad and Tobago,False
-INT,2026-11-13 00:30:00Z,Curaçao,Panama,False
 INT,2026-11-13 12:00:00Z,Singapore,Paraguay,False
 INT,2026-11-13 13:00:00Z,Comoros,Congo,False
 INT,2026-11-13 13:00:00Z,Mozambique,Ethiopia,False
 INT,2026-11-13 13:00:00Z,Zambia,Burundi,False
-INT,2026-11-13 14:15:00Z,United Arab Emirates,Honduras,False
+INT,2026-11-13 14:10:00Z,United Arab Emirates,Honduras,False
 INT,2026-11-13 14:30:00Z,Saudi Arabia,South Korea,False
 INT,2026-11-13 14:45:00Z,Qatar,Australia,False
 INT,2026-11-13 15:00:00Z,Iraq,Lebanon,False

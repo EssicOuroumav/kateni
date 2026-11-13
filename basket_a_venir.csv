@@ -1,12 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-EuroLeague,2026-11-12 19:05:00Z,Maccabi Rapyd Tel Aviv,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-12 19:30:00Z,Valencia Basket,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-12 19:30:00Z,Armani Olimpia Milan,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-12 20:00:00Z,Real Madrid,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
-NBA,2026-11-13 00:00:00Z,Philadelphia 76ers,Toronto Raptors,,,,,0,,,,,0,0,0
-NBA,2026-11-13 00:00:00Z,Washington Wizards,Detroit Pistons,,,,,0,,,,,0,0,0
-NBA,2026-11-13 01:00:00Z,Minnesota Timberwolves,Dallas Mavericks,,,,,0,,,,,0,0,0
-NBA,2026-11-13 02:00:00Z,Phoenix Suns,Charlotte Hornets,,,,,0,,,,,0,0,0
 EuroLeague,2026-11-13 17:30:00Z,Anadolu Efes Istanbul,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-13 19:15:00Z,Panathinaikos AKTOR Athens,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-13 19:30:00Z,LDLC ASVEL Villeurbanne,Besiktas Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
@@ -152,6 +144,17 @@ NBA,2026-11-26 01:00:00Z,Milwaukee Bucks,Brooklyn Nets,,,,,0,,,,,0,0,0
 NBA,2026-11-26 01:30:00Z,Houston Rockets,Phoenix Suns,,,,,0,,,,,0,0,0
 NBA,2026-11-26 03:00:00Z,Golden State Warriors,Sacramento Kings,,,,,0,,,,,0,0,0
 NBA,2026-11-26 03:00:00Z,Portland Trail Blazers,San Antonio Spurs,,,,,0,,,,,0,0,0
+NBA,2026-11-28 00:00:00Z,New York Knicks,Miami Heat,,,,,0,,,,,0,0,0
+NBA,2026-11-28 00:30:00Z,Detroit Pistons,Milwaukee Bucks,,,,,0,,,,,0,0,0
+NBA,2026-11-28 00:30:00Z,Indiana Pacers,Philadelphia 76ers,,,,,0,,,,,0,0,0
+NBA,2026-11-28 00:30:00Z,Toronto Raptors,Brooklyn Nets,,,,,0,,,,,0,0,0
+NBA,2026-11-28 01:00:00Z,Boston Celtics,Atlanta Hawks,,,,,0,,,,,0,0,0
+NBA,2026-11-28 01:30:00Z,Minnesota Timberwolves,Memphis Grizzlies,,,,,0,,,,,0,0,0
+NBA,2026-11-28 02:00:00Z,Phoenix Suns,Dallas Mavericks,,,,,0,,,,,0,0,0
+NBA,2026-11-28 02:30:00Z,San Antonio Spurs,Los Angeles Lakers,,,,,0,,,,,0,0,0
+NBA,2026-11-28 02:30:00Z,Utah Jazz,Denver Nuggets,,,,,0,,,,,0,0,0
+NBA,2026-11-28 02:30:00Z,LA Clippers,New Orleans Pelicans,,,,,0,,,,,0,0,0
+NBA,2026-11-28 02:30:00Z,Portland Trail Blazers,Golden State Warriors,,,,,0,,,,,0,0,0
 EuroLeague,2026-12-03 17:30:00Z,Anadolu Efes Istanbul,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-12-03 17:45:00Z,Fenerbahce Tarfin Istanbul,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-12-03 18:45:00Z,Hapoel IBI Tel Aviv,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0

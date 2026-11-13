@@ -10282,7 +10282,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-09-28,South Korea,Uruguay,1,4,A,False,Friendly
 2026-09-28,Suriname,Martinique,2,1,H,False,CONCACAF Nations League
 2026-09-28,Sweden,Poland,3,1,H,False,UEFA Nations League
-2026-09-28,Tajikistan,Palestine,2,4,A,False,2026-international-friendly
 2026-09-28,Tunisia,Botswana,2,2,D,False,African Cup of Nations qualification
 2026-09-28,Turkey,Italy,1,4,A,False,UEFA Nations League
 2026-09-28,Zimbabwe,DR Congo,1,2,A,False,African Cup of Nations qualification
@@ -10302,9 +10301,7 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-09-29,French Guiana,Sint Maarten,1,0,H,True,CONCACAF Nations League
 2026-09-29,Gabon,Niger,2,0,H,False,African Cup of Nations qualification
 2026-09-29,Ghana,Gambia,2,4,A,False,African Cup of Nations qualification
-2026-09-29,Guatemala,El Salvador,6,0,H,False,group-stage
 2026-09-29,Guinea-Bissau,Nigeria,3,0,H,True,African Cup of Nations qualification
-2026-09-29,Jamaica,Honduras,0,1,A,False,group-stage
 2026-09-29,Lesotho,Morocco,0,2,A,True,African Cup of Nations qualification
 2026-09-29,Liberia,Mali,0,1,A,False,African Cup of Nations qualification
 2026-09-29,Luxembourg,Iceland,0,3,A,False,UEFA Nations League
@@ -10315,8 +10312,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-09-29,Oman,Kuwait,3,1,H,True,Gulf Cup
 2026-09-29,Philippines,Pakistan,2,2,D,True,FIFA ASEAN Cup
 2026-09-29,Russia,Iran,2,0,H,False,Friendly
-2026-09-29,Saint Kitts and Nevis,Grenada,3,0,H,False,group-stage
-2026-09-29,Saint Lucia,Bermuda,5,2,H,False,group-stage
 2026-09-29,San Marino,Albania,0,3,A,False,UEFA Nations League
 2026-09-29,Saudi Arabia,Iraq,2,0,H,False,Gulf Cup
 2026-09-29,Scotland,Switzerland,0,3,A,False,UEFA Nations League
@@ -10511,3 +10506,30 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-07,Mexico,Chile,0,2,A,False,2026-international-friendly
 2026-10-07,United States,Canada,1,0,H,False,2026-international-friendly
 2026-11-11,Vietnam,Taiwan,2,0,H,False,2026-international-friendly
+2026-11-12,Albania,Finland,2,0,H,False,league-phase
+2026-11-12,Antigua and Barbuda,Trinidad and Tobago,2,3,A,False,gold-cup-prelims
+2026-11-12,Armenia,Cyprus,1,1,D,False,league-phase
+2026-11-12,Aruba,Martinique,0,0,D,False,gold-cup-prelims
+2026-11-12,Barbados,Guadeloupe,0,3,A,False,group-stage
+2026-11-12,Benin,Central African Republic,4,1,H,False,group-stage
+2026-11-12,Bonaire,Cuba,1,7,A,False,group-stage
+2026-11-12,Cameroon,Namibia,2,0,H,False,group-stage
+2026-11-12,Cayman Islands,Guyana,0,6,A,False,group-stage
+2026-11-12,Czech Republic,Spain,0,2,A,False,league-phase
+2026-11-12,DR Congo,Sierra Leone,3,1,H,False,group-stage
+2026-11-12,England,Croatia,2,1,H,False,league-phase
+2026-11-12,Equatorial Guinea,Zimbabwe,0,0,D,False,group-stage
+2026-11-12,Ghana,Somalia,2,0,H,False,group-stage
+2026-11-12,Guinea,Eritrea,2,1,H,False,group-stage
+2026-11-12,Italy,France,3,1,H,False,league-phase
+2026-11-12,Ivory Coast,Gambia,2,1,H,False,group-stage
+2026-11-12,Lithuania,Suriname,0,0,D,False,2026-international-friendly
+2026-11-12,Madagascar,Guinea-Bissau,1,1,D,False,group-stage
+2026-11-12,Malta,Eswatini,1,1,D,False,2026-international-friendly
+2026-11-12,Montenegro,Latvia,2,1,H,False,league-phase
+2026-11-12,New Zealand,India,5,0,H,False,2026-international-friendly
+2026-11-12,San Marino,Belarus,0,2,A,False,league-phase
+2026-11-12,Senegal,Sudan,4,1,H,False,group-stage
+2026-11-12,Turkey,Belgium,1,2,A,False,league-phase
+2026-11-12,Uzbekistan,Russia,2,3,A,False,2026-international-friendly
+2026-11-13,Curaçao,Panama,0,0,D,False,quarterfinals
