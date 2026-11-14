@@ -2,28 +2,6 @@ competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
 SCO,2026-10-31 15:00:00Z,Dundee United,Heart of Midlothian,
 POR,2026-11-08 15:30:00Z,Estoril Praia,Marítimo M.,
-INT,2026-11-13 19:00:00Z,Mali,Rwanda,False
-INT,2026-11-13 19:45:00Z,Andorra,Gibraltar,False
-INT,2026-11-13 19:45:00Z,Bulgaria,Iceland,False
-INT,2026-11-13 19:45:00Z,Liechtenstein,Azerbaijan,False
-INT,2026-11-13 19:45:00Z,Luxembourg,Estonia,False
-INT,2026-11-13 19:45:00Z,Netherlands,Greece,False
-INT,2026-11-13 19:45:00Z,Scotland,North Macedonia,False
-INT,2026-11-13 19:45:00Z,Serbia,Germany,False
-INT,2026-11-13 19:45:00Z,Slovakia,Faroe Islands,False
-INT,2026-11-13 19:45:00Z,Slovenia,Switzerland,False
-INT,2026-11-13 20:00:00Z,Jordan,Indonesia,False
-INT,2026-11-13 20:00:00Z,Morocco,Niger,False
-INT,2026-11-13 23:00:00Z,Argentina,Uruguay,False
-INT,2026-11-13 23:00:00Z,Saint Martin,El Salvador,False
-INT,2026-11-14 00:00:00Z,Colombia,Chile,False
-INT,2026-11-14 00:00:00Z,Ecuador,Costa Rica,False
-INT,2026-11-14 00:00:00Z,Montserrat,Nicaragua,False
-INT,2026-11-14 01:00:00Z,Peru,Bolivia,False
-INT,2026-11-14 02:00:00Z,Guatemala,Canada,False
-INT,2026-11-14 05:30:00Z,Tahiti,Cook Islands,False
-INT,2026-11-14 06:00:00Z,Bahrain,Yemen,False
-INT,2026-11-14 10:15:00Z,Japan,Brazil,False
 INT,2026-11-14 12:00:00Z,China,Malaysia,False
 INT,2026-11-14 12:00:00Z,Taiwan,Kyrgyzstan,False
 INT,2026-11-14 14:00:00Z,Kosovo,Israel,False
@@ -42,7 +20,7 @@ INT,2026-11-14 19:45:00Z,Sweden,Bosnia and Herzegovina,False
 INT,2026-11-14 21:30:00Z,Haiti,United States,False
 INT,2026-11-15 00:00:00Z,Saint Vincent and the Grenadines,Belize,False
 INT,2026-11-15 01:00:00Z,Jamaica,Mexico,False
-INT,2026-11-15 03:00:00Z,New Zealand,India,False
+INT,2026-11-15 03:10:00Z,New Zealand,India,False
 INT,2026-11-15 14:00:00Z,Cyprus,Montenegro,False
 INT,2026-11-15 14:00:00Z,Latvia,Armenia,False
 INT,2026-11-15 17:00:00Z,Belarus,Albania,False
@@ -505,6 +483,8 @@ BL,2026-12-11 00:00:00Z,SC Paderborn 07,SV Elversberg,
 BL,2026-12-11 00:00:00Z,SV Werder Bremen,Bayer 04 Leverkusen,
 BL,2026-12-11 00:00:00Z,TSG Hoffenheim,FC Bayern München,
 BL,2026-12-11 00:00:00Z,VfB Stuttgart,1. FC Union Berlin,
+AUS,2026-12-11 08:40:00Z,Adelaide United FC,Macarthur FC,
+AUS,2026-12-11 10:45:00Z,Perth Glory FC,Melbourne City FC,
 TUR,2026-12-11 17:00:00Z,Çorum,Amedspor,
 L2,2026-12-11 19:00:00Z,AS Nancy Lorraine,Clermont Foot 63,
 L2,2026-12-11 19:00:00Z,EN Avant Guingamp,Dijon FCO,
@@ -515,6 +495,7 @@ L1,2026-12-11 19:45:00Z,AJ Auxerre,Toulouse FC,
 SA,2026-12-11 19:45:00Z,Udinese,Frosinone,
 CHAMP,2026-12-11 20:00:00Z,Bolton Wanderers,Wrexham,
 POR,2026-12-11 20:15:00Z,Académico,FC Arouca,
+AUS,2026-12-12 04:00:00Z,Auckland FC,Sydney FC,
 TUR,2026-12-12 10:30:00Z,Erzurumspor,Kasimpasa,
 CHAMP,2026-12-12 12:30:00Z,Preston North End,Middlesbrough,
 CHAMP,2026-12-12 12:30:00Z,Queens Park Rangers,Watford,
