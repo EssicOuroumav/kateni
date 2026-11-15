@@ -1,10 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-INT,2026-11-15 14:00:00Z,Cyprus,Montenegro,False
-INT,2026-11-15 14:00:00Z,Latvia,Armenia,False
-INT,2026-11-15 17:00:00Z,Belarus,Albania,False
-INT,2026-11-15 17:00:00Z,Finland,San Marino,False
-INT,2026-11-15 17:00:00Z,Suriname,Eswatini,False
 INT,2026-11-15 19:45:00Z,Belgium,Italy,False
 INT,2026-11-15 19:45:00Z,Croatia,Czech Republic,False
 INT,2026-11-15 19:45:00Z,France,Turkey,False
