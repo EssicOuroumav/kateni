@@ -10327,7 +10327,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-09-29,Zambia,Togo,2,0,H,False,African Cup of Nations qualification
 2026-09-30,Argentina,Bolivia,4,0,H,False,Friendly
 2026-09-30,Bahrain,Yemen,2,5,A,True,Gulf Cup
-2026-09-30,Botswana,Mozambique,0,2,A,False,2026-international-friendly
 2026-09-30,Eritrea,South Africa,0,5,A,True,African Cup of Nations qualification
 2026-09-30,Fiji,New Caledonia,2,1,H,False,MSG Prime Minister's Cup
 2026-09-30,Hong Kong,Brunei,2,0,H,False,FIFA ASEAN Challenge Cup
@@ -10561,8 +10560,30 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-11-13,Tunisia,Libya,0,2,A,False,group-stage
 2026-11-13,United Arab Emirates,Honduras,3,1,H,False,2026-international-friendly
 2026-11-13,Zambia,Burundi,1,1,D,False,group-stage
+2026-11-14,Algeria,Togo,1,0,H,False,group-stage
+2026-11-14,Angola,South Sudan,2,0,H,False,group-stage
+2026-11-14,Austria,Republic of Ireland,1,0,H,False,league-phase
+2026-11-14,Bahrain,Yemen,3,1,H,False,2026-international-friendly
+2026-11-14,China,Malaysia,2,0,H,False,2026-international-friendly
 2026-11-14,Colombia,Chile,1,0,H,False,2026-international-friendly
 2026-11-14,Ecuador,Costa Rica,2,0,H,False,2026-international-friendly
+2026-11-14,Georgia,Hungary,0,2,A,False,league-phase
 2026-11-14,Guatemala,Canada,2,3,A,False,quarterfinals
+2026-11-14,Haiti,United States,0,6,A,False,quarterfinals
+2026-11-14,Japan,Brazil,3,2,H,False,2026-international-friendly
+2026-11-14,Kosovo,Israel,0,0,D,False,league-phase
 2026-11-14,Montserrat,Nicaragua,1,2,A,False,gold-cup-play-in-prelims
+2026-11-14,Northern Ireland,Ukraine,1,0,H,False,league-phase
+2026-11-14,Norway,Wales,3,1,H,False,league-phase
+2026-11-14,Palestine,Iran,0,2,A,False,2026-international-friendly
 2026-11-14,Peru,Bolivia,2,0,H,False,2026-international-friendly
+2026-11-14,Portugal,Denmark,1,4,A,False,league-phase
+2026-11-14,Romania,Poland,2,1,H,False,league-phase
+2026-11-14,Sint Maarten,French Guiana,1,5,A,False,group-stage
+2026-11-14,Sweden,Bosnia and Herzegovina,3,2,H,False,league-phase
+2026-11-14,Tahiti,Cook Islands,4,0,H,False,2026-international-friendly
+2026-11-14,Taiwan,Kyrgyzstan,0,3,A,False,2026-international-friendly
+2026-11-14,Uganda,Botswana,1,1,D,False,group-stage
+2026-11-15,Jamaica,Mexico,3,2,H,False,quarterfinals
+2026-11-15,New Zealand,India,3,0,H,False,2026-international-friendly
+2026-11-15,Saint Vincent and the Grenadines,Belize,1,0,H,False,group-stage

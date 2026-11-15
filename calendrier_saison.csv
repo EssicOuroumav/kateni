@@ -1,19 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-SCO,2026-10-31 15:00:00Z,Dundee United,Heart of Midlothian,
-POR,2026-11-08 15:30:00Z,Estoril Praia,Marítimo M.,
-INT,2026-11-14 19:00:00Z,Algeria,Togo,False
-INT,2026-11-14 19:00:00Z,Angola,South Sudan,False
-INT,2026-11-14 19:00:00Z,Sint Maarten,French Guiana,False
-INT,2026-11-14 19:45:00Z,Austria,Republic of Ireland,False
-INT,2026-11-14 19:45:00Z,Northern Ireland,Ukraine,False
-INT,2026-11-14 19:45:00Z,Portugal,Denmark,False
-INT,2026-11-14 19:45:00Z,Romania,Poland,False
-INT,2026-11-14 19:45:00Z,Sweden,Bosnia and Herzegovina,False
-INT,2026-11-14 21:30:00Z,Haiti,United States,False
-INT,2026-11-15 00:00:00Z,Saint Vincent and the Grenadines,Belize,False
-INT,2026-11-15 01:00:00Z,Jamaica,Mexico,False
-INT,2026-11-15 03:10:00Z,New Zealand,India,False
 INT,2026-11-15 14:00:00Z,Cyprus,Montenegro,False
 INT,2026-11-15 14:00:00Z,Latvia,Armenia,False
 INT,2026-11-15 17:00:00Z,Belarus,Albania,False
@@ -72,6 +58,7 @@ INT,2026-11-17 16:00:00Z,Russia,Venezuela,False
 INT,2026-11-17 16:00:00Z,Sierra Leone,DR Congo,False
 INT,2026-11-17 16:00:00Z,Togo,Algeria,False
 INT,2026-11-17 16:15:00Z,Iraq,Iran,False
+INT,2026-11-17 16:30:00Z,Kuwait,Honduras,False
 INT,2026-11-17 19:00:00Z,Belize,Sint Maarten,False
 INT,2026-11-17 19:00:00Z,Botswana,Uganda,False
 INT,2026-11-17 19:00:00Z,Congo,Comoros,False
@@ -89,7 +76,6 @@ INT,2026-11-17 19:45:00Z,Poland,Sweden,False
 INT,2026-11-17 19:45:00Z,Republic of Ireland,Kosovo,False
 INT,2026-11-17 19:45:00Z,Ukraine,Georgia,False
 INT,2026-11-17 19:45:00Z,Wales,Portugal,False
-INT,2026-11-17 20:00:00Z,Kuwait,Honduras,False
 INT,2026-11-17 20:00:00Z,Niger,Morocco,False
 INT,2026-11-17 23:00:00Z,Argentina,Costa Rica,False
 INT,2026-11-17 23:00:00Z,Chile,Colombia,False
@@ -264,6 +250,7 @@ POR,2026-11-28 15:30:00Z,Moreirense FC,Santa Clara,
 RUS,2026-11-28 16:00:00Z,FC Baltika Kaliningrad,Akhmat Grozny,
 TUR,2026-11-28 16:00:00Z,Gaziantep,Amedspor,
 L1,2026-11-28 16:15:00Z,Angers SCO,RC Lens,
+INT,2026-11-28 17:00:00Z,Spain,Chile,False
 SA,2026-11-28 17:00:00Z,Torino,Lazio,
 BL,2026-11-28 17:30:00Z,VfB Stuttgart,Eintracht Frankfurt,
 LIGA,2026-11-28 17:30:00Z,Elche CF,Atlético de Madrid,
@@ -489,6 +476,8 @@ SA,2026-12-11 19:45:00Z,Udinese,Frosinone,
 CHAMP,2026-12-11 20:00:00Z,Bolton Wanderers,Wrexham,
 POR,2026-12-11 20:15:00Z,Académico,FC Arouca,
 AUS,2026-12-12 04:00:00Z,Auckland FC,Sydney FC,
+AUS,2026-12-12 06:00:00Z,Central Coast Mariners FC,Brisbane Roar FC,
+AUS,2026-12-12 08:40:00Z,Melbourne Victory,Newcastle Jets,
 TUR,2026-12-12 10:30:00Z,Erzurumspor,Kasimpasa,
 CHAMP,2026-12-12 12:30:00Z,Preston North End,Middlesbrough,
 CHAMP,2026-12-12 12:30:00Z,Queens Park Rangers,Watford,
@@ -784,6 +773,7 @@ SA,2027-01-03 17:00:00Z,Parma,Napoli,
 L1,2027-01-03 19:45:00Z,RC Lens,Paris Saint-Germain,
 SA,2027-01-03 19:45:00Z,Bologna,Juventus,
 L2,2027-01-04 19:45:00Z,FC Annecy,AS Saint-Étienne,
+POR,2027-01-04 20:15:00Z,Estoril Praia,Marítimo M.,
 SA,2027-01-05 17:30:00Z,Genoa,Monza,
 SA,2027-01-05 17:30:00Z,Venezia,Roma,
 PL,2027-01-05 19:30:00Z,Arsenal,Brentford,
@@ -817,12 +807,12 @@ NED,2027-01-08 19:00:00Z,FC Twente,Fortuna Sittard,
 SA,2027-01-09 14:00:00Z,Monza,Frosinone,
 SCO,2027-01-09 15:00:00Z,Aberdeen,Heart of Midlothian,
 SCO,2027-01-09 15:00:00Z,Celtic,Dundee,
-SCO,2027-01-09 15:00:00Z,Dundee United,Rangers,
 SCO,2027-01-09 15:00:00Z,Hibernian,Motherwell,
 SCO,2027-01-09 15:00:00Z,Kilmarnock,St. Mirren,
 SCO,2027-01-09 15:00:00Z,St. Johnstone,Falkirk,
 NED,2027-01-09 15:30:00Z,Sparta Rotterdam,Excelsior Rotterdam,
 SA,2027-01-09 17:00:00Z,Roma,Milan,
+SCO,2027-01-09 17:30:00Z,Dundee United,Rangers,
 NED,2027-01-09 17:45:00Z,PEC Zwolle,FC Utrecht,
 NED,2027-01-09 19:00:00Z,Willem II,Ajax,
 SA,2027-01-09 19:45:00Z,Bologna,Genoa,
@@ -866,6 +856,7 @@ BL,2027-01-12 00:00:00Z,FC Schalke 04,SV Werder Bremen,
 BL,2027-01-12 00:00:00Z,RB Leipzig,VfB Stuttgart,
 BL,2027-01-12 00:00:00Z,SV Elversberg,Eintracht Frankfurt,
 BL,2027-01-12 00:00:00Z,Sport-Club Freiburg,Hamburger SV,
+SCO,2027-01-12 19:45:00Z,Dundee United,Heart of Midlothian,
 SCO,2027-01-13 19:45:00Z,Celtic,Hibernian,
 SCO,2027-01-13 20:00:00Z,St. Johnstone,Rangers,
 L2,2027-01-14 23:00:00Z,AS Nancy Lorraine,Grenoble Foot 38,
