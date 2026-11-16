@@ -1,18 +1,13 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-INT,2026-11-15 19:45:00Z,Belgium,Italy,False
-INT,2026-11-15 19:45:00Z,Croatia,Czech Republic,False
-INT,2026-11-15 19:45:00Z,France,Turkey,False
-INT,2026-11-15 19:45:00Z,Spain,England,False
-INT,2026-11-15 23:00:00Z,Panama,Curaçao,False
 INT,2026-11-16 13:00:00Z,Namibia,Cameroon,False
 INT,2026-11-16 13:00:00Z,Sudan,Senegal,False
-INT,2026-11-16 13:00:00Z,Zimbabwe,Equatorial Guinea,False
+INT,2026-11-16 14:00:00Z,Zimbabwe,Equatorial Guinea,False
 INT,2026-11-16 15:00:00Z,Faroe Islands,Moldova,False
 INT,2026-11-16 15:00:00Z,Kazakhstan,Slovakia,False
 INT,2026-11-16 15:00:00Z,Somalia,Ghana,False
 INT,2026-11-16 16:00:00Z,Central African Republic,Benin,False
-INT,2026-11-16 17:00:00Z,Eritrea,Guinea,False
+INT,2026-11-16 16:00:00Z,Eritrea,Guinea,False
 INT,2026-11-16 17:00:00Z,Estonia,Bulgaria,False
 INT,2026-11-16 17:00:00Z,Iceland,Luxembourg,False
 INT,2026-11-16 17:00:00Z,Lithuania,Liechtenstein,False
@@ -520,6 +515,7 @@ LIGA,2026-12-13 00:00:00Z,Real Betis,R. Racing Club,
 LIGA,2026-12-13 00:00:00Z,Real Madrid,CA Osasuna,
 LIGA,2026-12-13 00:00:00Z,Real Sociedad,Getafe CF,
 LIGA,2026-12-13 00:00:00Z,Villarreal CF,Rayo Vallecano,
+AUS,2026-12-13 06:00:00Z,Western Sydney Wanderers FC,Wellington Phoenix,
 TUR,2026-12-13 10:30:00Z,Kocaelispor,Gençlerbirligi,
 NED,2026-12-13 11:15:00Z,PSV,Telstar,
 SA,2026-12-13 11:30:00Z,Lazio,Roma,
