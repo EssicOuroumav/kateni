@@ -1,25 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-INT,2026-11-16 13:00:00Z,Namibia,Cameroon,False
-INT,2026-11-16 13:00:00Z,Sudan,Senegal,False
-INT,2026-11-16 14:00:00Z,Zimbabwe,Equatorial Guinea,False
-INT,2026-11-16 15:00:00Z,Faroe Islands,Moldova,False
-INT,2026-11-16 15:00:00Z,Kazakhstan,Slovakia,False
-INT,2026-11-16 15:00:00Z,Somalia,Ghana,False
-INT,2026-11-16 16:00:00Z,Central African Republic,Benin,False
-INT,2026-11-16 16:00:00Z,Eritrea,Guinea,False
-INT,2026-11-16 17:00:00Z,Estonia,Bulgaria,False
-INT,2026-11-16 17:00:00Z,Iceland,Luxembourg,False
-INT,2026-11-16 17:00:00Z,Lithuania,Liechtenstein,False
-INT,2026-11-16 18:00:00Z,Andorra,Azerbaijan,False
-INT,2026-11-16 19:00:00Z,Cuba,Grenada,False
-INT,2026-11-16 19:00:00Z,Guadeloupe,Bermuda,False
-INT,2026-11-16 19:00:00Z,Guyana,Puerto Rico,False
-INT,2026-11-16 19:45:00Z,Germany,Netherlands,False
-INT,2026-11-16 19:45:00Z,Gibraltar,Malta,False
-INT,2026-11-16 19:45:00Z,Greece,Serbia,False
-INT,2026-11-16 19:45:00Z,North Macedonia,Slovenia,False
-INT,2026-11-16 19:45:00Z,Switzerland,Scotland,False
 INT,2026-11-17 00:00:00Z,Martinique,Aruba,False
 INT,2026-11-17 00:00:00Z,Trinidad and Tobago,Antigua and Barbuda,False
 INT,2026-11-17 01:00:00Z,Canada,Guatemala,False
