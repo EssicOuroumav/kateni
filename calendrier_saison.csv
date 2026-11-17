@@ -1,44 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-INT,2026-11-17 13:00:00Z,Burundi,Zambia,False
-INT,2026-11-17 13:00:00Z,Ethiopia,Mozambique,False
-INT,2026-11-17 13:00:00Z,Lebanon,Palestine,False
-INT,2026-11-17 13:00:00Z,Lesotho,Gabon,False
-INT,2026-11-17 13:00:00Z,Malawi,Egypt,False
-INT,2026-11-17 13:00:00Z,South Sudan,Angola,False
-INT,2026-11-17 13:00:00Z,Tanzania,Nigeria,False
-INT,2026-11-17 13:10:00Z,Japan,Paraguay,False
-INT,2026-11-17 14:00:00Z,Qatar,South Korea,False
-INT,2026-11-17 14:10:00Z,United Arab Emirates,Syria,False
-INT,2026-11-17 15:30:00Z,Saudi Arabia,Uzbekistan,False
-INT,2026-11-17 16:00:00Z,Gambia,Ivory Coast,False
-INT,2026-11-17 16:00:00Z,Guinea-Bissau,Madagascar,False
-INT,2026-11-17 16:00:00Z,Jordan,Australia,False
-INT,2026-11-17 16:00:00Z,Kenya,South Africa,False
-INT,2026-11-17 16:00:00Z,Libya,Tunisia,False
-INT,2026-11-17 16:00:00Z,Russia,Venezuela,False
-INT,2026-11-17 16:00:00Z,Sierra Leone,DR Congo,False
-INT,2026-11-17 16:00:00Z,Togo,Algeria,False
-INT,2026-11-17 16:15:00Z,Iraq,Iran,False
-INT,2026-11-17 16:30:00Z,Kuwait,Honduras,False
-INT,2026-11-17 19:00:00Z,Belize,Sint Maarten,False
-INT,2026-11-17 19:00:00Z,Botswana,Uganda,False
-INT,2026-11-17 19:00:00Z,Congo,Comoros,False
-INT,2026-11-17 19:00:00Z,Dominica,Cayman Islands,False
-INT,2026-11-17 19:00:00Z,Liberia,Cape Verde,False
-INT,2026-11-17 19:00:00Z,Mauritania,Burkina Faso,False
-INT,2026-11-17 19:00:00Z,Rwanda,Mali,False
-INT,2026-11-17 19:00:00Z,Saint Kitts and Nevis,Bonaire,False
-INT,2026-11-17 19:00:00Z,Saint Lucia,Barbados,False
-INT,2026-11-17 19:45:00Z,Bosnia and Herzegovina,Romania,False
-INT,2026-11-17 19:45:00Z,Denmark,Norway,False
-INT,2026-11-17 19:45:00Z,Hungary,Northern Ireland,False
-INT,2026-11-17 19:45:00Z,Israel,Austria,False
-INT,2026-11-17 19:45:00Z,Poland,Sweden,False
-INT,2026-11-17 19:45:00Z,Republic of Ireland,Kosovo,False
-INT,2026-11-17 19:45:00Z,Ukraine,Georgia,False
-INT,2026-11-17 19:45:00Z,Wales,Portugal,False
-INT,2026-11-17 20:00:00Z,Niger,Morocco,False
 INT,2026-11-17 23:00:00Z,Argentina,Costa Rica,False
 INT,2026-11-17 23:00:00Z,Chile,Colombia,False
 INT,2026-11-17 23:30:00Z,Ecuador,Bolivia,False
