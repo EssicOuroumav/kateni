@@ -1,12 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-NBA,2026-11-17 00:00:00Z,Boston Celtics,Orlando Magic,,,,,0,,,,,0,0,0
-NBA,2026-11-17 00:00:00Z,Cleveland Cavaliers,Chicago Bulls,,,,,0,,,,,0,0,0
-NBA,2026-11-17 00:00:00Z,Washington Wizards,Memphis Grizzlies,,,,,0,,,,,0,0,0
-NBA,2026-11-17 00:30:00Z,Brooklyn Nets,Philadelphia 76ers,,,,,0,,,,,0,0,0
-NBA,2026-11-17 00:30:00Z,Miami Heat,Houston Rockets,,,,,0,,,,,0,0,0
-NBA,2026-11-17 01:00:00Z,Minnesota Timberwolves,Portland Trail Blazers,,,,,0,,,,,0,0,0
-NBA,2026-11-17 01:00:00Z,New Orleans Pelicans,Golden State Warriors,,,,,0,,,,,0,0,0
-NBA,2026-11-17 02:00:00Z,Denver Nuggets,Phoenix Suns,,,,,0,,,,,0,0,0
 EuroLeague,2026-11-17 16:00:00Z,Dubai Basketball,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
 EuroCup,2026-11-17 16:30:00Z,Turk Telekom Ankara,La Laguna Tenerife,0,0,0,0,0,0,0,0,0,0,0,0
 EuroCup,2026-11-17 17:00:00Z,Balkan Botevgrad,ratiopharm ulm,0,0,0,0,0,0,0,0,0,0,0,0
@@ -151,6 +143,14 @@ NBA,2026-12-01 00:30:00Z,Houston Rockets,Los Angeles Lakers,,,,,0,,,,,0,0,0
 NBA,2026-12-01 01:00:00Z,Dallas Mavericks,Boston Celtics,,,,,0,,,,,0,0,0
 NBA,2026-12-01 01:00:00Z,Milwaukee Bucks,San Antonio Spurs,,,,,0,,,,,0,0,0
 NBA,2026-12-01 03:00:00Z,Sacramento Kings,New Orleans Pelicans,,,,,0,,,,,0,0,0
+NBA,2026-12-02 00:00:00Z,Cleveland Cavaliers,Indiana Pacers,,,,,0,,,,,0,0,0
+NBA,2026-12-02 00:00:00Z,Philadelphia 76ers,Memphis Grizzlies,,,,,0,,,,,0,0,0
+NBA,2026-12-02 00:30:00Z,Miami Heat,Atlanta Hawks,,,,,0,,,,,0,0,0
+NBA,2026-12-02 01:00:00Z,Chicago Bulls,New York Knicks,,,,,0,,,,,0,0,0
+NBA,2026-12-02 01:30:00Z,Houston Rockets,Toronto Raptors,,,,,0,,,,,0,0,0
+NBA,2026-12-02 02:00:00Z,Phoenix Suns,LA Clippers,,,,,0,,,,,0,0,0
+NBA,2026-12-02 03:00:00Z,Portland Trail Blazers,Minnesota Timberwolves,,,,,0,,,,,0,0,0
+NBA,2026-12-02 04:00:00Z,Golden State Warriors,Utah Jazz,,,,,0,,,,,0,0,0
 EuroLeague,2026-12-03 17:30:00Z,Anadolu Efes Istanbul,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-12-03 17:45:00Z,Fenerbahce Tarfin Istanbul,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-12-03 18:45:00Z,Hapoel IBI Tel Aviv,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
