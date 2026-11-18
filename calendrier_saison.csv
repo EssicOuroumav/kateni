@@ -1,14 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-INT,2026-11-17 23:00:00Z,Argentina,Costa Rica,False
-INT,2026-11-17 23:00:00Z,Chile,Colombia,False
-INT,2026-11-17 23:30:00Z,Ecuador,Bolivia,False
-INT,2026-11-17 23:30:00Z,Uruguay,Dominican Republic,False
-INT,2026-11-18 00:00:00Z,French Guiana,Saint Vincent and the Grenadines,False
-INT,2026-11-18 00:00:00Z,United States,Haiti,False
-INT,2026-11-18 01:00:00Z,El Salvador,Saint Martin,False
-INT,2026-11-18 02:30:00Z,Mexico,Jamaica,False
-INT,2026-11-18 03:00:00Z,Nicaragua,Montserrat,False
 AUS,2026-11-20 08:40:00Z,Western Sydney Wanderers FC,Adelaide United FC,
 RUS,2026-11-20 16:30:00Z,Rostov,Krylia Sovetov,
 L2,2026-11-20 19:00:00Z,AS Nancy Lorraine,Dijon FCO,
@@ -482,6 +473,7 @@ L2,2026-12-14 19:45:00Z,FC Sochaux-Montbéliard,Montpellier Hérault SC,
 SA,2026-12-14 19:45:00Z,Juventus,Monza,
 PL,2026-12-14 20:00:00Z,Hull,Spurs,
 POR,2026-12-14 20:15:00Z,SL Benfica,SC Braga,
+AUS,2026-12-15 08:30:00Z,Adelaide United FC,Brisbane Roar FC,
 BL,2026-12-18 00:00:00Z,1. FC Union Berlin,TSG Hoffenheim,
 BL,2026-12-18 00:00:00Z,1. FSV Mainz 05,1. FC Köln,
 BL,2026-12-18 00:00:00Z,Bayer 04 Leverkusen,Eintracht Frankfurt,

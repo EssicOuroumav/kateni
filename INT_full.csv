@@ -10404,11 +10404,9 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-03,Switzerland,Slovenia,2,1,H,False,UEFA Nations League
 2026-10-03,United Arab Emirates,Oman,1,0,H,True,Gulf Cup
 2026-10-03,United States,Mexico,3,0,H,False,Friendly
-2026-10-04,Argentina,Burkina Faso,7,0,H,False,2026-international-friendly
 2026-10-04,Aruba,Anguilla,3,2,H,True,CONCACAF Nations League
 2026-10-04,Azerbaijan,Lithuania,1,0,H,False,UEFA Nations League
 2026-10-04,Bahamas,US Virgin Islands,2,3,A,False,group-stage
-2026-10-04,Belize,French Guiana,0,2,A,False,group-stage
 2026-10-04,Comoros,Senegal,0,1,A,False,2026-international-friendly
 2026-10-04,Costa Rica,Haiti,2,0,H,False,CONCACAF Nations League
 2026-10-04,Egypt,South Africa,0,1,A,False,Friendly
@@ -10426,7 +10424,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-04,Senegal,Comoros,1,0,H,True,Friendly
 2026-10-04,Trinidad and Tobago,Curaçao,1,1,D,False,CONCACAF Nations League
 2026-10-04,Turks and Caicos Islands,British Virgin Islands,3,0,H,False,CONCACAF Nations League
-2026-10-04,United States,Mexico,3,0,H,False,2026-international-friendly
 2026-10-04,Wales,Denmark,0,1,A,False,UEFA Nations League
 2026-10-05,Barbados,Bermuda,2,1,H,False,CONCACAF Nations League
 2026-10-05,Bosnia and Herzegovina,Poland,1,0,H,False,UEFA Nations League
@@ -10606,6 +10603,59 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-11-16,Sudan,Senegal,2,4,A,False,group-stage
 2026-11-16,Switzerland,Scotland,4,0,H,False,league-phase
 2026-11-16,Zimbabwe,Equatorial Guinea,3,0,H,False,group-stage
+2026-11-17,Argentina,Costa Rica,7,0,H,False,2026-international-friendly
+2026-11-17,Belize,Sint Maarten,1,2,A,False,group-stage
+2026-11-17,Bosnia and Herzegovina,Romania,2,1,H,False,league-phase
+2026-11-17,Botswana,Uganda,1,1,D,False,group-stage
+2026-11-17,Burundi,Zambia,1,1,D,False,group-stage
 2026-11-17,Canada,Guatemala,4,1,H,False,quarterfinals
+2026-11-17,Chile,Colombia,0,0,D,False,2026-international-friendly
+2026-11-17,China,Bahrain,2,2,D,False,2026-international-friendly
+2026-11-17,Congo,Comoros,0,1,A,False,group-stage
+2026-11-17,Denmark,Norway,2,3,A,False,league-phase
+2026-11-17,Dominica,Cayman Islands,5,0,H,False,group-stage
+2026-11-17,Ecuador,Bolivia,2,0,H,False,2026-international-friendly
+2026-11-17,Ethiopia,Mozambique,0,1,A,False,group-stage
+2026-11-17,Gambia,Ivory Coast,2,2,D,False,group-stage
+2026-11-17,Guinea-Bissau,Madagascar,2,0,H,False,group-stage
+2026-11-17,Hungary,Northern Ireland,1,1,D,False,league-phase
+2026-11-17,Iraq,Iran,1,1,D,False,2026-international-friendly
+2026-11-17,Israel,Austria,1,1,D,False,league-phase
+2026-11-17,Japan,Paraguay,1,2,A,False,2026-international-friendly
+2026-11-17,Jordan,Australia,2,0,H,False,2026-international-friendly
+2026-11-17,Kenya,South Africa,1,2,A,False,group-stage
+2026-11-17,Kuwait,Honduras,0,2,A,False,2026-international-friendly
+2026-11-17,Kyrgyzstan,Vietnam,2,1,H,False,2026-international-friendly
+2026-11-17,Lebanon,Palestine,0,0,D,False,2026-international-friendly
+2026-11-17,Lesotho,Gabon,2,1,H,False,group-stage
+2026-11-17,Liberia,Cape Verde,2,0,H,False,group-stage
+2026-11-17,Libya,Tunisia,1,1,D,False,group-stage
+2026-11-17,Malawi,Egypt,0,0,D,False,group-stage
+2026-11-17,Malaysia,Yemen,2,1,H,False,2026-international-friendly
 2026-11-17,Martinique,Aruba,1,1,D,False,gold-cup-play-in-prelims
+2026-11-17,Mauritania,Burkina Faso,1,3,A,False,group-stage
+2026-11-17,Niger,Morocco,0,1,A,False,group-stage
+2026-11-17,Poland,Sweden,1,1,D,False,league-phase
+2026-11-17,Qatar,South Korea,0,1,A,False,2026-international-friendly
+2026-11-17,Republic of Ireland,Kosovo,3,0,H,False,league-phase
+2026-11-17,Russia,Venezuela,2,0,H,False,2026-international-friendly
+2026-11-17,Rwanda,Mali,0,2,A,False,group-stage
+2026-11-17,Saint Kitts and Nevis,Bonaire,3,2,H,False,group-stage
+2026-11-17,Saint Lucia,Barbados,2,0,H,False,group-stage
+2026-11-17,Saudi Arabia,Uzbekistan,1,2,A,False,2026-international-friendly
+2026-11-17,Sierra Leone,DR Congo,1,1,D,False,group-stage
+2026-11-17,Singapore,Brazil,0,7,A,False,2026-international-friendly
+2026-11-17,South Sudan,Angola,0,1,A,False,group-stage
+2026-11-17,Tahiti,Cook Islands,3,3,D,False,2026-international-friendly
+2026-11-17,Tanzania,Nigeria,0,0,D,False,group-stage
+2026-11-17,Togo,Algeria,3,0,H,False,group-stage
 2026-11-17,Trinidad and Tobago,Antigua and Barbuda,1,1,D,False,gold-cup-play-in-prelims
+2026-11-17,Ukraine,Georgia,1,0,H,False,league-phase
+2026-11-17,United Arab Emirates,Syria,4,2,H,False,2026-international-friendly
+2026-11-17,Uruguay,Dominican Republic,5,0,H,False,2026-international-friendly
+2026-11-17,Wales,Portugal,2,3,A,False,league-phase
+2026-11-18,El Salvador,Saint Martin,3,1,H,False,gold-cup-play-in-prelims
+2026-11-18,French Guiana,Saint Vincent and the Grenadines,1,0,H,False,group-stage
+2026-11-18,Mexico,Jamaica,1,0,H,False,quarterfinals
+2026-11-18,Nicaragua,Montserrat,2,0,H,False,gold-cup-play-in-prelims
+2026-11-18,United States,Haiti,2,0,H,False,quarterfinals
