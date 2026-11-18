@@ -10485,175 +10485,209 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-07,French Guiana,Belize,1,0,H,False,group-stage
 2026-10-07,Mexico,Chile,0,2,A,False,2026-international-friendly
 2026-10-07,United States,Canada,1,0,H,False,2026-international-friendly
-2026-11-11,Vietnam,Taiwan,2,0,H,False,2026-international-friendly
-2026-11-12,Albania,Finland,2,0,H,False,league-phase
+2026-11-05,Bangladesh,Bhutan,1,0,H,False,SAFF Cup
+2026-11-05,Pakistan,India,2,3,A,True,SAFF Cup
+2026-11-08,Maldives,Pakistan,0,3,A,True,SAFF Cup
+2026-11-08,Sri Lanka,Bhutan,2,2,D,True,SAFF Cup
+2026-11-11,Bangladesh,Sri Lanka,4,0,H,False,SAFF Cup
+2026-11-11,India,Maldives,1,0,H,True,SAFF Cup
+2026-11-11,Vietnam,Taiwan,2,0,H,False,VFF Cup
+2026-11-12,Albania,Finland,2,0,H,False,UEFA Nations League
 2026-11-12,Antigua and Barbuda,Trinidad and Tobago,2,3,A,False,gold-cup-play-in-prelims
-2026-11-12,Armenia,Cyprus,1,1,D,False,league-phase
+2026-11-12,Armenia,Cyprus,1,1,D,False,UEFA Nations League
 2026-11-12,Aruba,Martinique,0,0,D,False,gold-cup-play-in-prelims
 2026-11-12,Barbados,Guadeloupe,0,3,A,False,group-stage
-2026-11-12,Benin,Central African Republic,4,1,H,False,group-stage
+2026-11-12,Benin,Central African Republic,4,1,H,False,African Cup of Nations qualification
 2026-11-12,Bonaire,Cuba,1,7,A,False,group-stage
-2026-11-12,Cameroon,Namibia,2,0,H,False,group-stage
+2026-11-12,Cameroon,Namibia,2,0,H,False,African Cup of Nations qualification
 2026-11-12,Cayman Islands,Guyana,0,6,A,False,group-stage
-2026-11-12,Czech Republic,Spain,0,2,A,False,league-phase
-2026-11-12,DR Congo,Sierra Leone,3,1,H,False,group-stage
-2026-11-12,England,Croatia,2,1,H,False,league-phase
-2026-11-12,Equatorial Guinea,Zimbabwe,0,0,D,False,group-stage
-2026-11-12,Ghana,Somalia,2,0,H,False,group-stage
-2026-11-12,Guinea,Eritrea,2,1,H,False,group-stage
-2026-11-12,Italy,France,3,1,H,False,league-phase
-2026-11-12,Ivory Coast,Gambia,2,1,H,False,group-stage
-2026-11-12,Lithuania,Suriname,0,0,D,False,2026-international-friendly
-2026-11-12,Madagascar,Guinea-Bissau,1,1,D,False,group-stage
-2026-11-12,Malta,Eswatini,1,1,D,False,2026-international-friendly
-2026-11-12,Montenegro,Latvia,2,1,H,False,league-phase
-2026-11-12,New Zealand,India,5,0,H,False,2026-international-friendly
-2026-11-12,San Marino,Belarus,0,2,A,False,league-phase
-2026-11-12,Senegal,Sudan,4,1,H,False,group-stage
-2026-11-12,Turkey,Belgium,1,2,A,False,league-phase
-2026-11-12,Uzbekistan,Russia,2,3,A,False,2026-international-friendly
-2026-11-13,Andorra,Gibraltar,2,0,H,False,league-phase
-2026-11-13,Argentina,Uruguay,1,2,A,False,2026-international-friendly
-2026-11-13,Bermuda,Saint Lucia,1,2,A,False,group-stage
-2026-11-13,Bulgaria,Iceland,0,5,A,False,league-phase
-2026-11-13,Burkina Faso,Mauritania,1,0,H,False,group-stage
-2026-11-13,Cape Verde,Liberia,4,2,H,False,group-stage
-2026-11-13,Comoros,Congo,0,0,D,False,group-stage
+2026-11-12,Cuba,Bonaire,7,1,H,False,CONCACAF Nations League
+2026-11-12,Curaçao,Panama,0,0,D,False,CONCACAF Nations League
+2026-11-12,Czech Republic,Spain,0,2,A,False,UEFA Nations League
+2026-11-12,DR Congo,Sierra Leone,3,1,H,False,African Cup of Nations qualification
+2026-11-12,England,Croatia,2,1,H,False,UEFA Nations League
+2026-11-12,Equatorial Guinea,Zimbabwe,0,0,D,True,African Cup of Nations qualification
+2026-11-12,Ghana,Somalia,2,0,H,False,African Cup of Nations qualification
+2026-11-12,Guadeloupe,Barbados,3,0,H,False,CONCACAF Nations League
+2026-11-12,Guinea,Eritrea,2,1,H,False,African Cup of Nations qualification
+2026-11-12,Guyana,Cayman Islands,6,0,H,False,CONCACAF Nations League
+2026-11-12,Italy,France,3,1,H,False,UEFA Nations League
+2026-11-12,Ivory Coast,Gambia,2,1,H,False,African Cup of Nations qualification
+2026-11-12,Lithuania,Suriname,0,0,D,False,Friendly
+2026-11-12,Madagascar,Guinea-Bissau,1,1,D,True,African Cup of Nations qualification
+2026-11-12,Malta,Eswatini,1,1,D,False,Friendly
+2026-11-12,Montenegro,Latvia,2,1,H,False,UEFA Nations League
+2026-11-12,New Zealand,India,5,0,H,False,Friendly
+2026-11-12,San Marino,Belarus,0,2,A,False,UEFA Nations League
+2026-11-12,Senegal,Sudan,4,1,H,False,African Cup of Nations qualification
+2026-11-12,Turkey,Belgium,1,2,A,False,UEFA Nations League
+2026-11-12,Uzbekistan,Russia,2,3,A,False,Friendly
+2026-11-13,Andorra,Gibraltar,2,0,H,False,UEFA Nations League
+2026-11-13,Argentina,Uruguay,1,2,A,False,Friendly
+2026-11-13,Bermuda,Saint Lucia,1,2,A,True,CONCACAF Nations League
+2026-11-13,Bulgaria,Iceland,0,5,A,False,UEFA Nations League
+2026-11-13,Burkina Faso,Mauritania,1,0,H,False,African Cup of Nations qualification
+2026-11-13,Cape Verde,Liberia,4,2,H,False,African Cup of Nations qualification
+2026-11-13,Colombia,Chile,1,0,H,False,Friendly
+2026-11-13,Comoros,Congo,0,0,D,False,African Cup of Nations qualification
 2026-11-13,Curaçao,Panama,0,0,D,False,quarterfinals
-2026-11-13,Egypt,Malawi,5,0,H,False,group-stage
-2026-11-13,Gabon,Lesotho,2,0,H,False,group-stage
-2026-11-13,Grenada,Saint Kitts and Nevis,3,2,H,False,group-stage
-2026-11-13,Iraq,Lebanon,0,0,D,False,2026-international-friendly
-2026-11-13,Kuwait,Syria,3,0,H,False,2026-international-friendly
-2026-11-13,Liechtenstein,Azerbaijan,0,1,A,False,league-phase
-2026-11-13,Luxembourg,Estonia,0,1,A,False,league-phase
-2026-11-13,Mali,Rwanda,3,2,H,False,group-stage
-2026-11-13,Moldova,Kazakhstan,2,1,H,False,league-phase
-2026-11-13,Morocco,Niger,5,1,H,False,group-stage
-2026-11-13,Mozambique,Ethiopia,0,1,A,False,group-stage
-2026-11-13,Netherlands,Greece,7,0,H,False,league-phase
-2026-11-13,Nigeria,Tanzania,3,1,H,False,group-stage
-2026-11-13,Puerto Rico,Dominica,4,2,H,False,group-stage
-2026-11-13,Qatar,Australia,0,3,A,False,2026-international-friendly
+2026-11-13,Ecuador,Costa Rica,2,0,H,False,Friendly
+2026-11-13,Egypt,Malawi,5,0,H,False,African Cup of Nations qualification
+2026-11-13,Gabon,Lesotho,2,0,H,False,African Cup of Nations qualification
+2026-11-13,Grenada,Saint Kitts and Nevis,3,2,H,True,CONCACAF Nations League
+2026-11-13,Guatemala,Canada,2,3,A,False,CONCACAF Nations League
+2026-11-13,Iraq,Lebanon,0,0,D,False,Basra International Tournament
+2026-11-13,Kuwait,Syria,3,0,H,False,Friendly
+2026-11-13,Liechtenstein,Azerbaijan,0,1,A,False,UEFA Nations League
+2026-11-13,Luxembourg,Estonia,0,1,A,False,UEFA Nations League
+2026-11-13,Mali,Rwanda,3,2,H,False,African Cup of Nations qualification
+2026-11-13,Moldova,Kazakhstan,2,1,H,False,UEFA Nations League
+2026-11-13,Morocco,Niger,5,1,H,False,African Cup of Nations qualification
+2026-11-13,Mozambique,Ethiopia,0,1,A,False,African Cup of Nations qualification
+2026-11-13,Netherlands,Greece,7,0,H,False,UEFA Nations League
+2026-11-13,Nigeria,Tanzania,3,1,H,False,African Cup of Nations qualification
+2026-11-13,Peru,Bolivia,2,0,H,False,Friendly
+2026-11-13,Puerto Rico,Dominica,4,2,H,True,CONCACAF Nations League
+2026-11-13,Qatar,Australia,0,3,A,False,Friendly
 2026-11-13,Saint Martin,El Salvador,0,2,A,False,gold-cup-play-in-prelims
-2026-11-13,Saudi Arabia,South Korea,3,2,H,False,2026-international-friendly
-2026-11-13,Scotland,North Macedonia,2,1,H,False,league-phase
-2026-11-13,Serbia,Germany,1,3,A,False,league-phase
-2026-11-13,Singapore,Paraguay,1,4,A,False,2026-international-friendly
-2026-11-13,Slovakia,Faroe Islands,2,2,D,False,league-phase
-2026-11-13,Slovenia,Switzerland,0,0,D,False,league-phase
-2026-11-13,South Africa,Kenya,2,2,D,False,group-stage
-2026-11-13,Tunisia,Libya,0,2,A,False,group-stage
-2026-11-13,United Arab Emirates,Honduras,3,1,H,False,2026-international-friendly
-2026-11-13,Zambia,Burundi,1,1,D,False,group-stage
-2026-11-14,Algeria,Togo,1,0,H,False,group-stage
-2026-11-14,Angola,South Sudan,2,0,H,False,group-stage
-2026-11-14,Austria,Republic of Ireland,1,0,H,False,league-phase
-2026-11-14,Bahrain,Yemen,3,1,H,False,2026-international-friendly
-2026-11-14,China,Malaysia,2,0,H,False,2026-international-friendly
+2026-11-13,Saudi Arabia,South Korea,3,2,H,True,Friendly
+2026-11-13,Scotland,North Macedonia,2,1,H,False,UEFA Nations League
+2026-11-13,Serbia,Germany,1,3,A,False,UEFA Nations League
+2026-11-13,Singapore,Paraguay,1,4,A,False,The Kallang Football Series
+2026-11-13,Slovakia,Faroe Islands,2,2,D,False,UEFA Nations League
+2026-11-13,Slovenia,Switzerland,0,0,D,False,UEFA Nations League
+2026-11-13,South Africa,Kenya,2,2,D,False,African Cup of Nations qualification
+2026-11-13,Tahiti,Cook Islands,4,0,H,False,Friendly
+2026-11-13,Tunisia,Libya,0,2,A,False,African Cup of Nations qualification
+2026-11-13,United Arab Emirates,Honduras,3,1,H,False,Friendly
+2026-11-13,Zambia,Burundi,1,1,D,False,African Cup of Nations qualification
+2026-11-14,Algeria,Togo,1,0,H,False,African Cup of Nations qualification
+2026-11-14,Angola,South Sudan,2,0,H,False,African Cup of Nations qualification
+2026-11-14,Austria,Republic of Ireland,1,0,H,False,UEFA Nations League
+2026-11-14,Bahrain,Yemen,3,1,H,True,Friendly
+2026-11-14,Bangladesh,Pakistan,0,1,A,False,SAFF Cup
+2026-11-14,Basque Country,Venezuela,1,0,H,False,Friendly
+2026-11-14,China,Malaysia,2,0,H,False,Friendly
 2026-11-14,Colombia,Chile,1,0,H,False,2026-international-friendly
 2026-11-14,Ecuador,Costa Rica,2,0,H,False,2026-international-friendly
-2026-11-14,Georgia,Hungary,0,2,A,False,league-phase
+2026-11-14,Georgia,Hungary,0,2,A,False,UEFA Nations League
 2026-11-14,Guatemala,Canada,2,3,A,False,quarterfinals
 2026-11-14,Haiti,United States,0,6,A,False,quarterfinals
-2026-11-14,Japan,Brazil,3,2,H,False,2026-international-friendly
-2026-11-14,Kosovo,Israel,0,0,D,False,league-phase
+2026-11-14,India,Bhutan,2,1,H,True,SAFF Cup
+2026-11-14,Iran,Palestine,2,0,H,True,Basra International Tournament
+2026-11-14,Jamaica,Mexico,3,2,H,False,CONCACAF Nations League
+2026-11-14,Japan,Brazil,3,2,H,True,The Kallang Football Series
+2026-11-14,Kosovo,Israel,0,0,D,False,UEFA Nations League
 2026-11-14,Montserrat,Nicaragua,1,2,A,False,gold-cup-play-in-prelims
-2026-11-14,Northern Ireland,Ukraine,1,0,H,False,league-phase
-2026-11-14,Norway,Wales,3,1,H,False,league-phase
+2026-11-14,Northern Ireland,Ukraine,1,0,H,False,UEFA Nations League
+2026-11-14,Norway,Wales,3,1,H,False,UEFA Nations League
+2026-11-14,Oman,Tajikistan,0,1,A,True,King's Cup
 2026-11-14,Palestine,Iran,0,2,A,False,2026-international-friendly
 2026-11-14,Peru,Bolivia,2,0,H,False,2026-international-friendly
-2026-11-14,Portugal,Denmark,1,4,A,False,league-phase
-2026-11-14,Romania,Poland,2,1,H,False,league-phase
-2026-11-14,Sint Maarten,French Guiana,1,5,A,False,group-stage
-2026-11-14,Sweden,Bosnia and Herzegovina,3,2,H,False,league-phase
+2026-11-14,Portugal,Denmark,1,4,A,False,UEFA Nations League
+2026-11-14,Romania,Poland,2,1,H,False,UEFA Nations League
+2026-11-14,Saint Vincent and the Grenadines,Belize,1,0,H,False,CONCACAF Nations League
+2026-11-14,Sint Maarten,French Guiana,1,5,A,True,CONCACAF Nations League
+2026-11-14,Sweden,Bosnia and Herzegovina,3,2,H,False,UEFA Nations League
 2026-11-14,Tahiti,Cook Islands,4,0,H,False,2026-international-friendly
-2026-11-14,Taiwan,Kyrgyzstan,0,3,A,False,2026-international-friendly
-2026-11-14,Uganda,Botswana,1,1,D,False,group-stage
-2026-11-15,Belarus,Albania,0,2,A,False,league-phase
-2026-11-15,Belgium,Italy,4,1,H,False,league-phase
-2026-11-15,Croatia,Czech Republic,2,1,H,False,league-phase
-2026-11-15,Cyprus,Montenegro,1,4,A,False,league-phase
-2026-11-15,Finland,San Marino,7,2,H,False,league-phase
-2026-11-15,France,Turkey,2,1,H,False,league-phase
+2026-11-14,Taiwan,Kyrgyzstan,0,3,A,True,VFF Cup
+2026-11-14,Thailand,Brunei,6,0,H,False,King's Cup
+2026-11-14,Uganda,Botswana,1,1,D,False,African Cup of Nations qualification
+2026-11-14,United States,Haiti,6,0,H,False,CONCACAF Nations League
+2026-11-15,Belarus,Albania,0,2,A,True,UEFA Nations League
+2026-11-15,Belgium,Italy,4,1,H,False,UEFA Nations League
+2026-11-15,Croatia,Czech Republic,2,1,H,False,UEFA Nations League
+2026-11-15,Cyprus,Montenegro,1,4,A,False,UEFA Nations League
+2026-11-15,Finland,San Marino,7,2,H,False,UEFA Nations League
+2026-11-15,France,Turkey,2,1,H,False,UEFA Nations League
 2026-11-15,Jamaica,Mexico,3,2,H,False,quarterfinals
-2026-11-15,Latvia,Armenia,0,0,D,False,league-phase
-2026-11-15,New Zealand,India,3,0,H,False,2026-international-friendly
-2026-11-15,Panama,Curaçao,2,0,H,False,quarterfinals
+2026-11-15,Latvia,Armenia,0,0,D,False,UEFA Nations League
+2026-11-15,New Zealand,India,3,0,H,False,Friendly
+2026-11-15,Panama,Curaçao,2,0,H,False,CONCACAF Nations League
 2026-11-15,Saint Vincent and the Grenadines,Belize,1,0,H,False,group-stage
-2026-11-15,Spain,England,2,3,A,False,league-phase
-2026-11-15,Suriname,Eswatini,4,0,H,False,2026-international-friendly
-2026-11-16,Andorra,Azerbaijan,1,3,A,False,2026-international-friendly
-2026-11-16,Central African Republic,Benin,0,1,A,False,group-stage
-2026-11-16,Cuba,Grenada,9,0,H,False,group-stage
-2026-11-16,Eritrea,Guinea,1,3,A,False,group-stage
-2026-11-16,Estonia,Bulgaria,2,1,H,False,league-phase
-2026-11-16,Faroe Islands,Moldova,1,0,H,False,league-phase
-2026-11-16,Germany,Netherlands,5,0,H,False,league-phase
-2026-11-16,Gibraltar,Malta,1,1,D,False,league-phase
-2026-11-16,Greece,Serbia,1,0,H,False,league-phase
-2026-11-16,Guadeloupe,Bermuda,4,1,H,False,group-stage
-2026-11-16,Guyana,Puerto Rico,4,2,H,False,group-stage
-2026-11-16,Iceland,Luxembourg,3,0,H,False,league-phase
-2026-11-16,Kazakhstan,Slovakia,2,2,D,False,league-phase
-2026-11-16,Lithuania,Liechtenstein,2,1,H,False,league-phase
-2026-11-16,Namibia,Cameroon,0,3,A,False,group-stage
-2026-11-16,North Macedonia,Slovenia,0,3,A,False,league-phase
+2026-11-15,Spain,England,2,3,A,False,UEFA Nations League
+2026-11-15,Suriname,Eswatini,4,0,H,True,Friendly
+2026-11-16,Andorra,Azerbaijan,1,3,A,False,Friendly
+2026-11-16,Canada,Guatemala,4,1,H,False,CONCACAF Nations League
+2026-11-16,Central African Republic,Benin,0,1,A,True,African Cup of Nations qualification
+2026-11-16,Cuba,Grenada,9,0,H,False,CONCACAF Nations League
+2026-11-16,Eritrea,Guinea,1,3,A,True,African Cup of Nations qualification
+2026-11-16,Estonia,Bulgaria,2,1,H,False,UEFA Nations League
+2026-11-16,Faroe Islands,Moldova,1,0,H,False,UEFA Nations League
+2026-11-16,Germany,Netherlands,5,0,H,False,UEFA Nations League
+2026-11-16,Ghana,Somalia,1,0,H,False,African Cup of Nations qualification
+2026-11-16,Gibraltar,Malta,1,1,D,False,UEFA Nations League
+2026-11-16,Greece,Serbia,1,0,H,False,UEFA Nations League
+2026-11-16,Guadeloupe,Bermuda,4,1,H,False,CONCACAF Nations League
+2026-11-16,Guyana,Puerto Rico,4,2,H,False,CONCACAF Nations League
+2026-11-16,Iceland,Luxembourg,3,0,H,False,UEFA Nations League
+2026-11-16,Kazakhstan,Slovakia,2,2,D,False,UEFA Nations League
+2026-11-16,Lithuania,Liechtenstein,2,1,H,False,UEFA Nations League
+2026-11-16,Namibia,Cameroon,0,3,A,True,African Cup of Nations qualification
+2026-11-16,North Macedonia,Slovenia,0,3,A,False,UEFA Nations League
 2026-11-16,Somalia,Ghana,0,1,A,False,group-stage
-2026-11-16,Sudan,Senegal,2,4,A,False,group-stage
-2026-11-16,Switzerland,Scotland,4,0,H,False,league-phase
-2026-11-16,Zimbabwe,Equatorial Guinea,3,0,H,False,group-stage
-2026-11-17,Argentina,Costa Rica,7,0,H,False,2026-international-friendly
-2026-11-17,Belize,Sint Maarten,1,2,A,False,group-stage
-2026-11-17,Bosnia and Herzegovina,Romania,2,1,H,False,league-phase
-2026-11-17,Botswana,Uganda,1,1,D,False,group-stage
-2026-11-17,Burundi,Zambia,1,1,D,False,group-stage
+2026-11-16,Sudan,Senegal,2,4,A,True,African Cup of Nations qualification
+2026-11-16,Switzerland,Scotland,4,0,H,False,UEFA Nations League
+2026-11-16,Tahiti,Cook Islands,3,3,D,False,Friendly
+2026-11-16,Zimbabwe,Equatorial Guinea,3,0,H,False,African Cup of Nations qualification
+2026-11-17,Argentina,Costa Rica,7,0,H,False,Friendly
+2026-11-17,Belize,Sint Maarten,1,2,A,True,CONCACAF Nations League
+2026-11-17,Bosnia and Herzegovina,Romania,2,1,H,False,UEFA Nations League
+2026-11-17,Botswana,Uganda,1,1,D,False,African Cup of Nations qualification
+2026-11-17,Burundi,Zambia,1,1,D,False,African Cup of Nations qualification
 2026-11-17,Canada,Guatemala,4,1,H,False,quarterfinals
-2026-11-17,Chile,Colombia,0,0,D,False,2026-international-friendly
-2026-11-17,China,Bahrain,2,2,D,False,2026-international-friendly
-2026-11-17,Congo,Comoros,0,1,A,False,group-stage
-2026-11-17,Denmark,Norway,2,3,A,False,league-phase
-2026-11-17,Dominica,Cayman Islands,5,0,H,False,group-stage
-2026-11-17,Ecuador,Bolivia,2,0,H,False,2026-international-friendly
-2026-11-17,Ethiopia,Mozambique,0,1,A,False,group-stage
-2026-11-17,Gambia,Ivory Coast,2,2,D,False,group-stage
-2026-11-17,Guinea-Bissau,Madagascar,2,0,H,False,group-stage
-2026-11-17,Hungary,Northern Ireland,1,1,D,False,league-phase
-2026-11-17,Iraq,Iran,1,1,D,False,2026-international-friendly
-2026-11-17,Israel,Austria,1,1,D,False,league-phase
-2026-11-17,Japan,Paraguay,1,2,A,False,2026-international-friendly
-2026-11-17,Jordan,Australia,2,0,H,False,2026-international-friendly
-2026-11-17,Kenya,South Africa,1,2,A,False,group-stage
-2026-11-17,Kuwait,Honduras,0,2,A,False,2026-international-friendly
+2026-11-17,Chile,Colombia,0,0,D,False,Friendly
+2026-11-17,China,Bahrain,2,2,D,False,Friendly
+2026-11-17,Congo,Comoros,0,1,A,False,African Cup of Nations qualification
+2026-11-17,Denmark,Norway,2,3,A,False,UEFA Nations League
+2026-11-17,Dominica,Cayman Islands,5,0,H,True,CONCACAF Nations League
+2026-11-17,Ecuador,Bolivia,2,0,H,False,Friendly
+2026-11-17,Ethiopia,Mozambique,0,1,A,False,African Cup of Nations qualification
+2026-11-17,Gambia,Ivory Coast,2,2,D,False,African Cup of Nations qualification
+2026-11-17,Guinea-Bissau,Madagascar,2,0,H,False,African Cup of Nations qualification
+2026-11-17,Hungary,Northern Ireland,1,1,D,False,UEFA Nations League
+2026-11-17,Iraq,Iran,1,1,D,False,Basra International Tournament
+2026-11-17,Israel,Austria,1,1,D,True,UEFA Nations League
+2026-11-17,Japan,Paraguay,1,2,A,True,The Kallang Football Series
+2026-11-17,Jordan,Australia,2,0,H,True,Friendly
+2026-11-17,Kenya,South Africa,1,2,A,False,African Cup of Nations qualification
+2026-11-17,Kuwait,Honduras,0,2,A,False,Friendly
 2026-11-17,Kyrgyzstan,Vietnam,2,1,H,False,2026-international-friendly
-2026-11-17,Lebanon,Palestine,0,0,D,False,2026-international-friendly
-2026-11-17,Lesotho,Gabon,2,1,H,False,group-stage
-2026-11-17,Liberia,Cape Verde,2,0,H,False,group-stage
-2026-11-17,Libya,Tunisia,1,1,D,False,group-stage
-2026-11-17,Malawi,Egypt,0,0,D,False,group-stage
-2026-11-17,Malaysia,Yemen,2,1,H,False,2026-international-friendly
+2026-11-17,Lebanon,Palestine,0,0,D,True,Basra International Tournament
+2026-11-17,Lesotho,Gabon,2,1,H,True,African Cup of Nations qualification
+2026-11-17,Liberia,Cape Verde,2,0,H,False,African Cup of Nations qualification
+2026-11-17,Libya,Tunisia,1,1,D,False,African Cup of Nations qualification
+2026-11-17,Malawi,Egypt,0,0,D,False,African Cup of Nations qualification
+2026-11-17,Malaysia,Yemen,2,1,H,True,Friendly
 2026-11-17,Martinique,Aruba,1,1,D,False,gold-cup-play-in-prelims
-2026-11-17,Mauritania,Burkina Faso,1,3,A,False,group-stage
+2026-11-17,Mauritania,Burkina Faso,1,3,A,False,African Cup of Nations qualification
+2026-11-17,Mexico,Jamaica,1,0,H,False,CONCACAF Nations League
+2026-11-17,Morocco,Niger,1,0,H,False,African Cup of Nations qualification
 2026-11-17,Niger,Morocco,0,1,A,False,group-stage
-2026-11-17,Poland,Sweden,1,1,D,False,league-phase
-2026-11-17,Qatar,South Korea,0,1,A,False,2026-international-friendly
-2026-11-17,Republic of Ireland,Kosovo,3,0,H,False,league-phase
-2026-11-17,Russia,Venezuela,2,0,H,False,2026-international-friendly
-2026-11-17,Rwanda,Mali,0,2,A,False,group-stage
-2026-11-17,Saint Kitts and Nevis,Bonaire,3,2,H,False,group-stage
-2026-11-17,Saint Lucia,Barbados,2,0,H,False,group-stage
-2026-11-17,Saudi Arabia,Uzbekistan,1,2,A,False,2026-international-friendly
-2026-11-17,Sierra Leone,DR Congo,1,1,D,False,group-stage
-2026-11-17,Singapore,Brazil,0,7,A,False,2026-international-friendly
-2026-11-17,South Sudan,Angola,0,1,A,False,group-stage
+2026-11-17,Oman,Brunei,7,0,H,True,King's Cup
+2026-11-17,Poland,Sweden,1,1,D,False,UEFA Nations League
+2026-11-17,Qatar,South Korea,0,1,A,False,Friendly
+2026-11-17,Republic of Ireland,Kosovo,3,0,H,False,UEFA Nations League
+2026-11-17,Russia,Venezuela,2,0,H,False,Friendly
+2026-11-17,Rwanda,Mali,0,2,A,False,African Cup of Nations qualification
+2026-11-17,Saint Kitts and Nevis,Bonaire,3,2,H,True,CONCACAF Nations League
+2026-11-17,Saint Lucia,Barbados,2,0,H,True,CONCACAF Nations League
+2026-11-17,Saint Vincent and the Grenadines,French Guiana,0,1,A,False,CONCACAF Nations League
+2026-11-17,Saudi Arabia,Uzbekistan,1,2,A,True,Friendly
+2026-11-17,Sierra Leone,DR Congo,1,1,D,True,African Cup of Nations qualification
+2026-11-17,Singapore,Brazil,0,7,A,False,The Kallang Football Series
+2026-11-17,South Sudan,Angola,0,1,A,False,African Cup of Nations qualification
 2026-11-17,Tahiti,Cook Islands,3,3,D,False,2026-international-friendly
-2026-11-17,Tanzania,Nigeria,0,0,D,False,group-stage
-2026-11-17,Togo,Algeria,3,0,H,False,group-stage
+2026-11-17,Tanzania,Nigeria,0,0,D,False,African Cup of Nations qualification
+2026-11-17,Thailand,Tajikistan,3,0,H,False,King's Cup
+2026-11-17,Togo,Algeria,3,0,H,False,African Cup of Nations qualification
 2026-11-17,Trinidad and Tobago,Antigua and Barbuda,1,1,D,False,gold-cup-play-in-prelims
-2026-11-17,Ukraine,Georgia,1,0,H,False,league-phase
-2026-11-17,United Arab Emirates,Syria,4,2,H,False,2026-international-friendly
-2026-11-17,Uruguay,Dominican Republic,5,0,H,False,2026-international-friendly
-2026-11-17,Wales,Portugal,2,3,A,False,league-phase
+2026-11-17,Ukraine,Georgia,1,0,H,True,UEFA Nations League
+2026-11-17,United Arab Emirates,Syria,4,2,H,False,Friendly
+2026-11-17,United States,Haiti,2,0,H,False,CONCACAF Nations League
+2026-11-17,Uruguay,Dominican Republic,5,0,H,False,Friendly
+2026-11-17,Vietnam,Kyrgyzstan,1,2,A,False,VFF Cup
+2026-11-17,Wales,Portugal,2,3,A,False,UEFA Nations League
 2026-11-18,El Salvador,Saint Martin,3,1,H,False,gold-cup-play-in-prelims
 2026-11-18,French Guiana,Saint Vincent and the Grenadines,1,0,H,False,group-stage
 2026-11-18,Mexico,Jamaica,1,0,H,False,quarterfinals
