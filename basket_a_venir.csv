@@ -1,9 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-EuroLeague,2026-11-19 17:15:00Z,Maccabi Rapyd Tel Aviv,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-19 18:00:00Z,Zalgiris Kaunas,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-19 19:00:00Z,FC Bayern Munich,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-19 19:30:00Z,Armani Olimpia Milan,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-19 19:45:00Z,Paris Basketball,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-11-19 20:00:00Z,Valencia Basket,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
 NBA,2026-11-20 01:00:00Z,Memphis Grizzlies,Golden State Warriors,,,,,0,,,,,0,0,0
 NBA,2026-11-20 01:00:00Z,Milwaukee Bucks,Portland Trail Blazers,,,,,0,,,,,0,0,0
@@ -83,10 +78,10 @@ NBA,2026-11-28 23:00:00Z,Charlotte Hornets,Brooklyn Nets,,,,,0,,,,,0,0,0
 NBA,2026-11-29 01:00:00Z,Chicago Bulls,Indiana Pacers,,,,,0,,,,,0,0,0
 NBA,2026-11-29 01:00:00Z,Milwaukee Bucks,Oklahoma City Thunder,,,,,0,,,,,0,0,0
 NBA,2026-11-29 01:30:00Z,Houston Rockets,Philadelphia 76ers,,,,,0,,,,,0,0,0
+NBA,2026-11-29 20:30:00Z,Cleveland Cavaliers,Miami Heat,,,,,0,,,,,0,0,0
 NBA,2026-11-29 21:00:00Z,Memphis Grizzlies,Los Angeles Lakers,,,,,0,,,,,0,0,0
 NBA,2026-11-29 21:00:00Z,San Antonio Spurs,Boston Celtics,,,,,0,,,,,0,0,0
 NBA,2026-11-29 22:00:00Z,Utah Jazz,Phoenix Suns,,,,,0,,,,,0,0,0
-NBA,2026-11-29 23:00:00Z,Cleveland Cavaliers,Miami Heat,,,,,0,,,,,0,0,0
 NBA,2026-11-29 23:00:00Z,Detroit Pistons,Orlando Magic,,,,,0,,,,,0,0,0
 NBA,2026-11-29 23:00:00Z,New York Knicks,Atlanta Hawks,,,,,0,,,,,0,0,0
 NBA,2026-11-29 23:00:00Z,Toronto Raptors,Denver Nuggets,,,,,0,,,,,0,0,0

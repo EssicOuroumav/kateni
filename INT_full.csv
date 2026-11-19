@@ -5699,7 +5699,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2022-04-27,Mexico,Guatemala,0,0,D,True,Friendly
 2022-05-12,Bahamas,Turks and Caicos Islands,4,2,H,False,Friendly
 2022-05-12,Dominica,Saint Vincent and the Grenadines,2,1,H,False,Friendly
-2022-05-13,Guernsey,Jersey,1,2,A,False,Muratti Vase
 2022-05-14,Bahamas,Turks and Caicos Islands,1,2,A,False,Friendly
 2022-05-15,Dominica,Saint Vincent and the Grenadines,3,1,H,False,Friendly
 2022-05-21,Jersey,Guernsey,1,0,H,False,Muratti Vase
@@ -6601,6 +6600,7 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2023-03-29,Rwanda,Benin,1,1,D,False,African Cup of Nations qualification
 2023-03-31,Nepal,Laos,2,1,H,False,Tri Nation Tournament
 2023-04-19,United States,Mexico,1,1,D,False,Friendly
+2023-05-13,Guernsey,Jersey,1,2,A,False,Muratti Vase
 2023-06-07,Mexico,Guatemala,2,0,H,False,Friendly
 2023-06-09,India,Mongolia,2,0,H,False,Intercontinental Cup
 2023-06-09,Lebanon,Vanuatu,3,1,H,True,Intercontinental Cup
