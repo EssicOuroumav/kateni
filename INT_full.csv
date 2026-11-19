@@ -10406,8 +10406,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-03,United States,Mexico,3,0,H,False,Friendly
 2026-10-04,Aruba,Anguilla,3,2,H,True,CONCACAF Nations League
 2026-10-04,Azerbaijan,Lithuania,1,0,H,False,UEFA Nations League
-2026-10-04,Bahamas,US Virgin Islands,2,3,A,False,group-stage
-2026-10-04,Comoros,Senegal,0,1,A,False,2026-international-friendly
 2026-10-04,Costa Rica,Haiti,2,0,H,False,CONCACAF Nations League
 2026-10-04,Egypt,South Africa,0,1,A,False,Friendly
 2026-10-04,Greece,Germany,0,0,D,False,UEFA Nations League
@@ -10427,7 +10425,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-04,Wales,Denmark,0,1,A,False,UEFA Nations League
 2026-10-05,Barbados,Bermuda,2,1,H,False,CONCACAF Nations League
 2026-10-05,Bosnia and Herzegovina,Poland,1,0,H,False,UEFA Nations League
-2026-10-05,Costa Rica,Haiti,2,0,H,False,group-stage
 2026-10-05,Cuba,Saint Kitts and Nevis,2,2,D,True,CONCACAF Nations League
 2026-10-05,Cyprus,Latvia,2,1,H,False,UEFA Nations League
 2026-10-05,Ecuador,Panama,1,1,D,True,Kirin Cup
@@ -10444,7 +10441,6 @@ Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,Neutre,Tournoi
 2026-10-05,Martinique,El Salvador,1,1,D,False,CONCACAF Nations League
 2026-10-05,Mauritius,Sri Lanka,1,2,A,False,Friendly
 2026-10-05,Montenegro,Armenia,0,0,D,False,UEFA Nations League
-2026-10-05,Nicaragua,Dominican Republic,1,2,A,False,group-stage
 2026-10-05,Northern Ireland,Georgia,0,0,D,False,UEFA Nations League
 2026-10-05,Romania,Sweden,0,1,A,False,UEFA Nations League
 2026-10-05,Rwanda,Kenya,0,0,D,False,Friendly
