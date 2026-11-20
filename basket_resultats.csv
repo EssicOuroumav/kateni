@@ -3876,6 +3876,7 @@ EuroLeague,2026-09-24 18:15:00Z,Panathinaikos AKTOR Athens,Paris Basketball,31.0
 EuroLeague,2026-09-24 18:30:00Z,FC Barcelona,Anadolu Efes Istanbul,16.0,29.0,18.0,26.0,0,25.0,19.0,23.0,15.0,0,89,82
 EuroLeague,2026-09-24 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Olympiacos Piraeus,29.0,17.0,14.0,29.0,0,36.0,20.0,25.0,25.0,0,89,106
 EuroLeague,2026-09-24 18:45:00Z,LDLC ASVEL Villeurbanne,Maccabi Rapyd Tel Aviv,19.0,23.0,20.0,22.0,0,19.0,13.0,25.0,17.0,0,84,74
+EuroLeague,2026-09-25 17:00:00Z,Besiktas Fuzul Istanbul,Valencia Basket,27.0,24.0,20.0,23.0,0,28.0,26.0,27.0,15.0,0,94,96
 EuroLeague,2026-09-25 17:00:00Z,Besiktas Istanbul,Valencia Basket,27.0,24.0,20.0,23.0,0,28.0,26.0,27.0,15.0,0,94,96
 EuroLeague,2026-09-25 17:45:00Z,Fenerbahce Tarfin Istanbul,Virtus Bologna,23.0,16.0,20.0,19.0,0,17.0,21.0,17.0,13.0,0,78,68
 EuroLeague,2026-09-25 18:45:00Z,Partizan Mozzart Bet Belgrade,Armani Olimpia Milan,20.0,22.0,21.0,29.0,0,16.0,20.0,22.0,18.0,0,92,76
@@ -3901,6 +3902,7 @@ EuroCup,2026-09-30 17:00:00Z,Slask Wroclaw,Buducnost VOLI Podgorica,19.0,14.0,25
 EuroCup,2026-09-30 17:00:00Z,ratiopharm ulm,Balkan Botevgrad,31.0,23.0,21.0,23.0,0,17.0,22.0,20.0,25.0,0,98,84
 EuroCup,2026-09-30 18:00:00Z,Napoli Basketball,Cosea JL Bourg-en-Bresse,19.0,28.0,18.0,19.0,0,17.0,20.0,13.0,26.0,0,84,76
 EuroLeague,2026-09-30 18:05:00Z,Maccabi Rapyd Tel Aviv,Besiktas Istanbul,19.0,27.0,17.0,30.0,0,27.0,25.0,26.0,31.0,0,93,109
+EuroLeague,2026-09-30 18:05:00Z,Maccabi Rapyd Tel Aviv,Besiktas Fuzul Istanbul,19.0,27.0,17.0,30.0,0,27.0,25.0,26.0,31.0,0,93,109
 EuroLeague,2026-09-30 18:15:00Z,Panathinaikos AKTOR Athens,LDLC ASVEL Villeurbanne,25.0,31.0,24.0,22.0,0,13.0,21.0,22.0,23.0,0,102,79
 EuroCup,2026-09-30 18:30:00Z,Recoletas Salud San Pablo Burgos,Cedevita Olimpija Ljubljana,25.0,18.0,17.0,25.0,0,21.0,21.0,17.0,22.0,0,85,81
 EuroCup,2026-09-30 19:00:00Z,La Laguna Tenerife,Turk Telekom Ankara,24.0,20.0,21.0,17.0,0,17.0,20.0,19.0,19.0,0,82,75
@@ -3909,6 +3911,7 @@ EuroLeague,2026-10-01 16:00:00Z,Hapoel IBI Tel Aviv,Real Madrid,29.0,34.0,12.0,2
 EuroLeague,2026-10-01 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Anadolu Efes Istanbul,19.0,18.0,19.0,21.0,0,21.0,15.0,17.0,19.0,0,77,72
 EuroLeague,2026-10-01 18:30:00Z,Virtus Bologna,Olympiacos Piraeus,33.0,16.0,26.0,21.0,0,30.0,20.0,20.0,24.0,0,96,94
 EuroLeague,2026-10-01 18:45:00Z,Paris Basketball,Zalgiris Kaunas,17.0,24.0,20.0,21.0,0,19.0,19.0,15.0,25.0,0,82,78
+EuroLeague,2026-10-02 17:00:00Z,Besiktas Fuzul Istanbul,FC Barcelona,17.0,23.0,22.0,20.0,0,25.0,27.0,25.0,18.0,0,82,95
 EuroLeague,2026-10-02 17:00:00Z,Besiktas Istanbul,FC Barcelona,17.0,23.0,22.0,20.0,0,25.0,27.0,25.0,18.0,0,82,95
 EuroLeague,2026-10-02 17:45:00Z,Fenerbahce Tarfin Istanbul,Dubai Basketball,26.0,16.0,13.0,21.0,0,14.0,25.0,12.0,15.0,0,76,66
 EuroLeague,2026-10-02 18:00:00Z,FC Bayern Munich,Partizan Mozzart Bet Belgrade,27.0,20.0,18.0,19.0,0,22.0,24.0,11.0,29.0,0,84,86
@@ -3965,6 +3968,7 @@ NBA,2026-10-09 12:00:00Z,Dallas Mavericks,Houston Rockets,19.0,26.0,35.0,37.0,0,
 EuroLeague,2026-10-09 18:15:00Z,Olympiacos Piraeus,Anadolu Efes Istanbul,26.0,9.0,27.0,27.0,0,16.0,15.0,18.0,17.0,0,89,66
 EuroLeague,2026-10-09 18:30:00Z,FC Barcelona,Zalgiris Kaunas,18.0,23.0,24.0,16.0,0,23.0,16.0,16.0,33.0,0,81,88
 EuroLeague,2026-10-09 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Besiktas Istanbul,20.0,31.0,20.0,13.0,0,28.0,21.0,24.0,19.0,0,84,92
+EuroLeague,2026-10-09 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Besiktas Fuzul Istanbul,20.0,31.0,20.0,13.0,0,28.0,21.0,24.0,19.0,0,84,92
 NBA,2026-10-10 00:00:00Z,Chicago Bulls,Memphis Grizzlies,27.0,23.0,32.0,18.0,0,30.0,30.0,25.0,19.0,0,100,104
 NBA,2026-10-10 22:30:00Z,Toronto Raptors,LA Clippers,24.0,33.0,32.0,25.0,0,18.0,27.0,27.0,34.0,0,114,106
 NBA,2026-10-10 23:00:00Z,Indiana Pacers,Atlanta Hawks,32.0,28.0,26.0,31.0,0,31.0,31.0,34.0,23.0,0,117,119
@@ -4002,6 +4006,7 @@ NBA,2026-10-14 02:00:00Z,Sacramento Kings,Portland Trail Blazers,22.0,17.0,27.0,
 EuroCup,2026-10-14 15:30:00Z,Siauliai Basketball,U-BT Cluj-Napoca,26.0,14.0,20.0,15.0,0,16.0,25.0,25.0,28.0,0,75,94
 EuroCup,2026-10-14 16:00:00Z,Riga Zelli,Cedevita Olimpija Ljubljana,27.0,29.0,16.0,17.0,0,18.0,22.0,19.0,20.0,0,89,79
 EuroLeague,2026-10-14 16:00:00Z,Hapoel IBI Tel Aviv,Besiktas Istanbul,22.0,21.0,32.0,25.0,0,18.0,21.0,16.0,27.0,0,100,82
+EuroLeague,2026-10-14 16:00:00Z,Hapoel IBI Tel Aviv,Besiktas Fuzul Istanbul,22.0,21.0,32.0,25.0,0,18.0,21.0,16.0,27.0,0,100,82
 EuroCup,2026-10-14 16:30:00Z,ratiopharm ulm,BOSNA BH Telecom Sarajevo,26.0,26.0,26.0,24.0,0,26.0,23.0,16.0,28.0,0,102,93
 EuroCup,2026-10-14 17:00:00Z,Aris Thessaloniki,Baglietto Derthona Tortona,31.0,14.0,17.0,26.0,0,21.0,23.0,11.0,13.0,0,88,68
 EuroCup,2026-10-14 17:00:00Z,Slask Wroclaw,Napoli Basketball,18.0,19.0,24.0,21.0,0,22.0,18.0,21.0,25.0,0,82,86
@@ -4026,6 +4031,7 @@ EuroLeague,2026-10-15 18:30:00Z,Valencia Basket,Maccabi Rapyd Tel Aviv,23.0,25.0
 EuroLeague,2026-10-15 19:00:00Z,Real Madrid,LDLC ASVEL Villeurbanne,27.0,34.0,16.0,34.0,0,25.0,23.0,23.0,21.0,0,111,92
 NBA,2026-10-15 23:30:00Z,New York Knicks,Toronto Raptors,35.0,28.0,24.0,35.0,0,32.0,26.0,21.0,41.0,0,122,120
 NBA,2026-10-16 00:30:00Z,Houston Rockets,Oklahoma City Thunder,33.0,21.0,25.0,37.0,0,15.0,32.0,22.0,20.0,0,116,89
+EuroLeague,2026-10-16 17:00:00Z,Besiktas Fuzul Istanbul,FC Bayern Munich,26.0,27.0,16.0,26.0,0,17.0,18.0,23.0,29.0,0,95,87
 EuroLeague,2026-10-16 17:00:00Z,Besiktas Istanbul,FC Bayern Munich,26.0,27.0,16.0,26.0,0,17.0,18.0,23.0,29.0,0,95,87
 EuroLeague,2026-10-16 17:00:00Z,Zalgiris Kaunas,Anadolu Efes Istanbul,12.0,24.0,20.0,14.0,0,21.0,21.0,25.0,18.0,0,70,85
 EuroLeague,2026-10-16 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Paris Basketball,28.0,18.0,31.0,13.0,0,18.0,18.0,22.0,23.0,0,90,81
@@ -4076,6 +4082,7 @@ NBA,2026-10-22 02:00:00Z,Los Angeles Lakers,Golden State Warriors,34.0,32.0,36.0
 NBA,2026-10-22 02:00:00Z,Portland Trail Blazers,Phoenix Suns,43.0,29.0,35.0,17.0,0,12.0,27.0,27.0,17.0,0,124,83
 NBA,2026-10-22 02:30:00Z,LA Clippers,Sacramento Kings,41.0,20.0,32.0,28.0,0,29.0,25.0,16.0,26.0,0,121,96
 EuroLeague,2026-10-22 17:30:00Z,Anadolu Efes Istanbul,Besiktas Istanbul,29.0,28.0,11.0,21.0,0,17.0,19.0,24.0,20.0,0,89,80
+EuroLeague,2026-10-22 17:30:00Z,Anadolu Efes Istanbul,Besiktas Fuzul Istanbul,29.0,28.0,11.0,21.0,0,17.0,19.0,24.0,20.0,0,89,80
 EuroLeague,2026-10-22 18:00:00Z,FC Bayern Munich,Dubai Basketball,14.0,22.0,31.0,24.0,0,29.0,34.0,19.0,25.0,0,91,107
 EuroLeague,2026-10-22 18:05:00Z,Maccabi Rapyd Tel Aviv,Real Madrid,30.0,22.0,21.0,26.0,0,23.0,28.0,30.0,32.0,0,99,113
 EuroLeague,2026-10-22 18:15:00Z,Panathinaikos AKTOR Athens,Kosner Baskonia Vitoria-Gasteiz,20.0,23.0,20.0,22.0,0,21.0,19.0,14.0,25.0,0,85,79
@@ -4142,6 +4149,7 @@ EuroCup,2026-10-28 16:30:00Z,Siauliai Basketball,Maxima Roma,31.0,18.0,31.0,18.0
 EuroCup,2026-10-28 17:00:00Z,Neptunas Klaipeda,Napoli Basketball,20.0,25.0,20.0,20.0,0,24.0,23.0,24.0,23.0,0,85,94
 EuroCup,2026-10-28 17:30:00Z,Aris Thessaloniki,Cedevita Olimpija Ljubljana,21.0,17.0,19.0,21.0,0,19.0,20.0,18.0,16.0,0,78,73
 EuroCup,2026-10-28 17:30:00Z,Slask Wroclaw,Tofas Bursa,24.0,14.0,22.0,14.0,0,22.0,33.0,15.0,20.0,0,74,90
+EuroLeague,2026-10-28 17:30:00Z,Besiktas Fuzul Istanbul,Olympiacos Piraeus,23.0,13.0,22.0,15.0,0,25.0,17.0,19.0,20.0,0,73,81
 EuroLeague,2026-10-28 17:30:00Z,Besiktas Istanbul,Olympiacos Piraeus,23.0,13.0,22.0,15.0,0,25.0,17.0,19.0,20.0,0,73,81
 EuroCup,2026-10-28 18:00:00Z,NINERS Chemnitz,Cosea JL Bourg-en-Bresse,25.0,21.0,29.0,21.0,0,19.0,13.0,17.0,28.0,0,96,77
 EuroLeague,2026-10-28 18:00:00Z,Hapoel IBI Tel Aviv,Anadolu Efes Istanbul,27.0,36.0,27.0,28.0,0,21.0,20.0,18.0,29.0,0,118,88
@@ -4177,6 +4185,7 @@ EuroLeague,2026-10-30 19:00:00Z,LDLC ASVEL Villeurbanne,Kosner Baskonia Vitoria-
 EuroLeague,2026-10-30 19:15:00Z,Olympiacos Piraeus,Armani Olimpia Milan,25.0,19.0,25.0,15.0,0,19.0,25.0,17.0,17.0,0,84,78
 EuroLeague,2026-10-30 19:30:00Z,FC Barcelona,Valencia Basket,30.0,14.0,25.0,29.0,0,25.0,17.0,26.0,26.0,0,98,94
 EuroLeague,2026-10-30 19:30:00Z,Virtus Bologna,Besiktas Istanbul,24.0,30.0,20.0,27.0,0,24.0,23.0,23.0,33.0,0,101,103
+EuroLeague,2026-10-30 19:30:00Z,Virtus Bologna,Besiktas Fuzul Istanbul,24.0,30.0,20.0,27.0,0,24.0,23.0,23.0,33.0,0,101,103
 NBA,2026-10-30 23:00:00Z,Washington Wizards,Charlotte Hornets,22.0,29.0,28.0,16.0,0,26.0,20.0,13.0,20.0,0,95,79
 NBA,2026-10-30 23:30:00Z,Boston Celtics,Chicago Bulls,44.0,34.0,21.0,26.0,0,25.0,24.0,25.0,37.0,0,125,111
 NBA,2026-10-30 23:30:00Z,Brooklyn Nets,Detroit Pistons,28.0,21.0,17.0,28.0,0,21.0,35.0,36.0,18.0,0,94,110
@@ -4251,6 +4260,7 @@ EuroLeague,2026-11-05 19:30:00Z,Armani Olimpia Milan,Valencia Basket,15.0,22.0,2
 EuroCup,2026-11-05 20:00:00Z,La Laguna Tenerife,U-BT Cluj-Napoca,36.0,23.0,28.0,26.0,0,19.0,22.0,11.0,21.0,0,113,73
 NBA,2026-11-06 02:00:00Z,Phoenix Suns,Orlando Magic,33.0,30.0,33.0,21.0,0,26.0,25.0,22.0,31.0,0,117,104
 NBA,2026-11-06 03:00:00Z,Golden State Warriors,Miami Heat,26.0,27.0,38.0,29.0,0,29.0,24.0,23.0,24.0,0,120,100
+EuroLeague,2026-11-06 17:00:00Z,Besiktas Fuzul Istanbul,Zalgiris Kaunas,17.0,14.0,13.0,23.0,0,20.0,25.0,17.0,21.0,0,67,83
 EuroLeague,2026-11-06 17:00:00Z,Besiktas Istanbul,Zalgiris Kaunas,17.0,14.0,13.0,23.0,0,20.0,25.0,17.0,21.0,0,67,83
 EuroLeague,2026-11-06 19:15:00Z,Olympiacos Piraeus,Crvena Zvezda Meridianbet Belgrade,11.0,11.0,19.0,16.0,0,19.0,21.0,11.0,11.0,0,57,62
 EuroLeague,2026-11-06 19:30:00Z,Virtus Bologna,Dubai Basketball,17.0,17.0,19.0,22.0,0,21.0,27.0,28.0,17.0,0,75,93
@@ -4332,6 +4342,7 @@ NBA,2026-11-13 02:00:00Z,Phoenix Suns,Charlotte Hornets,28.0,27.0,17.0,29.0,0,22
 EuroLeague,2026-11-13 17:30:00Z,Anadolu Efes Istanbul,Virtus Bologna,28.0,32.0,16.0,27.0,0,20.0,23.0,25.0,23.0,0,103,91
 EuroLeague,2026-11-13 19:15:00Z,Panathinaikos AKTOR Athens,FC Barcelona,17.0,16.0,24.0,17.0,0,17.0,15.0,11.0,33.0,0,74,76
 EuroLeague,2026-11-13 19:30:00Z,LDLC ASVEL Villeurbanne,Besiktas Istanbul,28.0,24.0,16.0,23.0,0,25.0,18.0,22.0,30.0,0,91,95
+EuroLeague,2026-11-13 19:30:00Z,LDLC ASVEL Villeurbanne,Besiktas Fuzul Istanbul,28.0,24.0,16.0,23.0,0,25.0,18.0,22.0,30.0,0,91,95
 NBA,2026-11-14 00:00:00Z,Indiana Pacers,New York Knicks,26.0,32.0,27.0,21.0,0,27.0,22.0,35.0,20.0,0,106,104
 NBA,2026-11-14 00:00:00Z,Orlando Magic,Milwaukee Bucks,23.0,29.0,32.0,23.0,0,15.0,22.0,35.0,27.0,0,107,99
 NBA,2026-11-14 01:00:00Z,Chicago Bulls,Atlanta Hawks,33.0,27.0,24.0,26.0,15,24.0,29.0,30.0,27.0,7,125,117
@@ -4384,6 +4395,7 @@ NBA,2026-11-18 03:30:00Z,LA Clippers,Utah Jazz,29.0,33.0,24.0,21.0,0,35.0,23.0,3
 NBA,2026-11-18 04:00:00Z,Los Angeles Lakers,Charlotte Hornets,30.0,29.0,22.0,30.0,7,34.0,32.0,28.0,17.0,3,118,114
 EuroCup,2026-11-18 16:30:00Z,Baglietto Derthona Tortona,Riga Zelli,26.0,19.0,25.0,22.0,0,28.0,23.0,19.0,26.0,0,92,96
 EuroCup,2026-11-18 17:00:00Z,U-BT Cluj-Napoca,Maxima Roma,17.0,21.0,27.0,22.0,0,20.0,20.0,30.0,9.0,0,87,79
+EuroLeague,2026-11-18 17:00:00Z,Besiktas Fuzul Istanbul,Real Madrid,18.0,27.0,19.0,19.0,0,15.0,22.0,17.0,25.0,0,83,79
 EuroLeague,2026-11-18 17:00:00Z,Besiktas Istanbul,Real Madrid,18.0,27.0,19.0,19.0,0,15.0,22.0,17.0,25.0,0,83,79
 EuroCup,2026-11-18 17:30:00Z,Cedevita Olimpija Ljubljana,Recoletas Salud San Pablo Burgos,22.0,26.0,15.0,13.0,0,16.0,13.0,19.0,14.0,0,76,62
 EuroCup,2026-11-18 18:00:00Z,Aris Thessaloniki,Le Mans Sarthe Basket,29.0,23.0,24.0,20.0,0,26.0,18.0,23.0,19.0,0,96,86
@@ -4411,3 +4423,8 @@ EuroLeague,2026-11-19 18:00:00Z,Zalgiris Kaunas,Panathinaikos AKTOR Athens,17.0,
 EuroLeague,2026-11-19 19:00:00Z,FC Bayern Munich,Kosner Baskonia Vitoria-Gasteiz,29.0,26.0,21.0,24.0,0,24.0,17.0,24.0,16.0,0,100,81
 EuroLeague,2026-11-19 19:30:00Z,Armani Olimpia Milan,Fenerbahce Tarfin Istanbul,23.0,14.0,18.0,23.0,0,19.0,19.0,23.0,9.0,0,78,70
 EuroLeague,2026-11-19 19:45:00Z,Paris Basketball,Hapoel IBI Tel Aviv,22.0,26.0,32.0,17.0,0,26.0,19.0,27.0,24.0,0,97,96
+EuroLeague,2026-11-19 20:00:00Z,Valencia Basket,Virtus Bologna,30.0,20.0,17.0,25.0,0,25.0,15.0,23.0,24.0,0,92,87
+NBA,2026-11-20 01:00:00Z,Memphis Grizzlies,Golden State Warriors,31.0,24.0,37.0,34.0,0,24.0,23.0,26.0,25.0,0,126,98
+NBA,2026-11-20 01:00:00Z,Milwaukee Bucks,Portland Trail Blazers,21.0,37.0,34.0,22.0,0,24.0,36.0,36.0,28.0,0,114,124
+NBA,2026-11-20 01:00:00Z,Minnesota Timberwolves,New York Knicks,26.0,24.0,28.0,21.0,0,33.0,32.0,25.0,12.0,0,99,102
+NBA,2026-11-20 01:00:00Z,San Antonio Spurs,LA Clippers,24.0,33.0,35.0,32.0,0,21.0,33.0,34.0,24.0,0,124,112
