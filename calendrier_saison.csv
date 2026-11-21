@@ -1,7 +1,6 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
 TUR,2026-11-21 10:30:00Z,Gençlerbirligi,Gaziantep
-RUS,2026-11-21 12:15:00Z,Akron Tolyatti,Fakel Voronezh
 CHAMP,2026-11-21 12:30:00Z,Millwall,Queens Park Rangers
 CHAMP,2026-11-21 12:30:00Z,Norwich City,Cardiff City
 CHAMP,2026-11-21 12:30:00Z,Southampton,Derby County
@@ -17,7 +16,6 @@ BL,2026-11-21 14:30:00Z,Bayer 04 Leverkusen,SC Paderborn 07
 BL,2026-11-21 14:30:00Z,Borussia Mönchengladbach,Borussia Dortmund
 BL,2026-11-21 14:30:00Z,Eintracht Frankfurt,TSG Hoffenheim
 BL,2026-11-21 14:30:00Z,SV Elversberg,Sport-Club Freiburg
-RUS,2026-11-21 14:30:00Z,Rubin Kazan,Zenit St Petersburg
 CHAMP,2026-11-21 15:00:00Z,Bolton Wanderers,Portsmouth
 CHAMP,2026-11-21 15:00:00Z,Lincoln City,Wrexham
 CHAMP,2026-11-21 15:00:00Z,Middlesbrough,Bristol City
@@ -39,7 +37,6 @@ LIGA,2026-11-21 15:15:00Z,Rayo Vallecano,Valencia CF
 NED,2026-11-21 15:30:00Z,N.E.C. Nijmegen,PSV
 TUR,2026-11-21 16:00:00Z,Kocaelispor,Fenerbahçe
 L1,2026-11-21 16:15:00Z,OGC Nice,Paris Saint-Germain
-RUS,2026-11-21 16:45:00Z,CSKA Moscow,Akhmat Grozny
 SA,2026-11-21 17:00:00Z,Parma,Roma
 BL,2026-11-21 17:30:00Z,FC Schalke 04,VfB Stuttgart
 LIGA,2026-11-21 17:30:00Z,Sevilla FC,Real Betis
