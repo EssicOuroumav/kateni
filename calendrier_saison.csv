@@ -1,17 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles
-L2,2026-11-20 19:00:00Z,AS Nancy Lorraine,Dijon FCO
-L2,2026-11-20 19:00:00Z,EN Avant Guingamp,Rodez Aveyron Football
-L2,2026-11-20 19:00:00Z,FC Annecy,Clermont Foot 63
-L2,2026-11-20 19:00:00Z,FC Metz,US Boulogne CO
-L2,2026-11-20 19:00:00Z,Red Star FC,Pau FC
-BL,2026-11-20 19:30:00Z,FC Bayern München,1. FC Köln
-L1,2026-11-20 19:45:00Z,Estac Troyes,Havre Athletic Club
-LIGA,2026-11-20 20:00:00Z,Athletic Club,RCD Espanyol de Barcelona
-AUS,2026-11-21 04:00:00Z,Auckland FC,Melbourne Victory
-AUS,2026-11-21 06:00:00Z,Central Coast Mariners FC,Perth Glory FC
-AUS,2026-11-21 08:40:00Z,Brisbane Roar FC,Sydney FC
-RUS,2026-11-21 10:00:00Z,Gazovik Orenburg,FC Baltika Kaliningrad
 TUR,2026-11-21 10:30:00Z,Gençlerbirligi,Gaziantep
 RUS,2026-11-21 12:15:00Z,Akron Tolyatti,Fakel Voronezh
 CHAMP,2026-11-21 12:30:00Z,Millwall,Queens Park Rangers
@@ -471,6 +459,7 @@ SA,2026-12-14 19:45:00Z,Juventus,Monza
 PL,2026-12-14 20:00:00Z,Hull,Spurs
 POR,2026-12-14 20:15:00Z,SL Benfica,SC Braga
 AUS,2026-12-15 08:30:00Z,Adelaide United FC,Brisbane Roar FC
+AUS,2026-12-18 08:40:00Z,Sydney FC,Perth Glory FC
 TUR,2026-12-18 17:00:00Z,Amedspor,Göztepe
 TUR,2026-12-18 17:00:00Z,Kasimpasa,Fenerbahçe
 SA,2026-12-18 17:30:00Z,Frosinone,Lazio
@@ -478,6 +467,7 @@ NED,2026-12-18 19:00:00Z,Telstar,Willem II
 BL,2026-12-18 19:30:00Z,FC Bayern München,SV Werder Bremen
 SA,2026-12-18 19:45:00Z,Lecce,Internazionale
 CHAMP,2026-12-18 20:00:00Z,West Bromwich Albion,Sheffield United
+AUS,2026-12-19 04:00:00Z,Wellington Phoenix,Auckland FC
 TUR,2026-12-19 10:30:00Z,Konyaspor,Eyüpspor
 CHAMP,2026-12-19 12:30:00Z,Birmingham City,West Ham United
 CHAMP,2026-12-19 12:30:00Z,Bristol City,Cardiff City

@@ -1,15 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-EuroLeague,2026-11-20 19:30:00Z,FC Barcelona,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
-EuroLeague,2026-11-20 19:45:00Z,Partizan Mozzart Bet Belgrade,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
-NBA,2026-11-21 00:00:00Z,Atlanta Hawks,Charlotte Hornets,,,,,0,,,,,0,0,0
-NBA,2026-11-21 00:30:00Z,Brooklyn Nets,Orlando Magic,,,,,0,,,,,0,0,0
-NBA,2026-11-21 00:30:00Z,Cleveland Cavaliers,Indiana Pacers,,,,,0,,,,,0,0,0
-NBA,2026-11-21 00:30:00Z,Detroit Pistons,Toronto Raptors,,,,,0,,,,,0,0,0
-NBA,2026-11-21 01:00:00Z,Chicago Bulls,Washington Wizards,,,,,0,,,,,0,0,0
-NBA,2026-11-21 01:00:00Z,Oklahoma City Thunder,New Orleans Pelicans,,,,,0,,,,,0,0,0
-NBA,2026-11-21 02:30:00Z,Utah Jazz,Phoenix Suns,,,,,0,,,,,0,0,0
-NBA,2026-11-21 03:00:00Z,Denver Nuggets,Houston Rockets,,,,,0,,,,,0,0,0
-NBA,2026-11-21 03:00:00Z,Los Angeles Lakers,Sacramento Kings,,,,,0,,,,,0,0,0
 NBA,2026-11-21 18:00:00Z,Philadelphia 76ers,Milwaukee Bucks,,,,,0,,,,,0,0,0
 NBA,2026-11-22 00:30:00Z,New York Knicks,Portland Trail Blazers,,,,,0,,,,,0,0,0
 NBA,2026-11-22 01:00:00Z,Dallas Mavericks,LA Clippers,,,,,0,,,,,0,0,0
@@ -122,6 +111,8 @@ EuroLeague,2026-12-04 17:00:00Z,Besiktas Fuzul Istanbul,Panathinaikos AKTOR Athe
 EuroLeague,2026-12-04 18:00:00Z,Zalgiris Kaunas,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-12-04 19:15:00Z,Olympiacos Piraeus,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
 EuroLeague,2026-12-04 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+NBA,2026-12-05 05:00:00Z,TBD,TBD,,,,,0,,,,,0,0,0
+NBA,2026-12-05 05:00:00Z,TBD,TBD,,,,,0,,,,,0,0,0
 EuroCup,2026-12-08 16:00:00Z,Bahcesehir College Istanbul,Balkan Botevgrad,0,0,0,0,0,0,0,0,0,0,0,0
 EuroCup,2026-12-08 16:30:00Z,Siauliai Basketball,Skyliners Frankfurt,0,0,0,0,0,0,0,0,0,0,0,0
 EuroCup,2026-12-08 17:00:00Z,Neptunas Klaipeda,NINERS Chemnitz,0,0,0,0,0,0,0,0,0,0,0,0
