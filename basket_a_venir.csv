@@ -1,11 +1,4 @@
 ligue,DateUtc,HomeTeam,AwayTeam,H1,H2,H3,H4,HOT,A1,A2,A3,A4,AOT,HPTS,APTS
-NBA,2026-11-22 20:30:00Z,Atlanta Hawks,Detroit Pistons,16.0,,,,0,12.0,,,,0,16,12
-NBA,2026-11-22 23:00:00Z,Miami Heat,Oklahoma City Thunder,,,,,0,,,,,0,0,0
-NBA,2026-11-23 00:00:00Z,Washington Wizards,Orlando Magic,,,,,0,,,,,0,0,0
-NBA,2026-11-23 00:00:00Z,Chicago Bulls,Denver Nuggets,,,,,0,,,,,0,0,0
-NBA,2026-11-23 00:00:00Z,Utah Jazz,Dallas Mavericks,,,,,0,,,,,0,0,0
-NBA,2026-11-23 01:00:00Z,New York Knicks,Indiana Pacers,,,,,0,,,,,0,0,0
-NBA,2026-11-23 01:30:00Z,Golden State Warriors,Boston Celtics,,,,,0,,,,,0,0,0
 NBA,2026-11-24 00:00:00Z,Charlotte Hornets,Memphis Grizzlies,,,,,0,,,,,0,0,0
 NBA,2026-11-24 00:00:00Z,Philadelphia 76ers,Portland Trail Blazers,,,,,0,,,,,0,0,0
 NBA,2026-11-24 00:30:00Z,Indiana Pacers,Oklahoma City Thunder,,,,,0,,,,,0,0,0
@@ -16,19 +9,19 @@ NBA,2026-11-24 01:00:00Z,New Orleans Pelicans,Phoenix Suns,,,,,0,,,,,0,0,0
 NBA,2026-11-24 01:30:00Z,Houston Rockets,LA Clippers,,,,,0,,,,,0,0,0
 NBA,2026-11-24 03:00:00Z,Los Angeles Lakers,Utah Jazz,,,,,0,,,,,0,0,0
 NBA,2026-11-24 03:00:00Z,Sacramento Kings,San Antonio Spurs,,,,,0,,,,,0,0,0
-EuroLeague,2026-11-24 17:00:00Z,Besiktas Fuzul Istanbul,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-24 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-24 19:00:00Z,FC Bayern Munich,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-24 19:30:00Z,Valencia Basket,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-24 19:45:00Z,LDLC ASVEL Villeurbanne,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-24 20:00:00Z,FC Barcelona,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
+EuroLeague,2026-11-24 17:00:00Z,Besiktas Fuzul Istanbul,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-24 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-24 19:00:00Z,FC Bayern Munich,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-24 19:30:00Z,Valencia Basket,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-24 19:45:00Z,LDLC ASVEL Villeurbanne,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-24 20:00:00Z,FC Barcelona,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
 NBA,2026-11-25 00:00:00Z,Orlando Magic,Detroit Pistons,,,,,0,,,,,0,0,0
 NBA,2026-11-25 01:00:00Z,Washington Wizards,Boston Celtics,,,,,0,,,,,0,0,0
 NBA,2026-11-25 03:00:00Z,Denver Nuggets,Dallas Mavericks,,,,,0,,,,,0,0,0
-EuroLeague,2026-11-25 16:00:00Z,Dubai Basketball,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-25 19:15:00Z,Olympiacos Piraeus,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-25 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-11-25 19:45:00Z,Real Madrid,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
+EuroLeague,2026-11-25 16:00:00Z,Dubai Basketball,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-25 19:15:00Z,Olympiacos Piraeus,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-25 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-11-25 19:45:00Z,Real Madrid,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
 NBA,2026-11-25 22:00:00Z,Philadelphia 76ers,Miami Heat,,,,,0,,,,,0,0,0
 NBA,2026-11-26 00:00:00Z,Charlotte Hornets,Chicago Bulls,,,,,0,,,,,0,0,0
 NBA,2026-11-26 00:30:00Z,New York Knicks,Cleveland Cavaliers,,,,,0,,,,,0,0,0
@@ -88,12 +81,13 @@ NBA,2026-12-03 01:00:00Z,New Orleans Pelicans,Los Angeles Lakers,,,,,0,,,,,0,0,0
 NBA,2026-12-03 01:00:00Z,Oklahoma City Thunder,Brooklyn Nets,,,,,0,,,,,0,0,0
 NBA,2026-12-03 02:00:00Z,Phoenix Suns,Sacramento Kings,,,,,0,,,,,0,0,0
 NBA,2026-12-03 03:30:00Z,LA Clippers,Minnesota Timberwolves,,,,,0,,,,,0,0,0
-EuroLeague,2026-12-03 17:30:00Z,Anadolu Efes Istanbul,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-03 17:45:00Z,Fenerbahce Tarfin Istanbul,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-03 18:45:00Z,Hapoel IBI Tel Aviv,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-03 19:00:00Z,FC Bayern Munich,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-03 19:45:00Z,Real Madrid,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-03 20:00:00Z,Virtus Bologna,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
+EuroLeague,2026-12-03 17:30:00Z,Anadolu Efes Istanbul,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-03 17:45:00Z,Fenerbahce Tarfin Istanbul,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-03 18:45:00Z,Hapoel IBI Tel Aviv,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-03 19:00:00Z,FC Bayern Munich,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-03 19:45:00Z,Real Madrid,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-03 20:00:00Z,Virtus Bologna,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-03 20:00:00Z,Kosner Baskonia Vitoria-Gasteiz,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
 NBA,2026-12-04 00:00:00Z,Atlanta Hawks,Indiana Pacers,,,,,0,,,,,0,0,0
 NBA,2026-12-04 00:30:00Z,Miami Heat,Washington Wizards,,,,,0,,,,,0,0,0
 NBA,2026-12-04 01:00:00Z,Chicago Bulls,Cleveland Cavaliers,,,,,0,,,,,0,0,0
@@ -101,335 +95,334 @@ NBA,2026-12-04 01:00:00Z,San Antonio Spurs,Toronto Raptors,,,,,0,,,,,0,0,0
 NBA,2026-12-04 03:00:00Z,Portland Trail Blazers,Utah Jazz,,,,,0,,,,,0,0,0
 NBA,2026-12-04 05:00:00Z,TBD,TBD,,,,,0,,,,,0,0,0
 NBA,2026-12-04 05:00:00Z,TBD,TBD,,,,,0,,,,,0,0,0
-EuroLeague,2026-12-04 17:00:00Z,Besiktas Fuzul Istanbul,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-04 18:00:00Z,Zalgiris Kaunas,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-04 19:15:00Z,Olympiacos Piraeus,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-04 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
+EuroLeague,2026-12-04 17:00:00Z,Besiktas Fuzul Istanbul,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-04 18:00:00Z,Zalgiris Kaunas,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-04 19:15:00Z,Olympiacos Piraeus,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
 NBA,2026-12-05 05:00:00Z,TBD,TBD,,,,,0,,,,,0,0,0
 NBA,2026-12-05 05:00:00Z,TBD,TBD,,,,,0,,,,,0,0,0
-EuroCup,2026-12-08 16:00:00Z,Bahcesehir College Istanbul,Balkan Botevgrad,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-08 16:30:00Z,Siauliai Basketball,Skyliners Frankfurt,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-08 17:00:00Z,Neptunas Klaipeda,NINERS Chemnitz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-08 18:00:00Z,PAOK Thessaloniki,BOSNA BH Telecom Sarajevo,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-08 19:00:00Z,Le Mans Sarthe Basket,Baglietto Derthona Tortona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-08 20:00:00Z,La Laguna Tenerife,London Lions,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 17:00:00Z,Lietkabelis Panevezys,Roma Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 17:00:00Z,Tofas Bursa,Cosea JL Bourg-en-Bresse,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 17:00:00Z,Riga Zelli,Rostock Seawolves,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 18:00:00Z,ratiopharm ulm,Kids&Us Manresa,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 18:00:00Z,Slask Wroclaw,Dolomiti Energia Trento,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 19:00:00Z,Napoli Basketball,Buducnost VOLI Podgorica,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 19:00:00Z,Umana Reyer Venice,U-BT Cluj-Napoca,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 19:00:00Z,Hapoel Midtown Jerusalem,Cedevita Olimpija Ljubljana,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 19:30:00Z,Maxima Roma,Turk Telekom Ankara,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-09 19:30:00Z,Recoletas Salud San Pablo Burgos,Aris Thessaloniki,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-10 17:45:00Z,Fenerbahce Tarfin Istanbul,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-10 18:00:00Z,Zalgiris Kaunas,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-10 18:45:00Z,Hapoel IBI Tel Aviv,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-10 19:30:00Z,Valencia Basket,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-10 19:30:00Z,Armani Olimpia Milan,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-10 19:45:00Z,Paris Basketball,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-11 16:00:00Z,Dubai Basketball,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-11 19:15:00Z,Panathinaikos AKTOR Athens,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-11 19:30:00Z,Virtus Bologna,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-11 19:45:00Z,Partizan Mozzart Bet Belgrade,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-15 17:00:00Z,Balkan Botevgrad,Roma Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 17:15:00Z,Anadolu Efes Istanbul,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-15 18:30:00Z,Skyliners Frankfurt,London Lions,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-15 18:30:00Z,Baglietto Derthona Tortona,Aris Thessaloniki,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-15 19:00:00Z,Napoli Basketball,Slask Wroclaw,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-15 19:00:00Z,Rostock Seawolves,Le Mans Sarthe Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 19:15:00Z,Fenerbahce Tarfin Istanbul,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-15 19:30:00Z,Kids&Us Manresa,Bahcesehir College Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 19:30:00Z,Virtus Bologna,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 19:30:00Z,Valencia Basket,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 19:45:00Z,Real Madrid,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 19:45:00Z,Paris Basketball,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-15 20:00:00Z,Maccabi Rapyd Tel Aviv,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 16:30:00Z,Turk Telekom Ankara,Umana Reyer Venice,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 17:00:00Z,U-BT Cluj-Napoca,Siauliai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-16 17:00:00Z,Besiktas Fuzul Istanbul,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 17:30:00Z,Cedevita Olimpija Ljubljana,Riga Zelli,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 18:00:00Z,PAOK Thessaloniki,Lietkabelis Panevezys,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 18:00:00Z,NINERS Chemnitz,Dolomiti Energia Trento,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 18:00:00Z,Buducnost VOLI Podgorica,Tofas Bursa,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 18:30:00Z,BOSNA BH Telecom Sarajevo,ratiopharm ulm,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 18:30:00Z,Cosea JL Bourg-en-Bresse,Neptunas Klaipeda,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 19:00:00Z,Hapoel Midtown Jerusalem,Recoletas Salud San Pablo Burgos,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-16 19:15:00Z,Panathinaikos AKTOR Athens,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-16 19:30:00Z,Maxima Roma,La Laguna Tenerife,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-16 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-17 18:00:00Z,Hapoel IBI Tel Aviv,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-17 19:00:00Z,Fenerbahce Tarfin Istanbul,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-17 19:00:00Z,LDLC ASVEL Villeurbanne,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-17 19:45:00Z,Real Madrid,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-18 17:30:00Z,Anadolu Efes Istanbul,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-18 18:30:00Z,Olympiacos Piraeus,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-18 19:00:00Z,FC Bayern Munich,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-18 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-18 19:30:00Z,Crvena Zvezda Meridianbet Belgrade,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-18 19:45:00Z,FC Barcelona,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 16:00:00Z,Bahcesehir College Istanbul,BOSNA BH Telecom Sarajevo,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 17:00:00Z,Lietkabelis Panevezys,Balkan Botevgrad,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 17:00:00Z,Neptunas Klaipeda,Buducnost VOLI Podgorica,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-22 17:00:00Z,Besiktas Fuzul Istanbul,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 18:00:00Z,Dolomiti Energia Trento,Cosea JL Bourg-en-Bresse,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 18:00:00Z,Slask Wroclaw,NINERS Chemnitz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 18:00:00Z,Aris Thessaloniki,Rostock Seawolves,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-22 18:45:00Z,Hapoel IBI Tel Aviv,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-22 19:00:00Z,FC Bayern Munich,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-22 19:00:00Z,LDLC ASVEL Villeurbanne,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 19:30:00Z,Recoletas Salud San Pablo Burgos,Baglietto Derthona Tortona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-22 19:30:00Z,Virtus Bologna,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-22 20:00:00Z,Roma Basketball,Kids&Us Manresa,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-23 16:00:00Z,Dubai Basketball,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 16:30:00Z,Siauliai Basketball,Turk Telekom Ankara,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 17:00:00Z,Tofas Bursa,Napoli Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 17:00:00Z,Riga Zelli,Hapoel Midtown Jerusalem,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 18:00:00Z,ratiopharm ulm,PAOK Thessaloniki,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-23 18:00:00Z,Zalgiris Kaunas,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 19:00:00Z,Umana Reyer Venice,Maxima Roma,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 19:00:00Z,Le Mans Sarthe Basket,Cedevita Olimpija Ljubljana,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-23 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-23 19:05:00Z,Maccabi Rapyd Tel Aviv,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 19:30:00Z,London Lions,U-BT Cluj-Napoca,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-23 19:30:00Z,Armani Olimpia Milan,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-23 20:00:00Z,La Laguna Tenerife,Skyliners Frankfurt,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 16:30:00Z,Turk Telekom Ankara,London Lions,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-29 17:45:00Z,Fenerbahce Tarfin Istanbul,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 18:00:00Z,Buducnost VOLI Podgorica,Dolomiti Energia Trento,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-29 18:00:00Z,Hapoel IBI Tel Aviv,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 18:30:00Z,PAOK Thessaloniki,Bahcesehir College Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 18:30:00Z,Cosea JL Bourg-en-Bresse,NINERS Chemnitz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 19:00:00Z,Umana Reyer Venice,La Laguna Tenerife,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 19:00:00Z,Rostock Seawolves,Baglietto Derthona Tortona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 19:30:00Z,Kids&Us Manresa,Balkan Botevgrad,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-29 19:30:00Z,Maxima Roma,Siauliai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-29 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-29 19:45:00Z,Partizan Mozzart Bet Belgrade,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-29 20:00:00Z,Real Madrid,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 17:00:00Z,Tofas Bursa,Slask Wroclaw,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 17:00:00Z,U-BT Cluj-Napoca,Skyliners Frankfurt,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 17:00:00Z,Riga Zelli,Recoletas Salud San Pablo Burgos,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 17:30:00Z,Cedevita Olimpija Ljubljana,Aris Thessaloniki,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-30 17:30:00Z,Anadolu Efes Istanbul,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 18:00:00Z,ratiopharm ulm,Lietkabelis Panevezys,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 18:30:00Z,BOSNA BH Telecom Sarajevo,Roma Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 19:00:00Z,Napoli Basketball,Neptunas Klaipeda,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2026-12-30 19:00:00Z,Hapoel Midtown Jerusalem,Le Mans Sarthe Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-30 19:00:00Z,FC Bayern Munich,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-30 19:00:00Z,LDLC ASVEL Villeurbanne,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-30 19:30:00Z,Virtus Bologna,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2026-12-30 19:45:00Z,Paris Basketball,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 17:00:00Z,Neptunas Klaipeda,Tofas Bursa,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 17:00:00Z,U-BT Cluj-Napoca,La Laguna Tenerife,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 18:00:00Z,NINERS Chemnitz,Buducnost VOLI Podgorica,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 18:00:00Z,Aris Thessaloniki,Hapoel Midtown Jerusalem,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 19:00:00Z,Dolomiti Energia Trento,Napoli Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 19:00:00Z,Le Mans Sarthe Basket,Riga Zelli,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 19:00:00Z,Rostock Seawolves,Recoletas Salud San Pablo Burgos,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-05 19:30:00Z,London Lions,Maxima Roma,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 16:00:00Z,Bahcesehir College Istanbul,ratiopharm ulm,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 16:30:00Z,Siauliai Basketball,Umana Reyer Venice,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 17:00:00Z,Balkan Botevgrad,BOSNA BH Telecom Sarajevo,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 18:00:00Z,Kids&Us Manresa,Lietkabelis Panevezys,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 18:30:00Z,Cosea JL Bourg-en-Bresse,Slask Wroclaw,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 18:30:00Z,Skyliners Frankfurt,Turk Telekom Ankara,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 18:30:00Z,Baglietto Derthona Tortona,Cedevita Olimpija Ljubljana,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-06 19:00:00Z,Roma Basketball,PAOK Thessaloniki,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-06 19:30:00Z,FC Barcelona,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-07 17:00:00Z,Maccabi Rapyd Tel Aviv,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-07 17:30:00Z,Anadolu Efes Istanbul,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-07 18:00:00Z,Zalgiris Kaunas,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-07 19:30:00Z,Valencia Basket,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-07 19:30:00Z,Armani Olimpia Milan,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-07 19:45:00Z,Real Madrid,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-08 16:00:00Z,Dubai Basketball,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-08 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-08 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 16:00:00Z,Dubai Basketball,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-12 17:00:00Z,Tofas Bursa,Dolomiti Energia Trento,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-12 17:00:00Z,Riga Zelli,Aris Thessaloniki,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 17:00:00Z,Hapoel IBI Tel Aviv,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-12 18:00:00Z,ratiopharm ulm,Roma Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-12 18:00:00Z,Slask Wroclaw,Neptunas Klaipeda,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-12 19:00:00Z,Umana Reyer Venice,London Lions,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 19:00:00Z,LDLC ASVEL Villeurbanne,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 19:15:00Z,Panathinaikos AKTOR Athens,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-12 19:30:00Z,Maxima Roma,Skyliners Frankfurt,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 19:30:00Z,Virtus Bologna,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 19:30:00Z,FC Barcelona,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-12 19:30:00Z,Maccabi Rapyd Tel Aviv,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 16:30:00Z,Turk Telekom Ankara,U-BT Cluj-Napoca,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 17:00:00Z,Lietkabelis Panevezys,Bahcesehir College Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-13 17:00:00Z,Besiktas Fuzul Istanbul,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 17:30:00Z,PAOK Thessaloniki,Balkan Botevgrad,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 17:30:00Z,Cedevita Olimpija Ljubljana,Rostock Seawolves,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 18:00:00Z,Buducnost VOLI Podgorica,Cosea JL Bourg-en-Bresse,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 18:30:00Z,BOSNA BH Telecom Sarajevo,Kids&Us Manresa,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 19:00:00Z,Napoli Basketball,NINERS Chemnitz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 19:00:00Z,Hapoel Midtown Jerusalem,Baglietto Derthona Tortona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-13 19:15:00Z,Olympiacos Piraeus,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 19:30:00Z,Recoletas Salud San Pablo Burgos,Le Mans Sarthe Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroCup,2027-01-13 20:00:00Z,La Laguna Tenerife,Siauliai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-14 18:00:00Z,Zalgiris Kaunas,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-14 18:45:00Z,Hapoel IBI Tel Aviv,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-14 19:15:00Z,Panathinaikos AKTOR Athens,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-14 19:30:00Z,Armani Olimpia Milan,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-14 19:45:00Z,Real Madrid,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-15 16:00:00Z,Dubai Basketball,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-15 17:00:00Z,Besiktas Fuzul Istanbul,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-15 19:15:00Z,Olympiacos Piraeus,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-15 19:30:00Z,Virtus Bologna,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-15 19:45:00Z,Partizan Mozzart Bet Belgrade,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 17:00:00Z,Hapoel IBI Tel Aviv,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 17:45:00Z,Fenerbahce Tarfin Istanbul,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 19:00:00Z,Valencia Basket,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 19:00:00Z,FC Bayern Munich,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 19:45:00Z,Real Madrid,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 19:45:00Z,Partizan Mozzart Bet Belgrade,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-21 19:45:00Z,Paris Basketball,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-22 17:30:00Z,Anadolu Efes Istanbul,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-22 18:00:00Z,Zalgiris Kaunas,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-22 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-28 17:00:00Z,Besiktas Fuzul Istanbul,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-28 19:00:00Z,FC Bayern Munich,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-28 19:15:00Z,Olympiacos Piraeus,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-28 19:30:00Z,Virtus Bologna,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-28 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-29 17:45:00Z,Fenerbahce Tarfin Istanbul,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-29 19:00:00Z,LDLC ASVEL Villeurbanne,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-29 19:15:00Z,Panathinaikos AKTOR Athens,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-29 19:30:00Z,FC Barcelona,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-01-29 19:30:00Z,Armani Olimpia Milan,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-02 17:30:00Z,Anadolu Efes Istanbul,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-02 19:05:00Z,Maccabi Rapyd Tel Aviv,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-02 19:15:00Z,Panathinaikos AKTOR Athens,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-02 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-02 19:45:00Z,Partizan Mozzart Bet Belgrade,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-02 19:45:00Z,Paris Basketball,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-03 18:45:00Z,Hapoel IBI Tel Aviv,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-03 19:00:00Z,FC Bayern Munich,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-03 19:30:00Z,FC Barcelona,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-03 19:45:00Z,Valencia Basket,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-04 16:00:00Z,Dubai Basketball,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-04 17:30:00Z,Anadolu Efes Istanbul,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-04 18:00:00Z,Zalgiris Kaunas,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-04 19:45:00Z,Real Madrid,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-05 18:30:00Z,Olympiacos Piraeus,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-05 19:00:00Z,LDLC ASVEL Villeurbanne,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-05 19:30:00Z,Armani Olimpia Milan,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-05 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-05 19:45:00Z,Partizan Mozzart Bet Belgrade,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-05 19:45:00Z,Valencia Basket,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-10 18:45:00Z,Hapoel IBI Tel Aviv,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-10 19:00:00Z,LDLC ASVEL Villeurbanne,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-11 17:00:00Z,Besiktas Fuzul Istanbul,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-11 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-11 19:05:00Z,Maccabi Rapyd Tel Aviv,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-11 19:30:00Z,Virtus Bologna,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-11 19:30:00Z,Valencia Basket,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-12 17:45:00Z,Fenerbahce Tarfin Istanbul,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-12 18:00:00Z,Zalgiris Kaunas,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-02-12 19:15:00Z,Olympiacos Piraeus,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-04 19:15:00Z,Panathinaikos AKTOR Athens,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-04 19:30:00Z,Virtus Bologna,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-04 19:30:00Z,Valencia Basket,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-04 19:45:00Z,Paris Basketball,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-04 19:45:00Z,Kosner Baskonia Vitoria-Gasteiz,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-05 16:00:00Z,Dubai Basketball,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-05 19:00:00Z,FC Bayern Munich,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-05 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-05 19:30:00Z,FC Barcelona,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-05 19:30:00Z,Armani Olimpia Milan,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 17:00:00Z,Besiktas Fuzul Istanbul,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 18:00:00Z,Zalgiris Kaunas,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 19:00:00Z,FC Bayern Munich,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 19:05:00Z,Maccabi Rapyd Tel Aviv,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 19:30:00Z,Virtus Bologna,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 19:45:00Z,Real Madrid,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-09 19:45:00Z,Partizan Mozzart Bet Belgrade,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-10 16:00:00Z,Dubai Basketball,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-10 19:30:00Z,Armani Olimpia Milan,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-11 19:00:00Z,FC Bayern Munich,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-11 19:05:00Z,Maccabi Rapyd Tel Aviv,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-11 19:45:00Z,Real Madrid,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-11 19:45:00Z,Paris Basketball,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-11 19:45:00Z,Partizan Mozzart Bet Belgrade,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-12 17:45:00Z,Fenerbahce Tarfin Istanbul,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-12 18:00:00Z,Zalgiris Kaunas,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-12 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-12 19:15:00Z,Olympiacos Piraeus,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-12 19:30:00Z,FC Barcelona,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-18 17:45:00Z,Fenerbahce Tarfin Istanbul,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-18 19:05:00Z,Maccabi Rapyd Tel Aviv,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-18 19:15:00Z,Panathinaikos AKTOR Athens,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-18 19:45:00Z,Real Madrid,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-18 19:45:00Z,Partizan Mozzart Bet Belgrade,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-19 16:00:00Z,Dubai Basketball,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-19 17:00:00Z,Besiktas Fuzul Istanbul,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-19 19:00:00Z,LDLC ASVEL Villeurbanne,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-19 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-19 19:30:00Z,FC Barcelona,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-23 16:00:00Z,Dubai Basketball,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-23 17:30:00Z,Anadolu Efes Istanbul,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-23 18:45:00Z,Hapoel IBI Tel Aviv,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-23 19:00:00Z,LDLC ASVEL Villeurbanne,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-23 19:45:00Z,Partizan Mozzart Bet Belgrade,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-23 19:45:00Z,Paris Basketball,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-24 18:00:00Z,Zalgiris Kaunas,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-24 19:00:00Z,FC Bayern Munich,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-24 19:15:00Z,Olympiacos Piraeus,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-24 19:30:00Z,Valencia Basket,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-25 17:30:00Z,Anadolu Efes Istanbul,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-25 18:45:00Z,Hapoel IBI Tel Aviv,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-25 19:00:00Z,LDLC ASVEL Villeurbanne,Paris Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-25 19:15:00Z,Panathinaikos AKTOR Athens,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-26 17:45:00Z,Fenerbahce Tarfin Istanbul,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-26 19:00:00Z,FC Bayern Munich,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-26 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-26 19:15:00Z,Olympiacos Piraeus,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-26 19:30:00Z,Armani Olimpia Milan,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-26 19:45:00Z,Real Madrid,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-31 17:30:00Z,Anadolu Efes Istanbul,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-31 18:00:00Z,Zalgiris Kaunas,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-03-31 18:30:00Z,Virtus Bologna,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-01 18:05:00Z,Maccabi Rapyd Tel Aviv,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-01 18:30:00Z,Valencia Basket,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-01 18:30:00Z,Armani Olimpia Milan,Besiktas Fuzul Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-01 18:45:00Z,Paris Basketball,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-02 18:30:00Z,FC Barcelona,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-02 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-02 18:45:00Z,Partizan Mozzart Bet Belgrade,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 17:00:00Z,Besiktas Fuzul Istanbul,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 17:45:00Z,Fenerbahce Tarfin Istanbul,Olympiacos Piraeus,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 18:30:00Z,Virtus Bologna,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 18:30:00Z,Crvena Zvezda Meridianbet Belgrade,Panathinaikos AKTOR Athens,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 18:45:00Z,Real Madrid,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 18:45:00Z,Paris Basketball,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-06 18:45:00Z,FC Barcelona,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-07 16:00:00Z,Maccabi Rapyd Tel Aviv,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-07 16:00:00Z,Dubai Basketball,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 17:45:00Z,Hapoel IBI Tel Aviv,Crvena Zvezda Meridianbet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 18:00:00Z,FC Bayern Munich,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 18:00:00Z,LDLC ASVEL Villeurbanne,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 18:15:00Z,Panathinaikos AKTOR Athens,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 18:30:00Z,Valencia Basket,Anadolu Efes Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 18:30:00Z,Armani Olimpia Milan,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-08 18:45:00Z,Paris Basketball,FC Barcelona,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-09 17:00:00Z,Besiktas Fuzul Istanbul,Maccabi Rapyd Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-09 18:15:00Z,Olympiacos Piraeus,Zalgiris Kaunas,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-09 18:45:00Z,Partizan Mozzart Bet Belgrade,Dubai Basketball,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-15 17:00:00Z,Zalgiris Kaunas,Fenerbahce Tarfin Istanbul,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-15 17:30:00Z,Anadolu Efes Istanbul,Hapoel IBI Tel Aviv,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-15 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Armani Olimpia Milan,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-15 18:05:00Z,Maccabi Rapyd Tel Aviv,Kosner Baskonia Vitoria-Gasteiz,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-15 18:15:00Z,Panathinaikos AKTOR Athens,Real Madrid,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-15 18:45:00Z,Paris Basketball,FC Bayern Munich,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-16 16:00:00Z,Dubai Basketball,LDLC ASVEL Villeurbanne,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-16 17:00:00Z,Besiktas Fuzul Istanbul,Virtus Bologna,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-16 18:15:00Z,Olympiacos Piraeus,Valencia Basket,0.0,0,0,0,0,0.0,0,0,0,0,0,0
-EuroLeague,2027-04-16 18:30:00Z,FC Barcelona,Partizan Mozzart Bet Belgrade,0.0,0,0,0,0,0.0,0,0,0,0,0,0
+EuroCup,2026-12-08 16:00:00Z,Bahcesehir College Istanbul,Balkan Botevgrad,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-08 16:30:00Z,Siauliai Basketball,Skyliners Frankfurt,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-08 17:00:00Z,Neptunas Klaipeda,NINERS Chemnitz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-08 18:00:00Z,PAOK Thessaloniki,BOSNA BH Telecom Sarajevo,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-08 19:00:00Z,Le Mans Sarthe Basket,Baglietto Derthona Tortona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-08 20:00:00Z,La Laguna Tenerife,London Lions,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 17:00:00Z,Lietkabelis Panevezys,Roma Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 17:00:00Z,Tofas Bursa,Cosea JL Bourg-en-Bresse,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 17:00:00Z,Riga Zelli,Rostock Seawolves,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 18:00:00Z,ratiopharm ulm,Kids&Us Manresa,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 18:00:00Z,Slask Wroclaw,Dolomiti Energia Trento,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 19:00:00Z,Napoli Basketball,Buducnost VOLI Podgorica,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 19:00:00Z,Umana Reyer Venice,U-BT Cluj-Napoca,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 19:00:00Z,Hapoel Midtown Jerusalem,Cedevita Olimpija Ljubljana,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 19:30:00Z,Maxima Roma,Turk Telekom Ankara,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-09 19:30:00Z,Recoletas Salud San Pablo Burgos,Aris Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-10 17:45:00Z,Fenerbahce Tarfin Istanbul,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-10 18:00:00Z,Zalgiris Kaunas,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-10 18:45:00Z,Hapoel IBI Tel Aviv,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-10 19:30:00Z,Valencia Basket,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-10 19:30:00Z,Armani Olimpia Milan,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-10 19:45:00Z,Paris Basketball,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-11 16:00:00Z,Dubai Basketball,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-11 19:15:00Z,Panathinaikos AKTOR Athens,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-11 19:30:00Z,Virtus Bologna,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-11 19:45:00Z,Partizan Mozzart Bet Belgrade,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-15 17:00:00Z,Balkan Botevgrad,Roma Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 17:00:00Z,Maccabi Rapyd Tel Aviv,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 17:15:00Z,Anadolu Efes Istanbul,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-15 18:30:00Z,Skyliners Frankfurt,London Lions,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-15 18:30:00Z,Baglietto Derthona Tortona,Aris Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-15 19:00:00Z,Napoli Basketball,Slask Wroclaw,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-15 19:00:00Z,Rostock Seawolves,Le Mans Sarthe Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 19:15:00Z,Fenerbahce Tarfin Istanbul,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-15 19:30:00Z,Kids&Us Manresa,Bahcesehir College Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 19:30:00Z,Virtus Bologna,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 19:30:00Z,Valencia Basket,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 19:45:00Z,Real Madrid,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-15 19:45:00Z,Paris Basketball,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 16:30:00Z,Turk Telekom Ankara,Umana Reyer Venice,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 17:00:00Z,U-BT Cluj-Napoca,Siauliai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-16 17:00:00Z,Besiktas Fuzul Istanbul,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 17:30:00Z,Cedevita Olimpija Ljubljana,Riga Zelli,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 18:00:00Z,PAOK Thessaloniki,Lietkabelis Panevezys,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 18:00:00Z,NINERS Chemnitz,Dolomiti Energia Trento,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 18:00:00Z,Buducnost VOLI Podgorica,Tofas Bursa,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 18:30:00Z,BOSNA BH Telecom Sarajevo,ratiopharm ulm,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 18:30:00Z,Cosea JL Bourg-en-Bresse,Neptunas Klaipeda,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 19:00:00Z,Hapoel Midtown Jerusalem,Recoletas Salud San Pablo Burgos,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-16 19:15:00Z,Panathinaikos AKTOR Athens,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-16 19:30:00Z,Maxima Roma,La Laguna Tenerife,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-16 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-17 18:00:00Z,Hapoel IBI Tel Aviv,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-17 19:00:00Z,Fenerbahce Tarfin Istanbul,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-17 19:00:00Z,LDLC ASVEL Villeurbanne,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-17 19:45:00Z,Real Madrid,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-18 17:30:00Z,Anadolu Efes Istanbul,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-18 18:30:00Z,Olympiacos Piraeus,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-18 19:00:00Z,FC Bayern Munich,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-18 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-18 19:30:00Z,Crvena Zvezda Meridianbet Belgrade,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-18 19:45:00Z,FC Barcelona,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 16:00:00Z,Bahcesehir College Istanbul,BOSNA BH Telecom Sarajevo,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 17:00:00Z,Lietkabelis Panevezys,Balkan Botevgrad,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 17:00:00Z,Neptunas Klaipeda,Buducnost VOLI Podgorica,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-22 17:00:00Z,Besiktas Fuzul Istanbul,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 18:00:00Z,Dolomiti Energia Trento,Cosea JL Bourg-en-Bresse,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 18:00:00Z,Slask Wroclaw,NINERS Chemnitz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 18:00:00Z,Aris Thessaloniki,Rostock Seawolves,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-22 18:45:00Z,Hapoel IBI Tel Aviv,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-22 19:00:00Z,FC Bayern Munich,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-22 19:00:00Z,LDLC ASVEL Villeurbanne,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 19:30:00Z,Recoletas Salud San Pablo Burgos,Baglietto Derthona Tortona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-22 19:30:00Z,Virtus Bologna,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-22 20:00:00Z,Roma Basketball,Kids&Us Manresa,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-23 16:00:00Z,Dubai Basketball,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 16:30:00Z,Siauliai Basketball,Turk Telekom Ankara,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 17:00:00Z,Tofas Bursa,Napoli Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 17:00:00Z,Riga Zelli,Hapoel Midtown Jerusalem,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 18:00:00Z,ratiopharm ulm,PAOK Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-23 18:00:00Z,Zalgiris Kaunas,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 19:00:00Z,Umana Reyer Venice,Maxima Roma,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 19:00:00Z,Le Mans Sarthe Basket,Cedevita Olimpija Ljubljana,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-23 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-23 19:05:00Z,Maccabi Rapyd Tel Aviv,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 19:30:00Z,London Lions,U-BT Cluj-Napoca,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-23 19:30:00Z,Armani Olimpia Milan,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-23 20:00:00Z,La Laguna Tenerife,Skyliners Frankfurt,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 16:30:00Z,Turk Telekom Ankara,London Lions,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-29 17:45:00Z,Fenerbahce Tarfin Istanbul,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 18:00:00Z,Buducnost VOLI Podgorica,Dolomiti Energia Trento,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 18:30:00Z,PAOK Thessaloniki,Bahcesehir College Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 18:30:00Z,Cosea JL Bourg-en-Bresse,NINERS Chemnitz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 19:00:00Z,Umana Reyer Venice,La Laguna Tenerife,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 19:00:00Z,Rostock Seawolves,Baglietto Derthona Tortona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-29 19:00:00Z,Hapoel IBI Tel Aviv,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 19:30:00Z,Kids&Us Manresa,Balkan Botevgrad,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-29 19:30:00Z,Maxima Roma,Siauliai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-29 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-29 19:45:00Z,Partizan Mozzart Bet Belgrade,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-29 20:00:00Z,Real Madrid,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 17:00:00Z,Tofas Bursa,Slask Wroclaw,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 17:00:00Z,U-BT Cluj-Napoca,Skyliners Frankfurt,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 17:00:00Z,Riga Zelli,Recoletas Salud San Pablo Burgos,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 17:30:00Z,Cedevita Olimpija Ljubljana,Aris Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-30 17:30:00Z,Anadolu Efes Istanbul,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 18:00:00Z,ratiopharm ulm,Lietkabelis Panevezys,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 18:30:00Z,BOSNA BH Telecom Sarajevo,Roma Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 19:00:00Z,Napoli Basketball,Neptunas Klaipeda,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2026-12-30 19:00:00Z,Hapoel Midtown Jerusalem,Le Mans Sarthe Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-30 19:00:00Z,FC Bayern Munich,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-30 19:00:00Z,LDLC ASVEL Villeurbanne,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-30 19:30:00Z,Virtus Bologna,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2026-12-30 19:45:00Z,Paris Basketball,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 17:00:00Z,Neptunas Klaipeda,Tofas Bursa,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 17:00:00Z,U-BT Cluj-Napoca,La Laguna Tenerife,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 18:00:00Z,NINERS Chemnitz,Buducnost VOLI Podgorica,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 18:00:00Z,Aris Thessaloniki,Hapoel Midtown Jerusalem,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 19:00:00Z,Dolomiti Energia Trento,Napoli Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 19:00:00Z,Le Mans Sarthe Basket,Riga Zelli,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 19:00:00Z,Rostock Seawolves,Recoletas Salud San Pablo Burgos,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-05 19:30:00Z,London Lions,Maxima Roma,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 16:00:00Z,Bahcesehir College Istanbul,ratiopharm ulm,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 16:30:00Z,Siauliai Basketball,Umana Reyer Venice,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 17:00:00Z,Balkan Botevgrad,BOSNA BH Telecom Sarajevo,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 18:00:00Z,Kids&Us Manresa,Lietkabelis Panevezys,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 18:30:00Z,Cosea JL Bourg-en-Bresse,Slask Wroclaw,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 18:30:00Z,Skyliners Frankfurt,Turk Telekom Ankara,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 18:30:00Z,Baglietto Derthona Tortona,Cedevita Olimpija Ljubljana,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-06 19:00:00Z,Roma Basketball,PAOK Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-06 19:30:00Z,FC Barcelona,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-07 17:00:00Z,Maccabi Rapyd Tel Aviv,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-07 17:30:00Z,Anadolu Efes Istanbul,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-07 18:00:00Z,Zalgiris Kaunas,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-07 19:30:00Z,Valencia Basket,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-07 19:30:00Z,Armani Olimpia Milan,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-07 19:45:00Z,Real Madrid,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-08 16:00:00Z,Dubai Basketball,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-08 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-08 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 16:00:00Z,Dubai Basketball,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-12 17:00:00Z,Tofas Bursa,Dolomiti Energia Trento,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-12 17:00:00Z,Riga Zelli,Aris Thessaloniki,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 17:00:00Z,Hapoel IBI Tel Aviv,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-12 18:00:00Z,ratiopharm ulm,Roma Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-12 18:00:00Z,Slask Wroclaw,Neptunas Klaipeda,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-12 19:00:00Z,Umana Reyer Venice,London Lions,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 19:00:00Z,LDLC ASVEL Villeurbanne,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 19:15:00Z,Panathinaikos AKTOR Athens,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-12 19:30:00Z,Maxima Roma,Skyliners Frankfurt,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 19:30:00Z,Virtus Bologna,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 19:30:00Z,FC Barcelona,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-12 19:30:00Z,Maccabi Rapyd Tel Aviv,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 16:30:00Z,Turk Telekom Ankara,U-BT Cluj-Napoca,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 17:00:00Z,Lietkabelis Panevezys,Bahcesehir College Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-13 17:00:00Z,Besiktas Fuzul Istanbul,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 17:30:00Z,PAOK Thessaloniki,Balkan Botevgrad,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 17:30:00Z,Cedevita Olimpija Ljubljana,Rostock Seawolves,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 18:00:00Z,Buducnost VOLI Podgorica,Cosea JL Bourg-en-Bresse,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 18:30:00Z,BOSNA BH Telecom Sarajevo,Kids&Us Manresa,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 19:00:00Z,Napoli Basketball,NINERS Chemnitz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 19:00:00Z,Hapoel Midtown Jerusalem,Baglietto Derthona Tortona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-13 19:15:00Z,Olympiacos Piraeus,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 19:30:00Z,Recoletas Salud San Pablo Burgos,Le Mans Sarthe Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroCup,2027-01-13 20:00:00Z,La Laguna Tenerife,Siauliai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-14 18:00:00Z,Zalgiris Kaunas,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-14 18:45:00Z,Hapoel IBI Tel Aviv,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-14 19:15:00Z,Panathinaikos AKTOR Athens,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-14 19:30:00Z,Armani Olimpia Milan,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-14 19:45:00Z,Real Madrid,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-15 16:00:00Z,Dubai Basketball,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-15 17:00:00Z,Besiktas Fuzul Istanbul,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-15 19:30:00Z,Virtus Bologna,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-15 19:45:00Z,Partizan Mozzart Bet Belgrade,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 17:00:00Z,Hapoel IBI Tel Aviv,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 17:45:00Z,Fenerbahce Tarfin Istanbul,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 19:00:00Z,Valencia Basket,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 19:00:00Z,FC Bayern Munich,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 19:45:00Z,Real Madrid,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 19:45:00Z,Partizan Mozzart Bet Belgrade,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-21 19:45:00Z,Paris Basketball,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-22 17:30:00Z,Anadolu Efes Istanbul,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-22 18:00:00Z,Zalgiris Kaunas,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-22 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-26 19:15:00Z,Olympiacos Piraeus,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-28 17:00:00Z,Besiktas Fuzul Istanbul,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-28 19:00:00Z,FC Bayern Munich,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-28 19:15:00Z,Olympiacos Piraeus,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-28 19:30:00Z,Virtus Bologna,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-28 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-29 17:45:00Z,Fenerbahce Tarfin Istanbul,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-29 19:00:00Z,LDLC ASVEL Villeurbanne,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-29 19:15:00Z,Panathinaikos AKTOR Athens,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-29 19:30:00Z,FC Barcelona,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-01-29 19:30:00Z,Armani Olimpia Milan,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-02 17:30:00Z,Anadolu Efes Istanbul,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-02 19:05:00Z,Maccabi Rapyd Tel Aviv,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-02 19:15:00Z,Panathinaikos AKTOR Athens,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-02 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-02 19:45:00Z,Partizan Mozzart Bet Belgrade,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-02 19:45:00Z,Paris Basketball,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-03 18:45:00Z,Hapoel IBI Tel Aviv,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-03 19:00:00Z,FC Bayern Munich,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-03 19:30:00Z,FC Barcelona,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-03 19:45:00Z,Valencia Basket,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-04 16:00:00Z,Dubai Basketball,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-04 17:30:00Z,Anadolu Efes Istanbul,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-04 18:00:00Z,Zalgiris Kaunas,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-04 19:45:00Z,Real Madrid,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-05 18:30:00Z,Olympiacos Piraeus,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-05 19:00:00Z,LDLC ASVEL Villeurbanne,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-05 19:30:00Z,Armani Olimpia Milan,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-05 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-05 19:45:00Z,Partizan Mozzart Bet Belgrade,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-05 19:45:00Z,Valencia Basket,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-10 18:45:00Z,Hapoel IBI Tel Aviv,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-10 19:00:00Z,LDLC ASVEL Villeurbanne,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-11 17:00:00Z,Besiktas Fuzul Istanbul,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-11 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-11 19:05:00Z,Maccabi Rapyd Tel Aviv,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-11 19:30:00Z,Virtus Bologna,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-11 19:30:00Z,Valencia Basket,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-12 17:45:00Z,Fenerbahce Tarfin Istanbul,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-12 18:00:00Z,Zalgiris Kaunas,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-02-12 19:15:00Z,Olympiacos Piraeus,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-04 19:15:00Z,Panathinaikos AKTOR Athens,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-04 19:30:00Z,Virtus Bologna,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-04 19:30:00Z,Valencia Basket,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-04 19:45:00Z,Paris Basketball,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-04 19:45:00Z,Kosner Baskonia Vitoria-Gasteiz,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-05 16:00:00Z,Dubai Basketball,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-05 19:00:00Z,FC Bayern Munich,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-05 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-05 19:30:00Z,FC Barcelona,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-05 19:30:00Z,Armani Olimpia Milan,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 17:00:00Z,Besiktas Fuzul Istanbul,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 18:00:00Z,Zalgiris Kaunas,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 19:00:00Z,FC Bayern Munich,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 19:05:00Z,Maccabi Rapyd Tel Aviv,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 19:30:00Z,Virtus Bologna,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 19:30:00Z,Kosner Baskonia Vitoria-Gasteiz,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 19:45:00Z,Real Madrid,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-09 19:45:00Z,Partizan Mozzart Bet Belgrade,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-10 16:00:00Z,Dubai Basketball,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-10 19:30:00Z,Armani Olimpia Milan,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-11 19:00:00Z,FC Bayern Munich,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-11 19:05:00Z,Maccabi Rapyd Tel Aviv,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-11 19:45:00Z,Real Madrid,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-11 19:45:00Z,Paris Basketball,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-11 19:45:00Z,Partizan Mozzart Bet Belgrade,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-12 17:45:00Z,Fenerbahce Tarfin Istanbul,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-12 18:00:00Z,Zalgiris Kaunas,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-12 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-12 19:15:00Z,Olympiacos Piraeus,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-12 19:30:00Z,FC Barcelona,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-18 17:45:00Z,Fenerbahce Tarfin Istanbul,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-18 19:05:00Z,Maccabi Rapyd Tel Aviv,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-18 19:15:00Z,Panathinaikos AKTOR Athens,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-18 19:45:00Z,Real Madrid,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-18 19:45:00Z,Partizan Mozzart Bet Belgrade,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-19 16:00:00Z,Dubai Basketball,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-19 17:00:00Z,Besiktas Fuzul Istanbul,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-19 19:00:00Z,LDLC ASVEL Villeurbanne,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-19 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-19 19:30:00Z,FC Barcelona,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-23 16:00:00Z,Dubai Basketball,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-23 17:30:00Z,Anadolu Efes Istanbul,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-23 18:45:00Z,Hapoel IBI Tel Aviv,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-23 19:00:00Z,LDLC ASVEL Villeurbanne,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-23 19:45:00Z,Partizan Mozzart Bet Belgrade,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-23 19:45:00Z,Paris Basketball,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-24 18:00:00Z,Zalgiris Kaunas,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-24 19:00:00Z,FC Bayern Munich,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-24 19:15:00Z,Olympiacos Piraeus,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-24 19:30:00Z,Valencia Basket,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-25 17:30:00Z,Anadolu Efes Istanbul,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-25 18:45:00Z,Hapoel IBI Tel Aviv,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-25 19:00:00Z,LDLC ASVEL Villeurbanne,Paris Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-25 19:15:00Z,Panathinaikos AKTOR Athens,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-26 17:45:00Z,Fenerbahce Tarfin Istanbul,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-26 19:00:00Z,FC Bayern Munich,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-26 19:00:00Z,Crvena Zvezda Meridianbet Belgrade,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-26 19:15:00Z,Olympiacos Piraeus,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-26 19:30:00Z,Armani Olimpia Milan,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-26 19:45:00Z,Real Madrid,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-31 17:30:00Z,Anadolu Efes Istanbul,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-31 18:00:00Z,Zalgiris Kaunas,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-03-31 18:30:00Z,Virtus Bologna,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-01 18:05:00Z,Maccabi Rapyd Tel Aviv,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-01 18:30:00Z,Valencia Basket,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-01 18:30:00Z,Armani Olimpia Milan,Besiktas Fuzul Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-01 18:45:00Z,Paris Basketball,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-02 18:30:00Z,FC Barcelona,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-02 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-02 18:45:00Z,Partizan Mozzart Bet Belgrade,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 17:00:00Z,Besiktas Fuzul Istanbul,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 17:30:00Z,Fenerbahce Tarfin Istanbul,Olympiacos Piraeus,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 18:30:00Z,Virtus Bologna,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 18:30:00Z,Kosner Baskonia Vitoria-Gasteiz,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 18:30:00Z,Crvena Zvezda Meridianbet Belgrade,Panathinaikos AKTOR Athens,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 18:45:00Z,Real Madrid,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 18:45:00Z,FC Barcelona,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-06 19:00:00Z,Paris Basketball,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-07 16:00:00Z,Maccabi Rapyd Tel Aviv,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-07 16:00:00Z,Dubai Basketball,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 17:45:00Z,Hapoel IBI Tel Aviv,Crvena Zvezda Meridianbet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 18:00:00Z,FC Bayern Munich,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 18:00:00Z,LDLC ASVEL Villeurbanne,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 18:15:00Z,Panathinaikos AKTOR Athens,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 18:30:00Z,Valencia Basket,Anadolu Efes Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 18:30:00Z,Armani Olimpia Milan,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-08 18:45:00Z,Paris Basketball,FC Barcelona,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-09 17:00:00Z,Besiktas Fuzul Istanbul,Maccabi Rapyd Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-09 18:15:00Z,Olympiacos Piraeus,Zalgiris Kaunas,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-09 18:45:00Z,Partizan Mozzart Bet Belgrade,Dubai Basketball,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-15 17:00:00Z,Zalgiris Kaunas,Fenerbahce Tarfin Istanbul,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-15 17:30:00Z,Anadolu Efes Istanbul,Hapoel IBI Tel Aviv,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-15 18:00:00Z,Crvena Zvezda Meridianbet Belgrade,Armani Olimpia Milan,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-15 18:05:00Z,Maccabi Rapyd Tel Aviv,Kosner Baskonia Vitoria-Gasteiz,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-15 18:15:00Z,Panathinaikos AKTOR Athens,Real Madrid,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-15 18:45:00Z,Paris Basketball,FC Bayern Munich,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-16 16:00:00Z,Dubai Basketball,LDLC ASVEL Villeurbanne,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-16 17:00:00Z,Besiktas Fuzul Istanbul,Virtus Bologna,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-16 18:15:00Z,Olympiacos Piraeus,Valencia Basket,0,0,0,0,0,0,0,0,0,0,0,0
+EuroLeague,2027-04-16 18:30:00Z,FC Barcelona,Partizan Mozzart Bet Belgrade,0,0,0,0,0,0,0,0,0,0,0,0
