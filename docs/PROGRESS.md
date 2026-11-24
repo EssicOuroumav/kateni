@@ -223,3 +223,7 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Foot, enchaînements (match 3 jours avant ou moins) : mesuré, NON adopté (50,9 % → 51,0 %, bruit ; `docs/mesures/2026-11-24_repos_foot.txt`).
 - « Bon pari seulement si Betclic paie plus de… » (cote juste) sur chaque carte foot et basket.
 - Basket : calcul en matrice creuse (prêt pour la NCAA), terrain neutre, options mesurables (enchaînements, écarts-types par ligue) désactivées tant qu'elles ne sont pas mesurées.
+- Basket : nouvelles ligues NBL (Australie), WNBA, NCAA (ESPN, gratuit). Mesure juil. 2025-nov. 2026 (`docs/mesures/2026-11-24_basket_v2.txt`) : les 6 ligues battent le naïf (NCAA 70,8 % de bons vainqueurs, WNBA 66,2 %, NBL 60,2 %). FIBA sélections : qualifications absentes de la source gratuite.
+- Basket : NCAA ajustée sans les équipes presque absentes (avantage du terrain 12 → ~7 points ; log loss NCAA 0,5706 → 0,54) et avec ses propres écarts-types ; élargissement réglé par période (match 1,06 ; mi-temps 1,31 ; quart-temps 1,60).
+- Basket : enchaînements (match la veille) et écarts-types par ligue mesurés, NON adoptés. Terrain neutre pris en compte (tournois NCAA).
+- Basket : cotes du marché (DraftKings via ESPN) enregistrées à chaque passage du robot dans `basket_cotes.csv`, pour mesurer plus tard le mélange modèle + marché (pas d'historique gratuit).

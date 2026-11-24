@@ -1,0 +1,33 @@
+
+=== Match ===
+  toutes      k = 1.06 · test 1621 matchs : log loss 0.5714 -> 0.5712
+     avant : 0%-35% : annoncé 27% -> arrivé 33% (153) | 35%-50% : annoncé 43% -> arrivé 48% (213) | 50%-65% : annoncé 58% -> arrivé 58% (408) | 65%-100% : annoncé 79% -> arrivé 79% (847)
+     après : 0%-35% : annoncé 28% -> arrivé 31% (142) | 35%-50% : annoncé 43% -> arrivé 49% (224) | 50%-65% : annoncé 58% -> arrivé 59% (431) | 65%-100% : annoncé 78% -> arrivé 79% (824)
+  EuroCup     k = 1.15 · test 65 matchs : log loss 0.6140 -> 0.6132
+     avant : 
+     après : 
+  EuroLeague  k = 1.02 · test 118 matchs : log loss 0.6596 -> 0.6589
+     avant : 50%-65% : annoncé 58% -> arrivé 42% (36) | 65%-100% : annoncé 75% -> arrivé 71% (41)
+     après : 50%-65% : annoncé 58% -> arrivé 42% (36) | 65%-100% : annoncé 75% -> arrivé 71% (41)
+  NBA         k = 0.96 · test 293 matchs : log loss 0.6733 -> 0.6761
+     avant : 0%-35% : annoncé 25% -> arrivé 32% (62) | 35%-50% : annoncé 42% -> arrivé 45% (56) | 50%-65% : annoncé 58% -> arrivé 54% (72) | 65%-100% : annoncé 76% -> arrivé 64% (103)
+     après : 0%-35% : annoncé 25% -> arrivé 33% (63) | 35%-50% : annoncé 42% -> arrivé 44% (55) | 50%-65% : annoncé 57% -> arrivé 54% (69) | 65%-100% : annoncé 76% -> arrivé 64% (106)
+  NBL         k = 1.20 · test 85 matchs : log loss 0.7848 -> 0.7606
+     avant : 
+     après : 50%-65% : annoncé 58% -> arrivé 42% (33)
+  NCAA        k = 1.07 · test 851 matchs : log loss 0.4996 -> 0.5014
+     avant : 35%-50% : annoncé 43% -> arrivé 46% (57) | 50%-65% : annoncé 59% -> arrivé 67% (196) | 65%-100% : annoncé 81% -> arrivé 83% (585)
+     après : 35%-50% : annoncé 44% -> arrivé 46% (59) | 50%-65% : annoncé 59% -> arrivé 69% (216) | 65%-100% : annoncé 80% -> arrivé 83% (565)
+  WNBA        k = 1.04 · test 209 matchs : log loss 0.5708 -> 0.5730
+     avant : 0%-35% : annoncé 28% -> arrivé 12% (33) | 35%-50% : annoncé 43% -> arrivé 49% (45) | 50%-65% : annoncé 58% -> arrivé 55% (62) | 65%-100% : annoncé 75% -> arrivé 86% (69)
+     après : 0%-35% : annoncé 28% -> arrivé 9% (32) | 35%-50% : annoncé 43% -> arrivé 50% (46) | 50%-65% : annoncé 58% -> arrivé 57% (65) | 65%-100% : annoncé 75% -> arrivé 85% (66)
+
+=== 1re mi-temps ===
+  toutes      k = 1.31 · test 1621 matchs : log loss 0.6226 -> 0.6193
+     avant : 0%-35% : annoncé 27% -> arrivé 38% (130) | 35%-50% : annoncé 43% -> arrivé 42% (240) | 50%-65% : annoncé 58% -> arrivé 65% (537) | 65%-100% : annoncé 78% -> arrivé 75% (714)
+     après : 0%-35% : annoncé 28% -> arrivé 38% (80) | 35%-50% : annoncé 43% -> arrivé 42% (290) | 50%-65% : annoncé 58% -> arrivé 66% (709) | 65%-100% : annoncé 75% -> arrivé 77% (542)
+
+=== 1er quart-temps ===
+  toutes      k = 1.60 · test 770 matchs : log loss 0.7010 -> 0.6872
+     avant : 0%-35% : annoncé 30% -> arrivé 38% (49) | 35%-50% : annoncé 44% -> arrivé 47% (203) | 50%-65% : annoncé 57% -> arrivé 56% (310) | 65%-100% : annoncé 72% -> arrivé 57% (208)
+     après : 35%-50% : annoncé 45% -> arrivé 46% (243) | 50%-65% : annoncé 57% -> arrivé 57% (437) | 65%-100% : annoncé 68% -> arrivé 56% (81)

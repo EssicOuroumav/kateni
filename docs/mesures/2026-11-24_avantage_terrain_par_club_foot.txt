@@ -1,6 +1,25 @@
-Réglage : 9162 matchs · Test : 11602 matchs
+Réglage : 9542 matchs · Test : 11602 matchs
 
-  réglage, rappel None : log loss 1.0163 (35 s)
-  réglage, rappel 3.0 : log loss 1.0186 (69 s)
-  réglage, rappel 10.0 : log loss 1.0170 (365 s)
-  réglage, rappel 30.0 : log loss 1.0164 (501 s)
+  réglage, rappel None : log loss 1.0146 (32 s)
+  réglage, rappel 3.0 : log loss 1.0167 (64 s)
+  réglage, rappel 10.0 : log loss 1.0152 (95 s)
+  réglage, rappel 30.0 : log loss 1.0146 (126 s)
+  réglage, rappel 100.0 : log loss 1.0145 (160 s)
+
+Période de réglage (2024-25) :
+     Force du rappel  Bons pronostics 1N2  Log loss 1N2  Log loss +2,5 buts
+aucun terme (actuel)               0.4929        1.0146              0.6805
+                 3.0               0.4920        1.0167              0.6821
+                10.0               0.4927        1.0152              0.6809
+                30.0               0.4938        1.0146              0.6805
+               100.0               0.4927        1.0145              0.6805
+
+-> force retenue sur le réglage : 100.0
+Mesure finale sur 2025-26…
+
+Période de test (2025-26) :
+                                 Version  Bons pronostics 1N2  Log loss 1N2  Log loss +2,5 buts
+       Actuel (avantage par championnat)               0.4885        1.0197              0.6801
++ avantage propre au club (rappel 100.0)               0.4891        1.0197              0.6800
+
+Durée : 250 s

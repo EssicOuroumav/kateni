@@ -1,0 +1,42 @@
+  actuel (toutes les équipes)          9910 matchs · log loss 0.5878 · bons vainqueurs 69.0%
+      EuroCup       221 matchs · log loss 0.6076
+      EuroLeague    496 matchs · log loss 0.6409
+      NBA          1681 matchs · log loss 0.6190
+      NBL           262 matchs · log loss 0.6663
+      NCAA         6700 matchs · log loss 0.5706
+      WNBA          550 matchs · log loss 0.6095
+  au moins 4 matchs                    9909 matchs · log loss 0.5721 · bons vainqueurs 69.7%
+      EuroCup       221 matchs · log loss 0.6078
+      EuroLeague    496 matchs · log loss 0.6419
+      NBA          1681 matchs · log loss 0.6188
+      NBL           262 matchs · log loss 0.6699
+      NCAA         6699 matchs · log loss 0.5473
+      WNBA          550 matchs · log loss 0.6069
+  au moins 8 matchs                    9737 matchs · log loss 0.5673 · bons vainqueurs 69.7%
+      EuroCup       157 matchs · log loss 0.6420
+      EuroLeague    470 matchs · log loss 0.6464
+      NBA          1681 matchs · log loss 0.6197
+      NBL           262 matchs · log loss 0.6718
+      NCAA         6623 matchs · log loss 0.5395
+      WNBA          544 matchs · log loss 0.6037
+  adopté (NCAA filtrée à 8 matchs)     9833 matchs · log loss 0.5675 · bons vainqueurs 69.7%
+      EuroCup       221 matchs · log loss 0.6108 · naïf 0.6816
+      EuroLeague    496 matchs · log loss 0.6422 · naïf 0.6655
+      NBA          1681 matchs · log loss 0.6205 · naïf 0.6890
+      NBL           262 matchs · log loss 0.6719 · naïf 0.6907
+      NCAA         6623 matchs · log loss 0.5394 · naïf 0.6453
+      WNBA          550 matchs · log loss 0.6088 · naïf 0.6872
+  NCAA filtrée + écarts-types par ligue   9833 matchs · log loss 0.5680 · bons vainqueurs 69.7%
+      EuroCup       221 matchs · log loss 0.6100 · naïf 0.6816
+      EuroLeague    496 matchs · log loss 0.6494 · naïf 0.6655
+      NBA          1681 matchs · log loss 0.6199 · naïf 0.6890
+      NBL           262 matchs · log loss 0.6660 · naïf 0.6907
+      NCAA         6623 matchs · log loss 0.5402 · naïf 0.6453
+      WNBA          550 matchs · log loss 0.6071 · naïf 0.6872
+  NCAA filtrée, écarts-types à part pour la NCAA   9833 matchs · log loss 0.5679 · bons vainqueurs 69.7%
+      EuroCup       221 matchs · log loss 0.6073 · naïf 0.6816
+      EuroLeague    496 matchs · log loss 0.6418 · naïf 0.6655
+      NBA          1681 matchs · log loss 0.6211 · naïf 0.6890
+      NBL           262 matchs · log loss 0.6704 · naïf 0.6907
+      NCAA         6623 matchs · log loss 0.5402 · naïf 0.6453
+      WNBA          550 matchs · log loss 0.6082 · naïf 0.6872

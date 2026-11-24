@@ -22,9 +22,21 @@ PERIODES = {"Match": None, "1re mi-temps": ("1", "2"), "1er quart-temps": ("1",)
 DEMI_VIE, RAPPEL = 60.0, 2.0
 # Les erreurs réelles sont un peu plus dispersées que celles des matchs d'apprentissage (rapport mesuré sur
 # 2025-26) : on élargit les écarts-types d'autant pour ne pas être trop sûr de soi.
-ELARGIR_ECART, ELARGIR_TOTAL = 1.08, 1.06
-FATIGUE = False       # match la veille (« back-to-back ») : à mesurer (scripts/mesure_basket.py)
-SD_PAR_LIGUE = False  # écarts-types propres à chaque ligue : à mesurer (scripts/mesure_basket.py)
+# Écart (qui gagne) : réglé le 24/11/2026 par période, NCAA filtrée (scripts/mesure_basket_elargir.py, réglage
+# juil. 2025-juin 2026, vérifié juil.-nov. 2026, 6 ligues ; docs/mesures/2026-11-24_basket_elargir_v2.txt) :
+# match 1,06 ; 1re mi-temps 1,31 ; 1er quart-temps 1,60.
+ELARGIR_ECART, ELARGIR_TOTAL = 1.06, 1.06
+ELARGIR_PERIODE = {None: 1.06, ("1", "2"): 1.31, ("1",): 1.60}
+# Mesurés le 24/11/2026 (scripts/mesure_basket_v2.py), non adoptés : match la veille (« back-to-back ») et
+# écarts-types propres à chaque ligue (sauf la NCAA, qui a les siens).
+FATIGUE = False
+SD_PAR_LIGUE = False
+# NCAA : un match ne sert à l'ajustement que si les deux équipes ont au moins 8 matchs connus (les petites
+# universités hors 1re division faussaient l'avantage du terrain : 12 points au lieu de ~5). Mesuré le 24/11/2026
+# (scripts/mesure_basket_min_matchs.py) : log loss NCAA 0,5706 -> 0,5395. Les autres ligues ne sont pas filtrées
+# (en EuroCup, cela écartait les équipes de début de saison).
+MIN_MATCHS = 8
+LIGUES_FILTREES = {"NCAA"}  # filtrées, et avec leurs propres écarts-types
 
 
 @dataclass
@@ -49,7 +61,7 @@ class ModeleBasket:
 
     def ecarts_types(self, ligue: str | None, par_ligue: bool = SD_PAR_LIGUE) -> tuple[float, float]:
         """(écart-type de l'écart, écart-type du total) : celui de la ligue s'il est connu et adopté, sinon global."""
-        if par_ligue and ligue in self.extra.get("sd_ligue", {}):
+        if (par_ligue or ligue in LIGUES_FILTREES) and ligue in self.extra.get("sd_ligue", {}):
             return self.extra["sd_ligue"][ligue]
         return self.sd_ecart, self.sd_total
 
@@ -95,7 +107,7 @@ def joue_la_veille(df: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
 
 def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel: float = RAPPEL,
             quarts=None, elargir: bool = True, ridge_dom: float | None = None,
-            fatigue: bool | None = None) -> ModeleBasket:
+            fatigue: bool | None = None, min_matchs: int | None = None) -> ModeleBasket:
     """df : basket_resultats.csv (colonnes ligue, DateUtc, HomeTeam, AwayTeam, H1..H4, A1..A4, HPTS, APTS).
     Matrice creuse : la NCAA compte des centaines d'équipes."""
     from scipy import sparse
@@ -108,6 +120,11 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
         vh, va = joue_la_veille(d)
         d = d.assign(veille_dom=vh, veille_ext=va)
     d = d[d["t"] < ref]
+    min_matchs = MIN_MATCHS if min_matchs is None else min_matchs
+    if min_matchs:  # équipes presque absentes (petites universités hors 1re division) : faussent l'avantage du terrain
+        n_eq = pd.concat([d["HomeTeam"], d["AwayTeam"]]).value_counts()
+        assez = d["HomeTeam"].map(n_eq).ge(min_matchs) & d["AwayTeam"].map(n_eq).ge(min_matchs)
+        d = d[assez | ~d["ligue"].isin(LIGUES_FILTREES)]
     if quarts is not None and len(quarts) == 1:  # quart-temps : pas pour les ligues jouées en mi-temps
         d = d[~d["ligue"].isin(MI_TEMPS)]
     hp, ap = _points_periode(d, quarts)
@@ -168,15 +185,20 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
         extra["fatigue"] = (float(beta[2 * nl + 2 * n + nd]), float(beta[2 * nl + 2 * n + nd + 1]))
     # Écarts-types propres à chaque ligue (la WNBA ou la NCAA ne se dispersent pas comme la NBA)
     lg_arr = d["ligue"].to_numpy()
-    extra["sd_ligue"] = {l: (sd(ecart, lg_arr == l) * (ELARGIR_ECART if elargir else 1.0),
+    autres = ~np.isin(lg_arr, list(LIGUES_FILTREES))
+    if not autres.any():
+        autres = slice(None)
+    extra["sd_ligue"] = {l: (sd(ecart, lg_arr == l) * (ELARGIR_PERIODE.get(quarts, ELARGIR_ECART) if elargir else 1.0),
                              sd(total, lg_arr == l) * (ELARGIR_TOTAL if elargir else 1.0))
                          for l in ligues if (lg_arr == l).sum() >= 100}
     return ModeleBasket(
         moyenne={l: float(beta[il[l]]) for l in ligues}, terrain={l: float(beta[nl + il[l]]) for l in ligues},
         attaque={e: float(beta[2 * nl + ie[e]]) for e in equipes},
         defense={e: float(beta[2 * nl + n + ie[e]]) for e in equipes},
-        ligue_equipe=ligue_eq, n_matchs=nm, n_reels=nr, sd_ecart=sd(ecart) * (ELARGIR_ECART if elargir else 1.0),
-        sd_total=sd(total) * (ELARGIR_TOTAL if elargir else 1.0), extra=extra)
+        ligue_equipe=ligue_eq, n_matchs=nm, n_reels=nr,
+        # Écarts-types « globaux » sans la NCAA (elle a les siens, dans sd_ligue) : sinon elle déforme les autres ligues
+        sd_ecart=sd(ecart, autres) * (ELARGIR_PERIODE.get(quarts, ELARGIR_ECART) if elargir else 1.0),
+        sd_total=sd(total, autres) * (ELARGIR_TOTAL if elargir else 1.0), extra=extra)
 
 
 def _lignes(centre: float, pas: float, n: int = 3) -> list[float]:
