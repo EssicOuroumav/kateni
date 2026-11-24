@@ -16,6 +16,21 @@ st.caption(f"Tous les matchs, jour par jour, avec le pronostic de Kateni · heur
 
 # ---------------------------------------------------------------- jour affiché
 aujourd_hui = date.today()
+# Sentinelle (robot) : championnat en saison dont les résultats n'arrivent plus — affiché au propriétaire seulement
+try:
+    import json
+    from kateni.config import RACINE
+    from kateni.ui import est_proprietaire
+    _al = json.loads((RACINE / "alertes_donnees.json").read_text(encoding="utf-8")) if est_proprietaire() else {}
+except Exception:  # fichier absent ou illisible : pas d'alerte
+    _al = {}
+if _al.get("alertes"):
+    st.warning("**Données en retard** (vérifié le " + _al.get("verifie_le", "?") + ") : "
+               + " · ".join(f"{NOMS_COURTS.get(a['championnat'], a['championnat'])} — dernier résultat le {a['dernier']} ({a['jours']} jours)"
+                            for a in _al["alertes"])
+               + ". La source ne publie plus les résultats : les pronostics de ces championnats vieillissent. "
+                 "Préviens Claude si ça dure.", icon=":material/warning:")
+
 if "cal_jour" not in st.session_state:  # retour sur la page : on reprend le jour choisi avant
     st.session_state["cal_jour"] = st.session_state.get("jour_choisi") or aujourd_hui
 jours_avec = sorted(pd.to_datetime(cal["Date"]).dt.date.unique()) if len(cal) else []

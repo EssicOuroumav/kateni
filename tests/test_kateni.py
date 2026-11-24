@@ -434,3 +434,18 @@ def test_mi_temps_foot():
     assert p["Mi-temps 1N2"]["1"] > p["Mi-temps 1N2"]["2"]
     assert p["Mi-temps 1N2"]["N"] > 0.3  # à la pause, l'égalité est fréquente
     assert p["Mi-temps total 0.5"]["Plus"] > p["Mi-temps total 1.5"]["Plus"]
+
+
+def test_sentinelle_repere_un_championnat_bloque_sans_fausse_alerte():
+    from datetime import date
+    from kateni.sentinelle import verifier
+    jours = pd.date_range("2025-08-02", "2026-11-23", freq="7D")  # un championnat qui joue chaque samedi
+    lignes = [{"competition": c, "Date": d} for c in ("AAA", "BBB", "CCC") for d in jours]
+    df = pd.DataFrame(lignes)
+    ok = verifier(df, aujourd_hui=date(2026, 11, 24))
+    assert ok["alertes"] == [] and not ok["treve"]
+    bloque = df[~((df["competition"] == "AAA") & (df["Date"] > "2026-11-01"))]  # AAA ne reçoit plus rien
+    r = verifier(bloque, aujourd_hui=date(2026, 11, 24))
+    assert [a["championnat"] for a in r["alertes"]] == ["AAA"]
+    tous = df[df["Date"] <= "2026-11-01"]  # tout le monde s'arrête : trêve, pas de panne
+    assert verifier(tous, aujourd_hui=date(2026, 11, 24))["alertes"] == []

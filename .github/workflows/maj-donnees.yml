@@ -33,6 +33,8 @@ jobs:
         run: python scripts/maj_europe.py
       - name: Basket (NBA via ESPN, EuroLeague et EuroCup via l'API officielle)
         run: python scripts/maj_basket.py
+      - name: Sentinelle (un championnat en saison ne reçoit plus de résultats ?)
+        run: python scripts/sentinelle.py
       - name: Cotes Pinnacle du matin (C1/C3 du jour et du lendemain)
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -43,7 +45,7 @@ jobs:
         run: |
           git config user.name "kateni-bot"
           git config user.email "kateni-bot@users.noreply.github.com"
-          git add -- *_full.csv basket_resultats.csv basket_a_venir.csv a_venir.csv a_venir_championnats.csv calendrier_saison.csv buts_minutes.csv cotes_pinnacle.csv oddspapi_equipes.json
+          git add -- *_full.csv basket_resultats.csv basket_a_venir.csv a_venir.csv a_venir_championnats.csv calendrier_saison.csv buts_minutes.csv cotes_pinnacle.csv oddspapi_equipes.json alertes_donnees.json
           [ -f basket_cotes.csv ] && git add -- basket_cotes.csv
           if git diff --cached --quiet; then
             echo "Aucune nouvelle donnée."

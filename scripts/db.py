@@ -9,6 +9,8 @@ Chaque commande affiche la cible (nom d'hôte seulement, jamais le mot de passe)
     python3 scripts/db.py importer-csv --cible prod   # copie paris.csv dans la base (sans doublon)
     python3 scripts/db.py sauvegarde --cible prod     # export CSV + manifeste dans sauvegardes/
     python3 scripts/db.py sauvegarde --check FICHIER  # relit une sauvegarde et vérifie l'empreinte
+    python3 scripts/db.py restaurer-test FICHIER      # restaure la sauvegarde dans une table TEMPORAIRE de la base
+                                                      # test, relit tout et compare (la prod n'est jamais touchée)
 """
 
 import argparse
@@ -97,13 +99,65 @@ def sauvegarde(args):
     df = store.lire()
     DOSSIER_SAUVEGARDES.mkdir(mode=0o700, exist_ok=True)
     f = DOSSIER_SAUVEGARDES / f"paris_{args.cible}_{datetime.now():%Y-%m-%d_%H%M}.csv"
-    df.to_csv(f, index=False)
+    df.to_csv(f, index=False, na_rep="\\N")   # « \N » = case absente (NULL), distincte d'un texte vide
     f.chmod(0o600)
     manifeste = {"cible": args.cible, "lignes": len(df), "sha256": hashlib.sha256(f.read_bytes()).hexdigest(),
                  "cree_le": datetime.now().isoformat(timespec="seconds")}
     f.with_suffix(".json").write_text(json.dumps(manifeste, indent=2))
     f.with_suffix(".json").chmod(0o600)
     print(f"Sauvegarde : {f.relative_to(RACINE)} ({len(df)} paris)")
+
+
+def restaurer_test(args):
+    """Vraie restauration, sans risque : la sauvegarde est rechargée dans une table temporaire de la base TEST
+    (elle disparaît à la fin de la connexion), relue, et comparée ligne à ligne au fichier."""
+    import pandas as pd
+    f = Path(args.fichier)
+    manifeste = json.loads(f.with_suffix(".json").read_text())
+    if hashlib.sha256(f.read_bytes()).hexdigest() != manifeste["sha256"]:
+        print(f"{f.name} : empreinte NON CONFORME, restauration refusée")
+        sys.exit(1)
+    fichier = pd.read_csv(f, dtype=str, keep_default_na=False)
+    c, _ = connexion("test")
+    with c, c.cursor() as cur:
+        cur.execute("DROP TABLE IF EXISTS pg_temp.paris_restauration")
+        cur.execute("CREATE TEMP TABLE paris_restauration (LIKE paris INCLUDING DEFAULTS) ON COMMIT DROP")
+        cur.execute("SELECT column_name, is_nullable FROM information_schema.columns WHERE table_name = 'paris'")
+        infos = [x for x in cur.fetchall() if x[0] in fichier.columns]
+        colonnes = [x[0] for x in infos]
+        liste = ", ".join(f'"{x}"' for x in colonnes)
+        donnees = fichier[colonnes].copy()
+        # Anciennes sauvegardes (avant le 24/11/2026) : case vide = NULL, sauf pour les colonnes obligatoires
+        for col, nullable in infos:
+            if nullable == "YES":
+                donnees[col] = donnees[col].replace("", "\\N")
+        with cur.copy(f"COPY paris_restauration ({liste}) FROM STDIN WITH (FORMAT csv, NULL '\\N')") as cp:
+            cp.write(donnees.to_csv(index=False, header=False))
+        cur.execute(f"SELECT {liste} FROM paris_restauration")
+        relu = pd.DataFrame(cur.fetchall(), columns=colonnes)
+
+    def normal(df):
+        out = df.copy()
+        for col in out.columns:
+            v = pd.to_numeric(out[col].replace("", None), errors="coerce")
+            if v.notna().sum() == out[col].replace("", None).notna().sum() and v.notna().any():
+                out[col] = v.round(6).astype(str)
+            else:
+                out[col] = out[col].map(lambda x: "" if x is None or (isinstance(x, float) and pd.isna(x)) else str(x))
+        return out.sort_values("id").reset_index(drop=True)
+
+    a, b = normal(fichier[colonnes].replace("\\N", "")), normal(relu)
+    for col in ("cree_le", "date_match"):  # formats de date différents entre le fichier et la base : même instant ?
+        if col in a:
+            a[col] = pd.to_datetime(a[col], errors="coerce", utc=True).astype(str)
+            b[col] = pd.to_datetime(b[col], errors="coerce", utc=True).astype(str)
+    ok = len(a) == len(b) == manifeste["lignes"] and a.equals(b)
+    print(f"Restauration de {f.name} dans une table temporaire de la base test : {len(b)} lignes relues sur "
+          f"{manifeste['lignes']} — {'IDENTIQUE au fichier' if ok else 'DIFFÉRENCES trouvées'}")
+    if not ok:
+        diff = [col for col in colonnes if not a[col].equals(b[col])] if len(a) == len(b) else ["nombre de lignes"]
+        print(f"  colonnes différentes : {diff}")
+    sys.exit(0 if ok else 1)
 
 
 def main():
@@ -118,6 +172,9 @@ def main():
     p.add_argument("--cible", choices=["test", "prod"], default="prod")
     p.add_argument("--check", metavar="FICHIER")
     p.set_defaults(f=sauvegarde)
+    p = sous.add_parser("restaurer-test")
+    p.add_argument("fichier")
+    p.set_defaults(f=restaurer_test)
     args = ap.parse_args()
     try:
         args.f(args)
