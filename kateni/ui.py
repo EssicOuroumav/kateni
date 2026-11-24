@@ -549,7 +549,7 @@ def basket_a_venir() -> pd.DataFrame:
 
 # ---------------------------------------------------------------- jour choisi, commun aux pages
 def jour_choisi():
-    """Jour choisi dans le Calendrier, gardé quand on change de page (Prédictions et Basket partent de lui).
+    """Jour choisi dans le Calendrier, gardé quand on change de page (Football et Basket partent de lui).
     Clé à part des widgets : Streamlit efface l'état d'un widget dès qu'on quitte sa page."""
     from datetime import date
     j = st.session_state.get("jour_choisi")

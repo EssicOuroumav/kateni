@@ -39,7 +39,7 @@ with st.container(horizontal=True, vertical_alignment="bottom"):
               on_click=lambda: st.session_state.update(cal_jour=aujourd_hui))
 
 jour = st.session_state["cal_jour"]
-choisir_jour(jour)  # Prédictions et Basket partent de ce jour
+choisir_jour(jour)  # Football et Basket partent de ce jour
 # Compétitions du jour : une liste nette (drapeau, nom, nombre de matchs), façon Betclic
 comptes = cal[cal["Date"] == jour.isoformat()]["competition"].value_counts()
 presentes = [c for c in ORDRE if c in comptes.index]

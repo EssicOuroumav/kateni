@@ -23,10 +23,10 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Prédire les matchs", anchor=False, icon=":material/sports_soccer:")
     st.markdown(
-        "1. Ouvre **Prédictions** et choisis ton championnat.\n"
+        "1. Ouvre **Football** et choisis ton championnat.\n"
         "2. Kateni affiche **tous les matchs à venir**, chacun avec son pronostic : qui gagne et avec quelle "
-        "chance, les buts attendus, plus ou moins de 2,5 buts, les 2 équipes marquent.\n"
-        "3. Ouvre **Détail du pronostic** pour tout voir (double chance, nombre de buts, 5 scores probables).\n"
+        "chance, plus ou moins de 2,5 buts, les 2 équipes marquent.\n"
+        "3. Ouvre **Détail du pronostic** pour tout voir (pourquoi ce pronostic, double chance, nombre de buts du match et de chaque équipe en « plus de 1,5 / 2,5 », tirs).\n"
         "4. **Simuler un match** : n'importe quelle affiche du championnat, même hors calendrier.\n\n"
         "Pour chaque championnat, Kateni utilise le modèle qui a le mieux prédit depuis août 2025 "
         "(ton modèle d'origine en Premier League, Ligue 1, Belgique et Turquie, le modèle global ailleurs).\n\n"
@@ -49,7 +49,7 @@ with st.container(border=True):
         "sur 2025-26, pour les 15 championnats qui publient ces statistiques.\n\n"
         "**Une des deux équipes gagne** (pas de match nul, « 1 ou 2 » sur Betclic) : dans le détail du pronostic, "
         "les listes d'événements et Cotes Betclic.")
-    st.page_link("app_pages/predictions.py", label="Aller à Prédictions", icon=":material/sports_soccer:")
+    st.page_link("app_pages/predictions.py", label="Aller à Football", icon=":material/sports_soccer:")
 
 with st.container(border=True):
     st.subheader("Basket", anchor=False, icon=":material/sports_basketball:")
@@ -72,7 +72,7 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Comparer avec Betclic (facultatif)", anchor=False, icon=":material/compare_arrows:")
     st.markdown(
-        "1. Ouvre **Cotes Betclic** (ou, dans Prédictions, « Comparer avec mes cotes Betclic »).\n"
+        "1. Ouvre **Cotes Betclic** (ou, dans Football, « Comparer avec mes cotes Betclic »).\n"
         "2. Pour chaque choix (« Résultat : Como gagne », « Les 2 équipes marquent : Oui »…), Kateni affiche "
         "une **cote minimale**.\n"
         "3. Ouvre le même match sur **Betclic**. Pour chaque choix, regarde la cote :\n"

@@ -1,4 +1,4 @@
-"""Carte de pronostic d'un match, partagée par les pages Calendrier et Prédictions."""
+"""Carte de pronostic d'un match, partagée par les pages Calendrier et Football."""
 
 import pandas as pd
 import streamlit as st
@@ -162,7 +162,7 @@ def explication(match: dict, r: dict) -> str:
     buts = r["ld"] + r["le"]
     btts = r["p"]["Les deux équipes marquent"]["Oui"]
     genre = "plutôt ouvert" if buts >= 3.0 else "plutôt fermé" if buts <= 2.3 else "classique"
-    phrases.append(f"Match {genre} : {fr(buts)} buts attendus ({dom} {fr(r['ld'])}, {ext} {fr(r['le'])}), "
+    phrases.append(f"Match {genre} : plus de 2,5 buts dans {r['plus25']:.0%} des cas, "
                    f"les deux équipes marquent dans {btts:.0%} des cas.")
     if r["marche_1n2"]:
         i = 0 if q1 >= q2 else 2
@@ -174,6 +174,36 @@ def explication(match: dict, r: dict) -> str:
         else:
             phrases.append(f"Le modèle Kateni et le marché sont d'accord sur {eq} ({mod:.0%} et {mar:.0%}).")
     return " ".join(phrases)
+
+
+def _l(x: float) -> str:
+    """Ligne de pari à la française : 1.5 -> « 1,5 »."""
+    return f"{x:.1f}".replace(".", ",")
+
+
+def _lignes_proches(moyenne: float, lignes, n: int = 3) -> list:
+    """Les n lignes de pari (x,5) les plus proches de la valeur attendue, dans l'ordre croissant."""
+    return sorted(sorted(lignes, key=lambda s: abs(s - moyenne))[:n])
+
+
+def buts_equipe(mat, cote: str) -> dict:
+    """Chance que l'équipe (dom = lignes, ext = colonnes de la grille des scores) marque plus de 0,5 / 1,5 / 2,5 buts."""
+    import numpy as np
+    buts = np.indices(mat.shape)[0 if cote == "dom" else 1]
+    return {s: float(mat[buts > s].sum()) for s in (0.5, 1.5, 2.5)}
+
+
+def lignes_stats(n: str, a: float, b: float, p: dict, dom: str, ext: str) -> str:
+    """Tirs / tirs cadrés en lignes de pari Betclic (plus de x,5) au lieu de moyennes à virgule."""
+    _, _, _, _, _, s_tot, s_eq = STATS[n]
+    tot = " · ".join(f"plus de {_l(s)} {p[f'{n} total {s}']['Plus']:.0%}" for s in _lignes_proches(a + b, s_tot))
+    eq = lambda cote, m: " · ".join(f"plus de {_l(s)} {p[f'{n} {cote} {s}']['Plus']:.0%}"  # noqa: E731
+                                    for s in _lignes_proches(m, s_eq, 2))
+    pg = p[n + " plus grand nombre"]
+    return (f"- **{n}** — total du match : {tot}\n"
+            f"  - {dom} : {eq('Dom.', a)} · {ext} : {eq('Ext.', b)}\n"
+            f"  - Plus de {n.lower()} : {dom} {pg['1']:.0%} · {ext} {pg['2']:.0%}"
+            + (f" · égalité {pg['N']:.0%}" if "N" in pg else "") + "\n")
 
 
 def barre_chances(dom: str, ext: str, p1n2) -> str:
@@ -201,11 +231,10 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                           else ("orange", "balance"))
         st.markdown(f":{couleur}-badge[:material/{icone}: {favori} {chance:.0%}]"
                     + ("  :orange-badge[match serré]" if chance < 0.45 else "")
-                    + f"  ·  {fr(r['ld'] + r['le'])} buts attendus")
+                    + f"  ·  plus de 2,5 buts {r['plus25']:.0%}")
         st.html(barre_chances(dom, ext, p1n2))
         if not compact:
             st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"
-                       f"  —  plus de 2,5 buts {r['plus25']:.0%}"
                        f"  —  les 2 équipes marquent {p['Les deux équipes marquent']['Oui']:.0%}")
         with st.container(horizontal=True):
             if r["marche_1n2"]:
@@ -234,22 +263,22 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                     f"- **Modèle Kateni seul** : {dom} {m1[0]:.0%} · nul {m1[1]:.0%} · {ext} {m1[2]:.0%}\n"
                     f"- **Marché** ({r['bookmaker']} {fr(c1)} / {fr(cn)} / {fr(c2)}, marge retirée) : {dom} "
                     f"{mm[0]:.0%} · nul {mm[1]:.0%} · {ext} {mm[2]:.0%}")
+            q1, qn, q2 = p1n2
+            bd, be = buts_equipe(mat, "dom"), buts_equipe(mat, "ext")
             st.markdown(
-                f"- **Une des deux équipes gagne** (pas de nul) : {p['Double chance']['12']:.0%}\n"
-                f"- **Double chance** (modèle) : {dom} ou nul {p['Double chance']['1N']:.0%} · nul ou {ext} "
-                f"{p['Double chance']['N2']:.0%}\n"
-                f"- **Nombre de buts** : plus de 1,5 {p['Total buts 1.5']['Plus']:.0%} · plus de 2,5 "
+                f"- **Une des deux équipes gagne** (pas de nul) : {q1 + q2:.0%}\n"
+                f"- **Double chance** : {dom} ou nul {q1 + qn:.0%} · nul ou {ext} {qn + q2:.0%}\n"
+                f"- **Nombre de buts du match** : plus de 1,5 {p['Total buts 1.5']['Plus']:.0%} · plus de 2,5 "
                 f"{r['plus25']:.0%} · plus de 3,5 {p['Total buts 3.5']['Plus']:.0%}\n"
                 f"- **Les 2 équipes marquent** : oui {p['Les deux équipes marquent']['Oui']:.0%} · non "
                 f"{p['Les deux équipes marquent']['Non']:.0%}\n"
-                f"- **Buts attendus** : {dom} {fr(r['ld'])} – {fr(r['le'])} {ext}\n"
+                + "".join(f"- **Buts de {eq}** : " + " · ".join(f"plus de {_l(k)} {v:.0%}" for k, v in b.items()) + "\n"
+                          for eq, b in ((dom, bd), (ext, be)))
                 + (f"- **Corners attendus** : {dom} {fr(r['corners'][0])} – {fr(r['corners'][1])} {ext} "
                    f"(total {fr(sum(r['corners']))}) · plus de 8,5 {p['Corners total 8.5']['Plus']:.0%} · plus de 9,5 "
                    f"{p['Corners total 9.5']['Plus']:.0%} · plus de 10,5 {p['Corners total 10.5']['Plus']:.0%}\n"
                    if r["corners"] else "")
-                + "".join(f"- **{n} attendus** : {dom} {fr(a)} – {fr(b)} {ext} (total {fr(a + b)}) · plus de {n.lower()} : "
-                          f"{dom} {p[n + ' plus grand nombre']['1']:.0%}, {ext} {p[n + ' plus grand nombre']['2']:.0%}\n"
-                          for n, (a, b) in r["stats"].items()))
+                + "".join(lignes_stats(n, a, b, p, dom, ext) for n, (a, b) in r["stats"].items()))
             st.markdown("**Événements, du plus probable au moins probable**")
             st.dataframe(evenements(match, r), hide_index=True, column_config=COLONNES_EVENEMENTS,
                          placeholder="–", height=300)

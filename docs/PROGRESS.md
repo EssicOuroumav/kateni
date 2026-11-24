@@ -211,3 +211,9 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Cause 2 : un match commencé disparaissait de la page jusqu'à l'arrivée de son résultat. Désormais, tous les matchs du jour restent affichés.
 - Basket : menu « Championnat » comme au foot (NBA / EuroLeague / EuroCup / Tous), avec le nombre de matchs du jour ; le choix est gardé en changeant de page ; « Jour suivant/précédent » saute aux jours de la ligue choisie ; bilan « bon vainqueur » aussi pour les matchs déjà terminés aujourd'hui.
 - Vérification complète du 11/11 : 9 pages sans erreur ; foot : 2 961 matchs publiés sur 15 jours, tous pronostiqués ; sélections : pas de trou (fenêtre d'octobre finie le 07/10, reprise le 12/11).
+
+## 24/11/2026 — Onglet Football, lignes de pari lisibles, détail du basket
+- Onglet « Prédictions » renommé « Football ».
+- Détail du foot : buts de chaque équipe, tirs et tirs cadrés en « plus de x,5 » (au lieu de moyennes à virgule).
+- Bug corrigé : « Une des deux équipes gagne » et la double chance du détail utilisaient le modèle seul ; ils utilisent maintenant le pronostic affiché (modèle + marché). Mesure (11 602 matchs) : chiffre bien calibré (annoncé 82 % → arrivé 81 % ; 88 % → 87 %).
+- Basket : « Détail du pronostic » (pourquoi, forme sur 5 matchs, vainqueur, temps réglementaire, handicap, total, points de chaque équipe, 1re mi-temps, écart).

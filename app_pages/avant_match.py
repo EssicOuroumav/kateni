@@ -37,8 +37,8 @@ with st.container(border=True):
         st.metric(f"Victoire {dom}", f"{p['1N2']['1']:.0%}")
         st.metric("Match nul", f"{p['1N2']['N']:.0%}")
         st.metric(f"Victoire {ext}", f"{p['1N2']['2']:.0%}")
-    st.caption(f"Buts attendus : {dom} {lam_d:.1f} – {lam_e:.1f} {ext} · calcul : {nom_modele}"
-               + (f" · corners attendus {fr(corners[0])} – {fr(corners[1])}" if corners else ""))
+    st.caption(f"{dom} marque : plus de 0,5 but {p['Dom. marque']['Oui']:.0%} · {ext} marque : plus de 0,5 but "
+               f"{p['Ext. marque']['Oui']:.0%} · calcul : {nom_modele}")
 
 # ---------------------------------------------------------------- 3. Cotes
 st.subheader("3. Compare avec Betclic", anchor=False, icon=":material/compare_arrows:")

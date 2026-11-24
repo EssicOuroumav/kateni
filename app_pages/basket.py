@@ -34,6 +34,76 @@ def tous_les_marches(modeles: dict, dom: str, ext: str, ligue: str) -> dict:
     return out
 
 
+def forme(equipe: str, avant) -> tuple | None:
+    """5 derniers matchs de l'équipe avant la date : victoires, défaites, points marqués et encaissés (moyennes)."""
+    j = basket_joues()
+    t = pd.to_datetime(j["DateUtc"], utc=True, format="ISO8601")
+    d = j[((j["HomeTeam"] == equipe) | (j["AwayTeam"] == equipe)) & (t < pd.Timestamp(avant)) & j["HPTS"].notna()]
+    d = d.assign(t=t).sort_values("t").tail(5)
+    if not len(d):
+        return None
+    pour = [h if dom == equipe else a for dom, h, a in zip(d["HomeTeam"], d["HPTS"], d["APTS"])]
+    contre = [a if dom == equipe else h for dom, h, a in zip(d["HomeTeam"], d["HPTS"], d["APTS"])]
+    v = sum(x > y for x, y in zip(pour, contre))
+    return v, len(d) - v, sum(pour) / len(d), sum(contre) / len(d)
+
+
+def _proches(p: dict, prefixe: str, centre: float, n: int = 3) -> list[float]:
+    lignes = [float(k.rsplit(" ", 1)[1]) for k in p if k.startswith(prefixe)]
+    return sorted(sorted(lignes, key=lambda x: abs(x - centre))[:n])
+
+
+def detail(r: dict, modeles: dict, p: dict, a: float, b: float) -> None:
+    """« Pourquoi ce pronostic ? » et les paris principaux en lignes Betclic (plus de x,5), comme au foot."""
+    dom, ext, ligue = r["HomeTeam"], r["AwayTeam"], r["ligue"]
+    mm = modeles["Match"]
+    v = p["Vainqueur"]
+    fav, q, autre = (dom, v["1"], ext) if v["1"] >= v["2"] else (ext, v["2"], dom)
+    force = "nettement favori" if q >= 0.7 else "favori" if q >= 0.55 else "légèrement favori"
+    phrases = [f"{fav} part {force} ({q:.0%}) face à {autre}."]
+    for eq in (dom, ext):
+        f = forme(eq, r["DateUtc"])
+        if f:
+            vi, de, pm, pe_ = f
+            phrases.append(f"{eq} : {vi} victoire{'s' * (vi > 1)}, {de} défaite{'s' * (de > 1)} sur ses {vi + de} derniers "
+                           f"matchs ({round(pm)} points marqués et {round(pe_)} encaissés en moyenne).")
+    h = mm.terrain.get(ligue)
+    if h is not None and not r.get("neutre"):
+        phrases.append(f"Jouer à domicile vaut environ {round(h)} points en {ligue}.")
+    lt = _proches(p, "Match : total ", a + b, 1)[0]
+    qt = p[f"Match : total {lt:.1f}"]["Plus"]
+    phrases.append(f"Total de points : plus de {fr(lt)} dans {qt:.0%} des cas.")
+    st.markdown(f"**Pourquoi ce pronostic ?** {' '.join(phrases)}")
+
+    tr = p["Temps réglementaire"]
+    # Handicap vu du favori : lignes les plus proches de l'écart attendu
+    hand = []
+    for l in _proches(p, "Match : handicap ", -(a - b)):
+        qd = p[f"Match : handicap {l:+.1f}"]["1"]
+        hand.append(f"{dom} {fr(l) if l < 0 else '+' + fr(l)} {qd:.0%}" if fav == dom
+                    else f"{ext} {fr(-l) if -l < 0 else '+' + fr(-l)} {1 - qd:.0%}")
+    tot = " · ".join(f"plus de {fr(l)} {p[f'Match : total {l:.1f}']['Plus']:.0%}" for l in _proches(p, "Match : total ", a + b))
+    pts = lambda cote, m: " · ".join(f"plus de {fr(l)} {p[f'Match : points {cote} {l:.1f}']['Plus']:.0%}"  # noqa: E731
+                                     for l in _proches(p, f"Match : points {cote} ", m, 2))
+    lignes = [f"- **Vainqueur** (prolongations comprises) : {dom} {v['1']:.0%} · {ext} {v['2']:.0%}",
+              f"- **Temps réglementaire** : {dom} {tr['1']:.0%} · égalité {tr['N']:.0%} · {ext} {tr['2']:.0%}",
+              f"- **Handicap** : " + " · ".join(hand),
+              f"- **Total de points du match** : {tot}",
+              f"- **Points de {dom}** : {pts('Dom.', a)}",
+              f"- **Points de {ext}** : {pts('Ext.', b)}"]
+    if "1re mi-temps : résultat" in p and modeles.get("1re mi-temps") is not None:
+        mt = p["1re mi-temps : résultat"]
+        ha, hb = modeles["1re mi-temps"].points(dom, ext, ligue)
+        lm = _proches(p, "1re mi-temps : total ", ha + hb, 1)[0]
+        lignes.append(f"- **1re mi-temps** : {dom} {mt['1']:.0%} · égalité {mt['N']:.0%} · {ext} {mt['2']:.0%} · plus de "
+                      f"{fr(lm)} points {p[f'1re mi-temps : total {lm:.1f}']['Plus']:.0%}")
+    e = p["Écart final"]
+    c = "1" if fav == dom else "2"
+    lignes.append(f"- **{fav} gagne de** : 1 à 10 points {e[f'{c} de 1 à 5'] + e[f'{c} de 6 à 10']:.0%} · 11 à 20 points "
+                  f"{e[f'{c} de 11 à 15'] + e[f'{c} de 16 à 20']:.0%} · 21 points ou plus {e[f'{c} de 21 ou plus']:.0%}")
+    st.markdown("\n".join(lignes))
+
+
 def carte(r: dict, modeles: dict) -> None:
     dom, ext, ligue = r["HomeTeam"], r["AwayTeam"], r["ligue"]
     mm = modeles["Match"]
@@ -62,6 +132,8 @@ def carte(r: dict, modeles: dict) -> None:
                 st.badge(f"Raté : {gagnant} a gagné", icon=":material/cancel:", color="red")
             st.caption(f"Total réel {total} points (attendu {fr(a + b)}) · écart réel {abs(int(r['HPTS'] - r['APTS']))} "
                        f"(attendu {fr(abs(a - b))}). Pronostic calculé avec les seuls matchs d'avant ce jour.")
+        with st.expander("Détail du pronostic"):
+            detail(r, modeles, p, a, b)
         with st.expander("Toutes les prédictions"):
             lignes = [{"Prédiction": libelle(mk, s, dom, ext), "Chance": c, "Cote juste": 1 / c if c > 0.005 else None}
                       for mk, d in p.items() for s, c in d.items() if mk != "Total pair ou impair"]
