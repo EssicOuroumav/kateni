@@ -52,6 +52,16 @@ with st.container(border=True):
     st.page_link("app_pages/predictions.py", label="Aller à Football", icon=":material/sports_soccer:")
 
 with st.container(border=True):
+    st.subheader("Analyser mon coupon", anchor=False, icon=":material/receipt_long:")
+    st.markdown(
+        "1. Fais ton combiné sur Betclic et prends une **capture d'écran du coupon**.\n"
+        "2. Ouvre **Mon coupon** et dépose la capture : Kateni lit les matchs, les paris et les cotes.\n"
+        "3. **Vérifie** ce qu'il a lu et corrige si besoin (match, pari, cote), ou ajoute une sélection à la main.\n"
+        "4. Lis l'analyse : chaque pari est **Solide / Correct / Risqué**, **bien ou mal payé** par Betclic, avec un pari "
+        "plus sûr sur le même match ; puis la **chance que tout le combiné passe** et son **maillon faible**.\n"
+        "5. Si tu le joues : « l'enregistrer dans Mes paris », il sera réglé tout seul.")
+    st.page_link("app_pages/coupon.py", label="Aller à Mon coupon", icon=":material/receipt_long:")
+
     st.subheader("Basket", anchor=False, icon=":material/sports_basketball:")
     st.markdown(
         "**NBA, EuroLeague et EuroCup**, mis à jour tout seuls chaque jour. Choisis la ligue dans le menu **Championnat** (ou « Tous les championnats ») et le jour ; les jours passés montrent le pronostic d'avant-match et le résultat. Chaque "

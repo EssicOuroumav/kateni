@@ -42,6 +42,7 @@ page = st.navigation(
     [
         st.Page("app_pages/calendrier.py", title="Calendrier", icon=":material/calendar_month:", default=True),
         st.Page("app_pages/predictions.py", title="Football", icon=":material/sports_soccer:"),
+        st.Page("app_pages/coupon.py", title="Mon coupon", icon=":material/receipt_long:"),
         st.Page("app_pages/avant_match.py", title="Cotes Betclic", icon=":material/compare_arrows:"),
         st.Page("app_pages/live.py", title="Live", icon=":material/timer:"),
         st.Page("app_pages/basket.py", title="Basket", icon=":material/sports_basketball:"),

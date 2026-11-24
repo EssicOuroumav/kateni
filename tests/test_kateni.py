@@ -449,3 +449,27 @@ def test_sentinelle_repere_un_championnat_bloque_sans_fausse_alerte():
     assert [a["championnat"] for a in r["alertes"]] == ["AAA"]
     tous = df[df["Date"] <= "2026-11-01"]  # tout le monde s'arrête : trêve, pas de panne
     assert verifier(tous, aujourd_hui=date(2026, 11, 24))["alertes"] == []
+
+
+def test_coupon_reconnait_matchs_paris_et_cotes():
+    from kateni.coupon import cote_totale_lue, reconnaitre, verdict
+    cal = pd.DataFrame([{"competition": "CL", "Date": "2026-11-24", "Heure": "17:45", "dom": "Bodo/Glimt", "ext": "LASK"},
+                        {"competition": "CL", "Date": "2026-11-24", "Heure": "20:00", "dom": "Galatasaray", "ext": "Aston Villa"},
+                        {"competition": "PL", "Date": "2026-11-28", "Heure": "16:00", "dom": "Arsenal", "ext": "Chelsea"}])
+    texte = """Mon coupon
+Bodo/Glimt 1,45
+Résultat du match
+Bodo/Glimt - LASK
+Galatasaray ou Nul 1,62
+Double chance
+Galatasaray - Aston Villa
+Plus de 2,5 buts 1,80
+Nombre total de buts
+Arsenal - Chelsea
+Cote totale 4,23
+"""
+    r = reconnaitre(texte, cal)
+    assert [(x["i_cal"], x["marche"], x["selection"], x["cote"]) for x in r] == [
+        (0, "1N2", "1", 1.45), (1, "Double chance", "1N", 1.62), (2, "Total buts 2.5", "Plus", 1.80)]
+    assert cote_totale_lue(texte) == 4.23
+    assert verdict(0.8)[0] == "Solide" and verdict(0.5)[0] == "Risqué"
