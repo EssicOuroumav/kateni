@@ -1,223 +1,31 @@
 competition,Date,Heure_UK,HomeTeam,AwayTeam,B365H,B365D,B365A,B365>2.5,B365<2.5
-BEL,2026-11-20,19:45,Cercle Brugge,Westerlo,1.91,3.6,3.4,1.62,2.25
-BEL,2026-11-21,15:00,Charleroi,St Truiden,1.91,3.6,3.3,1.53,2.4
-BEL,2026-11-21,17:15,Genk,RAAL La Louviere,1.42,4.5,6.0,1.57,2.35
-BEL,2026-11-21,19:45,Mechelen,Club Brugge,6.25,4.75,1.38,1.4,2.88
-BEL,2026-11-21,19:45,Waregem,Antwerp,2.1,3.4,3.1,1.7,2.1
-BEL,2026-11-22,12:30,Beveren,Gent,3.6,3.4,1.9,1.8,2.0
-BEL,2026-11-22,15:00,Kortrijk,St. Gilloise,6.5,4.75,1.38,1.6,2.3
-BEL,2026-11-22,17:30,Anderlecht,Oud-Heverlee Leuven,1.45,4.2,6.0,1.57,2.35
-BEL,2026-11-22,18:15,Lommel SK,Standard,3.1,3.5,2.05,1.57,2.35
-BL,2026-11-20,19:30,Bayern Munich,FC Koln,1.08,13.0,19.0,1.14,5.5
-BL,2026-11-21,14:30,Ein Frankfurt,Hoffenheim,2.3,4.0,2.7,1.33,3.4
-BL,2026-11-21,14:30,Elversberg,Freiburg,3.6,3.75,1.95,1.57,2.38
-BL,2026-11-21,14:30,Leverkusen,Paderborn,1.29,6.5,8.0,1.36,3.2
-BL,2026-11-21,14:30,M'gladbach,Dortmund,5.25,4.33,1.57,1.5,2.63
-BL,2026-11-21,14:30,Union Berlin,RB Leipzig,5.5,4.75,1.5,1.44,2.75
-BL,2026-11-21,17:30,Schalke 04,Stuttgart,4.1,4.0,1.8,1.5,2.63
-BL,2026-11-22,14:30,Augsburg,Mainz,2.7,3.8,2.38,1.4,3.0
-BL,2026-11-22,16:30,Werder Bremen,Hamburg,1.67,4.2,4.5,1.53,2.5
-BL2,2026-11-20,17:30,Bielefeld,Magdeburg,2.2,3.4,3.1,1.7,2.1
-BL2,2026-11-20,17:30,Darmstadt,Heidenheim,3.4,3.75,1.95,1.5,2.5
-BL2,2026-11-21,12:00,Hannover,Greuther Furth,1.7,3.9,4.1,1.53,2.4
-BL2,2026-11-21,12:00,Nurnberg,Braunschweig,1.7,4.0,4.1,1.48,2.6
-BL2,2026-11-21,12:00,Wolfsburg,Holstein Kiel,1.67,4.0,4.33,1.4,2.88
-BL2,2026-11-21,19:30,St Pauli,Bochum,2.05,3.5,3.2,1.7,2.1
-BL2,2026-11-22,12:30,Cottbus,Hertha,4.75,4.2,1.57,1.4,2.88
-BL2,2026-11-22,12:30,Kaiserslautern,Dresden,2.15,3.5,3.0,1.7,2.1
-BL2,2026-11-22,12:30,Karlsruhe,Osnabruck,2.2,3.5,2.88,1.62,2.25
-PL,2026-11-21,12:30,Man City,Fulham,1.36,5.25,7.0,1.5,2.63
-PL,2026-11-21,15:00,Aston Villa,Sunderland,1.75,3.8,4.5,1.8,2.0
-PL,2026-11-21,15:00,Bournemouth,Nott'm Forest,1.91,3.5,4.0,1.91,1.91
-PL,2026-11-21,15:00,Chelsea,Leeds,1.85,3.7,4.0,1.8,2.0
-PL,2026-11-21,15:00,Coventry,Crystal Palace,2.5,3.5,2.75,1.73,2.1
-PL,2026-11-21,15:00,Tottenham,Ipswich,1.53,4.33,5.5,1.57,2.38
-PL,2026-11-21,17:30,Newcastle,Arsenal,5.75,4.2,1.57,1.73,2.1
-PL,2026-11-22,14:00,Hull,Brighton,6.5,4.33,1.5,1.67,2.2
-PL,2026-11-22,16:30,Liverpool,Man United,1.7,4.2,4.33,1.5,2.63
-PL,2026-11-23,20:00,Brentford,Everton,2.15,3.5,3.3,1.73,2.1
-CHAMP,2026-11-21,12:30,Millwall,QPR,2.6,3.5,2.6,1.73,2.1
-CHAMP,2026-11-21,12:30,Norwich,Cardiff,1.75,4.2,4.0,1.36,3.2
-CHAMP,2026-11-21,12:30,Southampton,Derby,1.38,5.0,7.5,1.53,2.5
-CHAMP,2026-11-21,15:00,Bolton,Portsmouth,2.75,3.4,2.45,1.91,1.91
-CHAMP,2026-11-21,15:00,Lincoln,Wrexham,2.75,3.25,2.6,2.1,1.73
-CHAMP,2026-11-21,15:00,Middlesbrough,Bristol City,1.38,5.0,7.0,1.53,2.5
-CHAMP,2026-11-21,15:00,Sheffield United,Watford,1.57,4.1,5.25,1.8,2.0
-CHAMP,2026-11-21,15:00,Stoke,Birmingham,2.88,3.3,2.45,2.2,1.67
-CHAMP,2026-11-21,15:00,Swansea,West Brom,2.6,3.3,2.7,2.0,1.8
-CHAMP,2026-11-21,15:00,West Ham,Preston,1.2,7.0,11.0,1.36,3.2
-CHAMP,2026-11-21,15:00,Wolves,Charlton,1.33,5.5,8.0,1.62,2.3
-CHAMP,2026-11-22,12:00,Burnley,Blackburn,1.85,3.8,3.8,1.73,2.1
-L1,2026-11-20,19:45,Troyes,Le Havre,2.2,3.4,3.2,1.91,1.91
-L1,2026-11-21,16:15,Nice,Paris SG,6.0,5.0,1.45,1.4,3.0
-L1,2026-11-21,19:45,Lens,Toulouse,1.85,3.9,3.8,1.67,2.2
-L1,2026-11-21,19:45,Lille,Lyon,2.25,3.3,3.3,2.0,1.8
-L1,2026-11-21,19:45,Monaco,Auxerre,1.42,5.0,7.0,1.5,2.63
-L1,2026-11-21,19:45,Strasbourg,Brest,2.2,3.8,3.0,1.67,2.2
-L1,2026-11-22,14:00,Paris FC,Angers,1.33,5.5,8.5,1.62,2.3
-L1,2026-11-22,16:15,Lorient,Rennes,2.8,3.5,2.45,1.91,1.91
-L1,2026-11-22,19:45,Marseille,Le Mans,1.44,4.75,6.5,1.5,2.63
-L2,2026-11-20,19:00,Annecy,Clermont,2.0,3.1,3.3,2.0,1.8
-L2,2026-11-20,19:00,Guingamp,Rodez,2.0,3.3,3.25,1.65,2.2
-L2,2026-11-20,19:00,Metz,Boulogne,2.05,3.0,3.4,2.05,1.75
-L2,2026-11-20,19:00,Nancy,Dijon,1.75,3.6,4.2,1.73,2.08
-L2,2026-11-20,19:00,Red Star,Pau FC,2.0,3.2,3.4,2.08,1.73
-L2,2026-11-21,13:00,Laval,Montpellier,3.3,3.2,2.0,1.8,2.0
-L2,2026-11-21,19:00,Reims,St Etienne,3.1,3.1,2.05,1.85,1.95
-L2,2026-11-23,19:45,Nantes,Grenoble,1.44,3.7,6.5,1.85,1.95
-L2,2026-11-23,19:45,Sochaux,Dunkerque,2.25,3.1,2.88,1.85,1.95
-GRE,2026-11-21,17:30,Kalamata,AEK,8.0,4.75,1.35,1.57,2.35
-GRE,2026-11-22,14:00,Levadeiakos,Atromitos,2.45,3.1,2.87,2.4,1.53
-GRE,2026-11-22,15:00,Panetolikos,Volos NFC,2.25,3.25,3.1,2.05,1.75
-GRE,2026-11-22,15:30,Panathinaikos,OFI Crete,1.17,7.0,11.0,1.48,2.6
-GRE,2026-11-22,17:00,Olympiakos,Iraklis,1.14,8.0,12.0,1.5,2.5
-GRE,2026-11-22,17:30,PAOK,Kifisia,1.33,4.75,8.0,1.57,2.35
-GRE,2026-11-23,15:00,Asteras Tripolis,Aris,3.4,3.1,2.2,2.08,1.73
-SA,2026-11-21,14:00,Como,Cagliari,1.27,6.0,10.0,1.53,2.5
-SA,2026-11-21,14:00,Lazio,Lecce,1.36,5.25,8.0,1.57,2.38
-SA,2026-11-21,17:00,Parma,Roma,10.0,5.5,1.27,1.53,2.5
-SA,2026-11-21,19:45,Napoli,Torino,1.48,4.5,6.5,1.67,2.2
-SA,2026-11-22,11:30,Juventus,Venezia,1.36,5.25,8.5,1.62,2.3
-SA,2026-11-22,14:00,Bologna,Udinese,1.7,3.75,5.0,1.91,1.91
-SA,2026-11-22,14:00,Sassuolo,Genoa,2.7,3.3,2.45,1.91,1.91
-SA,2026-11-22,17:00,Milan,Frosinone,1.53,4.5,5.25,1.36,3.2
-SA,2026-11-22,19:45,Atalanta,Inter,5.0,4.33,1.6,1.4,3.0
-SA,2026-11-23,19:45,Monza,Fiorentina,3.75,3.8,1.91,1.62,2.3
-NED,2026-11-21,15:30,Nijmegen,PSV Eindhoven,4.0,4.33,1.73,1.29,3.6
-NED,2026-11-21,17:45,Feyenoord,Excelsior,1.2,7.5,10.0,1.33,3.4
-NED,2026-11-21,17:45,Utrecht,Cambuur,1.91,4.0,3.5,1.4,2.88
-NED,2026-11-21,20:00,Groningen,Heerenveen,2.5,3.6,2.63,1.44,2.7
-NED,2026-11-21,20:00,Telstar,Zwolle,2.1,3.5,3.4,1.65,2.2
-NED,2026-11-22,11:15,Twente,Willem II,1.1,10.0,21.0,1.22,4.2
-NED,2026-11-22,13:30,Ajax,Den Haag,1.18,7.0,13.0,1.29,3.6
-NED,2026-11-22,13:30,Sparta Rotterdam,AZ Alkmaar,4.33,4.0,1.73,1.44,2.7
-NED,2026-11-22,15:45,Go Ahead Eagles,For Sittard,1.62,4.2,5.0,1.48,2.6
-SCO,2026-11-21,15:00,Celtic,St Mirren,1.17,8.0,12.0,1.29,3.75
-SCO,2026-11-21,15:00,Falkirk,St Johnstone,1.8,3.9,4.0,1.73,2.1
-SCO,2026-11-21,15:00,Hibernian,Dundee United,1.95,4.0,3.3,1.62,2.3
-SCO,2026-11-21,15:00,Kilmarnock,Aberdeen,2.63,3.5,2.5,1.73,2.1
-SCO,2026-11-21,17:45,Dundee,Hearts,3.2,3.9,2.05,1.62,2.3
-SCO,2026-11-21,20:00,Motherwell,Rangers,5.5,4.33,1.53,1.57,2.38
-LIGA,2026-11-20,20:00,Ath Bilbao,Espanol,1.5,4.33,6.5,1.67,2.2
-LIGA,2026-11-21,13:00,Alaves,La Coruna,2.2,3.3,3.4,2.2,1.67
-LIGA,2026-11-21,15:15,Vallecano,Valencia,1.91,3.5,4.1,2.0,1.8
-LIGA,2026-11-21,17:30,Sevilla,Betis,3.0,3.4,2.38,1.91,1.91
-LIGA,2026-11-21,20:00,Real Madrid,Celta,1.17,8.0,13.0,1.36,3.2
-LIGA,2026-11-22,13:00,Barcelona,Villarreal,1.2,7.5,10.0,1.17,5.0
-LIGA,2026-11-22,15:15,Santander,Sociedad,3.25,4.2,2.0,1.33,3.4
-LIGA,2026-11-22,17:30,Osasuna,Malaga,1.8,3.5,4.5,2.0,1.8
-LIGA,2026-11-22,20:00,Getafe,Ath Madrid,6.25,3.9,1.55,2.0,1.8
-LIGA,2026-11-23,20:00,Levante,Elche,2.15,3.6,3.25,1.67,2.2
-LIGA2,2026-11-20,19:30,Andorra,Leganes,1.81,3.5,4.2,1.8,2.0
-LIGA2,2026-11-21,13:00,Sabadell,Granada,2.4,3.2,3.0,2.3,1.6
-LIGA2,2026-11-21,15:15,Sociedad B,Cadiz,1.9,3.4,3.9,1.8,2.0
-LIGA2,2026-11-21,17:30,Castellon,Eldense,1.42,4.75,6.5,1.57,2.35
-LIGA2,2026-11-21,20:00,Tenerife,Mallorca,3.4,3.2,2.15,2.15,1.67
-LIGA2,2026-11-22,13:00,Cordoba,Oviedo,1.86,3.7,3.8,1.62,2.25
-LIGA2,2026-11-22,15:15,Sp Gijon,Las Palmas,2.05,3.4,3.3,1.95,1.85
-LIGA2,2026-11-22,17:30,Celta B,Valladolid,3.5,3.5,2.0,1.75,2.05
-LIGA2,2026-11-22,17:30,Girona,Eibar,1.76,3.7,4.2,1.73,2.08
-LIGA2,2026-11-22,20:00,Burgos,Albacete,1.96,3.3,3.7,2.05,1.75
-LIGA2,2026-11-23,19:30,Ceuta,Almeria,3.6,3.7,1.9,1.67,2.15
-TUR,2026-11-21,10:30,Genclerbirligi,Gaziantep,2.15,3.4,2.87,1.75,2.05
-TUR,2026-11-21,13:00,Amedspor,Rizespor,1.69,3.75,4.2,1.57,2.35
-TUR,2026-11-21,13:00,Galatasaray,Samsunspor,1.19,6.0,10.0,1.33,3.4
-TUR,2026-11-21,16:00,Kocaelispor,Fenerbahce,5.5,4.0,1.51,1.7,2.1
-TUR,2026-11-22,10:30,Erzurumspor,Goztep,2.7,3.25,2.4,1.95,1.85
-TUR,2026-11-22,13:00,Kasimpasa,Alanyaspor,1.9,3.5,3.5,1.85,1.95
-TUR,2026-11-22,13:00,Konyaspor,Besiktas,5.0,3.8,1.56,1.7,2.1
-TUR,2026-11-22,16:00,Trabzonspor,Eyupspor,1.12,7.5,15.0,1.33,3.4
-TUR,2026-11-23,17:00,Buyuksehyr,Corum,1.76,3.75,3.75,1.57,2.35
-ARG,2026-11-20,23:00,Velez Sarsfield,Belgrano,2.22,3.25,3.8,,
-ARG,2026-11-21,18:00,Defensa y Justicia,Barracas Central,2.06,3.2,4.2,,
-ARG,2026-11-21,20:00,Argentinos Jrs,Independiente,2.08,3.15,4.3,,
-ARG,2026-11-22,19:00,Rosario Central,Gimnasia Mendoza,1.37,4.9,9.6,,
-ARG,2026-11-22,22:00,River Plate,Lanus,1.61,3.75,6.4,,
-ARG,2026-11-23,01:00,Instituto,Huracan,2.02,2.98,3.95,,
-ARG,2026-11-23,20:00,Gimnasia L.P.,Newells Old Boys,2.14,3.1,3.8,,
-AUT,2026-11-21,16:00,LASK,Hartberg,1.32,6.2,9.4,,
-AUT,2026-11-21,16:00,Tirol,A. Lustenau,1.82,4.2,4.4,,
-AUT,2026-11-21,18:30,Grazer AK,SK Rapid,7.4,4.9,1.44,,
-AUT,2026-11-22,13:30,Altach,Sturm Graz,3.85,3.75,1.92,,
-AUT,2026-11-22,13:30,Wolfsberger AC,Ried,2.78,3.7,2.28,,
-AUT,2026-11-22,16:00,Austria Vienna,Salzburg,4.6,4.5,1.67,,
-BRA,2026-11-21,19:30,Palmeiras,Flamengo RJ,4.1,3.9,1.95,,
-BRA,2026-11-21,20:30,Bahia,Coritiba,1.52,4.7,6.2,,
-BRA,2026-11-22,00:00,Chapecoense-SC,Cruzeiro,7.0,4.9,1.47,,
-BRA,2026-11-22,19:00,Athletico-PR,Remo,1.37,4.8,6.2,,
-BRA,2026-11-22,21:30,Fluminense,Mirassol,1.63,4.0,5.6,,
-BRA,2026-11-22,22:30,Bragantino,Vasco,1.84,3.55,2.1,,
-BRA,2026-11-23,22:30,Internacional,Vitoria,,,,,
-BRA,2026-11-23,23:00,Botafogo RJ,Sao Paulo,,,,,
-BRA,2026-11-24,00:00,Santos,Gremio,,,,,
-DAN,2026-11-20,18:00,Aarhus,Lyngby,1.84,4.2,4.3,,
-DAN,2026-11-22,13:00,Horsens,Silkeborg,2.28,3.6,2.98,,
-DAN,2026-11-22,13:00,Viborg,Randers FC,1.57,4.6,5.0,,
-DAN,2026-11-22,15:00,Sonderjyske,Odense,2.82,3.85,2.24,,
-DAN,2026-11-22,17:00,Nordsjaelland,FC Copenhagen,2.68,3.6,2.48,,
-DAN,2026-11-23,18:00,Brondby,Midtjylland,2.5,3.85,2.54,,
-JPN,2026-11-20,10:00,Kashima Antlers,Shimizu S-Pulse,1.5,4.5,8.2,,
-JPN,2026-11-20,10:00,Kashiwa Reysol,Chiba,1.55,4.7,6.8,,
-JPN,2026-11-20,10:00,Vissel Kobe,Mito,1.46,4.7,8.6,,
-JPN,2026-11-21,05:00,Kyoto,Urawa Reds,3.35,3.85,2.16,,
-JPN,2026-11-21,05:00,Machida,V-Varen Nagasaki,1.54,4.4,6.8,,
-JPN,2026-11-21,05:00,Sanfrecce Hiroshima,Yokohama F. Marinos,1.43,5.2,7.2,,
-JPN,2026-11-21,05:00,Verdy,Nagoya Grampus,3.5,3.4,2.2,,
-JPN,2026-11-21,06:00,Cerezo Osaka,FC Tokyo,5.1,4.3,1.66,,
-JPN,2026-11-21,06:00,Kawasaki Frontale,Avispa Fukuoka,1.86,3.8,4.4,,
-JPN,2026-11-21,07:00,Gamba Osaka,Okayama,2.18,3.6,3.35,,
-MEX,2026-11-21,01:00,Puebla,Atl. San Luis,2.6,3.6,2.78,,
-MEX,2026-11-21,03:00,Juarez,Atlas,3.7,3.75,2.06,,
-MEX,2026-11-21,03:10,Club Tijuana,Atlante,1.67,4.2,5.4,,
-MEX,2026-11-21,22:50,Pachuca,Toluca,2.68,4.2,2.34,,
-MEX,2026-11-21,23:00,Santos Laguna,Club Leon,2.46,3.9,2.66,,
-MEX,2026-11-22,01:00,UNAM Pumas,Monterrey,2.6,3.7,2.58,,
-MEX,2026-11-22,03:00,Tigres UANL,Club America,3.45,3.8,2.08,,
-MEX,2026-11-22,23:07,Guadalajara Chivas,Cruz Azul,2.24,4.2,2.76,,
-MEX,2026-11-23,01:10,Queretaro,Necaxa,2.02,3.85,3.3,,
-NOR,2026-11-20,18:00,Molde,Bodo/Glimt,3.85,5.0,1.81,,
-NOR,2026-11-21,13:00,Tromso,Viking,3.95,4.4,1.86,,
-NOR,2026-11-21,15:00,HamKam,Fredrikstad,2.64,3.3,3.0,,
-NOR,2026-11-21,17:00,Valerenga,Start,1.53,5.2,5.5,,
-NOR,2026-11-22,16:00,Aalesund,Rosenborg,4.2,4.8,1.67,,
-NOR,2026-11-22,16:00,KFUM Oslo,Brann,2.76,4.0,2.3,,
-NOR,2026-11-22,16:00,Kristiansund,Sandefjord,2.68,4.0,2.38,,
-NOR,2026-11-22,18:15,Sarpsborg 08,Lillestrom,2.2,4.2,2.82,,
-POL,2026-11-20,17:00,Piast Gliwice,Korona Kielce,2.68,3.75,2.66,,
-POL,2026-11-20,19:30,Pogon Szczecin,Slask Wroclaw,1.78,4.1,4.6,,
-POL,2026-11-21,13:45,Cracovia,Jagiellonia,2.48,3.85,2.66,,
-POL,2026-11-21,16:30,Zaglebie,Gornik Zabrze,4.4,3.5,1.89,,
-POL,2026-11-21,19:15,Radomiak Radom,Wisla,3.2,3.9,2.08,,
-POL,2026-11-22,11:15,Rakow,Widzew Lodz,2.04,3.65,2.36,,
-POL,2026-11-22,13:45,GKS Katowice,Lech Poznan,2.98,3.7,1.95,,
-POL,2026-11-22,16:30,Wisla Plock,Legia,2.84,3.35,2.18,,
-POL,2026-11-23,18:00,Wieczysta Krakow,Motor Lublin,,,,,
-ROU,2026-11-20,15:30,FC Botosani,FC Voluntari,1.71,4.2,5.0,,
-ROU,2026-11-20,18:30,Farul Constanta,U. Cluj,3.0,3.45,2.54,,
-ROU,2026-11-21,13:00,Csikszereda M. Ciuc,Corvinul,3.9,3.55,1.97,,
-ROU,2026-11-21,15:30,CFR Cluj,Otelul,2.36,3.4,3.05,,
-ROU,2026-11-21,18:30,Dinamo Bucuresti,Petrolul,1.41,5.1,8.4,,
-ROU,2026-11-22,15:30,UTA Arad,Univ. Craiova,4.3,3.6,1.72,,
-ROU,2026-11-22,18:30,FC Arges,FCSB,3.65,3.2,2.0,,
-ROU,2026-11-23,18:00,Sepsi Sf. Gheorghe,FC Rapid Bucuresti,1.09,1.08,1.11,,
-SUE,2026-11-21,14:00,AIK,Degerfors,2.18,3.95,3.0,,
-SUE,2026-11-21,14:00,Mjallby,Malmo FF,3.25,3.55,2.26,,
-SUE,2026-11-21,16:30,GAIS,Vasteras SK,1.99,3.6,3.8,,
-SUE,2026-11-22,13:00,Hacken,Elfsborg,1.84,4.2,3.9,,
-SUE,2026-11-22,13:00,Sirius,Djurgarden,2.28,3.75,2.88,,
-SUE,2026-11-22,15:30,Brommapojkarna,Halmstad,2.08,3.8,3.2,,
-SUE,2026-11-23,18:00,Hammarby,Goteborg,1.23,7.0,13.5,,
-SUE,2026-11-23,18:00,Orgryte,Kalmar,3.3,3.6,2.1,,
-SUI,2026-11-21,17:00,Lugano,Grasshoppers,1.36,6.0,7.8,,
-SUI,2026-11-21,17:00,Young Boys,Thun,1.39,5.8,6.0,,
-SUI,2026-11-21,19:30,Sion,Servette,1.72,3.9,4.5,,
-SUI,2026-11-22,13:00,Zurich,St. Gallen,3.35,4.2,1.94,,
-SUI,2026-11-22,15:30,Basel,Luzern,2.22,3.9,2.66,,
-SUI,2026-11-22,15:30,Lausanne,Vaduz,2.12,4.0,3.05,,
-MLS,2026-11-21,19:00,New England Revolution,Philadelphia Union,3.15,3.85,2.24,,
-MLS,2026-11-21,21:00,FC Dallas,Portland Timbers,1.94,4.2,3.7,,
-MLS,2026-11-21,23:00,Inter Miami,Columbus Crew,1.62,4.9,4.8,,
-MLS,2026-11-22,21:00,Nashville SC,FC Cincinnati,1.46,2.36,2.46,,
-MLS,2026-11-22,23:30,Chicago Fire,Charlotte,1.61,4.7,4.6,,
-MLS,2026-11-23,01:30,Vancouver Whitecaps,Real Salt Lake,,,,,
-MLS,2026-11-24,01:00,St. Louis City,Los Angeles FC,2.36,3.8,2.84,,
+CHAMP,2026-11-24,19:45,Bristol City,Wrexham,2.38,3.2,3.0,2.2,1.67
+CHAMP,2026-11-24,19:45,Cardiff,Preston,1.48,4.5,6.25,1.44,2.75
+CHAMP,2026-11-24,19:45,Charlton,Lincoln,2.75,3.2,2.63,2.1,1.73
+CHAMP,2026-11-24,19:45,Middlesbrough,Swansea,1.45,4.33,6.5,1.5,2.63
+CHAMP,2026-11-24,19:45,Norwich,QPR,1.95,3.6,3.6,1.67,2.2
+CHAMP,2026-11-24,19:45,Portsmouth,West Ham,4.0,3.6,1.83,1.8,2.0
+CHAMP,2026-11-24,19:45,Sheffield United,Southampton,2.6,3.4,2.6,1.73,2.1
+CHAMP,2026-11-24,20:00,Wolves,Derby,1.3,4.75,10.0,1.67,2.2
+CHAMP,2026-11-25,19:45,Bolton,West Brom,3.7,3.6,1.95,1.73,2.1
+CHAMP,2026-11-25,19:45,Burnley,Birmingham,2.63,3.4,2.55,1.73,2.1
+CHAMP,2026-11-25,19:45,Watford,Blackburn,2.5,3.4,2.7,1.91,1.91
+CHAMP,2026-11-25,20:00,Stoke,Millwall,2.2,3.3,3.25,2.0,1.8
+SCO,2026-11-24,19:45,Hibernian,Dundee,1.62,4.1,4.75,1.67,2.2
+SCO,2026-11-24,20:00,Rangers,Aberdeen,1.25,6.0,11.0,1.44,2.75
+ARG,2026-11-26,00:00,Boca Juniors,Ind. Rivadavia,1.57,3.6,6.25,,
+BRA,2026-11-24,21:00,Chapecoense-SC,Palmeiras,3.5,3.5,2.05,,
+BRA,2026-11-25,23:00,Atletico-MG,Corinthians,2.33,3.3,3.0,,
+BRA,2026-11-26,23:00,Sao Paulo,Remo,1.39,4.33,8.5,,
+JPN,2026-11-25,10:00,Avispa Fukuoka,Yokohama F. Marinos,3.1,3.3,2.2,,
+JPN,2026-11-25,10:00,Chiba,Nagoya Grampus,3.2,3.6,2.1,,
+JPN,2026-11-25,10:00,FC Tokyo,Sanfrecce Hiroshima,2.3,3.5,2.8,,
+JPN,2026-11-25,10:00,Mito,Verdy,2.8,3.2,2.4,,
+JPN,2026-11-25,10:00,Okayama,Shimizu S-Pulse,2.0,3.3,3.75,,
+JPN,2026-11-25,10:00,V-Varen Nagasaki,Kawasaki Frontale,3.7,3.9,1.81,,
+JPN,2026-11-25,10:30,Urawa Reds,Cerezo Osaka,1.76,3.8,4.0,,
+MEX,2026-11-26,01:00,Toluca,Atlas,1.39,4.75,7.0,,
+MEX,2026-11-26,03:10,Monterrey,Club America,2.33,3.5,2.75,,
+MEX,2026-11-27,01:00,Pachuca,Guadalajara Chivas,2.55,3.75,2.5,,
+MEX,2026-11-27,03:10,Club Leon,Cruz Azul,3.2,3.6,2.15,,
+MLS,2026-11-25,03:00,San Jose Earthquakes,Houston Dynamo,2.05,3.6,3.3,,
