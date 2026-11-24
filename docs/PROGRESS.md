@@ -227,3 +227,8 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Basket : NCAA ajustée sans les équipes presque absentes (avantage du terrain 12 → ~7 points ; log loss NCAA 0,5706 → 0,54) et avec ses propres écarts-types ; élargissement réglé par période (match 1,06 ; mi-temps 1,31 ; quart-temps 1,60).
 - Basket : enchaînements (match la veille) et écarts-types par ligue mesurés, NON adoptés. Terrain neutre pris en compte (tournois NCAA).
 - Basket : cotes du marché (DraftKings via ESPN) enregistrées à chaque passage du robot dans `basket_cotes.csv`, pour mesurer plus tard le mélange modèle + marché (pas d'historique gratuit).
+
+## 24/11/2026 — Analyse complète, pronostic foot tiré du marché
+- Remesure du poids du modèle (`scripts/mesure_poids_marche.py`, 6 189 matchs) : le marché seul bat tout mélange (1N2 0,9930 contre 0,9945 pour 25 % modèle ; +2,5 buts 0,6760 contre 0,6766), sur le réglage et sur le test.
+- Les autres paris calculés à partir des buts attendus implicites dans les cotes sont tous plus justes (`scripts/mesure_marche_derives.py`) : les deux marquent 0,6856 → 0,6837, domicile marque 0,5118 → 0,5040, extérieur marque 0,5842 → 0,5769, +1,5 0,5400 → 0,5343, +3,5 0,6062 → 0,5986, mi-temps 1,0448 → 1,0366.
+- Adopté : quand les cotes Pinnacle/Bet365 existent, tout le pronostic part du marché (`POIDS_MODELE_PRONOSTIC = 0`). `POIDS_MODELE = 0.25` reste pour la décision sur les cotes Betclic saisies (sinon aucun pari ne serait jamais proposé).

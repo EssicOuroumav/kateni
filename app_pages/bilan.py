@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from kateni.config import BANKROLL_INITIALE, POIDS_MODELE
+from kateni.config import BANKROLL_INITIALE, POIDS_MODELE, POIDS_MODELE_PRONOSTIC  # noqa: F401
 from kateni.ui import pct, store
 
 paris = store().lire()
@@ -40,18 +40,19 @@ with st.container(border=True):
     st.subheader("Ce que dit le backtest", anchor=False, icon=":material/science:")
     st.markdown(
         f"""
-Mesuré le 21/10/2026 sur **5 252 matchs** de championnat (août 2025 → octobre 2026), chaque match
-prédit avec les seules données d'avant (`python3 scripts/backtest.py`) :
+Remesuré le 24/11/2026 sur **6 189 matchs** de championnat (2025-26 et début 2026-27), chaque match
+prédit avec les seules données d'avant (`python3 scripts/mesure_poids_marche.py`) :
 
-| Probabilités utilisées | Log loss 1N2 (plus bas = mieux) |
-|---|---|
-| Cotes du marché, marge retirée | **0,9933** |
-| 25 % modèle + 75 % marché (réglage actuel) | 0,9954 |
-| 50 % / 50 % | 0,9990 |
-| Modèle seul | 1,0106 |
+| Probabilités utilisées | Log loss 1N2 (plus bas = mieux) | Bons pronostics |
+|---|---|---|
+| Cotes du marché, marge retirée (**réglage actuel**) | **0,9930** | 51,2 % |
+| 10 % modèle + 90 % marché | 0,9934 | 51,1 % |
+| 25 % modèle + 75 % marché (ancien réglage) | 0,9945 | 51,0 % |
+| Modèle seul | 1,0081 | – |
 
-Les paris simulés « espérance ≥ 3 % » ont perdu environ **17 %** des mises. Conclusion honnête :
-le modèle **ne bat pas** les cotes. Kateni s'appuie donc surtout sur les cotes que tu saisis
-(poids du modèle : {POIDS_MODELE:.0%}) et propose peu de paris.
+Conclusion honnête : le modèle **ne bat pas** les cotes. Quand elles sont publiées, Kateni suit donc le
+marché pour tout le pronostic (poids du modèle : {POIDS_MODELE_PRONOSTIC:.0%}) ; le modèle sert quand il n'y a pas de cotes
+(petits championnats, matchs lointains, tirs). Gagner de l'argent demande une cote Betclic **plus haute que la
+cote juste** : c'est ce que montre « Bon pari seulement si Betclic paie plus de… ».
 """
     )

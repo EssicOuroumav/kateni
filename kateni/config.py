@@ -124,7 +124,13 @@ ALIAS_PATH = RACINE / "equipes_alias.csv"
 # Backtest du 21/10/2026 (5 252 matchs, 2025-08 -> 2026-10, scripts/backtest.py) :
 # marché seul 0,9933 de log loss, w=0,25 : 0,9954, w=0,5 : 0,9990, modèle seul : 1,0106.
 # Le marché est meilleur : on garde un poids faible tant qu'un backtest ne montre pas mieux.
+# POIDS_MODELE sert à la décision sur les cotes BETCLIC saisies (page Cotes Betclic) : là, le « marché » est Betclic
+# lui-même, et sans part de modèle aucun pari ne serait jamais proposé.
 POIDS_MODELE = 0.25
+# Pronostic affiché quand les cotes d'un bookmaker de référence (Pinnacle, Bet365) sont publiées : remesuré le
+# 24/11/2026 avec le modèle recalibré (scripts/mesure_poids_marche.py, 6 189 matchs de test) : le marché seul est le
+# meilleur (1N2 0,9930 ; 5 % : 0,9932 ; 25 % : 0,9945), sur le réglage comme sur le test -> 0.
+POIDS_MODELE_PRONOSTIC = 0.0
 
 # Marge Betclic supposée quand une seule cote d'un marché est saisie (marge non mesurable).
 MARGE_SUPPOSEE = 0.07

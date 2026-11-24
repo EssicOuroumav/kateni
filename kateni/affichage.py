@@ -3,7 +3,7 @@
 import pandas as pd
 import streamlit as st
 
-from kateni.config import POIDS_MODELE
+from kateni.config import POIDS_MODELE_PRONOSTIC
 from kateni.cotes import sans_marge
 from kateni.marches import calibrer, marches, mi_temps
 from kateni.corners import marches_corners
@@ -34,8 +34,8 @@ COLS_COTES = ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker", "r
 
 
 def pronostic(match: dict, cotes: dict | None = None) -> dict:
-    """Probabilités du match. Si les cotes du marché sont publiées : 25 % modèle + 75 % marché
-    (+1,5 point de bons pronostics mesuré sur 5 252 matchs de 2025-26). Mis en cache par match."""
+    """Probabilités du match. Si les cotes du marché sont publiées, tout part du marché (mesuré meilleur le
+    24/11/2026) ; sinon, le modèle Kateni. Mis en cache par match."""
     from kateni.donnees import signature_donnees
     c = tuple(None if pd.isna(v) else v for v in ((cotes or {}).get(k) for k in COLS_COTES))
     neutre = match.get("neutre")
@@ -55,12 +55,25 @@ def _pronostic(competition: str, dom: str, ext: str, neutre: bool, c: tuple, _si
     modele_1n2 = [p["1N2"]["1"], p["1N2"]["N"], p["1N2"]["2"]]
     c1, cn, c2 = _cote(cotes, "B365H"), _cote(cotes, "B365D"), _cote(cotes, "B365A")
     marche_1n2 = sans_marge([c1, cn, c2])[0] if (c1 and cn and c2) else None
-    p1n2 = ([POIDS_MODELE * a + (1 - POIDS_MODELE) * b for a, b in zip(modele_1n2, marche_1n2)]
-            if marche_1n2 else modele_1n2)
-    plus25 = p["Total buts 2.5"]["Plus"]
     cp, cm = _cote(cotes, "B365>2.5"), _cote(cotes, "B365<2.5")
+    if marche_1n2:
+        # Cotes publiées : TOUT le pronostic part du marché (mesuré le 24/11/2026 : le marché seul bat tout mélange
+        # sur le 1N2 et les buts, et les buts attendus implicites dans les cotes rendent aussi plus justes « les deux
+        # marquent », les buts de chaque équipe et la mi-temps ; docs/mesures/2026-11-24_poids_marche.txt et
+        # 2026-11-24_marche_derives.txt). Le modèle reste affiché à part, et sert quand il n'y a pas de cotes.
+        from kateni.cotes import lambdas_depuis_cotes
+        from kateni.marches import matrice_scores
+        ld, le = lambdas_depuis_cotes(c1, cn, c2, cp if cm else None, cm if cp else None, rho)
+        mat = matrice_scores(ld, le, rho)
+        p = calibrer(marches(mat))
+        q = [POIDS_MODELE_PRONOSTIC * a + (1 - POIDS_MODELE_PRONOSTIC) * b for a, b in zip(modele_1n2, marche_1n2)]
+        p["1N2"] = {"1": q[0], "N": q[1], "2": q[2]}
+        p["Double chance"] = {"1N": q[0] + q[1], "12": q[0] + q[2], "N2": q[1] + q[2]}
+    p1n2 = [p["1N2"]["1"], p["1N2"]["N"], p["1N2"]["2"]]
+    plus25 = p["Total buts 2.5"]["Plus"]
     if cp and cm:
-        plus25 = POIDS_MODELE * plus25 + (1 - POIDS_MODELE) * sans_marge([cp, cm])[0][0]
+        plus25 = sans_marge([cp, cm])[0][0]
+        p["Total buts 2.5"] = {"Plus": plus25, "Moins": 1 - plus25}
     bookmaker = (cotes or {}).get("bookmaker")
     bookmaker = bookmaker if isinstance(bookmaker, str) and bookmaker else "Bet365"
     releve = (cotes or {}).get("releve")
@@ -217,7 +230,7 @@ def explication(match: dict, r: dict) -> str:
         eq = dom if i == 0 else ext
         if abs(mod - mar) >= 0.08:
             phrases.append(f"Le modèle Kateni est {'plus' if mod > mar else 'moins'} confiant que le marché pour {eq} "
-                           f"({mod:.0%} contre {mar:.0%}) : le pronostic mélange les deux.")
+                           f"({mod:.0%} contre {mar:.0%}) : le pronostic suit le marché, plus fiable (mesuré).")
         else:
             phrases.append(f"Le modèle Kateni et le marché sont d'accord sur {eq} ({mod:.0%} et {mar:.0%}).")
     return " ".join(phrases)
@@ -290,9 +303,10 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                         "Pour tout comparer d'un coup : bouton « Comparer avec mes cotes Betclic » dans le détail.")
         with st.container(horizontal=True):
             if r["marche_1n2"]:
-                st.badge("Modèle + cotes du marché", icon=":material/insights:", color="green",
-                         help=f"Pronostic = 25 % modèle Kateni + 75 % cotes du marché ({r['bookmaker']}, marge retirée). "
-                              "Mesuré sur 5 252 matchs : 50,9 % de bons pronostics contre 49,4 % pour le modèle seul.")
+                st.badge("Cotes du marché", icon=":material/insights:", color="green",
+                         help=f"Pronostic tiré des cotes du marché ({r['bookmaker']}, marge retirée) : mesuré plus "
+                              "fiable que le modèle seul et que tout mélange (6 189 matchs, 2025-26). Le modèle Kateni "
+                              "reste affiché dans le détail.")
             else:
                 st.badge("Modèle seul", icon=":material/functions:", color="gray",
                          help="Les cotes du marché ne sont pas encore publiées (en général 2 à 3 jours avant).")
