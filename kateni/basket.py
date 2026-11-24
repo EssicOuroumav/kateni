@@ -48,6 +48,8 @@ class ModeleBasket:
     def points(self, dom: str, ext: str, ligue: str | None = None, neutre: bool = False) -> tuple[float, float]:
         lg = ligue or self.ligue_equipe.get(dom) or self.ligue_equipe.get(ext)
         mu, h = self.moyenne.get(lg, 100.0), 0.0 if neutre else self.terrain.get(lg, 2.5)
+        if not neutre:
+            h += self.extra.get("dom_equipe", {}).get(dom, 0.0)
         pd_ = mu + h + self.attaque.get(dom, 0.0) - self.defense.get(ext, 0.0)
         pe = mu + self.attaque.get(ext, 0.0) - self.defense.get(dom, 0.0)
         return pd_, pe
@@ -61,7 +63,7 @@ def _points_periode(df: pd.DataFrame, quarts) -> tuple[pd.Series, pd.Series]:
 
 
 def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel: float = RAPPEL,
-            quarts=None, elargir: bool = True) -> ModeleBasket:
+            quarts=None, elargir: bool = True, ridge_dom: float | None = None) -> ModeleBasket:
     """df : basket_resultats.csv (colonnes ligue, DateUtc, HomeTeam, AwayTeam, H1..H4, A1..A4, HPTS, APTS)."""
     d = df.copy()
     d["t"] = pd.to_datetime(d["DateUtc"], utc=True, format="ISO8601")
@@ -78,7 +80,8 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
     n, nl = len(equipes), len(ligues)
     # Une ligne par score d'équipe : moyenne(ligue) + terrain(ligue, si domicile) + attaque(équipe) − défense(adv)
     m = len(d)
-    X = np.zeros((2 * m, 2 * nl + 2 * n))
+    nd = n if ridge_dom else 0   # avantage du terrain propre à chaque équipe (testé, voir mesure_basket.py)
+    X = np.zeros((2 * m, 2 * nl + 2 * n + nd))
     y = np.concatenate([d["hp"].to_numpy(), d["ap"].to_numpy()])
     ww = np.concatenate([w.to_numpy(), w.to_numpy()])
     for k, (lg, h, a) in enumerate(zip(d["ligue"], d["HomeTeam"], d["AwayTeam"])):
@@ -86,10 +89,12 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
         X[k, nl + il[lg]] = 1
         X[k, 2 * nl + ie[h]] = 1
         X[k, 2 * nl + n + ie[a]] = -1
+        if nd:
+            X[k, 2 * nl + 2 * n + ie[h]] = 1
         X[m + k, il[lg]] = 1
         X[m + k, 2 * nl + ie[a]] = 1
         X[m + k, 2 * nl + n + ie[h]] = -1
-    pen = np.r_[np.zeros(2 * nl), np.full(2 * n, rappel)]
+    pen = np.r_[np.zeros(2 * nl), np.full(2 * n, rappel), np.full(nd, ridge_dom or 0.0)]
     A = X.T @ (X * ww[:, None]) + np.diag(pen)
     beta = np.linalg.solve(A, X.T @ (ww * y))
     res = y - X @ beta
@@ -110,7 +115,8 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
         attaque={e: float(beta[2 * nl + ie[e]]) for e in equipes},
         defense={e: float(beta[2 * nl + n + ie[e]]) for e in equipes},
         ligue_equipe=ligue_eq, n_matchs=nm, n_reels=nr, sd_ecart=sd(ecart) * (ELARGIR_ECART if elargir else 1.0),
-        sd_total=sd(total) * (ELARGIR_TOTAL if elargir else 1.0))
+        sd_total=sd(total) * (ELARGIR_TOTAL if elargir else 1.0),
+        extra={"dom_equipe": {e: float(beta[2 * nl + 2 * n + ie[e]]) for e in equipes}} if nd else {})
 
 
 def _lignes(centre: float, pas: float, n: int = 3) -> list[float]:

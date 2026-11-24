@@ -125,18 +125,53 @@ COLONNES_EVENEMENTS = {
 }
 
 
+N_FORME = 7  # derniers matchs pris pour la forme (demande du propriétaire, 24/11/2026)
+
+
+def debut_saison(dates: pd.Series) -> pd.Timestamp | None:
+    """Début de la saison en cours d'une équipe : premier match après la dernière coupure de plus de 40 jours
+    (trêve d'été, ou d'hiver pour les championnats sur l'année civile). Les trêves internationales sont plus courtes."""
+    d = pd.Series(sorted(pd.to_datetime(dates))).reset_index(drop=True)
+    if not len(d):
+        return None
+    coupures = d.diff().dt.days > 40
+    return d[coupures].iloc[-1] if coupures.any() else d.iloc[0]
+
+
 @st.cache_data(ttl=3600, max_entries=4000, show_spinner=False)
 def _forme(equipe: str, avant: str, _sig: tuple) -> tuple[int, int, int, int, int] | None:
-    """(victoires, nuls, défaites, buts marqués, buts encaissés) sur les 5 derniers matchs avant la date."""
+    """(victoires, nuls, défaites, buts marqués, buts encaissés) sur les N_FORME derniers matchs avant la date."""
     from kateni.ui import donnees
     d = donnees(_sig)
-    d = d[((d["HomeTeam"] == equipe) | (d["AwayTeam"] == equipe)) & (d["Date"] < pd.Timestamp(avant))].tail(5)
+    d = d[((d["HomeTeam"] == equipe) | (d["AwayTeam"] == equipe)) & (d["Date"] < pd.Timestamp(avant))].tail(N_FORME)
     if len(d) < 3:
         return None
     dom = d["HomeTeam"] == equipe
     pour = d["FTHG"].where(dom, d["FTAG"]).astype(int)
     contre = d["FTAG"].where(dom, d["FTHG"]).astype(int)
     return int((pour > contre).sum()), int((pour == contre).sum()), int((pour < contre).sum()), int(pour.sum()), int(contre.sum())
+
+
+@st.cache_data(ttl=3600, max_entries=4000, show_spinner=False)
+def _bilan_lieu(equipe: str, avant: str, chez_soi: bool, _sig: tuple) -> tuple[int, int, int] | None:
+    """(victoires, nuls, défaites) cette saison, à domicile (chez_soi) ou à l'extérieur. None si moins de 3 matchs."""
+    from kateni.ui import donnees
+    d = donnees(_sig)
+    d = d[((d["HomeTeam"] == equipe) | (d["AwayTeam"] == equipe)) & (d["Date"] < pd.Timestamp(avant))]
+    debut = debut_saison(d["Date"])
+    if debut is None:
+        return None
+    d = d[(d["Date"] >= debut) & ((d["HomeTeam"] if chez_soi else d["AwayTeam"]) == equipe)]
+    if "Neutre" in d.columns:
+        d = d[~d["Neutre"].fillna(False).astype(bool)]
+    if len(d) < 3:
+        return None
+    pour, contre = (d["FTHG"], d["FTAG"]) if chez_soi else (d["FTAG"], d["FTHG"])
+    return int((pour > contre).sum()), int((pour == contre).sum()), int((pour < contre).sum())
+
+
+def _vnd(v: int, n: int, d_: int) -> str:
+    return f"{v} victoire{'s' * (v > 1)}, {n} nul{'s' * (n > 1)}, {d_} défaite{'s' * (d_ > 1)}"
 
 
 def explication(match: dict, r: dict) -> str:
@@ -157,8 +192,17 @@ def explication(match: dict, r: dict) -> str:
         f = _forme(eq, str(match.get("date") or pd.Timestamp.today().date()), sig)
         if f:
             v, n, d_, bp, bc = f
-            phrases.append(f"{eq} : {v} victoire{'s' * (v > 1)}, {n} nul{'s' * (n > 1)}, {d_} défaite{'s' * (d_ > 1)} "
-                           f"sur ses {v + n + d_} derniers matchs ({bp} buts marqués, {bc} encaissés).")
+            phrases.append(f"{eq} : {_vnd(v, n, d_)} sur ses {v + n + d_} derniers matchs ({bp} buts marqués, "
+                           f"{bc} encaissés).")
+    if not r.get("neutre"):
+        quand = str(match.get("date") or pd.Timestamp.today().date())
+        lieux = []
+        for eq, chez_soi in ((dom, True), (ext, False)):
+            b = _bilan_lieu(eq, quand, chez_soi, sig)
+            if b:
+                lieux.append(f"{eq} {'à domicile' if chez_soi else 'à l’extérieur'} cette saison : {_vnd(*b)}")
+        if lieux:
+            phrases.append(" ; ".join(lieux) + ".")
     buts = r["ld"] + r["le"]
     btts = r["p"]["Les deux équipes marquent"]["Oui"]
     genre = "plutôt ouvert" if buts >= 3.0 else "plutôt fermé" if buts <= 2.3 else "classique"

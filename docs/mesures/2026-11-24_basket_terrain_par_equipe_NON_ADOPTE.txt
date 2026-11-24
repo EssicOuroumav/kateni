@@ -1,0 +1,10 @@
+Réglage (janvier-juin 2025) :
+  même avantage pour toute la ligue : log loss 0.6110, bons vainqueurs 66.0%
+  avantage propre, rappel   5.0 : log loss 0.6135, bons vainqueurs 64.9%
+  avantage propre, rappel  15.0 : log loss 0.6118, bons vainqueurs 64.9%
+  avantage propre, rappel  40.0 : log loss 0.6112, bons vainqueurs 65.1%
+  avantage propre, rappel 100.0 : log loss 0.6110, bons vainqueurs 65.8%
+
+Mesure finale 2025-26 (rappel retenu 100.0) :
+  Même avantage pour toute la ligue (actuel)   1916 matchs · log loss 0.6136 · bons vainqueurs 66.8% · erreur écart 11.06 pts
+  Avantage propre à chaque équipe              1916 matchs · log loss 0.6138 · bons vainqueurs 66.7% · erreur écart 11.07 pts

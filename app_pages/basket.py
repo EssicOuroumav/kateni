@@ -34,12 +34,29 @@ def tous_les_marches(modeles: dict, dom: str, ext: str, ligue: str) -> dict:
     return out
 
 
-def forme(equipe: str, avant) -> tuple | None:
-    """5 derniers matchs de l'équipe avant la date : victoires, défaites, points marqués et encaissés (moyennes)."""
+def bilan_lieu(equipe: str, avant, chez_soi: bool) -> tuple[int, int] | None:
+    """(victoires, défaites) cette saison à domicile (chez_soi) ou à l'extérieur ; None si moins de 3 matchs."""
+    from kateni.affichage import debut_saison
     j = basket_joues()
     t = pd.to_datetime(j["DateUtc"], utc=True, format="ISO8601")
     d = j[((j["HomeTeam"] == equipe) | (j["AwayTeam"] == equipe)) & (t < pd.Timestamp(avant)) & j["HPTS"].notna()]
-    d = d.assign(t=t).sort_values("t").tail(5)
+    d = d.assign(t=t[d.index].dt.tz_convert(None))
+    debut = debut_saison(d["t"])
+    if debut is None:
+        return None
+    d = d[(d["t"] >= debut) & ((d["HomeTeam"] if chez_soi else d["AwayTeam"]) == equipe)]
+    if len(d) < 3:
+        return None
+    v = int(((d["HPTS"] > d["APTS"]) if chez_soi else (d["APTS"] > d["HPTS"])).sum())
+    return v, len(d) - v
+
+
+def forme(equipe: str, avant) -> tuple | None:
+    """7 derniers matchs de l'équipe avant la date : victoires, défaites, points marqués et encaissés (moyennes)."""
+    j = basket_joues()
+    t = pd.to_datetime(j["DateUtc"], utc=True, format="ISO8601")
+    d = j[((j["HomeTeam"] == equipe) | (j["AwayTeam"] == equipe)) & (t < pd.Timestamp(avant)) & j["HPTS"].notna()]
+    d = d.assign(t=t).sort_values("t").tail(7)
     if not len(d):
         return None
     pour = [h if dom == equipe else a for dom, h, a in zip(d["HomeTeam"], d["HPTS"], d["APTS"])]
@@ -67,9 +84,19 @@ def detail(r: dict, modeles: dict, p: dict, a: float, b: float) -> None:
             vi, de, pm, pe_ = f
             phrases.append(f"{eq} : {vi} victoire{'s' * (vi > 1)}, {de} défaite{'s' * (de > 1)} sur ses {vi + de} derniers "
                            f"matchs ({round(pm)} points marqués et {round(pe_)} encaissés en moyenne).")
-    h = mm.terrain.get(ligue)
-    if h is not None and not r.get("neutre"):
-        phrases.append(f"Jouer à domicile vaut environ {round(h)} points en {ligue}.")
+    if not r.get("neutre"):
+        lieux = []
+        for eq, chez_soi in ((dom, True), (ext, False)):
+            bl = bilan_lieu(eq, r["DateUtc"], chez_soi)
+            if bl:
+                lieux.append(f"{eq} {'à domicile' if chez_soi else 'à l’extérieur'} cette saison : {bl[0]} victoire"
+                             f"{'s' * (bl[0] > 1)}, {bl[1]} défaite{'s' * (bl[1] > 1)}")
+        if lieux:
+            phrases.append(" ; ".join(lieux) + ".")
+        h = mm.terrain.get(ligue)
+        if h is not None and round(h) >= 1:
+            phrases.append(f"En {ligue}, jouer à domicile rapporte en moyenne {round(h)} point{'s' * (round(h) > 1)} "
+                           "(mesuré sur toutes les équipes de la ligue).")
     lt = _proches(p, "Match : total ", a + b, 1)[0]
     qt = p[f"Match : total {lt:.1f}"]["Plus"]
     phrases.append(f"Total de points : plus de {fr(lt)} dans {qt:.0%} des cas.")
