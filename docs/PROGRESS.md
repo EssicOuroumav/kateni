@@ -219,3 +219,7 @@ Méthode : réglage sur 2024-25, mesure sur 08/2025 → 10/2026 (`scripts/amelio
 - Basket : « Détail du pronostic » (pourquoi, forme sur 5 matchs, vainqueur, temps réglementaire, handicap, total, points de chaque équipe, 1re mi-temps, écart).
 - Forme sur les 7 derniers matchs (foot et basket) + bilan réel de la saison : l'équipe qui reçoit à domicile, l'équipe qui se déplace à l'extérieur (début de saison = après la dernière coupure de plus de 40 jours).
 - Avantage du terrain propre à chaque équipe, basket : mesuré, NON adopté (2025-26 : 66,7 % de bons vainqueurs contre 66,8 % ; `docs/mesures/2026-11-24_basket_terrain_par_equipe_NON_ADOPTE.txt`). Déjà non adopté au foot le 21/10. L'avantage par ligue reste, et l'app l'indique comme « mesuré sur toutes les équipes de la ligue ».
+- Foot, 1re mi-temps ajoutée (mesurée : 44,2 % de bons résultats à la mi-temps contre 40,3 % naïf sur 6 189 matchs, calibrée ; `docs/mesures/2026-11-24_mi_temps_foot.txt`).
+- Foot, enchaînements (match 3 jours avant ou moins) : mesuré, NON adopté (50,9 % → 51,0 %, bruit ; `docs/mesures/2026-11-24_repos_foot.txt`).
+- « Bon pari seulement si Betclic paie plus de… » (cote juste) sur chaque carte foot et basket.
+- Basket : calcul en matrice creuse (prêt pour la NCAA), terrain neutre, options mesurables (enchaînements, écarts-types par ligue) désactivées tant qu'elles ne sont pas mesurées.

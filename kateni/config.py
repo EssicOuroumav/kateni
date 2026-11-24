@@ -105,6 +105,9 @@ PART_MODELE = {"AUS": 0.5}
 # « Les deux équipes marquent » : le modèle seul était trop tranché (annoncé 72 % -> arrivé 65 % ; annoncé 37 %
 # -> arrivé 45 %). Correction p' = sigmoïde(a·logit(p) + b) réglée sur 2024-25, mesurée sur 11 602 matchs
 # d'août 2025 à octobre 2026 : log loss 0,6854 -> 0,6831 (scripts/mesure_btts.py, docs/mesures/2026-11-11_btts.txt)
+# 1re mi-temps (scripts/mesure_mi_temps_foot.py, 24/11/2026) : part des buts attendus marqués avant la pause,
+# réglée sur 2024-25 ; mesurée sur 6 189 matchs : 44,2 % de bons résultats à la mi-temps contre 40,3 % naïf, calibré.
+PART_MI_TEMPS = 0.468
 BTTS_A, BTTS_B = 0.635, 0.070
 CORNERS_PROPOSES = False     # corners retirés de l'app (décision du propriétaire, 07/11/2026) ; modèle gardé
 BANKROLL_INITIALE = 50_000   # FCFA

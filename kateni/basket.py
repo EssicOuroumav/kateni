@@ -23,6 +23,8 @@ DEMI_VIE, RAPPEL = 60.0, 2.0
 # Les erreurs réelles sont un peu plus dispersées que celles des matchs d'apprentissage (rapport mesuré sur
 # 2025-26) : on élargit les écarts-types d'autant pour ne pas être trop sûr de soi.
 ELARGIR_ECART, ELARGIR_TOTAL = 1.08, 1.06
+FATIGUE = False       # match la veille (« back-to-back ») : à mesurer (scripts/mesure_basket.py)
+SD_PAR_LIGUE = False  # écarts-types propres à chaque ligue : à mesurer (scripts/mesure_basket.py)
 
 
 @dataclass
@@ -45,31 +47,69 @@ class ModeleBasket:
             return self.n_reels.get(equipe, 0) >= 5
         return self.n_matchs.get(equipe, 0.0) >= 5
 
-    def points(self, dom: str, ext: str, ligue: str | None = None, neutre: bool = False) -> tuple[float, float]:
+    def ecarts_types(self, ligue: str | None, par_ligue: bool = SD_PAR_LIGUE) -> tuple[float, float]:
+        """(écart-type de l'écart, écart-type du total) : celui de la ligue s'il est connu et adopté, sinon global."""
+        if par_ligue and ligue in self.extra.get("sd_ligue", {}):
+            return self.extra["sd_ligue"][ligue]
+        return self.sd_ecart, self.sd_total
+
+    def points(self, dom: str, ext: str, ligue: str | None = None, neutre: bool = False,
+               veille_dom: bool = False, veille_ext: bool = False) -> tuple[float, float]:
         lg = ligue or self.ligue_equipe.get(dom) or self.ligue_equipe.get(ext)
         mu, h = self.moyenne.get(lg, 100.0), 0.0 if neutre else self.terrain.get(lg, 2.5)
         if not neutre:
             h += self.extra.get("dom_equipe", {}).get(dom, 0.0)
         pd_ = mu + h + self.attaque.get(dom, 0.0) - self.defense.get(ext, 0.0)
         pe = mu + self.attaque.get(ext, 0.0) - self.defense.get(dom, 0.0)
+        if "fatigue" in self.extra:   # équipe qui a joué la veille : points marqués / encaissés en plus (mesuré)
+            marque, encaisse = self.extra["fatigue"]
+            pd_ += marque * veille_dom + encaisse * veille_ext
+            pe += marque * veille_ext + encaisse * veille_dom
         return pd_, pe
+
+
+MI_TEMPS = {"NCAA"}  # ligues jouées en deux mi-temps (rangées en H1 et H3) : pas de quart-temps
 
 
 def _points_periode(df: pd.DataFrame, quarts) -> tuple[pd.Series, pd.Series]:
     if quarts is None:
         return df["HPTS"].astype(float), df["APTS"].astype(float)
-    return (df[[f"H{q}" for q in quarts]].astype(float).sum(axis=1),
-            df[[f"A{q}" for q in quarts]].astype(float).sum(axis=1))
+    return (df[[f"H{q}" for q in quarts]].astype(float).sum(axis=1, min_count=1),
+            df[[f"A{q}" for q in quarts]].astype(float).sum(axis=1, min_count=1))
+
+
+def joue_la_veille(df: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
+    """Pour chaque match de df : l'équipe à domicile / à l'extérieur a-t-elle joué la veille (moins de 36 h avant) ?
+    Calculé sur tous les matchs de df (joués et à venir), toutes ligues."""
+    t = pd.to_datetime(df["DateUtc"], utc=True, format="ISO8601")
+    lignes = pd.concat([pd.DataFrame({"i": df.index, "eq": df["HomeTeam"], "t": t, "cote": "H"}),
+                        pd.DataFrame({"i": df.index, "eq": df["AwayTeam"], "t": t, "cote": "A"})])
+    lignes = lignes.sort_values(["eq", "t"], kind="mergesort")
+    ecart = lignes.groupby("eq")["t"].diff().dt.total_seconds() / 3600
+    lignes["veille"] = (ecart > 0) & (ecart < 36)
+    v = lignes.set_index(["i", "cote"])["veille"]
+    v = v[~v.index.duplicated()]
+    return (v.reindex(list(zip(df.index, ["H"] * len(df)))).fillna(False).to_numpy(bool),
+            v.reindex(list(zip(df.index, ["A"] * len(df)))).fillna(False).to_numpy(bool))
 
 
 def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel: float = RAPPEL,
-            quarts=None, elargir: bool = True, ridge_dom: float | None = None) -> ModeleBasket:
-    """df : basket_resultats.csv (colonnes ligue, DateUtc, HomeTeam, AwayTeam, H1..H4, A1..A4, HPTS, APTS)."""
+            quarts=None, elargir: bool = True, ridge_dom: float | None = None,
+            fatigue: bool | None = None) -> ModeleBasket:
+    """df : basket_resultats.csv (colonnes ligue, DateUtc, HomeTeam, AwayTeam, H1..H4, A1..A4, HPTS, APTS).
+    Matrice creuse : la NCAA compte des centaines d'équipes."""
+    from scipy import sparse
     d = df.copy()
     d["t"] = pd.to_datetime(d["DateUtc"], utc=True, format="ISO8601")
     ref = pd.Timestamp(date_ref, tz="UTC") if date_ref is not None and pd.Timestamp(date_ref).tzinfo is None \
         else (pd.Timestamp(date_ref) if date_ref is not None else d["t"].max() + pd.Timedelta(days=1))
+    fatigue = FATIGUE if fatigue is None else fatigue
+    if fatigue:
+        vh, va = joue_la_veille(d)
+        d = d.assign(veille_dom=vh, veille_ext=va)
     d = d[d["t"] < ref]
+    if quarts is not None and len(quarts) == 1:  # quart-temps : pas pour les ligues jouées en mi-temps
+        d = d[~d["ligue"].isin(MI_TEMPS)]
     hp, ap = _points_periode(d, quarts)
     d = d.assign(hp=hp, ap=ap).dropna(subset=["hp", "ap"])
     w = 0.5 ** ((ref - d["t"]).dt.total_seconds() / 86400 / demi_vie)
@@ -80,23 +120,35 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
     n, nl = len(equipes), len(ligues)
     # Une ligne par score d'équipe : moyenne(ligue) + terrain(ligue, si domicile) + attaque(équipe) − défense(adv)
     m = len(d)
-    nd = n if ridge_dom else 0   # avantage du terrain propre à chaque équipe (testé, voir mesure_basket.py)
-    X = np.zeros((2 * m, 2 * nl + 2 * n + nd))
+    nd = n if ridge_dom else 0   # avantage du terrain propre à chaque équipe (testé, non adopté)
+    lg_i = d["ligue"].map(il).to_numpy()
+    h_i = d["HomeTeam"].map(ie).to_numpy()
+    a_i = d["AwayTeam"].map(ie).to_numpy()
+    k = np.arange(m)
+    # Terrain neutre (tournois NCAA, Coupe NBA…) : pas d'avantage du terrain pour ce match
+    chez = 1.0 - (d["Neutre"].fillna(False).astype(bool).to_numpy(float) if "Neutre" in d.columns else np.zeros(m))
+    lignes_ = [k, k, k, k, m + k, m + k, m + k]
+    cols_ = [lg_i, nl + lg_i, 2 * nl + h_i, 2 * nl + n + a_i, lg_i, 2 * nl + a_i, 2 * nl + n + h_i]
+    vals_ = [1, chez, 1, -1, 1, 1, -1]
+    if nd:
+        lignes_.append(k)
+        cols_.append(2 * nl + 2 * n + h_i)
+        vals_.append(1)
+    nf = 2 if fatigue else 0   # [points marqués par l'équipe fatiguée, points encaissés par elle]
+    if fatigue:
+        f0 = 2 * nl + 2 * n + nd
+        vd, ve = d["veille_dom"].to_numpy(float), d["veille_ext"].to_numpy(float)
+        lignes_ += [k, k, m + k, m + k]
+        cols_ += [np.full(m, f0), np.full(m, f0 + 1), np.full(m, f0), np.full(m, f0 + 1)]
+        vals_ += [vd, ve, ve, vd]   # score dom : dom fatigué (marque) / ext fatigué (encaisse) ; idem pour ext
+    X = sparse.csr_matrix((np.concatenate([np.broadcast_to(np.asarray(v, float), m) for v in vals_]),
+                           (np.concatenate(lignes_), np.concatenate(cols_))), shape=(2 * m, 2 * nl + 2 * n + nd + nf))
     y = np.concatenate([d["hp"].to_numpy(), d["ap"].to_numpy()])
     ww = np.concatenate([w.to_numpy(), w.to_numpy()])
-    for k, (lg, h, a) in enumerate(zip(d["ligue"], d["HomeTeam"], d["AwayTeam"])):
-        X[k, il[lg]] = 1
-        X[k, nl + il[lg]] = 1
-        X[k, 2 * nl + ie[h]] = 1
-        X[k, 2 * nl + n + ie[a]] = -1
-        if nd:
-            X[k, 2 * nl + 2 * n + ie[h]] = 1
-        X[m + k, il[lg]] = 1
-        X[m + k, 2 * nl + ie[a]] = 1
-        X[m + k, 2 * nl + n + ie[h]] = -1
-    pen = np.r_[np.zeros(2 * nl), np.full(2 * n, rappel), np.full(nd, ridge_dom or 0.0)]
-    A = X.T @ (X * ww[:, None]) + np.diag(pen)
-    beta = np.linalg.solve(A, X.T @ (ww * y))
+    pen = np.r_[np.zeros(2 * nl), np.full(2 * n, rappel), np.full(nd, ridge_dom or 0.0), np.full(nf, 1e-3)]
+    Xw = X.multiply(ww[:, None]).tocsr()
+    A = (X.T @ Xw).toarray() + np.diag(pen)
+    beta = np.linalg.solve(A, Xw.T @ y)
     res = y - X @ beta
     ecart = res[:m] - res[m:]
     total = res[:m] + res[m:]
@@ -109,14 +161,22 @@ def ajuster(df: pd.DataFrame, date_ref=None, demi_vie: float = DEMI_VIE, rappel:
     ligue_eq = {}
     for lg, h, a in zip(d["ligue"], d["HomeTeam"], d["AwayTeam"]):
         ligue_eq[h], ligue_eq[a] = lg, lg
-    sd = lambda r: float(np.sqrt(np.average(r ** 2, weights=w)))  # noqa: E731
+    wv = w.to_numpy()
+    sd = lambda r, s=slice(None): float(np.sqrt(np.average(r[s] ** 2, weights=wv[s])))  # noqa: E731
+    extra = {"dom_equipe": {e: float(beta[2 * nl + 2 * n + ie[e]]) for e in equipes}} if nd else {}
+    if fatigue:
+        extra["fatigue"] = (float(beta[2 * nl + 2 * n + nd]), float(beta[2 * nl + 2 * n + nd + 1]))
+    # Écarts-types propres à chaque ligue (la WNBA ou la NCAA ne se dispersent pas comme la NBA)
+    lg_arr = d["ligue"].to_numpy()
+    extra["sd_ligue"] = {l: (sd(ecart, lg_arr == l) * (ELARGIR_ECART if elargir else 1.0),
+                             sd(total, lg_arr == l) * (ELARGIR_TOTAL if elargir else 1.0))
+                         for l in ligues if (lg_arr == l).sum() >= 100}
     return ModeleBasket(
         moyenne={l: float(beta[il[l]]) for l in ligues}, terrain={l: float(beta[nl + il[l]]) for l in ligues},
         attaque={e: float(beta[2 * nl + ie[e]]) for e in equipes},
         defense={e: float(beta[2 * nl + n + ie[e]]) for e in equipes},
         ligue_equipe=ligue_eq, n_matchs=nm, n_reels=nr, sd_ecart=sd(ecart) * (ELARGIR_ECART if elargir else 1.0),
-        sd_total=sd(total) * (ELARGIR_TOTAL if elargir else 1.0),
-        extra={"dom_equipe": {e: float(beta[2 * nl + 2 * n + ie[e]]) for e in equipes}} if nd else {})
+        sd_total=sd(total) * (ELARGIR_TOTAL if elargir else 1.0), extra=extra)
 
 
 def _lignes(centre: float, pas: float, n: int = 3) -> list[float]:

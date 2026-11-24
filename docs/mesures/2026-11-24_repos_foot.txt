@@ -1,0 +1,14 @@
+Buts attendus calculés pour 10912 matchs (60 s)
+Réglage : 4723 matchs · Test : 6189 matchs
+Matchs où une seule équipe a joué 3 jours avant ou moins : 1211
+
+Version                                               log loss test  bons pronostics
+Actuelle (25 % modèle + 75 % marché)                         0.9948            50.9%
++ joué 3 jours avant ou moins (dom − ext) (b = -0.103)         0.9947            51.0%
++ différence de jours de repos (b = -0.078)                  0.9949            50.9%
+
+Modèle seul (le marché tient sans doute déjà compte du calendrier) :
+Modèle seul                                                  1.0090
+Modèle seul + joué 3 jours avant (b = -0.095)                1.0089
+
+Durée : 64 s

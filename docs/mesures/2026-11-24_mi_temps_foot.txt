@@ -1,0 +1,29 @@
+10923 matchs avec score à la mi-temps (61 s)
+
+Part des buts marqués en 1re mi-temps (réglée sur 2024-25) : 0.468
+
+Marché de 1re mi-temps               Kateni     naïf   bons pronostics (Kateni / naïf)
+Résultat à la mi-temps (1N2)         1.0446   1.0830   44.2% / 40.3%
+Plus de 0,5 but en 1re mi-temps      0.5961   0.5994
+Plus de 1,5 but en 1re mi-temps      0.6471   0.6511
+
+Calibration (annoncé -> arrivé) sur la période de test :
+  Victoire dom. à la mi-temps
+     0%-30% :  2016 matchs, annoncé 24% -> arrivé 23%
+     30%-45% :  3415 matchs, annoncé 36% -> arrivé 36%
+     45%-60% :   672 matchs, annoncé 51% -> arrivé 54%
+     60%-75% :    94 matchs, annoncé 64% -> arrivé 67%
+  Nul à la mi-temps
+     0%-30% :   149 matchs, annoncé 27% -> arrivé 27%
+     30%-45% :  5438 matchs, annoncé 39% -> arrivé 40%
+     45%-60% :   614 matchs, annoncé 47% -> arrivé 46%
+  Plus de 0,5 but
+     45%-60% :    73 matchs, annoncé 59% -> arrivé 58%
+     60%-75% :  4343 matchs, annoncé 70% -> arrivé 70%
+     75%-100% :  1785 matchs, annoncé 78% -> arrivé 75%
+  Plus de 1,5 but
+     0%-30% :  1006 matchs, annoncé 27% -> arrivé 30%
+     30%-45% :  4517 matchs, annoncé 37% -> arrivé 35%
+     45%-60% :   658 matchs, annoncé 49% -> arrivé 44%
+
+Durée : 241 s

@@ -23,10 +23,15 @@ REGLAGE = (pd.Timestamp("2025-01-01", tz="UTC"), pd.Timestamp("2025-07-01", tz="
 TEST = (pd.Timestamp("2025-10-01", tz="UTC"), pd.Timestamp("2026-07-01", tz="UTC"))
 
 
-def predire(df, debut, fin, **reglages):
-    t = pd.to_datetime(df["DateUtc"], utc=True)
+def predire(df, debut, fin, par_ligue=None, **reglages):
+    from kateni.basket import SD_PAR_LIGUE
+    par_ligue = SD_PAR_LIGUE if par_ligue is None else par_ligue
+    t = pd.to_datetime(df["DateUtc"], utc=True, format="ISO8601")
+    from kateni.basket import FATIGUE, joue_la_veille
+    vh, va = joue_la_veille(df)
+    df = df.assign(_vd=vh, _ve=va)
     sel = df[(t >= debut) & (t < fin)].copy()
-    sel["t"] = pd.to_datetime(sel["DateUtc"], utc=True)
+    sel["t"] = pd.to_datetime(sel["DateUtc"], utc=True, format="ISO8601")
     out = []
     semaine = debut
     while semaine < fin:
@@ -36,8 +41,11 @@ def predire(df, debut, fin, **reglages):
             for _, r in bloc.iterrows():
                 if not (m.connait(r["HomeTeam"]) and m.connait(r["AwayTeam"])):
                     continue
-                a, b = m.points(r["HomeTeam"], r["AwayTeam"], r["ligue"])
-                out.append({"ligue": r["ligue"], "e": a - b, "t": a + b, "sd_e": m.sd_ecart, "sd_t": m.sd_total,
+                ne = r.get("Neutre")
+                a, b = m.points(r["HomeTeam"], r["AwayTeam"], r["ligue"], bool(ne) if pd.notna(ne) else False,
+                                bool(r["_vd"]), bool(r["_ve"]))
+                sd_e, sd_t = m.ecarts_types(r["ligue"], par_ligue)
+                out.append({"ligue": r["ligue"], "e": a - b, "t": a + b, "sd_e": sd_e, "sd_t": sd_t,
                             "vrai_e": r["HPTS"] - r["APTS"], "vrai_t": r["HPTS"] + r["APTS"]})
         semaine += pd.Timedelta(days=7)
     return pd.DataFrame(out)
@@ -57,7 +65,7 @@ def bilan(p: pd.DataFrame, base_dom: dict) -> dict:
 
 def main():
     df = pd.read_csv(Path(__file__).resolve().parent.parent / "basket_resultats.csv")
-    t = pd.to_datetime(df["DateUtc"], utc=True)
+    t = pd.to_datetime(df["DateUtc"], utc=True, format="ISO8601")
     base = df[t < REGLAGE[0]]
     base_dom = (base["HPTS"] > base["APTS"]).groupby(base["ligue"]).mean().to_dict()
     print("Réglage sur janvier-juin 2025 :")

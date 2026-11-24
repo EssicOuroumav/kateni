@@ -4,11 +4,12 @@ import pandas as pd
 import streamlit as st
 
 from kateni.affichage import barre_chances
-from kateni.basket import PERIODES, fr, libelle, marches
+from kateni.basket import MI_TEMPS, PERIODES, fr, libelle, marches
+from kateni.ui import fr as fr2
 from kateni.ui import basket_a_venir, basket_joues, jour_choisi, modele_basket
 
-DRAPEAUX_BASKET = {"NBA": "🇺🇸", "EuroLeague": "🇪🇺", "EuroCup": "🇪🇺"}
-st.caption("Pronostics de basket : NBA, EuroLeague et EuroCup. Heures d'Abidjan. Le modèle est vérifié sur la "
+DRAPEAUX_BASKET = {"NBA": "🇺🇸", "EuroLeague": "🇪🇺", "EuroCup": "🇪🇺", "NBL": "🇦🇺", "WNBA": "🇺🇸", "NCAA": "🎓"}
+st.caption("Pronostics de basket : NBA, EuroLeague, EuroCup, NBL (Australie), WNBA et NCAA (universités USA). Heures d'Abidjan. Le modèle est vérifié sur la "
            "saison 2025-26 (voir « Comment lire ces chances ? » en bas).")
 
 aujourd_hui = date.today()
@@ -24,13 +25,19 @@ def modeles_du(jour):
     return {p: modele_basket(p, avant) for p in PERIODES}
 
 
-def tous_les_marches(modeles: dict, dom: str, ext: str, ligue: str) -> dict:
+def neutre_de(r) -> bool:
+    """Match sur terrain neutre (tournois NCAA, Coupe NBA…) : pas d'avantage du terrain."""
+    v = r.get("Neutre")
+    return bool(v) if v is not None and not pd.isna(v) else False
+
+
+def tous_les_marches(modeles: dict, dom: str, ext: str, ligue: str, neutre: bool = False) -> dict:
     out = {}
     for periode, mod in modeles.items():
-        if mod is None:
+        if mod is None or (periode == "1er quart-temps" and ligue in MI_TEMPS):
             continue
-        a, b = mod.points(dom, ext, ligue)
-        out.update(marches(a, b, mod.sd_ecart, mod.sd_total, periode))
+        a, b = mod.points(dom, ext, ligue, neutre)
+        out.update(marches(a, b, *mod.ecarts_types(ligue), periode))
     return out
 
 
@@ -45,6 +52,8 @@ def bilan_lieu(equipe: str, avant, chez_soi: bool) -> tuple[int, int] | None:
     if debut is None:
         return None
     d = d[(d["t"] >= debut) & ((d["HomeTeam"] if chez_soi else d["AwayTeam"]) == equipe)]
+    if "Neutre" in d.columns:
+        d = d[~d["Neutre"].fillna(False).astype(bool)]
     if len(d) < 3:
         return None
     v = int(((d["HPTS"] > d["APTS"]) if chez_soi else (d["APTS"] > d["HPTS"])).sum())
@@ -84,7 +93,9 @@ def detail(r: dict, modeles: dict, p: dict, a: float, b: float) -> None:
             vi, de, pm, pe_ = f
             phrases.append(f"{eq} : {vi} victoire{'s' * (vi > 1)}, {de} défaite{'s' * (de > 1)} sur ses {vi + de} derniers "
                            f"matchs ({round(pm)} points marqués et {round(pe_)} encaissés en moyenne).")
-    if not r.get("neutre"):
+    if neutre_de(r):
+        phrases.append("Match sur terrain neutre : aucun avantage du terrain.")
+    else:
         lieux = []
         for eq, chez_soi in ((dom, True), (ext, False)):
             bl = bilan_lieu(eq, r["DateUtc"], chez_soi)
@@ -120,7 +131,7 @@ def detail(r: dict, modeles: dict, p: dict, a: float, b: float) -> None:
               f"- **Points de {ext}** : {pts('Ext.', b)}"]
     if "1re mi-temps : résultat" in p and modeles.get("1re mi-temps") is not None:
         mt = p["1re mi-temps : résultat"]
-        ha, hb = modeles["1re mi-temps"].points(dom, ext, ligue)
+        ha, hb = modeles["1re mi-temps"].points(dom, ext, ligue, neutre_de(r))
         lm = _proches(p, "1re mi-temps : total ", ha + hb, 1)[0]
         lignes.append(f"- **1re mi-temps** : {dom} {mt['1']:.0%} · égalité {mt['N']:.0%} · {ext} {mt['2']:.0%} · plus de "
                       f"{fr(lm)} points {p[f'1re mi-temps : total {lm:.1f}']['Plus']:.0%}")
@@ -142,14 +153,19 @@ def carte(r: dict, modeles: dict) -> None:
         if not (mm.connait(dom) and mm.connait(ext)):
             st.caption("Une des deux équipes est trop peu connue (moins de 5 matchs) : pas de pronostic.")
             return
-        a, b = mm.points(dom, ext, ligue)
-        p = tous_les_marches(modeles, dom, ext, ligue)
+        a, b = mm.points(dom, ext, ligue, neutre_de(r))
+        p = tous_les_marches(modeles, dom, ext, ligue, neutre_de(r))
         v = p["Vainqueur"]
         fav, q = (dom, v["1"]) if v["1"] >= v["2"] else (ext, v["2"])
         couleur = "green" if q >= 0.7 else "blue" if q >= 0.55 else "orange"
         st.markdown(f":{couleur}-badge[{fav} gagne {q:.0%}] · score attendu **{round(a)} – {round(b)}** · "
                     f"total {fr(a + b)} points · écart {fr(abs(a - b))}")
         st.html(barre_chances(dom, ext, (v["1"], 0.0, v["2"])))
+        if not joue:
+            st.caption(f":material/sell: **Bon pari seulement si Betclic paie plus de** : {dom} {fr2(1 / v['1'])} · "
+                       f"{ext} {fr2(1 / v['2'])}",
+                           help="Cote juste de Kateni (1 ÷ chance), prolongations comprises. Si Betclic propose plus, le "
+                            "pari est mieux payé qu'il ne devrait : bon pari sur la durée. Plus bas : à éviter.")
         if joue:
             gagnant = dom if r["HPTS"] > r["APTS"] else ext
             total = int(r["HPTS"] + r["APTS"])
@@ -183,7 +199,7 @@ if "bk_jour" not in st.session_state:  # retour sur la page : on reprend le jour
     st.session_state["bk_jour"] = st.session_state.get("bk_jour_garde") or jour_choisi()
 
 # ---------------------------------------------------------------- choix du championnat (comme au foot)
-LIGUES = ("NBA", "EuroLeague", "EuroCup")
+LIGUES = tuple(DRAPEAUX_BASKET)
 TOUS = "Tous les championnats"
 n_du_jour = tout[tout["jour"] == st.session_state["bk_jour"]]["ligue"].value_counts()
 if "bk_ligue" not in st.session_state:  # Streamlit efface le choix en quittant la page : on le reprend
@@ -240,12 +256,12 @@ else:
         res = []
         for _, r in du_jour.iterrows():
             if pd.notna(r.get("HPTS")) and modeles["Match"].connait(r["HomeTeam"]) and modeles["Match"].connait(r["AwayTeam"]):
-                pa, pb = modeles["Match"].points(r["HomeTeam"], r["AwayTeam"], r["ligue"])
+                pa, pb = modeles["Match"].points(r["HomeTeam"], r["AwayTeam"], r["ligue"], neutre_de(r))
                 res.append((pa > pb) == (r["HPTS"] > r["APTS"]))
         if res:
             st.caption(f"{'Ce jour-là' if jour < aujourd_hui else 'Aujourd’hui, sur les matchs terminés'}, Kateni a "
                        f"trouvé le bon vainqueur **{sum(res)} fois sur {len(res)}**.")
-    for ligue in [l for l in ("NBA", "EuroLeague", "EuroCup") if l in set(du_jour["ligue"])]:
+    for ligue in [l for l in LIGUES if l in set(du_jour["ligue"])]:
         if ligue_choisie == TOUS:
             st.subheader(f"{DRAPEAUX_BASKET[ligue]} {ligue}", anchor=False)
         for _, r in du_jour[du_jour["ligue"] == ligue].sort_values("DateUtc").iterrows():

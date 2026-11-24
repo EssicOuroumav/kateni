@@ -1,0 +1,6 @@
+Réglage : 9162 matchs · Test : 11602 matchs
+
+  réglage, rappel None : log loss 1.0163 (35 s)
+  réglage, rappel 3.0 : log loss 1.0186 (69 s)
+  réglage, rappel 10.0 : log loss 1.0170 (365 s)
+  réglage, rappel 30.0 : log loss 1.0164 (501 s)

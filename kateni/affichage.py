@@ -5,7 +5,7 @@ import streamlit as st
 
 from kateni.config import POIDS_MODELE
 from kateni.cotes import sans_marge
-from kateni.marches import calibrer, marches
+from kateni.marches import calibrer, marches, mi_temps
 from kateni.corners import marches_corners
 from kateni.statistiques import PROPOSEES, SANS_EGALITE, STATS, marches_stat, plus_grand_nombre
 from kateni.ui import corners_attendus, fr, matrice_match, predire, stats_attendues
@@ -74,6 +74,7 @@ def _pronostic(competition: str, dom: str, ext: str, neutre: bool, c: tuple, _si
     stats = stats_attendues(match)
     for nom, (a, b) in stats.items():
         p = {**p, **marches_stat(nom, a, b)}
+    p = {**p, **mi_temps(ld, le)}
     return {"p": p, "mat": mat, "ld": ld, "le": le, "modele": nom_modele, "neutre": neutre, "corners": corners, "stats": stats, "modele_1n2": modele_1n2, "bookmaker": bookmaker,
             "marche_1n2": marche_1n2, "cotes_1n2": (c1, cn, c2), "p1n2": p1n2, "plus25": plus25}
 
@@ -82,6 +83,8 @@ EVENEMENTS = [("1N2", "1"), ("1N2", "N"), ("1N2", "2"),
               ("Double chance", "1N"), ("Double chance", "12"), ("Double chance", "N2"),
               *[(f"Total buts {x}", c) for x in ("0.5", "1.5", "2.5", "3.5", "4.5") for c in ("Plus", "Moins")],
               ("Les deux équipes marquent", "Oui"), ("Les deux équipes marquent", "Non"),
+              ("Mi-temps 1N2", "1"), ("Mi-temps 1N2", "N"), ("Mi-temps 1N2", "2"),
+              *[(f"Mi-temps total {x}", c) for x in ("0.5", "1.5") for c in ("Plus", "Moins")],
               ("Dom. marque", "Oui"), ("Dom. marque", "Non"), ("Ext. marque", "Oui"), ("Ext. marque", "Non"),
               *[(f"{n} plus grand nombre", c) for n in PROPOSEES for c in ("1", "N", "2")
                 if not (n in SANS_EGALITE and c == "N")],
@@ -280,6 +283,11 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
         if not compact:
             st.caption(f"{dom} {p1n2[0]:.0%} · nul {p1n2[1]:.0%} · {ext} {p1n2[2]:.0%}"
                        f"  —  les 2 équipes marquent {p['Les deux équipes marquent']['Oui']:.0%}")
+        st.caption(f":material/sell: **Bon pari seulement si Betclic paie plus de** : {dom} {fr(1 / p1n2[0])} · nul "
+                   f"{fr(1 / p1n2[1])} · {ext} {fr(1 / p1n2[2])} · plus de 2,5 buts {fr(1 / r['plus25'])}",
+                   help="C'est la « cote juste » de Kateni (1 ÷ chance). Si Betclic propose une cote plus haute, le "
+                        "pari est mieux payé qu'il ne devrait : c'est un bon pari sur la durée. Plus bas : à éviter. "
+                        "Pour tout comparer d'un coup : bouton « Comparer avec mes cotes Betclic » dans le détail.")
         with st.container(horizontal=True):
             if r["marche_1n2"]:
                 st.badge("Modèle + cotes du marché", icon=":material/insights:", color="green",
@@ -316,6 +324,9 @@ def carte(match: dict, cle: str, cotes: dict | None = None, compact: bool = Fals
                 f"{r['plus25']:.0%} · plus de 3,5 {p['Total buts 3.5']['Plus']:.0%}\n"
                 f"- **Les 2 équipes marquent** : oui {p['Les deux équipes marquent']['Oui']:.0%} · non "
                 f"{p['Les deux équipes marquent']['Non']:.0%}\n"
+                + (f"- **1re mi-temps** : {dom} mène {p['Mi-temps 1N2']['1']:.0%} · égalité {p['Mi-temps 1N2']['N']:.0%} · "
+                   f"{ext} mène {p['Mi-temps 1N2']['2']:.0%} · plus de 0,5 but {p['Mi-temps total 0.5']['Plus']:.0%} · "
+                   f"plus de 1,5 but {p['Mi-temps total 1.5']['Plus']:.0%}\n")
                 + "".join(f"- **Buts de {eq}** : " + " · ".join(f"plus de {_l(k)} {v:.0%}" for k, v in b.items()) + "\n"
                           for eq, b in ((dom, bd), (ext, be)))
                 + (f"- **Corners attendus** : {dom} {fr(r['corners'][0])} – {fr(r['corners'][1])} {ext} "

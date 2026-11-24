@@ -425,3 +425,12 @@ def test_correction_les_deux_marquent():
     assert b > 0.6 and c < b  # un « oui » très probable est ramené vers le bas
     assert abs(sum(corr["Les deux équipes marquent"].values()) - 1) < 1e-9
     assert corr["Total buts 2.5"] == brut["Total buts 2.5"]  # les buts ne sont pas touchés
+
+
+def test_mi_temps_foot():
+    from kateni.marches import mi_temps
+    p = mi_temps(1.8, 1.0)
+    assert abs(sum(p["Mi-temps 1N2"].values()) - 1) < 1e-6
+    assert p["Mi-temps 1N2"]["1"] > p["Mi-temps 1N2"]["2"]
+    assert p["Mi-temps 1N2"]["N"] > 0.3  # à la pause, l'égalité est fréquente
+    assert p["Mi-temps total 0.5"]["Plus"] > p["Mi-temps total 1.5"]["Plus"]

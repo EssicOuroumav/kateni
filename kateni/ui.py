@@ -417,6 +417,11 @@ def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
         return f"Nombre de buts : {'plus' if sel == 'Plus' else 'moins'} de {ligne}"
     if marche == "Les deux équipes marquent":
         return f"Les 2 équipes marquent : {sel}"
+    if marche == "Mi-temps 1N2":
+        return {"1": f"Mi-temps : {dom} mène", "N": "Mi-temps : égalité", "2": f"Mi-temps : {ext} mène"}[sel]
+    if marche.startswith("Mi-temps total "):
+        ligne = marche.split()[-1].replace(".", ",")
+        return f"Buts en 1re mi-temps : {'plus' if sel == 'Plus' else 'moins'} de {ligne}"
     for prefixe, equipe in (("Dom.", dom), ("Ext.", ext)):
         if marche == f"{prefixe} marque encore":
             return f"{equipe} marque encore" if sel == "Oui" else f"{equipe} ne marque plus"
@@ -534,7 +539,7 @@ def _basket_a_venir(_sig: tuple) -> pd.DataFrame:
         return pd.DataFrame(columns=["ligue", "DateUtc", "HomeTeam", "AwayTeam"])
     d = pd.read_csv(f)
     # Matchs pas encore joués : le fichier met 0 dans les colonnes de points ; on les vide (sinon « Terminé 0 – 0 »).
-    d[[c for c in d.columns if c not in ("ligue", "DateUtc", "HomeTeam", "AwayTeam")]] = float("nan")
+    d[[c for c in d.columns if c not in ("ligue", "DateUtc", "HomeTeam", "AwayTeam", "Neutre")]] = float("nan")
     t = pd.to_datetime(d["DateUtc"], utc=True, format="ISO8601")
     # On garde tous les matchs d'aujourd'hui, même commencés : sinon un match en cours disparaît de la page
     # jusqu'à ce que le robot ait son résultat (le résultat, quand il arrive, prend sa place).

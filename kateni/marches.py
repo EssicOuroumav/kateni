@@ -51,6 +51,16 @@ def marches(m: np.ndarray) -> dict[str, dict[str, float]]:
     return {k: {s: float(p) for s, p in v.items()} for k, v in res.items()}
 
 
+def mi_temps(lam_d: float, lam_e: float) -> dict:
+    """Marchés de 1re mi-temps : buts de chaque équipe ~ Poisson(part × buts attendus du match) (mesuré)."""
+    from kateni.config import PART_MI_TEMPS
+    g = matrice_scores(lam_d * PART_MI_TEMPS, lam_e * PART_MI_TEMPS)
+    i, j = np.indices(g.shape)
+    return {"Mi-temps 1N2": {"1": float(g[i > j].sum()), "N": float(g[i == j].sum()), "2": float(g[i < j].sum())},
+            **{f"Mi-temps total {s}": {"Plus": float(g[(i + j) > s].sum()), "Moins": float(g[(i + j) < s].sum())}
+               for s in (0.5, 1.5)}}
+
+
 def scores_probables(m: np.ndarray, n: int = 5) -> list[tuple[str, float]]:
     plat = [(f"{i}-{j}", float(m[i, j])) for i in range(m.shape[0]) for j in range(m.shape[1])]
     return sorted(plat, key=lambda x: -x[1])[:n]
