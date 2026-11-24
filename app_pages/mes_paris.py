@@ -89,7 +89,7 @@ with st.expander("Noter un combiné placé sur Betclic", icon=":material/stacks:
     st.caption("Ajoute les sélections une par une (pour un MyCombi, ajoute ses sélections sur le même match), "
                "puis saisis la **cote totale** et la mise. Le combiné est perdu dès qu'une sélection rate, gagné "
                "quand toutes passent ; il est réglé tout seul et compté dans le Bilan.")
-    from kateni.affichage import pronostic
+    from kateni.affichage import pronostic, pronostic_calendrier  # noqa: F401
     if st.session_state.get("cb_message"):
         st.success(st.session_state.pop("cb_message"), icon=":material/check_circle:")
     selections = st.session_state.setdefault("cb_selections", [])
@@ -107,14 +107,14 @@ with st.expander("Noter un combiné placé sur Betclic", icon=":material/stacks:
     if selections:
         st.markdown(f"**Ton combiné ({len(selections)} sélection{'s' if len(selections) > 1 else ''})**")
         for k, x in enumerate(selections):
-            q = chance_combine([x], pronostic)
+            q = chance_combine([x], pronostic_calendrier)
             with st.container(horizontal=True, vertical_alignment="center"):
                 st.markdown(f"{k + 1}. **{x['dom']} – {x['ext']}** · {libelle(x['marche'], x['selection'], x['dom'], x['ext'])}"
                             + (f" · Kateni {q:.0%}" if q is not None else ""))
                 if st.button("Retirer", key=f"cb_retirer_{k}", icon=":material/close:"):
                     selections.pop(k)
                     st.rerun()
-        chance = chance_combine(selections, pronostic)
+        chance = chance_combine(selections, pronostic_calendrier)
         with st.form("cb_form", border=False):
             c1, c2 = st.columns(2)
             cote_cb = c1.number_input("Cote totale Betclic", min_value=1.01, value=None, step=0.01, format="%.2f")

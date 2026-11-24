@@ -7,6 +7,7 @@ from datetime import date, timedelta
 import pandas as pd
 import streamlit as st
 
+from kateni.affichage import pronostic_calendrier
 from kateni.combine import CHOIX_PARIS, chance_combine, ecrire_selections
 from kateni.cotes import esperance
 from kateni.coupon import cote_totale_lue, lire_image, prix, reconnaitre, verdict
@@ -31,7 +32,6 @@ if not len(cal):
 JOURS = ["lun.", "mar.", "mer.", "jeu.", "ven.", "sam.", "dim."]
 LIB = {i: f"{JOURS[pd.Timestamp(r['Date']).weekday()]} {pd.Timestamp(r['Date']):%d/%m} · {r['Heure'] or ''} · "
           f"{r['dom']} – {r['ext']} ({NOMS_COURTS.get(r['competition'], r['competition'])})" for i, r in cal.iterrows()}
-COTES = ("B365H", "B365D", "B365A", "B365>2.5", "B365<2.5", "bookmaker", "releve")
 
 
 def match_de(i: int) -> dict:
@@ -39,12 +39,7 @@ def match_de(i: int) -> dict:
     return {"date": r["Date"], "competition": r["competition"], "dom": r["dom"], "ext": r["ext"]}
 
 
-def pronostic_cal(match: dict) -> dict:
-    """Même pronostic que la page Football : avec les cotes du marché du calendrier quand elles existent."""
-    from kateni.affichage import pronostic
-    r = cal[(cal["dom"] == match["dom"]) & (cal["ext"] == match["ext"]) & (cal["competition"] == match["competition"])]
-    cotes = {k: r.iloc[0][k] for k in COTES if k in r.columns} if len(r) else None
-    return pronostic(match, cotes)
+pronostic_cal = pronostic_calendrier
 
 
 sel = st.session_state.setdefault("cp_sel", [])

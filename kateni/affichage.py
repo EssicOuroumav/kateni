@@ -45,6 +45,19 @@ def pronostic(match: dict, cotes: dict | None = None) -> dict:
     return _pronostic(match["competition"], match["dom"], match["ext"], bool(neutre), c, signature_donnees())
 
 
+def pronostic_calendrier(match: dict) -> dict:
+    """Même pronostic que la page Football : avec les cotes du marché du calendrier quand elles existent.
+    Sert aux combinés (Mes paris, Mon coupon) pour que leurs chances soient les mêmes que celles affichées."""
+    from kateni.ui import a_venir
+    cal = a_venir()
+    cotes = None
+    if len(cal):
+        r = cal[(cal["dom"] == match["dom"]) & (cal["ext"] == match["ext"]) & (cal["competition"] == match["competition"])]
+        if len(r):
+            cotes = {k: r.iloc[0][k] for k in COLS_COTES if k in r.columns}
+    return pronostic(match, cotes)
+
+
 @st.cache_data(ttl=3600, max_entries=2000, show_spinner=False)
 def _pronostic(competition: str, dom: str, ext: str, neutre: bool, c: tuple, _sig: tuple) -> dict:
     match = {"competition": competition, "dom": dom, "ext": ext, "neutre": neutre}
