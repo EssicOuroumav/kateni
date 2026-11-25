@@ -153,8 +153,10 @@ for x, m, s_, q in paris:
             # D'abord les paris qui gardent l'idée du coupon : même équipe (double chance) ou même genre (buts)
             equipe = {"1": m["dom"], "2": m["ext"]}.get(s_["selection"]) if s_["marche"] in ("1N2", "Mi-temps 1N2") else None
             genre = "buts" if "buts" in s_["marche"].lower() or "Total" in s_["marche"] else None
-            ev = ev.assign(proche=[(equipe is not None and equipe in e) or (genre is not None and "buts" in e.lower())
-                                   for e in ev["Événement"]])
+            # 2 = double chance avec la même équipe ; 1 = autre pari sur la même équipe, ou même genre (buts)
+            ev = ev.assign(proche=[2 if (equipe is not None and equipe in e and e.startswith("Double chance")) else
+                                   1 if ((equipe is not None and equipe in e) or (genre is not None and "buts" in e.lower()))
+                                   else 0 for e in ev["Événement"]])
             plus_surs = ev.sort_values(["proche", "Chance"], ascending=[False, False], kind="mergesort").head(2)
             if len(plus_surs):
                 st.caption("Plus sûr sur ce match : " + " · ".join(
@@ -197,6 +199,8 @@ if len(valides) >= 2:
                    icon=":material/trending_down:")
 
 # ---------------------------------------------------------------- 5. l'enregistrer
+if st.session_state.get("cp_message"):
+    st.success(st.session_state.pop("cp_message"), icon=":material/check_circle:")
 with st.expander("J'ai joué ce coupon : l'enregistrer dans Mes paris", icon=":material/save:"):
     if any(not x["cote"] for x, _, _, _ in valides):
         st.caption("Complète la cote Betclic de chaque sélection pour l'enregistrer.")
@@ -234,8 +238,10 @@ with st.expander("J'ai joué ce coupon : l'enregistrer dans Mes paris", icon=":m
                             "selections": texte, **commun}
                 if store().ajouter(pari):
                     rafraichir()
-                    st.success(f"Coupon enregistré dans Mes paris ({len(tout)} sélections, {fr(cote_tot_f)}, "
-                               f"{int(mise)} FCFA, {mode}). Il sera réglé tout seul.", icon=":material/check_circle:")
+                    st.session_state["cp_message"] = (f"Coupon enregistré dans Mes paris ({len(tout)} sélection"
+                                                      f"{'s' if len(tout) > 1 else ''}, {fr(cote_tot_f)}, {int(mise)} FCFA, "
+                                                      f"{mode}). Il sera réglé tout seul.")
                 else:
-                    st.info("Ce coupon était déjà enregistré.", icon=":material/info:")
+                    st.session_state["cp_message"] = "Ce coupon était déjà enregistré dans Mes paris."
+                st.rerun()
 
