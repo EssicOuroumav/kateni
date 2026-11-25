@@ -490,8 +490,9 @@ Nombre total de buts (t. rég)
 Oui
 Les 2 équipes marquent (t. rég) 1,47
 © Lille - Bayern Munich X
-Bayern Munich 1,63
-Résultat du match (t. rég)
+Bayern Munich 163
+Résultat du match (t. rég) ,
+Mise F 3,69
 """
 
 
@@ -504,6 +505,8 @@ def test_coupon_vrai_format_betclic_ci():
         {"competition": "CL", "Date": "2026-11-25", "dom": "Club Brugge", "ext": "Liverpool", "HomeTeam": "Club Brugge", "AwayTeam": "Liverpool"},
         {"competition": "CL", "Date": "2026-11-25", "dom": "Inter", "ext": "Stuttgart", "HomeTeam": "Inter Milan", "AwayTeam": "VfB Stuttgart"},
         {"competition": "CL", "Date": "2026-11-25", "dom": "Lille", "ext": "Bayern Munich", "HomeTeam": "Lille", "AwayTeam": "Bayern Munich"}])
+    from kateni.coupon import cote_totale_lue
+    assert cote_totale_lue(TEXTE_BETCLIC_CI) == 3.69  # « Mise F 3,69 » : la cote totale, jamais celle d'un pari
     r = reconnaitre(TEXTE_BETCLIC_CI, cal)
     assert [(x["i_cal"], x["marche"], x["selection"], x["cote"]) for x in r] == [
         (0, "Total buts 1.5", "Plus", 1.16), (1, "Double chance", "1N", 1.02), (2, "Total buts 2.5", "Plus", 1.30),

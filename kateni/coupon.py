@@ -22,10 +22,18 @@ COTE = re.compile(r"(?<![\d.,])(\d{1,3}[.,]\d{2})(?![\d.,])")
 COTE_SANS_VIRGULE = re.compile(r"(?<![\d.,])(\d{1,2}) (\d{2})\s*$")  # « 1 16 » : virgule perdue par le lecteur
 
 
+COTE_COLLEE = re.compile(r"[A-Za-zÀ-ÿ)]\s+([1-9])(\d{2})\s*$")  # « Bayern Munich 163 » : virgule perdue -> 1,63
+BAS_DE_COUPON = re.compile(r"\b(mise|gain|gains|total|totale|montant|paiement|bonus|solde)\b", re.I)
+
+
 def _cotes_ligne(l: str) -> list[float]:
+    """Cotes d'une ligne de pari. Les lignes du bas du coupon (mise, gain, cote totale) n'en contiennent jamais :
+    leur chiffre est la cote TOTALE (vrai coupon du 25/11/2026 : « Mise F 3,69 » pris pour la cote d'un pari)."""
+    if BAS_DE_COUPON.search(_plat(l)):
+        return []
     vus = [float(c.replace(",", ".")) for c in COTE.findall(l)]
     if not vus:
-        m = COTE_SANS_VIRGULE.search(l)
+        m = COTE_SANS_VIRGULE.search(l) or COTE_COLLEE.search(l)
         if m:
             vus = [float(f"{m.group(1)}.{m.group(2)}")]
     return [v for v in vus if 1.01 <= v <= 200]
@@ -241,7 +249,8 @@ def reconnaitre(texte: str, cal: pd.DataFrame) -> list[dict]:
 def cote_totale_lue(texte: str) -> float | None:
     """Cote totale du combiné si la capture l'affiche (« Cote totale 8,45 », « Cotes : 8.45 »)."""
     for l in texte.splitlines():
-        if re.search(r"cote", _plat(l)) and re.search(r"total|combin|cotes?\s*:", _plat(l)):
+        if (re.search(r"cote", _plat(l)) and re.search(r"total|combin|cotes?\s*:", _plat(l))) or \
+                re.search(r"\bmise\b", _plat(l)):   # Betclic CI : la cote totale s'affiche sur la ligne de la mise
             c = COTE.findall(l)
             if c:
                 return float(c[-1].replace(",", "."))

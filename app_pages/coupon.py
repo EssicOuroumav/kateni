@@ -190,6 +190,10 @@ for x, m, s_, q in paris:
         st.markdown(f"**{m['dom']} – {m['ext']}** · {lib}  \n:{couleur}-badge[{mot} · {q:.0%}]"
                     + (f"  :{p[1]}-badge[{p[0]}]" if p else "")
                     + f"  ·  cote juste **{fr(1 / q)}**" + (f" · Betclic {fr(x['cote'])}" if x["cote"] else ""))
+        if x["cote"] and q * x["cote"] - 1 > 0.5:   # trop beau : souvent une cote mal lue sur la capture
+            st.warning(f"Cote Betclic **{fr(x['cote'])}** très au-dessus de la cote juste ({fr(1 / q)}) : vérifie qu'elle "
+                       "est bien lue (une virgule perdue, ou la cote totale prise pour celle du pari).",
+                       icon=":material/error:")
         # Pari plus sûr sur le même match (mêmes chiffres que le détail du pronostic)
         if q < 0.70 and m["sport"] == "basket":
             from kateni.basket import libelle as lib_bk
