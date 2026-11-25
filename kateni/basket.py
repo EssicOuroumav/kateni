@@ -271,3 +271,89 @@ def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
         eq = dom if cote == "Dom." else ext
         return f"{prefixe}Points {eq} : {'plus' if sel == 'Plus' else 'moins'} de {fr(float(ligne))}"
     return f"{marche} : {sel}"
+
+
+# ------------------------------------------------------------------ paris de basket d'un coupon (Mon coupon, 25/11/2026)
+# Une sélection de basket : {"sport": "basket", "competition": ligue, "dom", "ext", "date_match", "marche",
+# "selection", "ligne"} ; « ligne » = le chiffre du pari (handicap −5,5 ; total 221,5 ; points 112,5).
+CHOIX_BASKET = [("Basket Vainqueur", "1"), ("Basket Vainqueur", "2"),
+                ("Basket Handicap", "1"), ("Basket Handicap", "2"),
+                ("Basket Total", "Plus"), ("Basket Total", "Moins"),
+                ("Basket Points Dom.", "Plus"), ("Basket Points Dom.", "Moins"),
+                ("Basket Points Ext.", "Plus"), ("Basket Points Ext.", "Moins")]
+AVEC_LIGNE = {"Basket Handicap", "Basket Total", "Basket Points Dom.", "Basket Points Ext."}
+
+
+def libelle_selection(marche: str, sel: str, dom: str, ext: str, ligne: float | None = None) -> str:
+    eq = {"1": dom, "2": ext}
+    l = "…" if ligne is None else fr(abs(ligne)) if marche != "Basket Handicap" else (
+        f"+{fr(ligne)}" if ligne > 0 else f"−{fr(-ligne)}")
+    if marche == "Basket Vainqueur":
+        return f"Vainqueur (prolongations comprises) : {eq[sel]}"
+    if marche == "Basket Handicap":
+        return f"Handicap {eq[sel]} {l}"
+    sens = "plus" if sel == "Plus" else "moins"
+    if marche == "Basket Total":
+        return f"Total de points : {sens} de {l}"
+    qui = dom if marche == "Basket Points Dom." else ext
+    return f"Points de {qui} : {sens} de {l}"
+
+
+def chance_selection(m: "ModeleBasket", s: dict, neutre: bool = False) -> float | None:
+    """Chance que la sélection passe (match entier, prolongations comprises), avec les écarts-types mesurés."""
+    if not (m.connait(s["dom"]) and m.connait(s["ext"])):
+        return None
+    a, b = m.points(s["dom"], s["ext"], s.get("competition"), neutre)
+    sd_e, sd_t = m.ecarts_types(s.get("competition"))
+    marche, sel, ligne = s["marche"], s["selection"], s.get("ligne")
+    if marche == "Basket Vainqueur":
+        v = marches(a, b, sd_e, sd_t)["Vainqueur"]
+        return float(v[sel])
+    if ligne is None:
+        return None
+    if marche == "Basket Handicap":   # dom avec handicap h gagne si écart + h > 0 ; ext si écart < h
+        e = a - b
+        return float(1 - norm.cdf(-ligne, e, sd_e)) if sel == "1" else float(norm.cdf(ligne, e, sd_e))
+    moy, sd = ((a + b, sd_t) if marche == "Basket Total" else
+               ((a if marche == "Basket Points Dom." else b), sd_t / np.sqrt(2)))
+    plus = float(1 - norm.cdf(ligne, moy, sd))
+    return plus if sel == "Plus" else 1 - plus
+
+
+def regler_selection(s: dict, pts_d: int, pts_e: int) -> bool | None:
+    """Gagné / perdu avec le score final (prolongations comprises). None si la ligne tombe pile (remboursé)."""
+    marche, sel, ligne = s["marche"], s["selection"], s.get("ligne")
+    if marche == "Basket Vainqueur":
+        return (pts_d > pts_e) == (sel == "1")
+    if ligne is None:
+        return None
+    if marche == "Basket Handicap":
+        v = (pts_d - pts_e + ligne) if sel == "1" else (pts_e - pts_d + ligne)
+    else:
+        n = pts_d + pts_e if marche == "Basket Total" else (pts_d if marche == "Basket Points Dom." else pts_e)
+        v = (n - ligne) if sel == "Plus" else (ligne - n)
+    return None if v == 0 else v > 0
+
+
+def pari_lu(bloc: str, dom: str, ext: str) -> tuple[str, str, float | None] | None:
+    """(marché, sélection, ligne) reconnu dans le texte d'une sélection de basket du coupon Betclic."""
+    import re
+    import unicodedata
+    t = unicodedata.normalize("NFKD", bloc).encode("ascii", "ignore").decode().lower()
+
+    def a(nom: str) -> bool:
+        from kateni.coupon import _equipe_dans
+        return _equipe_dans(bloc, nom)
+    plus = re.search(r"(plus|moins|over|under|\+|-)\s*(?:de\s*)?(\d{2,3})[.,](5)", t)
+    hand = re.search(r"([+-]\s?\d{1,2}[.,]5)", t)
+    if plus and ("point" in t or "total" in t or int(plus.group(2)) >= 60):
+        sens = "Plus" if plus.group(1) in ("plus", "over", "+") else "Moins"
+        ligne = float(f"{plus.group(2)}.{plus.group(3)}")
+        if ligne >= 120 or not (a(dom) ^ a(ext)):
+            return ("Basket Total", sens, ligne)
+        return ("Basket Points Dom." if a(dom) else "Basket Points Ext.", sens, ligne)
+    if "handicap" in t and hand and (a(dom) ^ a(ext)):
+        return ("Basket Handicap", "1" if a(dom) else "2", float(hand.group(1).replace(" ", "").replace(",", ".")))
+    if a(dom) ^ a(ext):
+        return ("Basket Vainqueur", "1" if a(dom) else "2", None)
+    return None

@@ -25,6 +25,20 @@ def resultat(df_matchs: pd.DataFrame, date_match: str, dom: str, ext: str) -> tu
     return int(r.FTHG), int(r.FTAG), *corners, stats
 
 
+def resultat_basket(date_match: str, dom: str, ext: str) -> tuple[int, int] | None:
+    """Score final (prolongations comprises) d'un match de basket joué, d'après basket_resultats.csv."""
+    from kateni.config import RACINE
+    f = RACINE / "basket_resultats.csv"
+    if not f.exists():
+        return None
+    b = pd.read_csv(f, usecols=["DateUtc", "HomeTeam", "AwayTeam", "HPTS", "APTS"])
+    t = pd.to_datetime(b["DateUtc"], utc=True, format="ISO8601").dt.tz_convert(None)
+    d = pd.to_datetime(date_match)
+    m = b[(b["HomeTeam"] == dom) & (b["AwayTeam"] == ext) & t.between(d - pd.Timedelta(days=1), d + pd.Timedelta(days=2))
+          & b["HPTS"].notna()]
+    return None if not len(m) else (int(m.iloc[-1]["HPTS"]), int(m.iloc[-1]["APTS"]))
+
+
 def gagne(pari: dict, buts_d: int, buts_e: int, corners_d: int | None = None,
           corners_e: int | None = None, stats: dict | None = None) -> bool | None:
     marche, sel = pari["marche"], pari["selection"]
@@ -81,8 +95,16 @@ def regler_combine(store, p, df_matchs: pd.DataFrame) -> int:
     for s in selections:
         if s.get("statut", "en attente") != "en attente":
             continue
-        r = resultat(df_matchs, s["date_match"], s["dom"], s["ext"])
-        g = None if r is None else gagne(s, *r)
+        if s.get("sport") == "basket":
+            from kateni.basket import regler_selection
+            r = resultat_basket(s["date_match"], s["dom"], s["ext"])
+            g = None if r is None else regler_selection(s, *r)
+            if r is not None and g is None:  # ligne tombée pile : remboursé, compté comme gagné à cote 1
+                s["statut"], s["score_final"], change = "annulé", f"{r[0]}-{r[1]}", True
+                continue
+        else:
+            r = resultat(df_matchs, s["date_match"], s["dom"], s["ext"])
+            g = None if r is None else gagne(s, *r)
         if g is not None:
             s["statut"] = "gagné" if g else "perdu"
             s["score_final"] = f"{r[0]}-{r[1]}"
@@ -93,6 +115,10 @@ def regler_combine(store, p, df_matchs: pd.DataFrame) -> int:
     champs = {"selections": ecrire_selections(selections)}
     if statut != "en attente":
         mise = 0.0 if pd.isna(p["mise_fcfa"]) else float(p["mise_fcfa"])
-        champs.update(statut=statut, gain_fcfa=round(mise * (float(p["cote"]) - 1)) if statut == "gagné" else -round(mise))
+        cote = float(p["cote"])
+        for s in selections:  # sélection remboursée : sa cote sort du combiné (si on la connaît)
+            if s.get("statut") == "annulé" and s.get("cote"):
+                cote /= float(s["cote"])
+        champs.update(statut=statut, gain_fcfa=round(mise * (cote - 1)) if statut == "gagné" else -round(mise))
     store.mettre_a_jour(p["id"], **champs)
     return int(statut != "en attente")

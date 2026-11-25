@@ -223,11 +223,17 @@ def reconnaitre(texte: str, cal: pd.DataFrame) -> list[dict]:
         r = cal.loc[i]
         p = None
         sans_match = "\n".join(l for l in bloc_lignes if l != lignes[k])  # la ligne du match cite les deux équipes
+        basket = r.get("sport") == "basket"
         for a, b in _noms(r):
-            p = _pari(sans_match, a, b)
+            if basket:
+                from kateni.basket import pari_lu
+                p = pari_lu(sans_match, a, b)
+            else:
+                p = _pari(sans_match, a, b)
             if p:
                 break
         out.append({"i_cal": i, "marche": p[0] if p else None, "selection": p[1] if p else None,
+                    "ligne": p[2] if p and len(p) > 2 else None,
                     "cote": valeurs[0] if valeurs else None, "lu": " / ".join(bloc_lignes)})
     return out
 

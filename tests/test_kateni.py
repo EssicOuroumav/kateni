@@ -508,3 +508,35 @@ def test_coupon_vrai_format_betclic_ci():
     assert [(x["i_cal"], x["marche"], x["selection"], x["cote"]) for x in r] == [
         (0, "Total buts 1.5", "Plus", 1.16), (1, "Double chance", "1N", 1.02), (2, "Total buts 2.5", "Plus", 1.30),
         (3, "Les deux équipes marquent", "Oui", 1.47), (4, "1N2", "2", 1.63)]
+
+
+def test_coupon_basket_chances_reglement_et_lecture():
+    from kateni.basket import ajuster, chance_selection, marches, pari_lu, regler_selection
+    from kateni.coupon import reconnaitre
+    lignes = []
+    for k in range(40):  # A bat B de 10 points, total 210
+        dom, ext = ("A", "B") if k % 2 == 0 else ("B", "A")
+        lignes.append({"ligue": "NBA", "DateUtc": f"2025-01-{1 + k % 28:02d} 01:00:00Z", "HomeTeam": dom, "AwayTeam": ext,
+                       "HPTS": 110 if dom == "A" else 100, "APTS": 100 if dom == "A" else 110,
+                       **{f"H{q}": 25 for q in range(1, 5)}, **{f"A{q}": 25 for q in range(1, 5)}})
+    m = ajuster(pd.DataFrame(lignes), date_ref="2025-02-01", rappel=0.1)
+    s = {"dom": "A", "ext": "B", "competition": "NBA"}
+    a, b = m.points("A", "B", "NBA")
+    v = marches(a, b, *m.ecarts_types("NBA"))["Vainqueur"]["1"]
+    assert chance_selection(m, {**s, "marche": "Basket Vainqueur", "selection": "1"}) == pytest.approx(v)
+    p_plus = chance_selection(m, {**s, "marche": "Basket Total", "selection": "Plus", "ligne": 200.5})
+    p_moins = chance_selection(m, {**s, "marche": "Basket Total", "selection": "Moins", "ligne": 200.5})
+    assert p_plus > 0.5 and p_plus + p_moins == pytest.approx(1)
+    h1 = chance_selection(m, {**s, "marche": "Basket Handicap", "selection": "1", "ligne": -5.5})
+    h2 = chance_selection(m, {**s, "marche": "Basket Handicap", "selection": "2", "ligne": 5.5})
+    assert h1 + h2 == pytest.approx(1)
+    assert regler_selection({"marche": "Basket Handicap", "selection": "1", "ligne": -5.5}, 110, 100) is True
+    assert regler_selection({"marche": "Basket Total", "selection": "Moins", "ligne": 221.5}, 110, 110) is True
+    assert regler_selection({"marche": "Basket Points Ext.", "selection": "Plus", "ligne": 100.0}, 110, 100) is None
+    assert pari_lu("+ de 221,5 1,85\nNombre total de points", "Boston Celtics", "Miami Heat") == ("Basket Total", "Plus", 221.5)
+    assert pari_lu("Boston Celtics 1,40\nFace à face (prolongations incluses)", "Boston Celtics", "Miami Heat") == (
+        "Basket Vainqueur", "1", None)
+    cal = pd.DataFrame([{"sport": "basket", "competition": "NBA", "Date": "2026-11-26", "dom": "Boston Celtics",
+                         "ext": "Miami Heat", "HomeTeam": "Boston Celtics", "AwayTeam": "Miami Heat"}])
+    r = reconnaitre("2 sélections\nBoston Celtics - Miami Heat x\n+ de 221,5 1,85\nNombre total de points\n", cal)
+    assert [(x["marche"], x["selection"], x["ligne"], x["cote"]) for x in r] == [("Basket Total", "Plus", 221.5, 1.85)]

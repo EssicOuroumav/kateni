@@ -87,6 +87,6 @@ def statut_combine(selections: list[dict]) -> str:
     statuts = [s.get("statut", "en attente") for s in selections]
     if "perdu" in statuts:
         return "perdu"
-    if statuts and all(x == "gagné" for x in statuts):
-        return "gagné"
+    if statuts and all(x in ("gagné", "annulé") for x in statuts) and "gagné" in statuts:
+        return "gagné"   # une sélection remboursée (ligne tombée pile) compte à cote 1, comme chez Betclic
     return "en attente"

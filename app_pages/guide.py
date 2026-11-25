@@ -54,7 +54,7 @@ with st.container(border=True):
 with st.container(border=True):
     st.subheader("Analyser mon coupon", anchor=False, icon=":material/receipt_long:")
     st.markdown(
-        "1. Fais ton combiné sur Betclic et prends une **capture d'écran du coupon**.\n"
+        "1. Fais ton combiné sur Betclic (foot et basket) et prends une **capture d'écran du coupon**.\n"
         "2. Ouvre **Mon coupon** et dépose la capture : Kateni lit les matchs, les paris et les cotes.\n"
         "3. **Vérifie** ce qu'il a lu et corrige si besoin (match, pari, cote), ou ajoute une sélection à la main.\n"
         "4. Lis l'analyse : chaque pari est **Solide / Correct / Risqué**, **bien ou mal payé** par Betclic, avec un pari "

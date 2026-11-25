@@ -109,7 +109,7 @@ with st.expander("Noter un combiné placé sur Betclic", icon=":material/stacks:
         for k, x in enumerate(selections):
             q = chance_combine([x], pronostic_calendrier)
             with st.container(horizontal=True, vertical_alignment="center"):
-                st.markdown(f"{k + 1}. **{x['dom']} – {x['ext']}** · {libelle(x['marche'], x['selection'], x['dom'], x['ext'])}"
+                st.markdown(f"{k + 1}. **{x['dom']} – {x['ext']}** · {libelle(x['marche'], x['selection'], x['dom'], x['ext'], x.get('ligne'))}"
                             + (f" · Kateni {q:.0%}" if q is not None else ""))
                 if st.button("Retirer", key=f"cb_retirer_{k}", icon=":material/close:"):
                     selections.pop(k)
@@ -222,7 +222,7 @@ for p in attente.itertuples():
                         f"FCFA** · {p.mode}")
             st.markdown("\n".join(
                 f"- {ICONES.get(x.get('statut', 'en attente'), '⏳')} {x['dom']} – {x['ext']} "
-                f"({pd.to_datetime(x['date_match']):%d/%m}) · {libelle(x['marche'], x['selection'], x['dom'], x['ext'])}"
+                f"({pd.to_datetime(x['date_match']):%d/%m}) · {libelle(x['marche'], x['selection'], x['dom'], x['ext'], x.get('ligne'))}"
                 + (f" · score {x['score_final']}" if x.get("score_final") else "")
                 for x in lire_selections(p.selections)))
         else:
@@ -269,6 +269,6 @@ else:
         with st.expander(f"{p.dom} du {pd.to_datetime(p.date_match):%d/%m} à {fr(p.cote)} : {p.statut}"):
             st.markdown("\n".join(
                 f"- {ICONES.get(x.get('statut', 'en attente'), '⏳')} {x['dom']} – {x['ext']} · "
-                f"{libelle(x['marche'], x['selection'], x['dom'], x['ext'])}"
+                f"{libelle(x['marche'], x['selection'], x['dom'], x['ext'], x.get('ligne'))}"
                 + (f" · score {x['score_final']}" if x.get("score_final") else "")
                 for x in lire_selections(p.selections)))

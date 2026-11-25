@@ -404,8 +404,11 @@ def pct(x: float, signe: bool = False) -> str:
     return (f"{x:+.1%}" if signe else f"{x:.1%}").replace(".", ",").replace("%", " %")
 
 
-def libelle(marche: str, sel: str, dom: str, ext: str) -> str:
+def libelle(marche: str, sel: str, dom: str, ext: str, ligne: float | None = None) -> str:
     """« 1N2 / 1 » -> « Victoire Como » : ce que l'utilisateur lit sur Betclic."""
+    if str(marche).startswith("Basket "):
+        from kateni.basket import libelle_selection
+        return libelle_selection(marche, sel, dom, ext, ligne)
     # Mêmes mots que Betclic, pour retrouver le bon choix et sa cote.
     if marche == "1N2":
         return {"1": f"Résultat : {dom} gagne", "N": "Résultat : match nul", "2": f"Résultat : {ext} gagne"}[sel]
