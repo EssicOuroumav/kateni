@@ -1,0 +1,21 @@
+# Kateni — test de la lecture d'une capture de coupon dans un environnement Linux comme Streamlit Cloud
+name: Test lecture coupon
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lecture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Lecteur de texte (comme packages.txt sur Streamlit Cloud)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq $(cat packages.txt)
+      - name: Dépendances
+        run: pip install -q -r requirements.txt
+      - name: Lecture du faux coupon
+        run: python scripts/test_lecture_coupon.py
