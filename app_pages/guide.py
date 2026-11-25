@@ -59,7 +59,7 @@ with st.container(border=True):
         "3. **Vérifie** ce qu'il a lu et corrige si besoin (match, pari, cote), ou ajoute une sélection à la main.\n"
         "4. Lis l'analyse : chaque pari est **Solide / Correct / Risqué**, **bien ou mal payé** par Betclic, avec un pari "
         "plus sûr sur le même match ; puis la **chance que tout le combiné passe** et son **maillon faible**.\n"
-        "5. Si tu le joues : « l'enregistrer dans Mes paris », il sera réglé tout seul.")
+        "5. Plus le combiné a de sélections, plus il est difficile à passer : regarde la ligne « passe environ 1 fois sur … ».")
     st.page_link("app_pages/coupon.py", label="Aller à Mon coupon", icon=":material/receipt_long:")
 
     st.subheader("Basket", anchor=False, icon=":material/sports_basketball:")
@@ -76,7 +76,7 @@ with st.container(border=True):
     st.markdown(
         "- Kateni en ligne s'ouvre avec un **code personnel**. Ne le donne à personne : s'il est utilisé sur un "
         "autre appareil, ta session se ferme.\n"
-        "- **Mes paris** et **Bilan** sont à toi seul : les autres utilisateurs ne les voient pas.\n"
+
         "- **Se déconnecter** : en haut de chaque page.")
 
 with st.container(border=True):
@@ -109,20 +109,12 @@ with st.container(border=True):
     st.page_link("app_pages/live.py", label="Aller à Live", icon=":material/timer:")
 
 with st.container(border=True):
-    st.subheader("Après le match", anchor=False, icon=":material/receipt_long:")
+    st.subheader("Kateni dit-il vrai ?", anchor=False, icon=":material/verified:")
     st.markdown(
-        "**Tu as placé un pari sur Betclic ?** Dans **Mes paris**, ouvre « Noter un pari placé sur Betclic » : "
-        "choisis le match, ton pari, la cote et ta mise, puis « Noter ce pari ». N'importe quel pari peut être noté, "
-        "même si Kateni ne le proposait pas.\n\n"
-        "**Un combiné ?** Ouvre « Noter un combiné placé sur Betclic » : ajoute chaque sélection (pour un MyCombi, "
-        "plusieurs sélections du même match), puis la **cote totale** et la mise. Kateni affiche la chance que tout "
-        "passe ; le combiné est perdu dès qu'une sélection rate et compté dans le Bilan.\n\n"
-        "**Un ticket déjà terminé, ou avec des matchs absents de Kateni** (coupes, petites divisions) ? « Noter un "
-        "ticket déjà terminé » : cote totale, mise et résultat suffisent.\n\n"
-        "Les résultats arrivent **tout seuls** (deux fois par jour). Ouvre **Mes paris** : les paris terminés y sont "
-        "réglés automatiquement. Le bouton **Mettre à jour les résultats** (propriétaire seulement) sert seulement à forcer une mise à jour "
-        "immédiate. **Bilan** montre si Kateni gagne vraiment sur la durée.")
-    st.page_link("app_pages/mes_paris.py", label="Aller à Mes paris", icon=":material/receipt_long:")
+        "Une chance de **82 %** veut dire : sur 100 paris comme celui-là, environ 82 passent et 18 perdent. Un pari "
+        "à 82 % perdu n'est pas une erreur. La page **Bilan** montre, pour chaque type de pari, si les chances "
+        "annoncées arrivent vraiment, mesuré sur des milliers de matchs déjà joués.")
+    st.page_link("app_pages/bilan.py", label="Aller à Bilan", icon=":material/monitoring:")
 
 with st.container(border=True):
     st.subheader("Les mots à connaître", anchor=False, icon=":material/menu_book:")
@@ -137,7 +129,7 @@ with st.container(border=True):
         "paie mieux que la réalité ; plus basse, moins bien.\n"
         "- **Gain moyen attendu** : ce que le pari rapporte en moyenne sur beaucoup de paris (+5 % = "
         "50 FCFA pour 1 000 FCFA misés, en moyenne, pas à chaque fois).\n"
-        "- **Mode fictif** : Kateni enregistre le pari sans que tu mises. Sert à tester sans risque.")
+        "- **Combiné** : il passe seulement si toutes ses sélections passent ; sa chance est le produit des chances.")
 
 with st.container(border=True):
     st.subheader("Les règles de prudence", anchor=False, icon=":material/shield:")

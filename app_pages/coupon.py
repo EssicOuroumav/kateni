@@ -8,12 +8,11 @@ import pandas as pd
 import streamlit as st
 
 from kateni.affichage import pronostic_calendrier
-from kateni.combine import CHOIX_PARIS, chance_combine, ecrire_selections
+from kateni.combine import CHOIX_PARIS, chance_combine
 from kateni.cotes import esperance
 from kateni.coupon import cote_totale_lue, lecteur_disponible, lire_image, prix, reconnaitre, verdict
-from kateni.stockage import identifiant
 from kateni.basket import AVEC_LIGNE, CHOIX_BASKET, chance_selection
-from kateni.ui import NOMS_COURTS, a_venir, basket_a_venir, fr, libelle, modele_basket, rafraichir, store
+from kateni.ui import NOMS_COURTS, a_venir, basket_a_venir, fr, libelle, modele_basket
 
 CHOIX = CHOIX_PARIS + [("Mi-temps 1N2", "1"), ("Mi-temps 1N2", "N"), ("Mi-temps 1N2", "2"),
                        *[(f"Mi-temps total {x}", c) for x in ("0.5", "1.5") for c in ("Plus", "Moins")]]
@@ -276,51 +275,3 @@ if len(valides) >= 2:
         st.warning("Betclic paie ce combiné nettement moins que ce qu'il vaut : à chaque sélection ajoutée, sa marge "
                    "se multiplie. Moins de sélections, ou des sélections « bien payées », limitent la perte.",
                    icon=":material/trending_down:")
-
-# ---------------------------------------------------------------- 5. l'enregistrer
-if st.session_state.get("cp_message"):
-    st.success(st.session_state.pop("cp_message"), icon=":material/check_circle:")
-with st.expander("J'ai joué ce coupon : l'enregistrer dans Mes paris", icon=":material/save:"):
-    if any(not x["cote"] for x, _, _, _ in valides):
-        st.caption("Complète la cote Betclic de chaque sélection pour l'enregistrer.")
-    else:
-        with st.form("cp_form", border=False):
-            c1, c2, c3 = st.columns(3)
-            cote_tot_f = c1.number_input("Cote totale Betclic", min_value=1.01, step=0.01, format="%.2f",
-                                         value=round(float(pd.Series([x["cote"] for x, *_ in valides]).prod()), 2))
-            mise = c2.number_input("Mise (FCFA)", min_value=0, value=None, step=100)
-            mode = c3.segmented_control("Type", ["réel", "fictif"], default="réel", required=True)
-            ok = st.form_submit_button("Enregistrer", icon=":material/save:", type="primary")
-        if ok:
-            if not mise:
-                st.error("Indique ta mise.", icon=":material/error:")
-            else:
-                tout = [s_ for _, _, s_, _ in valides]
-                chance = chance_coupon(tout)
-                texte = ecrire_selections(tout)
-                date_max = max(t["date_match"] for t in tout)
-                commun = {"cote": cote_tot_f, "prob_kateni": None if chance is None else round(chance, 4),
-                          "esperance_pct": None if chance is None else round(esperance(chance, cote_tot_f) * 100, 1),
-                          "mise_fcfa": mise, "mode": mode}
-                if len(tout) == 1 and tout[0].get("sport") != "basket":  # pari simple de foot (réglé comme tel)
-                    t = tout[0]
-                    pari = {"id": identifiant(t["date_match"], t["dom"], t["ext"], t["marche"], t["selection"], mode,
-                                              f"{cote_tot_f}|{mise}"),
-                            "date_match": t["date_match"], "competition": t["competition"], "dom": t["dom"],
-                            "ext": t["ext"], "type": "avant-match", "marche": t["marche"], "selection": t["selection"],
-                            **commun}
-                else:
-                    pari = {"id": identifiant(date_max, "Combiné", "", "Combiné", texte, mode, f"{cote_tot_f}|{mise}"),
-                            "date_match": date_max, "competition": "",
-                            "dom": f"Combiné ({len(tout)})" if len(tout) > 1 else f"{tout[0]['dom']} – {tout[0]['ext']}", "ext": "",
-                            "type": "combiné", "marche": "Combiné", "selection": f"{len(tout)} sélections",
-                            "selections": texte, **commun}
-                if store().ajouter(pari):
-                    rafraichir()
-                    st.session_state["cp_message"] = (f"Coupon enregistré dans Mes paris ({len(tout)} sélection"
-                                                      f"{'s' if len(tout) > 1 else ''}, {fr(cote_tot_f)}, {int(mise)} FCFA, "
-                                                      f"{mode}). Il sera réglé tout seul.")
-                else:
-                    st.session_state["cp_message"] = "Ce coupon était déjà enregistré dans Mes paris."
-                st.rerun()
-

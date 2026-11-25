@@ -13,7 +13,7 @@ from kateni.donnees import equipes_de
 from kateni.live import FIN_PROBABLE, EtatLive, fraction_restante, minute_estimee, predire_live
 from kateni.scores_direct import en_direct, rattacher
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, NOMS_COURTS, a_venir, avertir_si_peu_connu, bankroll,
-                       choisir_match, choisir_mode, contexte, corners_attendus, enregistrer, fr, libelle,
+                       choisir_match, choisir_mode, contexte, corners_attendus, fr, libelle,
                        stats_attendues,
                        ligne_analyse, pct, predire, table_analyse)
 
@@ -331,10 +331,6 @@ with st.expander("Vérifier une cote live Betclic", icon=":material/compare_arro
                 st.badge("À jouer", icon=":material/check_circle:", color="green")
                 st.markdown(f"**{libelle(marche, sel, dom, ext)}** à **{fr(cote)}** · mise conseillée "
                             f"**{l['Mise (FCFA)']} FCFA**")
-                if st.button(f"Enregistrer ce pari ({mode})", icon=":material/save:", type="primary"):
-                    ok = enregistrer(match, l, mode, "live", minute=str(minute), score=f"{bd}-{be}")
-                    st.toast("Pari enregistré dans Mes paris" if ok else "Déjà enregistré (pas de doublon)",
-                             icon=":material/check:")
             else:
                 st.badge("Pas de valeur", icon=":material/do_not_disturb_on:", color="gray")
                 st.markdown(f"**{libelle(marche, sel, dom, ext)}** à {fr(cote)} : ne pas jouer.")

@@ -6,7 +6,7 @@ from kateni.corners import TAILLE_EQUIPE, marches_corners
 from kateni.statistiques import marches_stat, plus_grand_nombre
 from kateni.marches import calibrer, marches
 from kateni.ui import (COLONNES_TABLE, MARGE_SUPPOSEE, avertir_si_peu_connu, bankroll, choisir_match,
-                       choisir_mode, contexte, corners_attendus, stats_attendues, enregistrer, fr, libelle, pct, ligne_analyse, predire,
+                       choisir_mode, contexte, corners_attendus, stats_attendues, fr, libelle, pct, ligne_analyse, predire,
                        matrice_match,
                        table_analyse)
 
@@ -113,11 +113,6 @@ for k, l in enumerate(sorted(lignes, key=lambda x: -(x["Espérance"] or -9))):
             st.markdown(f"**{nom}** à **{fr(l['Cote Betclic'])}** · mise conseillée **{l['Mise (FCFA)']} FCFA**")
             st.caption(f"Chance retenue (modèle + cote Betclic) : {l['Kateni']:.0%} ; gain moyen attendu "
                        f"{pct(l['Espérance'], True)} par FCFA misé.")
-            if st.button(f"Enregistrer ce pari ({mode})", key=f"am_save_{k}", icon=":material/save:",
-                         type="primary"):
-                ok = enregistrer(match, l, mode, "avant-match")
-                st.toast("Pari enregistré dans Mes paris" if ok else "Déjà enregistré (pas de doublon)",
-                         icon=":material/check:")
         else:
             st.badge("Pas de valeur", icon=":material/do_not_disturb_on:", color="gray")
             st.markdown(f"**{nom}** à {fr(l['Cote Betclic'])} : ne pas jouer.")

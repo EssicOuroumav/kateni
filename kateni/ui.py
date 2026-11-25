@@ -331,7 +331,7 @@ def choisir_match(df: pd.DataFrame, cle: str, vide: bool = False) -> dict | None
         r = cal.loc[i]
         return {"competition": r["competition"], "dom": r["dom"], "ext": r["ext"], "date": r["Date"]}
     if source == "Calendrier":
-        st.info("Calendrier vide : lance « Mettre à jour les données » dans Mes paris.")
+        st.info("Calendrier vide pour l'instant : il se remplit tout seul deux fois par jour.")
     codes = list(COMPETITIONS)
     comp = st.selectbox("Compétition", codes, format_func=lambda c: COMPETITIONS[c].nom, key=f"{cle}_comp")
     equipes = equipes_de(df, comp)

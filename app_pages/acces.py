@@ -63,8 +63,7 @@ if "kt_supprime" in st.session_state:
 with st.expander("Comment ça marche ?", icon=":material/help:"):
     st.markdown(
         "- Ton camarade ouvre Kateni, tape son code et voit toutes les prédictions.\n"
-        "- **Mes paris** et **Bilan** : il a les siens (50 000 F de départ), séparés des tiens. Il ne voit pas tes "
-        "paris et tu ne vois pas les siens.\n"
+
         "- **Un code = une personne à la fois** : s'il est utilisé sur un autre téléphone, le premier est "
         "déconnecté. Le compteur « éjections » augmente quand cela arrive pendant qu'il s'en servait encore : "
         "souvent = code partagé. Coupe l'accès ou recrée-lui un code.\n"

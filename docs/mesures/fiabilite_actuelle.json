@@ -1,0 +1,130 @@
+{
+ "matchs": 6189,
+ "periode": "01/08/2025 - 21/10/2026",
+ "familles": {
+  "Résultat (1N2)": [
+   {
+    "annonce": 0.545,
+    "arrive": 0.528,
+    "n": 1384
+   },
+   {
+    "annonce": 0.644,
+    "arrive": 0.669,
+    "n": 779
+   },
+   {
+    "annonce": 0.745,
+    "arrive": 0.792,
+    "n": 400
+   },
+   {
+    "annonce": 0.832,
+    "arrive": 0.858,
+    "n": 106
+   },
+   null
+  ],
+  "Double chance": [
+   {
+    "annonce": 0.553,
+    "arrive": 0.547,
+    "n": 2351
+   },
+   {
+    "annonce": 0.656,
+    "arrive": 0.661,
+    "n": 3346
+   },
+   {
+    "annonce": 0.742,
+    "arrive": 0.737,
+    "n": 7593
+   },
+   {
+    "annonce": 0.84,
+    "arrive": 0.857,
+    "n": 2209
+   },
+   {
+    "annonce": 0.923,
+    "arrive": 0.953,
+    "n": 402
+   }
+  ],
+  "Nombre de buts": [
+   {
+    "annonce": 0.544,
+    "arrive": 0.542,
+    "n": 5841
+   },
+   {
+    "annonce": 0.655,
+    "arrive": 0.66,
+    "n": 4460
+   },
+   {
+    "annonce": 0.752,
+    "arrive": 0.753,
+    "n": 7610
+   },
+   {
+    "annonce": 0.848,
+    "arrive": 0.856,
+    "n": 6027
+   },
+   {
+    "annonce": 0.916,
+    "arrive": 0.919,
+    "n": 1135
+   }
+  ],
+  "Les 2 équipes marquent": [
+   {
+    "annonce": 0.539,
+    "arrive": 0.555,
+    "n": 5903
+   },
+   {
+    "annonce": 0.616,
+    "arrive": 0.626,
+    "n": 286
+   },
+   null,
+   null,
+   null
+  ],
+  "Une équipe marque": [
+   {
+    "annonce": 0.556,
+    "arrive": 0.558,
+    "n": 1374
+   },
+   {
+    "annonce": 0.655,
+    "arrive": 0.676,
+    "n": 3398
+   },
+   {
+    "annonce": 0.75,
+    "arrive": 0.755,
+    "n": 4459
+   },
+   {
+    "annonce": 0.842,
+    "arrive": 0.861,
+    "n": 2614
+   },
+   {
+    "annonce": 0.925,
+    "arrive": 0.955,
+    "n": 533
+   }
+  ]
+ },
+ "exemple_plus_1_5_80_85": {
+  "annonce": 0.821,
+  "arrive": 0.832,
+  "n": 1186
+ }
+}
