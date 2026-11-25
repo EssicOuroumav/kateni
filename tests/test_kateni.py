@@ -473,3 +473,38 @@ Cote totale 4,23
         (0, "1N2", "1", 1.45), (1, "Double chance", "1N", 1.62), (2, "Total buts 2.5", "Plus", 1.80)]
     assert cote_totale_lue(texte) == 4.23
     assert verdict(0.8)[0] == "Solide" and verdict(0.5)[0] == "Risqué"
+
+
+TEXTE_BETCLIC_CI = """5 sélections eee
+Simple Combiné Systeme
+© Slavia Prague - Villarreal X
++ de 1,5 1 16
+Nombre total de buts (t. rég)
+, €) Atlético Madrid - Viking FK x
+Atlético Madrid ou Nul 1.02
+Double chance (t. rég)
+, @) Club Bruges - Liverpool x
++de2,5 1.30
+Nombre total de buts (t. rég)
+©) Inter Milan - Stuttgart x
+Oui
+Les 2 équipes marquent (t. rég) 1,47
+© Lille - Bayern Munich X
+Bayern Munich 1,63
+Résultat du match (t. rég)
+"""
+
+
+def test_coupon_vrai_format_betclic_ci():
+    """Vrai coupon Betclic CI (25/11/2026) : le match est écrit AVANT le pari et la cote ; cotes parfois lues « 1 16 »."""
+    from kateni.coupon import reconnaitre
+    cal = pd.DataFrame([
+        {"competition": "CL", "Date": "2026-11-25", "dom": "Slavia Prague", "ext": "Villarreal", "HomeTeam": "Slavia Prague", "AwayTeam": "Villarreal"},
+        {"competition": "CL", "Date": "2026-11-25", "dom": "Ath Madrid", "ext": "Viking", "HomeTeam": "Atlético Madrid", "AwayTeam": "Viking"},
+        {"competition": "CL", "Date": "2026-11-25", "dom": "Club Brugge", "ext": "Liverpool", "HomeTeam": "Club Brugge", "AwayTeam": "Liverpool"},
+        {"competition": "CL", "Date": "2026-11-25", "dom": "Inter", "ext": "Stuttgart", "HomeTeam": "Inter Milan", "AwayTeam": "VfB Stuttgart"},
+        {"competition": "CL", "Date": "2026-11-25", "dom": "Lille", "ext": "Bayern Munich", "HomeTeam": "Lille", "AwayTeam": "Bayern Munich"}])
+    r = reconnaitre(TEXTE_BETCLIC_CI, cal)
+    assert [(x["i_cal"], x["marche"], x["selection"], x["cote"]) for x in r] == [
+        (0, "Total buts 1.5", "Plus", 1.16), (1, "Double chance", "1N", 1.02), (2, "Total buts 2.5", "Plus", 1.30),
+        (3, "Les deux équipes marquent", "Oui", 1.47), (4, "1N2", "2", 1.63)]

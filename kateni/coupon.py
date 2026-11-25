@@ -19,6 +19,16 @@ import unicodedata
 import pandas as pd
 
 COTE = re.compile(r"(?<![\d.,])(\d{1,3}[.,]\d{2})(?![\d.,])")
+COTE_SANS_VIRGULE = re.compile(r"(?<![\d.,])(\d{1,2}) (\d{2})\s*$")  # « 1 16 » : virgule perdue par le lecteur
+
+
+def _cotes_ligne(l: str) -> list[float]:
+    vus = [float(c.replace(",", ".")) for c in COTE.findall(l)]
+    if not vus:
+        m = COTE_SANS_VIRGULE.search(l)
+        if m:
+            vus = [float(f"{m.group(1)}.{m.group(2)}")]
+    return [v for v in vus if 1.01 <= v <= 200]
 
 
 def _plat(t: str) -> str:
@@ -139,11 +149,11 @@ def _equipe_dans(texte: str, equipe: str) -> bool:
 def _pari(bloc: str, dom: str, ext: str) -> tuple[str, str] | None:
     """(marché, sélection) reconnu dans le texte d'une sélection du coupon."""
     t = _plat(bloc)
-    ligne = re.search(r"(plus|moins|over|under)\s*(?:de\s*)?(\d)[.,]5", t)
+    ligne = re.search(r"(plus|moins|over|under|\+|-)\s*(?:de\s*)?(\d)[.,]5", t)
     if "deux equipes marquent" in t or "2 equipes marquent" in t or "les deux marquent" in t:
         return ("Les deux équipes marquent", "Non" if re.search(r"\bnon\b", t) else "Oui")
     if ligne:
-        cote_ = "Plus" if ligne.group(1) in ("plus", "over") else "Moins"
+        cote_ = "Plus" if ligne.group(1) in ("plus", "over", "+") else "Moins"
         x = f"{ligne.group(2)}.5"
         if "mi-temps" in t or "mi temps" in t or "1ere periode" in t:
             return (f"Mi-temps total {x}", cote_) if x in ("0.5", "1.5") else None
@@ -174,30 +184,49 @@ def _pari(bloc: str, dom: str, ext: str) -> tuple[str, str] | None:
     return None
 
 
+def _noms(r) -> list[tuple[str, str]]:
+    """Les noms possibles d'un match : ceux de Kateni (« Ath Madrid ») et ceux de la source (« Atlético Madrid »)."""
+    noms = [(r["dom"], r["ext"])]
+    for a, b in (("HomeTeam", "AwayTeam"),):
+        if a in r and isinstance(r[a], str) and (r[a], r[b]) != noms[0]:
+            noms.append((r[a], r[b]))
+    return noms
+
+
 def reconnaitre(texte: str, cal: pd.DataFrame) -> list[dict]:
     """Sélections trouvées dans le texte du coupon : {i_cal, marche, selection, cote, lu}.
-    i_cal = index de la ligne du calendrier (None si le match n'a pas été reconnu)."""
+    Deux mises en page reconnues : match écrit AVANT le pari et la cote (Betclic Côte d'Ivoire, vrai coupon du
+    25/11/2026), ou APRÈS. i_cal = index de la ligne du calendrier."""
     lignes = [l.strip() for l in texte.splitlines() if l.strip()]
-    trouves = []  # (n° de ligne, index calendrier, score)
+    trouves = []  # (n° de ligne, index calendrier)
     for k, l in enumerate(lignes):
         meilleur = (None, 0.0)
         for i, r in cal.iterrows():
-            s = _score_match(l, r["dom"], r["ext"])
-            if s > meilleur[1]:
-                meilleur = (i, s)
+            sc = max(_score_match(l, a, b) for a, b in _noms(r))
+            if sc > meilleur[1]:
+                meilleur = (i, sc)
         if meilleur[1] >= 0.75:
             trouves.append((k, meilleur[0]))
+    if not trouves:
+        return []
+    # Sens de lecture : si une cote apparaît juste avant le premier match, le pari est écrit avant le match
+    avant = any(_cotes_ligne(l) for l in lignes[max(0, trouves[0][0] - 3):trouves[0][0]])
     out = []
     for n, (k, i) in enumerate(trouves):
-        debut = trouves[n - 1][0] + 1 if n else max(0, k - 3)
-        bloc_lignes = lignes[debut:k + 1]
-        cotes = [c for l in bloc_lignes for c in COTE.findall(l)]
-        if not cotes and k + 1 < len(lignes):  # cote écrite sur la ligne d'après
-            bloc_lignes = bloc_lignes + [lignes[k + 1]]
-            cotes = COTE.findall(lignes[k + 1])
-        valeurs = [float(c.replace(",", ".")) for c in cotes if 1.01 <= float(c.replace(",", ".")) <= 200]
+        if avant:
+            debut = trouves[n - 1][0] + 1 if n else max(0, k - 3)
+            bloc_lignes = lignes[debut:k + 1]
+        else:
+            fin = trouves[n + 1][0] if n + 1 < len(trouves) else min(len(lignes), k + 4)
+            bloc_lignes = lignes[k:fin]
+        valeurs = [v for l in bloc_lignes for v in _cotes_ligne(l)]
         r = cal.loc[i]
-        p = _pari("\n".join(bloc_lignes), r["dom"], r["ext"])
+        p = None
+        sans_match = "\n".join(l for l in bloc_lignes if l != lignes[k])  # la ligne du match cite les deux équipes
+        for a, b in _noms(r):
+            p = _pari(sans_match, a, b)
+            if p:
+                break
         out.append({"i_cal": i, "marche": p[0] if p else None, "selection": p[1] if p else None,
                     "cote": valeurs[0] if valeurs else None, "lu": " / ".join(bloc_lignes)})
     return out

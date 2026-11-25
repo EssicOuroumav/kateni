@@ -177,7 +177,14 @@ if len(valides) >= 2:
     tout = [s_ for _, _, s_, _ in valides]
     chance = chance_combine(tout, pronostic_cal)
     cotes = [x["cote"] for x, _, _, _ in valides]
-    cote_tot = st.session_state.get("cp_total") or (float(pd.Series(cotes).prod()) if all(cotes) else None)
+    # Toujours recalculée depuis les cotes affichées (donc tes corrections) ; la cote totale lue sur la capture
+    # sert seulement à vérifier qu'aucune sélection ne manque.
+    cote_tot = float(pd.Series(cotes).prod()) if all(cotes) else None
+    lue = st.session_state.get("cp_total")
+    if lue and cote_tot and abs(lue - cote_tot) / lue > 0.03:
+        st.warning(f"La capture affiche une cote totale de **{fr(lue)}**, mais tes sélections donnent **{fr(cote_tot)}** : "
+                   "une sélection manque peut-être, ou une cote est mal lue. Vérifie le tableau ci-dessus.",
+                   icon=":material/warning:")
     with st.container(horizontal=True):
         st.metric("Chance que tout passe", f"{chance:.0%}" if chance >= 0.01 else "< 1 %",
                   help="Produit des chances des matchs (plusieurs paris sur un même match sont calculés ensemble).")
@@ -215,8 +222,7 @@ with st.expander("J'ai joué ce coupon : l'enregistrer dans Mes paris", icon=":m
         with st.form("cp_form", border=False):
             c1, c2, c3 = st.columns(3)
             cote_tot_f = c1.number_input("Cote totale Betclic", min_value=1.01, step=0.01, format="%.2f",
-                                         value=float(st.session_state.get("cp_total") or
-                                                     round(float(pd.Series([x["cote"] for x, *_ in valides]).prod()), 2)))
+                                         value=round(float(pd.Series([x["cote"] for x, *_ in valides]).prod()), 2))
             mise = c2.number_input("Mise (FCFA)", min_value=0, value=None, step=100)
             mode = c3.segmented_control("Type", ["réel", "fictif"], default="réel", required=True)
             ok = st.form_submit_button("Enregistrer", icon=":material/save:", type="primary")
