@@ -1,4 +1,5 @@
-# Kateni — test de la lecture d'une capture de coupon dans un environnement Linux comme Streamlit Cloud
+# Kateni — test de la lecture d'une capture de coupon dans un environnement Linux comme Streamlit Cloud.
+# Deux cas : avec Tesseract (installé par packages.txt) et SANS (le lecteur de secours RapidOCR doit prendre le relais).
 name: Test lecture coupon
 on:
   workflow_dispatch:
@@ -7,13 +8,18 @@ permissions:
 jobs:
   lecture:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        lecteur: [tesseract, secours]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
       - name: Lecteur de texte (comme packages.txt sur Streamlit Cloud)
+        if: matrix.lecteur == 'tesseract'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq $(cat packages.txt)
       - name: Dépendances
         run: pip install -q -r requirements.txt

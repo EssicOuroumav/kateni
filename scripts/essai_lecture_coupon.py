@@ -11,9 +11,10 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from kateni.coupon import cote_totale_lue, lire_image, reconnaitre  # noqa: E402
+from kateni.coupon import cote_totale_lue, lecteur_disponible, lire_image, reconnaitre  # noqa: E402
 
 image = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "tests/donnees/coupon_test.png"
+print("Lecteur utilisé :", lecteur_disponible())
 texte = lire_image(image.read_bytes())
 print("=== Texte lu ===\n" + texte)
 cal = pd.DataFrame([{"competition": "CL", "Date": "2026-11-24", "Heure": "17:45", "dom": "Bodo/Glimt", "ext": "LASK"},

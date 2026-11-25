@@ -27,7 +27,70 @@ def _plat(t: str) -> str:
 
 # ------------------------------------------------------------------ 1. lecture de l'image
 def lire_image(contenu: bytes) -> str:
-    """Texte de la capture (Tesseract, français + anglais). Lève RuntimeError si le lecteur est absent."""
+    """Texte de la capture. Lecteur principal : Tesseract (français + anglais, installé par packages.txt).
+    S'il manque sur le serveur, lecteur de secours : RapidOCR (simple bibliothèque Python, sans rien à installer
+    au niveau du système). Lève RuntimeError si aucun des deux n'est disponible."""
+    try:
+        return _tesseract(contenu)
+    except RuntimeError:
+        return _rapidocr(contenu)
+
+
+def lecteur_disponible() -> str | None:
+    """Nom du lecteur utilisable sur ce serveur (pour l'afficher), ou None."""
+    import shutil
+    if shutil.which("tesseract"):
+        return "Tesseract"
+    try:
+        import rapidocr  # noqa: F401
+        return "RapidOCR"
+    except ImportError:
+        return None
+
+
+def _rapidocr(contenu: bytes) -> str:
+    """Lecteur de secours. Les lignes sont reconstituées de haut en bas, de gauche à droite."""
+    try:
+        from rapidocr import RapidOCR
+    except ImportError as e:
+        raise RuntimeError("aucun lecteur de texte installé") from e
+    from io import BytesIO
+
+    import numpy as np
+    from PIL import Image, ImageOps
+    img = ImageOps.exif_transpose(Image.open(BytesIO(contenu))).convert("RGB")
+    r = _moteur_rapidocr()(np.array(img))
+    if r is None or r.boxes is None or not len(r.txts):
+        return ""
+    # Regrouper les morceaux sur une même ligne (même hauteur, à une demi-hauteur de texte près)
+    morceaux = sorted(((float(b[:, 1].mean()), float(b[:, 0].min()), float(b[:, 1].max() - b[:, 1].min()), t)
+                       for b, t in zip(r.boxes, r.txts)), key=lambda x: (x[0], x[1]))
+    lignes, courante, y_ref = [], [], 0.0
+    for y, x, h, t in morceaux:
+        if courante and abs(y - y_ref) > max(h, 8) / 2:
+            lignes.append(" ".join(m[1] for m in sorted(courante)))
+            courante = []
+        if not courante:
+            y_ref = y
+        courante.append((x, t))
+    if courante:
+        lignes.append(" ".join(m[1] for m in sorted(courante)))
+    return "\n".join(lignes)
+
+
+_MOTEUR = None
+
+
+def _moteur_rapidocr():
+    global _MOTEUR
+    if _MOTEUR is None:
+        from rapidocr import RapidOCR
+        _MOTEUR = RapidOCR()
+    return _MOTEUR
+
+
+def _tesseract(contenu: bytes) -> str:
+    """Tesseract. Lève RuntimeError s'il est absent."""
     from io import BytesIO
 
     from PIL import Image, ImageOps
