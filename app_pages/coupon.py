@@ -10,7 +10,7 @@ import streamlit as st
 from kateni.affichage import pronostic_calendrier
 from kateni.combine import CHOIX_PARIS, chance_combine, ecrire_selections
 from kateni.cotes import esperance
-from kateni.coupon import cote_totale_lue, lire_image, prix, reconnaitre, verdict
+from kateni.coupon import cote_totale_lue, lecteur_disponible, lire_image, prix, reconnaitre, verdict
 from kateni.stockage import identifiant
 from kateni.ui import NOMS_COURTS, a_venir, fr, libelle, rafraichir, store
 
@@ -43,6 +43,13 @@ pronostic_cal = pronostic_calendrier
 
 
 sel = st.session_state.setdefault("cp_sel", [])
+
+lecteur = lecteur_disponible()
+if lecteur:
+    st.caption(f":material/check_circle: Lecteur de capture prêt ({lecteur}).")
+else:
+    st.warning("Aucun lecteur de capture n'est installé sur ce serveur : ajoute tes sélections à la main.",
+               icon=":material/warning:")
 
 # ---------------------------------------------------------------- 1. la capture
 image = st.file_uploader("Capture de ton coupon Betclic", type=["png", "jpg", "jpeg", "webp"], key="cp_image",
