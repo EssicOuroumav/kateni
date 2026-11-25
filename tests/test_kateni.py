@@ -120,14 +120,14 @@ def test_cote_minimale_coherente_avec_la_decision():
 
 
 def test_modele_v1_identique_au_moteur_d_origine():
-    import kateni_engine as origine
+    """kateni/modele_v1.py est une copie fidèle de l'ancien kateni_engine.py (supprimé le 25/11/2026) : ses buts
+    attendus, sur les matchs connus au 23/11/2026, sont ceux que donnait l'ancien moteur (relevés avant suppression)."""
     from kateni.donnees import charger_competition
     from kateni.modele_v1 import ajuster_v1
-    brut = pd.read_csv("E0_full.csv", parse_dates=["Date"]).dropna(subset=["FTHG", "FTAG", "FTR"])
-    f = origine.calculer_forces(brut)
-    m1 = ajuster_v1(charger_competition("PL"))
-    for h, a in [("Arsenal", "Chelsea"), ("Burnley", "Tottenham")]:
-        assert m1.lambdas(h, a) == pytest.approx(origine.calculer_lambdas(h, a, {}, f), abs=1e-9)
+    d = charger_competition("PL")
+    m1 = ajuster_v1(d[d["Date"] <= "2026-11-23"])
+    assert m1.lambdas("Arsenal", "Chelsea") == pytest.approx((1.8029628277548657, 1.1291197997444895), abs=1e-9)
+    assert m1.lambdas("Burnley", "Tottenham") == pytest.approx((1.1247138682893476, 1.7152255805005974), abs=1e-9)
 
 
 def test_meilleur_modele_par_championnat():

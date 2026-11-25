@@ -1,7 +1,7 @@
 """
 Kateni — modèle d'origine (V1), conservé à l'identique
 ========================================================
-Même calcul que `kateni_engine.py` (calculer_forces + calculer_lambdas) :
+Même calcul que l'ancien `kateni_engine.py` (supprimé le 25/11/2026 ; calculer_forces + calculer_lambdas) :
 forces d'attaque et de défense par championnat, sur tout l'historique de
 ce championnat (xG quand il existe), rappel vers la moyenne (6 matchs
 virtuels), puis loi de Poisson simple.
