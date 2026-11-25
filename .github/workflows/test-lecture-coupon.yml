@@ -18,4 +18,4 @@ jobs:
       - name: Dépendances
         run: pip install -q -r requirements.txt
       - name: Lecture du faux coupon
-        run: python scripts/test_lecture_coupon.py
+        run: python scripts/essai_lecture_coupon.py

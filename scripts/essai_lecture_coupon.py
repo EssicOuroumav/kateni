@@ -3,7 +3,7 @@ Kateni — test de la lecture d'une capture de coupon (lancé à la main par le 
 identique à Streamlit Cloud : Tesseract installé par apt). Lit tests/donnees/coupon_test.png (faux coupon en thème
 sombre, avec Bodo/Glimt – LASK, Galatasaray – Aston Villa, Arsenal – Dortmund) et affiche ce que Kateni reconnaît.
 
-    python3 scripts/test_lecture_coupon.py [image]
+    python3 scripts/essai_lecture_coupon.py [image]
 """
 import sys
 from pathlib import Path
