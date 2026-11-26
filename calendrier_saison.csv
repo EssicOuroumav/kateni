@@ -1,9 +1,5 @@
 competition,DateUtc,HomeTeam,AwayTeam,Neutre
 NED,2026-09-08 12:00:00Z,FC Utrecht,Go Ahead Eagles,
-CHAMP,2026-11-25 19:45:00Z,Bolton Wanderers,West Bromwich Albion,
-CHAMP,2026-11-25 19:45:00Z,Burnley,Birmingham City,
-CHAMP,2026-11-25 19:45:00Z,Watford,Blackburn Rovers,
-CHAMP,2026-11-25 20:00:00Z,Stoke City,Millwall,
 AUS,2026-11-27 08:40:00Z,Macarthur FC,Melbourne City FC,
 TUR,2026-11-27 17:00:00Z,Alanyaspor,Konyaspor,
 TUR,2026-11-27 17:00:00Z,Çaykur Rizespor,Kasimpasa,
@@ -252,6 +248,7 @@ CHAMP,2026-12-09 19:45:00Z,Derby County,Bristol City,
 CHAMP,2026-12-09 19:45:00Z,Lincoln City,Stoke City,
 CHAMP,2026-12-09 19:45:00Z,Preston North End,Portsmouth,
 CHAMP,2026-12-09 20:00:00Z,Southampton,Burnley,
+INT,2026-12-09 23:00:00Z,Peru,Panama,False
 AUS,2026-12-11 08:40:00Z,Adelaide United FC,Macarthur FC,
 AUS,2026-12-11 10:45:00Z,Perth Glory FC,Melbourne City FC,
 TUR,2026-12-11 17:00:00Z,Çorum,Amedspor,
