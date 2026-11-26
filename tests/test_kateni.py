@@ -543,3 +543,28 @@ def test_coupon_basket_chances_reglement_et_lecture():
                          "ext": "Miami Heat", "HomeTeam": "Boston Celtics", "AwayTeam": "Miami Heat"}])
     r = reconnaitre("2 sélections\nBoston Celtics - Miami Heat x\n+ de 221,5 1,85\nNombre total de points\n", cal)
     assert [(x["marche"], x["selection"], x["ligne"], x["cote"]) for x in r] == [("Basket Total", "Plus", 221.5, 1.85)]
+
+
+def test_coupon_noms_courts_et_traits_d_union():
+    """Coupon Betclic CI du 26/11/2026 : « Ajax Amsterdam » = « Ajax », « Brann-Bergen - AGF Aarhus » = Brann – Aarhus."""
+    from kateni.coupon import reconnaitre
+    cal = pd.DataFrame([
+        {"competition": "ECL", "Date": "2026-11-26", "dom": "Kairat", "ext": "Mjallby", "HomeTeam": "Kairat", "AwayTeam": "Mjällby AIF"},
+        {"competition": "ECL", "Date": "2026-11-26", "dom": "Ajax", "ext": "Thun", "HomeTeam": "Ajax", "AwayTeam": "Thun"},
+        {"competition": "ECL", "Date": "2026-11-26", "dom": "Brann", "ext": "Aarhus", "HomeTeam": "Brann", "AwayTeam": "AGF"},
+        {"competition": "ECL", "Date": "2026-12-17", "dom": "CSKA Sofia", "ext": "Thun", "HomeTeam": "CSKA Sofia", "AwayTeam": "Thun"}])
+    texte = """3 sélections
+Simple Combiné Systeme
+© Kairat Almaty - Mjallby AIF X
+- de 2,5 1.89
+Nombre total de buts (t. rég) ,
+© Ajax Amsterdam - FC Thun X
+Non 2,08
+Les 2 équipes marquent (t. rég)
+© Brann-Bergen - AGF Aarhus X
+Brann-Bergen 2,10
+Résultat du match (t. rég)
+"""
+    r = reconnaitre(texte, cal)
+    assert [(x["i_cal"], x["marche"], x["selection"], x["cote"]) for x in r] == [
+        (0, "Total buts 2.5", "Moins", 1.89), (1, "Les deux équipes marquent", "Non", 2.08), (2, "1N2", "1", 2.10)]

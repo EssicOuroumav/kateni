@@ -133,17 +133,39 @@ def _tesseract(contenu: bytes) -> str:
 
 
 # ------------------------------------------------------------------ 2. reconnaissance
+def _nettoie(nom: str) -> str:
+    """Nom d'équipe tel que lu : sans les signes avant (« © », « €) »), sans la croix « X » du coupon, sans cote."""
+    nom = COTE.sub("", nom)
+    nom = re.sub(r"^[^A-Za-zÀ-ÿ0-9]+", "", nom.strip())
+    nom = re.sub(r"\s+[xX×]$", "", nom)
+    return nom.strip()
+
+
+def _meme_equipe(lu: str, nom: str) -> float:
+    """0 à 1. En plus de la ressemblance, accepte un nom court contenu mot pour mot dans l'autre
+    (« Ajax » dans « Ajax Amsterdam », « Brann » dans « Brann-Bergen », « Aarhus » dans « AGF Aarhus »)."""
+    from kateni.calendrier import _norm, ressemblance
+    r = ressemblance(lu, nom)
+    if r >= 0.999:
+        return r
+    mots = lambda x: {_norm(m) for m in re.split(r"[\s/.-]+", x) if len(_norm(m)) >= 3}  # noqa: E731
+    a, b = mots(lu), mots(nom)
+    if a and b and (b <= a or a <= b):
+        return 1.0
+    return r
+
+
 def _score_match(ligne: str, dom: str, ext: str) -> float:
-    """0 à 1 : la ligne contient-elle ce match ? (les deux équipes, dans n'importe quel ordre d'écriture)."""
-    from kateni.calendrier import ressemblance
-    morceaux = re.split(r"\s+(?:-|–|—|vs\.?|v)\s+|\s*[-–—]\s*", ligne)
-    morceaux = [m.strip() for m in morceaux if len(m.strip()) >= 3]
-    if len(morceaux) < 2:
-        return 0.0
+    """0 à 1 : la ligne contient-elle ce match ? Séparateur « - » entouré d'espaces d'abord (un trait d'union peut
+    être DANS un nom : « Brann-Bergen »), sinon n'importe quel tiret."""
     best = 0.0
-    for i in range(len(morceaux) - 1):
-        a, b = COTE.sub("", morceaux[i]).strip(), COTE.sub("", morceaux[i + 1]).strip()
-        best = max(best, min(ressemblance(a, dom), ressemblance(b, ext)))
+    for motif in (r"\s+(?:-|–|—|vs\.?|v)\s+", r"\s*[-–—]\s*"):
+        morceaux = [_nettoie(m) for m in re.split(motif, ligne)]
+        morceaux = [m for m in morceaux if len(m) >= 3]
+        for k in range(len(morceaux) - 1):
+            best = max(best, min(_meme_equipe(morceaux[k], dom), _meme_equipe(morceaux[k + 1], ext)))
+        if best >= 0.75:
+            break
     return best
 
 
