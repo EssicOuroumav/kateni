@@ -174,30 +174,63 @@ NCAA,2026-11-27 03:30:00Z,Omaha Mavericks,Pacific Tigers,2026-11-26 23:07:46Z,Dr
 NCAA,2026-11-27 04:30:00Z,Baylor Bears,Gonzaga Bulldogs,2026-11-25 15:46:34Z,DraftKings,4.5,160.5,2.85,1.444
 NCAA,2026-11-27 04:30:00Z,Oregon Ducks,Texas Tech Red Raiders,2026-11-26 23:07:46Z,DraftKings,10.5,148.5,5.0,1.187
 NCAA,2026-11-27 04:30:00Z,Gonzaga Bulldogs,Baylor Bears,2026-11-26 23:07:46Z,DraftKings,-3.5,153.5,1.571,2.45
-NCAA,2026-11-27 16:00:00Z,Xavier Musketeers,Virginia Cavaliers,2026-11-26 23:07:46Z,DraftKings,8.5,156.5,4.0,1.263
-NCAA,2026-11-27 17:00:00Z,St. Thomas Tommies,Liberty Flames,2026-11-26 23:07:46Z,DraftKings,1.5,146.5,1.98,1.847
-NCAA,2026-11-27 18:30:00Z,Memphis Tigers,Wake Forest Demon Deacons,2026-11-26 23:07:46Z,DraftKings,-2.5,154.5,1.704,2.2
-NCAA,2026-11-27 20:00:00Z,Louisiana Tech Bulldogs,Texas State Bobcats,2026-11-26 23:07:46Z,DraftKings,7.5,138.5,4.5,1.22
-NCAA,2026-11-27 22:00:00Z,Texas A&M Aggies,Marquette Golden Eagles,2026-11-26 23:07:46Z,DraftKings,-2.5,157.5,1.645,2.3
-NCAA,2026-11-27 22:30:00Z,Boise State Broncos,Drake Bulldogs,2026-11-26 23:07:46Z,DraftKings,-5.5,156.5,1.377,3.15
-NCAA,2026-11-27 23:00:00Z,Illinois Fighting Illini,Western Kentucky Hilltoppers,2026-11-26 23:07:46Z,DraftKings,-27.5,174.5,1.005,36.0
-NCAA,2026-11-27 23:00:00Z,Indiana Hoosiers,Bowling Green Falcons,2026-11-26 23:07:46Z,DraftKings,-23.5,152.5,1.011,26.0
-NCAA,2026-11-27 23:00:00Z,Pennsylvania Quakers,Towson Tigers,2026-11-26 23:07:46Z,DraftKings,-5.5,145.5,1.444,2.85
-NBA,2026-11-28 00:00:00Z,New York Knicks,Miami Heat,2026-11-26 23:07:27Z,DraftKings,-3.5,223.5,1.592,2.42
-NCAA,2026-11-28 00:00:00Z,Georgia Bulldogs,UCF Knights,2026-11-26 23:07:46Z,DraftKings,-5.5,162.5,1.444,2.85
-NCAA,2026-11-28 00:00:00Z,North Carolina Tar Heels,West Virginia Mountaineers,2026-11-26 23:07:46Z,DraftKings,1.5,149.5,2.1,1.769
-NBA,2026-11-28 00:30:00Z,Detroit Pistons,Milwaukee Bucks,2026-11-26 23:07:27Z,DraftKings,-9.5,218.5,1.246,4.2
-NBA,2026-11-28 00:30:00Z,Indiana Pacers,Philadelphia 76ers,2026-11-26 23:07:27Z,DraftKings,1.5,232.5,2.3,1.645
-NBA,2026-11-28 00:30:00Z,Toronto Raptors,Brooklyn Nets,2026-11-26 23:07:27Z,DraftKings,-7.5,219.5,1.3,3.68
-NCAA,2026-11-28 00:30:00Z,Mississippi State Bulldogs,Penn State Nittany Lions,2026-11-26 23:07:46Z,DraftKings,-6.5,156.5,1.408,3.0
-NBA,2026-11-28 01:00:00Z,Boston Celtics,Atlanta Hawks,2026-11-26 23:07:27Z,DraftKings,-9.5,222.5,1.228,4.41
-NCAA,2026-11-28 01:00:00Z,Oral Roberts Golden Eagles,Missouri State Bears,2026-11-26 23:07:46Z,DraftKings,-2.5,145.5,1.704,2.2
-NCAA,2026-11-28 01:00:00Z,UC Davis Aggies,Pacific Tigers,2026-11-26 23:07:46Z,DraftKings,5.5,138.5,2.85,1.444
-NBA,2026-11-28 01:30:00Z,Minnesota Timberwolves,Memphis Grizzlies,2026-11-26 23:07:27Z,DraftKings,-3.5,220.5,1.676,2.24
-NBA,2026-11-28 02:00:00Z,Phoenix Suns,Dallas Mavericks,2026-11-26 23:07:27Z,DraftKings,-1.5,227.5,1.704,2.2
-NCAA,2026-11-28 02:00:00Z,Kentucky Wildcats,Wichita State Shockers,2026-11-26 23:07:46Z,DraftKings,-3.5,159.5,1.571,2.45
-NBA,2026-11-28 02:30:00Z,San Antonio Spurs,Los Angeles Lakers,2026-11-26 23:07:27Z,DraftKings,-5.5,225.5,1.488,2.71
-NBA,2026-11-28 02:30:00Z,Utah Jazz,Denver Nuggets,2026-11-26 23:07:27Z,DraftKings,9.5,229.5,4.26,1.24
-NBA,2026-11-28 02:30:00Z,LA Clippers,New Orleans Pelicans,2026-11-26 23:07:27Z,DraftKings,-3.5,231.5,1.617,2.36
-NBA,2026-11-28 02:30:00Z,Portland Trail Blazers,Golden State Warriors,2026-11-26 23:07:27Z,DraftKings,-8.5,220.5,1.291,3.76
-NCAA,2026-11-28 03:30:00Z,Omaha Mavericks,Jacksonville State Gamecocks,2026-11-26 23:07:46Z,DraftKings,7.5,144.5,3.6,1.308
+NCAA,2026-11-27 16:00:00Z,Xavier Musketeers,Virginia Cavaliers,2026-11-27 15:16:36Z,DraftKings,6.5,155.5,3.4,1.336
+NCAA,2026-11-27 17:00:00Z,St. Thomas Tommies,Liberty Flames,2026-11-27 15:16:36Z,DraftKings,-1.5,144.5,1.833,2.0
+NCAA,2026-11-27 18:00:00Z,Iowa State Cyclones,St. John's Red Storm,2026-11-27 15:16:36Z,DraftKings,2.5,151.5,2.14,1.741
+NCAA,2026-11-27 18:00:00Z,Merrimack Warriors,Vermont Catamounts,2026-11-27 15:16:36Z,DraftKings,2.5,128.5,2.24,1.676
+NCAA,2026-11-27 18:00:00Z,UMass Lowell River Hawks,Hampton Pirates,2026-11-27 15:16:36Z,DraftKings,-2.5,139.5,1.741,2.14
+NCAA,2026-11-27 18:30:00Z,Memphis Tigers,Wake Forest Demon Deacons,2026-11-27 15:16:36Z,DraftKings,-1.5,153.5,1.893,1.926
+NCAA,2026-11-27 19:00:00Z,Vanderbilt Commodores,Southern Jaguars,2026-11-27 15:16:36Z,DraftKings,-36.5,151.5,,
+NCAA,2026-11-27 19:00:00Z,Fresno State Bulldogs,South Alabama Jaguars,2026-11-27 15:16:36Z,DraftKings,2.5,144.5,2.2,1.704
+NCAA,2026-11-27 19:00:00Z,Fairfield Stags,Navy Midshipmen,2026-11-27 15:16:36Z,DraftKings,-5.5,135.5,1.488,2.7
+NCAA,2026-11-27 19:00:00Z,Le Moyne Dolphins,Maine Black Bears,2026-11-27 15:16:36Z,DraftKings,-1.5,139.5,1.87,1.952
+NCAA,2026-11-27 19:30:00Z,UCLA Bruins,Georgetown Hoyas,2026-11-27 15:16:36Z,DraftKings,-7.5,149.5,1.294,3.7
+NCAA,2026-11-27 20:00:00Z,Louisiana Tech Bulldogs,Texas State Bobcats,2026-11-27 15:16:36Z,DraftKings,4.5,138.5,2.6,1.521
+NCAA,2026-11-27 20:00:00Z,UNC Wilmington Seahawks,Princeton Tigers,2026-11-27 15:16:36Z,DraftKings,-7.5,151.5,1.282,3.8
+NCAA,2026-11-27 20:00:00Z,Baylor Bears,TCU Horned Frogs,2026-11-27 15:16:36Z,DraftKings,-4.5,149.5,1.505,2.64
+NCAA,2026-11-27 20:00:00Z,Butler Bulldogs,Bellarmine Knights,2026-11-27 15:16:36Z,DraftKings,-18.5,152.5,1.036,14.0
+NCAA,2026-11-27 20:30:00Z,Bucknell Bison,La Salle Explorers,2026-11-27 15:16:36Z,DraftKings,9.5,148.5,4.4,1.227
+NCAA,2026-11-27 20:30:00Z,Hofstra Pride,Colgate Raiders,2026-11-27 15:16:36Z,DraftKings,-3.5,138.5,1.571,2.45
+NCAA,2026-11-27 20:30:00Z,Maryland Terrapins,Oregon Ducks,2026-11-27 15:16:36Z,DraftKings,-2.5,149.5,1.645,2.3
+NCAA,2026-11-27 21:00:00Z,Missouri Tigers,Arkansas-Pine Bluff Golden Lions,2026-11-27 15:16:36Z,DraftKings,-48.5,156.5,,
+NCAA,2026-11-27 21:00:00Z,American University Eagles,Radford Highlanders,2026-11-27 15:16:36Z,DraftKings,-7.5,143.5,1.294,
+NCAA,2026-11-27 21:00:00Z,George Washington Revolutionaries,UMBC Retrievers,2026-11-27 15:16:36Z,DraftKings,-21.5,150.5,1.028,16.0
+NCAA,2026-11-27 21:30:00Z,Boston College Eagles,Cincinnati Bearcats,2026-11-27 15:16:36Z,DraftKings,8.5,140.5,4.2,1.244
+NCAA,2026-11-27 21:30:00Z,Lafayette Leopards,Niagara Purple Eagles,2026-11-27 15:16:36Z,DraftKings,-5.5,140.5,1.444,2.85
+NCAA,2026-11-27 22:00:00Z,Saint Mary's Gaels,Texas Longhorns,2026-11-27 15:16:36Z,DraftKings,7.5,160.5,3.75,1.29
+NCAA,2026-11-27 22:00:00Z,Kansas Jayhawks,Villanova Wildcats,2026-11-27 15:16:36Z,DraftKings,-10.5,158.5,1.143,6.0
+NCAA,2026-11-27 22:00:00Z,Texas A&M Aggies,Marquette Golden Eagles,2026-11-27 15:16:36Z,DraftKings,1.5,159.5,1.98,1.847
+NCAA,2026-11-27 22:00:00Z,Virginia Tech Hokies,Old Dominion Monarchs,2026-11-27 15:16:36Z,DraftKings,-17.5,142.5,1.036,14.0
+NCAA,2026-11-27 22:30:00Z,Boise State Broncos,Drake Bulldogs,2026-11-27 15:16:36Z,DraftKings,-5.5,157.5,1.408,3.0
+NCAA,2026-11-27 22:30:00Z,Kansas State Wildcats,Michigan Wolverines,2026-11-27 15:16:36Z,DraftKings,9.5,165.5,4.4,1.227
+NCAA,2026-11-27 23:00:00Z,Illinois Fighting Illini,Western Kentucky Hilltoppers,2026-11-27 15:16:36Z,DraftKings,-26.5,175.5,1.01,31.0
+NCAA,2026-11-27 23:00:00Z,Indiana Hoosiers,Bowling Green Falcons,2026-11-27 15:16:36Z,DraftKings,-22.5,151.5,1.02,19.0
+NCAA,2026-11-27 23:00:00Z,Pennsylvania Quakers,Towson Tigers,2026-11-27 15:16:36Z,DraftKings,-3.5,144.5,1.588,2.42
+NBA,2026-11-28 00:00:00Z,New York Knicks,Miami Heat,2026-11-27 15:16:13Z,DraftKings,-4.5,222.5,1.556,2.51
+NCAA,2026-11-28 00:00:00Z,Georgia Bulldogs,UCF Knights,2026-11-27 15:16:36Z,DraftKings,-5.5,162.5,1.435,2.9
+NCAA,2026-11-28 00:00:00Z,UC Santa Barbara Gauchos,Lehigh Mountain Hawks,2026-11-27 15:16:36Z,DraftKings,-13.5,144.5,1.074,9.0
+NCAA,2026-11-28 00:00:00Z,North Carolina Tar Heels,West Virginia Mountaineers,2026-11-27 15:16:36Z,DraftKings,3.5,149.5,2.3,1.645
+NCAA,2026-11-28 00:00:00Z,East Tennessee State Buccaneers,Charleston Southern Buccaneers,2026-11-27 15:16:36Z,DraftKings,-10.5,142.5,1.148,5.9
+NBA,2026-11-28 00:30:00Z,Detroit Pistons,Milwaukee Bucks,2026-11-27 15:16:13Z,DraftKings,-10.5,218.5,1.221,4.51
+NBA,2026-11-28 00:30:00Z,Indiana Pacers,Philadelphia 76ers,2026-11-27 15:16:13Z,DraftKings,3.5,229.5,2.36,1.617
+NBA,2026-11-28 00:30:00Z,Toronto Raptors,Brooklyn Nets,2026-11-27 15:16:13Z,DraftKings,-9.5,219.5,1.267,3.98
+NCAA,2026-11-28 00:30:00Z,Houston Cougars,Oakland Golden Grizzlies,2026-11-27 15:16:36Z,DraftKings,-36.5,145.5,,
+NCAA,2026-11-28 00:30:00Z,Mississippi State Bulldogs,Penn State Nittany Lions,2026-11-27 15:16:36Z,DraftKings,-6.5,156.5,1.36,3.25
+NBA,2026-11-28 01:00:00Z,Boston Celtics,Atlanta Hawks,2026-11-27 15:16:13Z,DraftKings,-8.5,221.5,1.279,3.86
+NCAA,2026-11-28 01:00:00Z,Oral Roberts Golden Eagles,Missouri State Bears,2026-11-27 15:16:36Z,DraftKings,-4.5,142.5,1.505,2.64
+NCAA,2026-11-28 01:00:00Z,North Texas Mean Green,North Dakota State Bison,2026-11-27 15:16:36Z,DraftKings,-5.5,142.5,1.377,3.15
+NCAA,2026-11-28 01:00:00Z,Washington State Cougars,Idaho Vandals,2026-11-27 15:16:36Z,DraftKings,-11.5,148.5,1.125,6.5
+NCAA,2026-11-28 01:00:00Z,Northwestern Wildcats,Northeastern Huskies,2026-11-27 15:16:36Z,DraftKings,-12.5,147.5,1.105,7.25
+NCAA,2026-11-28 01:00:00Z,UC Davis Aggies,Pacific Tigers,2026-11-27 15:16:36Z,DraftKings,7.5,138.5,3.4,1.336
+NBA,2026-11-28 01:30:00Z,Minnesota Timberwolves,Memphis Grizzlies,2026-11-27 15:16:13Z,DraftKings,-4.5,222.5,1.521,2.6
+NCAA,2026-11-28 01:30:00Z,Alabama Crimson Tide,Miami Hurricanes,2026-11-27 15:16:36Z,DraftKings,2.5,170.5,2.14,1.741
+NBA,2026-11-28 02:00:00Z,Phoenix Suns,Dallas Mavericks,2026-11-27 15:16:13Z,DraftKings,-2.5,226.5,1.769,2.1
+NCAA,2026-11-28 02:00:00Z,Louisville Cardinals,Tennessee Volunteers,2026-11-27 15:16:36Z,DraftKings,-2.5,149.5,1.676,2.24
+NCAA,2026-11-28 02:00:00Z,Kentucky Wildcats,Wichita State Shockers,2026-11-27 15:16:36Z,DraftKings,-4.5,157.5,1.505,2.64
+NBA,2026-11-28 02:30:00Z,San Antonio Spurs,Los Angeles Lakers,2026-11-27 15:16:13Z,DraftKings,-6.5,226.5,1.422,2.96
+NBA,2026-11-28 02:30:00Z,Utah Jazz,Denver Nuggets,2026-11-27 15:16:13Z,DraftKings,10.5,229.5,4.61,1.214
+NBA,2026-11-28 02:30:00Z,LA Clippers,New Orleans Pelicans,2026-11-27 15:16:13Z,DraftKings,-2.5,231.5,1.704,2.2
+NBA,2026-11-28 02:30:00Z,Portland Trail Blazers,Golden State Warriors,2026-11-27 15:16:13Z,DraftKings,-9.5,220.5,1.244,4.22
+NCAA,2026-11-28 03:30:00Z,Omaha Mavericks,Jacksonville State Gamecocks,2026-11-27 15:16:36Z,DraftKings,5.5,142.5,2.8,1.459
+NCAA,2026-11-28 04:00:00Z,Gonzaga Bulldogs,Creighton Bluejays,2026-11-27 15:16:36Z,DraftKings,-6.5,159.5,1.4,3.05
+NCAA,2026-11-28 04:30:00Z,Texas Tech Red Raiders,San Diego State Aztecs,2026-11-27 15:16:36Z,DraftKings,-7.5,143.5,1.29,3.75
