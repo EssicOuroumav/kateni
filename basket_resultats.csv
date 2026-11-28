@@ -19925,5 +19925,51 @@ NCAA,2026-11-27 20:00:00Z,Butler Bulldogs,Bellarmine Knights,41.0,,51.0,,0,22.0,
 NCAA,2026-11-27 20:00:00Z,Louisiana Tech Bulldogs,Texas State Bobcats,41.0,,29.0,,0,35.0,,43.0,,0,70,78,False
 NCAA,2026-11-27 20:00:00Z,UAB Blazers,Auburn Montgomery Senators,44.0,,58.0,,0,35.0,,27.0,,0,102,62,False
 NCAA,2026-11-27 20:00:00Z,UNC Wilmington Seahawks,Princeton Tigers,34.0,,34.0,,0,28.0,,38.0,,0,68,66,False
+NCAA,2026-11-27 20:30:00Z,Bucknell Bison,La Salle Explorers,18.0,,48.0,,20,34.0,,32.0,,23,86,89,True
 NCAA,2026-11-27 20:30:00Z,Hofstra Pride,Colgate Raiders,23.0,,26.0,,0,41.0,,34.0,,0,49,75,False
+NCAA,2026-11-27 20:30:00Z,Oregon Ducks,Maryland Terrapins,40.0,,48.0,,0,35.0,,38.0,,0,88,73,True
+NCAA,2026-11-27 21:00:00Z,American University Eagles,Radford Highlanders,36.0,,28.0,,0,32.0,,30.0,,0,64,62,False
 NCAA,2026-11-27 21:00:00Z,George Washington Revolutionaries,UMBC Retrievers,47.0,,44.0,,0,23.0,,28.0,,0,91,51,False
+NCAA,2026-11-27 21:00:00Z,Missouri Tigers,Arkansas-Pine Bluff Golden Lions,51.0,,46.0,,0,28.0,,33.0,,0,97,61,False
+NCAA,2026-11-27 21:30:00Z,Boston College Eagles,Cincinnati Bearcats,28.0,,31.0,,0,27.0,,43.0,,0,59,70,True
+NCAA,2026-11-27 21:30:00Z,Lafayette Leopards,Niagara Purple Eagles,35.0,,47.0,,0,28.0,,26.0,,0,82,54,False
+NCAA,2026-11-27 22:00:00Z,Kansas Jayhawks,Villanova Wildcats,29.0,,36.0,,0,23.0,,27.0,,0,65,50,False
+NCAA,2026-11-27 22:00:00Z,Saint Mary's Gaels,Texas Longhorns,35.0,,38.0,,0,27.0,,49.0,,0,73,76,True
+NCAA,2026-11-27 22:00:00Z,Texas A&M Aggies,Marquette Golden Eagles,37.0,,41.0,,0,40.0,,36.0,,0,78,76,True
+NCAA,2026-11-27 22:00:00Z,Virginia Tech Hokies,Old Dominion Monarchs,34.0,,36.0,,0,27.0,,34.0,,0,70,61,False
+NCAA,2026-11-27 22:30:00Z,Boise State Broncos,Drake Bulldogs,33.0,,55.0,,0,34.0,,37.0,,0,88,71,True
+NCAA,2026-11-27 22:41:00Z,Kansas State Wildcats,Michigan Wolverines,30.0,,39.0,,0,47.0,,51.0,,0,69,98,True
+NCAA,2026-11-27 23:00:00Z,Illinois Fighting Illini,Western Kentucky Hilltoppers,56.0,,60.0,,0,43.0,,33.0,,0,116,76,False
+NCAA,2026-11-27 23:00:00Z,Indiana Hoosiers,Bowling Green Falcons,44.0,,49.0,,0,21.0,,36.0,,0,93,57,False
+NCAA,2026-11-27 23:00:00Z,South Carolina Upstate Spartans,Southern Wesleyan Warriors,34.0,,53.0,,0,44.0,,34.0,,0,87,78,False
+NCAA,2026-11-27 23:40:00Z,Pennsylvania Quakers,Towson Tigers,34.0,,27.0,,0,32.0,,40.0,,0,61,72,False
+NBA,2026-11-28 00:00:00Z,New York Knicks,Miami Heat,21.0,23.0,35.0,26.0,0,31.0,29.0,26.0,22.0,0,105,108,False
+NCAA,2026-11-28 00:00:00Z,East Carolina Pirates,North Carolina Wesleyan Battling Bishops,45.0,,47.0,,0,22.0,,21.0,,0,92,43,False
+NCAA,2026-11-28 00:00:00Z,East Tennessee State Buccaneers,Charleston Southern Buccaneers,27.0,,40.0,,0,43.0,,33.0,,0,67,76,False
+NCAA,2026-11-28 00:00:00Z,Georgia Bulldogs,UCF Knights,39.0,,37.0,,0,50.0,,38.0,,0,76,88,True
+NCAA,2026-11-28 00:00:00Z,North Carolina Tar Heels,West Virginia Mountaineers,30.0,,29.0,,0,41.0,,31.0,,0,59,72,True
+NCAA,2026-11-28 00:00:00Z,UC Santa Barbara Gauchos,Lehigh Mountain Hawks,36.0,,39.0,,0,20.0,,23.0,,0,75,43,True
+NBA,2026-11-28 00:30:00Z,Detroit Pistons,Milwaukee Bucks,24.0,24.0,42.0,23.0,0,29.0,21.0,26.0,22.0,0,113,98,False
+NBA,2026-11-28 00:30:00Z,Indiana Pacers,Philadelphia 76ers,22.0,22.0,14.0,29.0,0,30.0,25.0,30.0,26.0,0,87,111,False
+NBA,2026-11-28 00:30:00Z,Toronto Raptors,Brooklyn Nets,31.0,32.0,39.0,22.0,0,27.0,28.0,24.0,21.0,0,124,100,False
+NCAA,2026-11-28 00:30:00Z,Houston Cougars,Oakland Golden Grizzlies,41.0,,36.0,,0,17.0,,29.0,,0,77,46,False
+NCAA,2026-11-28 00:30:00Z,Mississippi State Bulldogs,Penn State Nittany Lions,36.0,,27.0,,0,29.0,,39.0,,0,63,68,True
+NBA,2026-11-28 01:00:00Z,Boston Celtics,Atlanta Hawks,29.0,22.0,18.0,17.0,0,14.0,25.0,31.0,17.0,0,86,87,False
+NCAA,2026-11-28 01:00:00Z,Little Rock Trojans,Lane College Dragons,48.0,,40.0,,0,30.0,,28.0,,0,88,58,False
+NCAA,2026-11-28 01:00:00Z,North Texas Mean Green,North Dakota State Bison,39.0,,36.0,,0,37.0,,36.0,,0,75,73,True
+NCAA,2026-11-28 01:00:00Z,Northwestern Wildcats,Northeastern Huskies,30.0,,35.0,,0,30.0,,31.0,,0,65,61,False
+NCAA,2026-11-28 01:00:00Z,Oral Roberts Golden Eagles,Missouri State Bears,36.0,,36.0,,0,39.0,,27.0,,0,72,66,False
+NCAA,2026-11-28 01:00:00Z,UC Davis Aggies,Pacific Tigers,32.0,,29.0,,0,38.0,,40.0,,0,61,78,True
+NCAA,2026-11-28 01:00:00Z,Washington State Cougars,Idaho Vandals,32.0,,37.0,,0,28.0,,33.0,,0,69,61,False
+NBA,2026-11-28 01:30:00Z,Minnesota Timberwolves,Memphis Grizzlies,25.0,25.0,31.0,28.0,0,32.0,29.0,21.0,32.0,0,109,114,False
+NCAA,2026-11-28 01:30:00Z,Alabama Crimson Tide,Miami Hurricanes,40.0,,41.0,,0,52.0,,35.0,,0,81,87,True
+NBA,2026-11-28 02:00:00Z,Phoenix Suns,Dallas Mavericks,29.0,34.0,32.0,14.0,0,28.0,25.0,25.0,35.0,0,109,113,False
+NCAA,2026-11-28 02:00:00Z,Kentucky Wildcats,Wichita State Shockers,31.0,,34.0,,6,25.0,,40.0,,8,71,73,False
+NCAA,2026-11-28 02:00:00Z,Louisville Cardinals,Tennessee Volunteers,40.0,,44.0,,0,28.0,,36.0,,0,84,64,True
+NBA,2026-11-28 02:30:00Z,LA Clippers,New Orleans Pelicans,28.0,22.0,27.0,27.0,0,29.0,25.0,26.0,25.0,0,104,105,False
+NBA,2026-11-28 02:30:00Z,Portland Trail Blazers,Golden State Warriors,37.0,30.0,24.0,25.0,0,11.0,33.0,34.0,16.0,0,116,94,False
+NBA,2026-11-28 02:30:00Z,San Antonio Spurs,Los Angeles Lakers,14.0,24.0,30.0,31.0,0,27.0,27.0,14.0,28.0,0,99,96,False
+NBA,2026-11-28 02:30:00Z,Utah Jazz,Denver Nuggets,22.0,31.0,32.0,22.0,0,27.0,25.0,33.0,35.0,0,107,120,False
+NCAA,2026-11-28 03:30:00Z,Jacksonville State Gamecocks,Omaha Mavericks,34.0,,35.0,,0,32.0,,46.0,,0,69,78,True
+NCAA,2026-11-28 04:15:00Z,Gonzaga Bulldogs,Creighton Bluejays,39.0,,42.0,,8,34.0,,47.0,,16,89,97,True
+NCAA,2026-11-28 04:30:00Z,Texas Tech Red Raiders,San Diego State Aztecs,30.0,,48.0,,0,28.0,,47.0,,0,78,75,True

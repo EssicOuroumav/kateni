@@ -1,6 +1,15 @@
 {
- "verifie_le": "27/11/2026",
+ "verifie_le": "28/11/2026",
  "en_saison": 39,
  "treve": false,
- "alertes": []
+ "alertes": [
+  {
+   "championnat": "POR",
+   "dernier": "08/11/2026",
+   "jours": 20,
+   "seuil": 10,
+   "jours_de_match_l_an_dernier": 2,
+   "en_retard": true
+  }
+ ]
 }
